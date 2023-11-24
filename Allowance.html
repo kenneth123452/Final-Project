@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+
     <style>
         body {
             background-image: url('src/img/background.jpg.jpg');
@@ -41,17 +42,16 @@
     <form>
         <label for="value">Enter your Allowance:</label>
         <input id="value" type="number" min="0" max="2000">
-        <button onclick="submit()">Submit</button>
+        <button onclick="submitForm(event)">Submit</button>
     </form>
 
     <script>
-    function submitForm(event) {
+        function submitForm(event) {
             event.preventDefault();
             var allowanceValue = document.getElementById("value").value;
             var index = "index.html";
             window.location.href = index;
-    }
-</script>   
+        }
+    </script>
 </body>
 </html>
-
