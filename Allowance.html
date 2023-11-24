@@ -33,9 +33,9 @@
         });
 
         function Daily() {
-            console.log('Daily button clicked!');
             var submittedValue = document.getElementById('allowanceInput').value;
             localStorage.setItem('daily', submittedValue);
+            window.location.href = 'index.html';
         }
     </script>
 </body>
