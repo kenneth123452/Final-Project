@@ -37,10 +37,11 @@
     </style>
 </head>
 <body>
-     <div id="submitBtn">
-        <p>Choose:</p>
-        <button onclick="index.html!()">index.html</button>
-    </div>
+    <form>
+        <label for="value">Enter your Allowance:</label>
+        <input id="value" type="number" min="0" max="2000">
+        <button onclick="submitBtn()">Submit</button>
+    </form>
      <script>
         // document.getElementById('myForm').addEventListener('submit', function(event) {
         //     event.preventDefault(); // Prevent form submission
@@ -61,11 +62,6 @@
             alert("index.html!");
         }
     </script>
-    <form>
-        <label for="value">Enter your Allowance:</label>
-        <input id="value" type="number" min="0" max="2000">
-        <button onclick="submitBtn()">Submit</button>
-    </form>
    
 </body>
 </html>
