@@ -2,10 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+
+    <style>
+        body {
+            background-image: url('src/img/background.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        label, input, button {
+            margin: 10px 0;
+        }
+    </style>
+    <title>Weekly Expenses</title>
+    <style>
+        select {
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
 </head>
-<body>
-    <!-- Content goes here -->
-</body>
-</html>
+    <body>
+      <form id="myForm">
+    <label for="menu">Select an option:</label>
+    <select id="List of Expenses" name="List of Expenses">
+        <option value="Food Expenses">Food Expenses</option>
+        <input id="value" type="number" min="100" max="2000">
+        <option value="Transportation Expenses">Transportation Expenses</option>
+        <input id="value" type="number" min="100" max="2000">
+        <option value="School Expenses">School Expenses</option>
+        <input id="value" type="number" min="100" max="2000">
+        <option value="other">other</option>
+        <input id="value" type="number" min="100" max="2000">
+    </select>
+    <button type="button" onclick="submitForm()">Submit</button>
+          
+    </body>
+    </html>
 
