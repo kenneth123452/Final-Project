@@ -40,18 +40,17 @@
     <form>
         <label for="value">Enter your Allowance:</label>
         <input id="value" type="number" min="0" max="2000">
-        <button onclick="submitBtn()">Submit</button>
+        <button onclick="submit()">Submit</button>
     </form>
 
     <script>
-    function index() {
-        var newMenuUrl = "index.html";
-        window.location.href = index;
+    function submitForm(event) {
+            event.preventDefault();
+            var allowanceValue = document.getElementById("value").value;\
+            var index = "index.html";
+            window.location.href = index;
     }
 </script>
-    <form/>
-        <button onclick="index()">Go to index</button>
-    </form>
     
 </body>
 </html>
