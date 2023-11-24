@@ -12,18 +12,18 @@
 </head>
 <body>
      <script>
-        document.getElementById('myForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            var submittedValue = document.getElementById('allowanceInput').value;
-            var secondDropdown = document.getElementById('secondDropdown');
-            secondDropdown.innerHTML = '';
-            for (var i = 1; i <= submittedValue; i++) {
-                var option = document.createElement('option');
-                option.value = i;
-                option.text = 'Option ' + i;
-                secondDropdown.appendChild(option);
-            }
-        });
+        // document.getElementById('myForm').addEventListener('submit', function(event) {
+        //     event.preventDefault(); // Prevent form submission
+        //     var submittedValue = document.getElementById('allowanceInput').value;
+        //     var secondDropdown = document.getElementById('secondDropdown');
+        //     secondDropdown.innerHTML = '';
+        //     for (var i = 1; i <= submittedValue; i++) {
+        //         var option = document.createElement('option');
+        //         option.value = i;
+        //         option.text = 'Option ' + i;
+        //         secondDropdown.appendChild(option);
+        //     }
+        // });
 
         function Submit() {
             var submittedValue = document.getElementById('allowanceInput').value;
