@@ -7,7 +7,7 @@
         body {
             background-image: url('src/img/background.jpg.jpg');
         }
-        </style>
+    </style>
     <title>Budgeting Financial Management</title>
     <style>
         body {
@@ -37,19 +37,17 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-             text-align: center; center;
+            text-align: center;
         }
         .header-content h1 {
             margin: 0;
             font-size: 20px;
-           
         }
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            text-align: center;
-            text-align: right;
+            text-align: right; /* Align the text to the right */
         }
         nav ul li {
             margin-right: 20px;
@@ -83,31 +81,32 @@
         }
     </style>
 </head>
+
 <body>
     <script>
         const variableValue = localStorage.getItem('daily');
-        alert(""+daily);
-</script>
-<header>
-    <img src="src/img/photo_2023-11-24_15-23-57.jpg"
-        alt="Budgeting Financial Management Logo" class="logo">
-    <div class="header-content">
-        <h1>Budgeting Financial Management</h1>
-    </div>
-</header>
-
-        <nav>
-            <ul>
-                <li><a href="Allowance.html" target="_self">Allowance</a></li>
-                <li><a href="Expenses.html" target="_self">Expenses</a></li>
-                <li><a href="Goal.html" target="_self">Goal</a></li>
-                <li><a href="Daily.html" target="_self">Daily</a></li>
-            </ul>
-        </nav>
+        alert("" + daily);
+    </script>
+    <header>
+        <img src="src/img/photo_2023-11-24_15-23-57.jpg"
+            alt="Budgeting Financial Management Logo" class="logo">
+        <div class="header-content">
+            <h1>Budgeting Financial Management</h1>
+        </div>
     </header>
+
+    <nav>
+        <ul>
+            <li><a href="Allowance.html" target="_self">Allowance</a></li>
+            <li><a href="Expenses.html" target="_self">Expenses</a></li>
+            <li><a href="Goal.html" target="_self">Goal</a></li>
+            <li><a href="Daily.html" target="_self">Daily</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <div class="main">
-            <section id="home"> 
+            <section id="home">
                 <h2>Home</h2>
                 <p>Welcome to WiseBudge</p>
             </section>
@@ -127,4 +126,5 @@
         <p>&copy; 2023 Budgeting Financial Management. All Rights Reserved.</p>
     </footer>
 </body>
+
 </html>
