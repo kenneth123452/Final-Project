@@ -25,7 +25,7 @@
         //     }
         // });
 
-        function Submit() {
+        function submitBtn() {
             var submittedValue = document.getElementById('allowanceInput').value;
             localStorage.setItem('daily', submittedValue);
             window.location.href = 'index.html';
@@ -34,7 +34,7 @@
     <form>
         <label for="Allowance">Enter your Allowance:</label>
         <input type="number" min="0" max="2000">
-        <button onclick="Submit()">Submit</button>
+        <button onclick="submitBtn()">Submit</button>
     </form>
    
 </body>
