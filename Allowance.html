@@ -39,19 +39,27 @@
     </style>
 </head>
 <body>
-    <form>
-        <label for="value">Enter your Allowance:</label>
-        <input id="value" type="number" min="0" max="2000">
-        <button type="submit" onclick="submitForm(event)">Submit</button>
-    </form>
+   <form id="myForm">
+    <label for="value">Weekly Allowance:</label>
+    <input id="value" type="number" min="100" max="2000">
+    <button type="button" onclick="submitForm()">Submit</button>
+</form>
 
-    <script>
-        function submitForm(event) {
-            event.preventDefault();
-            var allowanceValue = document.getElementById("value").value;
+<script>
+    function submitForm() {
+        var allowanceValue = document.getElementById("value").value;
+        saveAllowance(allowanceValue, function() {
             var index = "index.html";
             window.location.href = index;
-        }
-    </script>
+        });
+    }
+
+    function saveAllowance(value, callback) {
+        setTimeout(function() {
+            console.log("Value saved:", value);
+            callback();
+        }, 1000); // Simulating a 1-second delay, replace with your actual saving logic
+    }
+</script>
 </body>
 </html>
