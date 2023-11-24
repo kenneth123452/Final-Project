@@ -11,14 +11,7 @@
     </style>
 </head>
 <body>
-    <form>
-        <label for="Allowance">Enter your Allowance:</label>
-        <input type="number" min="0" max="2000">
-        <input type="submit" value="Submit">
-        </select>
-        <button onclick="Daily()">Daily</button>
-    </form>
-    <script>
+     <script>
         document.getElementById('myForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form submission
             var submittedValue = document.getElementById('allowanceInput').value;
@@ -32,12 +25,18 @@
             }
         });
 
-        function Daily() {
+        function Submit() {
             var submittedValue = document.getElementById('allowanceInput').value;
             localStorage.setItem('daily', submittedValue);
             window.location.href = 'index.html';
         }
     </script>
+    <form>
+        <label for="Allowance">Enter your Allowance:</label>
+        <input type="number" min="0" max="2000">
+        <button onclick="Submit()">Submit</button>
+    </form>
+   
 </body>
 </html>
 
