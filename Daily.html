@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vertical Calendar</title>
+    <title>Horizontal Calendar</title>
     <style>
         body {
             font-family: sans-serif;
         }
 
         .calendar {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
             width: 100%;
             margin: 0 auto;
             border-collapse: collapse;
@@ -25,8 +22,8 @@
             text-align: center;
             padding: 5px;
             border: 1px solid #ccc;
-            height: 50px;
-            width: 50px;
+            width: 30px;
+            height: 30px;
         }
 
         .calendar th {
@@ -42,23 +39,46 @@
     <table class="calendar">
         <caption>Calendar for 2022-2023</caption>
         <tr>
-            <th>Jan</th>
-            <th>Feb</th>
-            <th>Mar</th>
-            <th>Apr</th>
-            <th>May</th>
-            <th>Jun</th>
-            <th>Jul</th>
-            <th>Aug</th>
-            <th>Sep</th>
-            <th>Oct</th>
-            <th>Nov</th>
-            <th>Dec</th>
+            <th>Month</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+            <th>14</th>
+            <th>15</th>
+            <th>16</th>
+            <th>17</th>
+            <th>18</th>
+            <th>19</th>
+            <th>20</th>
+            <th>21</th>
+            <th>22</th>
+            <th>23</th>
+            <th>24</th>
+            <th>25</th>
+            <th>26</th>
+            <th>27</th>
+            <th>28</th>
+            <th>29</th>
+            <th>30</th>
+            <th>31</th>
         </tr>
         <script>
-            for (let day = 1; day <= 31; day++) {
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            for (let month = 0; month < 12; month++) {
                 document.write('<tr>');
-                for (let month = 0; month < 12; month++) {
+                document.write(`<td>${months[month]}</td>`);
+                for (let day = 1; day <= 31; day++) {
                     const date = new Date(2022, month, day);
                     if (date.getMonth() === month) {
                         document.write('<td');
@@ -76,6 +96,7 @@
     </table>
 </body>
 </html>
+
 
 
 
