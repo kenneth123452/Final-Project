@@ -18,8 +18,8 @@ body {
 }
 
 .day-box {
-  width: 120px;
-  height: 300px;
+  width: 300px;
+  height: 400px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
