@@ -32,10 +32,8 @@ h2 {
 }
 
 .weekday-box, .weekend-box {
-  border: 1px solid #ccc; /* Add a border around each box */
+  border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 5px;
   padding: 8px;
 }
-
-
