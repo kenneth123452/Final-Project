@@ -1,47 +1,96 @@
-Copy code
 <!DOCTYPE html>
-<html lang="en">
+<html
+ 
+lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Simple Calendar</title>
-  <link rel="stylesheet" href="styles.css">
+
+    
+<meta
+ 
+charset="UTF-8">
+
+    
+<meta
+ 
+name="viewport"
+ 
+content="width=device-width, initial-scale=1.0">
+
+    
+<title>Calendar</title>
+
+    
+<style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .calendar {
+            width: 500px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        .calendar th,
+        .calendar td {
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .calendar th {
+            background-color: #eee;
+        }
+
+        .today {
+            background-color: #ffcccc;
+        }
+    </style>
 </head>
 <body>
-  <div class="calendar">
-    <h1>November 2023</h1>
-    <table>
-      <tr>
-        <th>Sun</th>
-        <th>Mon</th>
-        <th>Tue</th>
-        <th>Wed</th>
-        <th>Thu</th>
-        <th>Fri</th>
-        <th>Sat</th>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-      </tr>
-      <!-- Add more rows for the remaining days -->
-      <!-- Example: -->
-      <!--
-      <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>10</td>
-      </tr>
-      -->
+    <table class="calendar">
+        <caption><?php echo date('F Y'); ?></caption>
+        <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+        <?php
+            $day = date('j');
+            $month = date('n');
+            $year = date('Y');
+
+            $start_day = strtotime($year . '-' . $month . '-1');
+            $end_day = strtotime($year . '-' . $month . '-' . date('t', $start_day));
+
+            $current_day = date('j');
+            $current_month = date('n');
+            $current_year = date('Y');
+
+            while ($start_day <= $end_day) {
+                if (date('w', $start_day) == 0) {
+                    echo '<tr>';
+                }
+
+                $dateString = date('Y-m-d', $start_day);
+                $formattedDate = date('j', $start_day);
+                $isToday = $dateString == date('Y-m-d', strtotime(date('Y-m-d')));
+
+                echo "<td class='" . ($isToday ? 'today' : '') . "'>" . $formattedDate ."</td>";
+
+                if (date('w', $start_day) == 6) {
+                    echo '</tr>';
+                }
+
+                $start_day = strtotime('+1 day', $start_day);
+            }
+        ?>
     </table>
-  </div>
 </body>
 </html>
