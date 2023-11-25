@@ -42,19 +42,19 @@
       <form id="myForm">
   <label for="expenseType">Expenses Type:</label>
     <option value="Food Expenses">Food Expenses</option>
-       <input id="expenseValue" type="number" min="100" max="2000" required>
+       <div id="expenseValue" type="number" min="100" max="2000" required>
     <option value="Transportation Expenses">Transportation Expenses</option>
-       <input id="expenseValue" type="number" min="100" max="2000" required>
+       <div id="expenseValue" type="number" min="100" max="2000" required>
     <option value="School Expenses">School Expenses</option>
-       <input id="expenseValue" type="number" min="100" max="2000" required>
+       <div id="expenseValue" type="number" min="100" max="2000" required>
     <option value="other">Other</option>
-       <input id="expenseValue" type="number" min="100" max="2000" required>
+      <div id="expenseValue" type="number" min="100" max="2000" required>
           <button type="submit">Submit</button>
    </form>
 <script>
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
-            var expenseValue = parseInt(document.getElementById("Weekly Allowance").value) || 0;
+            var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
             localStorage.setItem("Weekly Allowance", Weekly Allowance);
             window.location.href = "Allowance.html";
             calculateAndDisplayTotal(expenseType, expenseValue);
