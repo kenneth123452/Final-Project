@@ -44,12 +44,13 @@
 <body>
     <form id="myForm" onsubmit="submitForm(); return false;">
         <label for="expenseType">Expenses Type:</label>
-        <select id="expenseType">
             <option value="Food Expenses">Food Expenses</option>
+        <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="Transportation Expenses">Transportation Expenses</option>
+        <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="School Expenses">School Expenses</option>
+        <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="other">Other</option>
-        </select>
         <input id="expenseValue" type="number" min="100" max="2000" required>
         <button onclick="calculate()">Calculate</button>
         <p id="result"></p>
@@ -63,6 +64,8 @@
 
             // Save the weekly allowance to localStorage
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
+            var storedData = localStorage.getItem("Weakly Allowance");
+            var retrievedData = JSON.parse(storedData);
             localStorage.setItem("Weekly Allowance", weeklyAllowance - expenseValue);
 
             calculateAndDisplayExpense(expenseType, expenseValue);
@@ -89,6 +92,7 @@
             }
 
             console.log("Total Weekly Expenses: $" + totalAllExpenses);
+            document.getElementById("result").innerHTML = "Total Weekly Expenses: $" + totalAllExpenses;
         }
 
         function submitForm() {
