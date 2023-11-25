@@ -43,7 +43,7 @@
     <input id="value" type="number" min="100" max="2000">
        <button type="submit">Submit</button>
 </form>
-
+         <div id="displayValue"></div>
 <script>
   function submitForm() {
         var allowanceValue = document.getElementById("value").value;
@@ -55,6 +55,8 @@
       
         var index = "Expenses.html";
         window.location.href = Expenses;
+    }
+    document.getElementById("displayValue").innerText = "Entered Value: " + allowanceValue;
     }
 </script>
 </body>
