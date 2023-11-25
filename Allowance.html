@@ -48,6 +48,7 @@
 <script>
     function submitForm() {
         var allowanceValue = document.getElementById("value").value;
+        localStorage.setItem("Weekly Allowance", allowanceValue);
         saveAllowance(allowanceValue, function() {
             var index = "index.html";
             window.location.href = index;
