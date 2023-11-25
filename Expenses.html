@@ -56,12 +56,8 @@
             <p id="result"></p>
             <button type="submit">Submit</button>
     </form>
-    
-    <div id="individualExpenses"></div>
-    <div id="totalExpenses"></div>
-    
     <script>
-        function calculate() {
+       /* function calculate() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
 
@@ -93,6 +89,17 @@
             }
 
             console.log("Total Weekly Expenses: $" + totalAllExpenses);
+        }*/
+
+        function calculateExpense() {
+            var expenseValue = document.getElementById("expenseInput").value;
+            var parsedExpense = parseInt(expenseValue);
+            if (!isNaN(parsedExpense)) {
+                var result = parsedExpense * 2;
+                document.getElementById("result").innerHTML = "Result: " + result;
+            } else {
+                document.getElementById("result").innerHTML = "Please enter a valid number.";
+            }
         }
     </script>
 </body>
