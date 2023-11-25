@@ -44,27 +44,27 @@
 <body>
     <form id="myForm" onsubmit="submitForm(); return false;">
         <label for="expenseType">Expenses Type:</label>
+        <select id="expenseType">
             <option value="Food Expenses">Food Expenses</option>
-         <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="Transportation Expenses">Transportation Expenses</option>
-         <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="School Expenses">School Expenses</option>
-         <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="other">Other</option>
-         <input id="expenseValue" type="number" min="100" max="2000" required>
-            <button onclick="calculateExpense()">Calculate</button>
-            <p id="result"></p>
-            <button type="submit">Submit</button>
+        </select>
+        <input id="expenseValue" type="number" min="100" max="2000" required>
+        <button onclick="calculate()">Calculate</button>
+        <p id="result"></p>
+        <button type="submit">Submit</button>
     </form>
+
     <script>
-       function calculate() {
+        function calculate() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
 
             // Save the weekly allowance to localStorage
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
-            localStorage.setItem("Weekly Allowance", weeklyAllowance - Results);
-            
+            localStorage.setItem("Weekly Allowance", weeklyAllowance - expenseValue);
+
             calculateAndDisplayExpense(expenseType, expenseValue);
             calculateAndDisplayTotal();
         }
@@ -90,12 +90,6 @@
 
             console.log("Total Weekly Expenses: $" + totalAllExpenses);
         }
-            // Perform computation or adjust as needed
-            var result = expenseValue * 2;
-
-            // Display the result
-            document.getElementById("result").innerHTML = "Result: " + result;
-        }
 
         function submitForm() {
             // Add any additional logic for form submission if needed
@@ -105,3 +99,4 @@
 </body>
 
 </html>
+
