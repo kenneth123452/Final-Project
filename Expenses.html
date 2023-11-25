@@ -54,7 +54,10 @@
          <input id="expenseValue" type="number" min="100" max="2000" required>
             <button type="submit">Submit</button>
     </form>
-
+    
+    <div id="individualExpenses"></div>
+    <div id="totalExpenses"></div>
+    
     <script>
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
