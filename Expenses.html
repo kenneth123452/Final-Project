@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,52 +21,66 @@
         }
 
         form {
-            background-color: rgba(255, 255, 255, 0.8); 
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
         }
 
-        label, input, button {
+        label,
+        input,
+        button {
             margin: 10px 0;
         }
-    </style>
-    <title>Weekly Expenses</title>
-    <style>
+
         select {
             padding: 5px;
             font-size: 16px;
         }
     </style>
+    <title>Weekly Expenses</title>
 </head>
-    <body>
-      <form id="myForm">
-  <label for="expenseType">Expenses Type:</label>
-    <option value="Food Expenses">Food Expenses</option>
-       <input id="expenseValue" type="number" min="100" max="2000" required>
-    <option value="Transportation Expenses">Transportation Expenses</option>
-       <input id="expenseValue" type="number" min="100" max="2000" required>
-    <option value="School Expenses">School Expenses</option>
-       <input id="expenseValue" type="number" min="100" max="2000" required>
-    <option value="other">Other</option>
-      <input id="expenseValue" type="number" min="100" max="2000" required>
-          <button type="submit">Submit</button>
-   </form>
-  <script>
+
+<body>
+    <form id="myForm" onsubmit="submitForm(); return false;">
+        <label for="expenseType">Expenses Type:</label>
+        <select id="expenseType">
+            <option value="Food Expenses">Food Expenses</option>
+            <option value="Transportation Expenses">Transportation Expenses</option>
+            <option value="School Expenses">School Expenses</option>
+            <option value="other">Other</option>
+        </select>
+
+        <input id="expenseValue" type="number" min="100" max="2000" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
+            
+            // Save the weekly allowance to localStorage
             localStorage.setItem("Weekly Allowance", expenseValue);
-            calculateAndDisplayTotal(expenseType, expenseValue);
-            window.location.href = "Allowance.html";
+
+            // Calculate and display the individual expense
+            calculateAndDisplayExpense(expenseType, expenseValue);
+
+            // Calculate and display the total of all expenses
+            calculateAndDisplayTotal();
         }
 
-        function calculateAndDisplayTotal(expenseType, expenseValue) {
+        function calculateAndDisplayExpense(expenseType, expenseValue) {
             var currentTotal = parseInt(localStorage.getItem(expenseType)) || 0;
             var newTotal = currentTotal + expenseValue;
-            console.log(expenseType + " Expenses: $" + newTotal);
-            localStorage.setItem(expenseType, newTotal);
             
+            console.log(expenseType + " Expenses: $" + newTotal);
+
+            localStorage.setItem(expenseType, newTotal);
+        }
+
+        function calculateAndDisplayTotal() {
             var allExpenses = ["Food Expenses", "Transportation Expenses", "School Expenses", "other"];
             var totalAllExpenses = 0;
 
@@ -78,6 +93,6 @@
             console.log("Total Weekly Expenses: $" + totalAllExpenses);
         }
     </script>
-    </body>
-    </html>
+</body>
 
+</html>
