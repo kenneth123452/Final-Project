@@ -93,7 +93,10 @@
                 var expenseAmount = parseInt(localStorage.getItem(expense)) || 0;
                 totalAllExpenses += expenseAmount;
             }
-
+            
+            var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
+            var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
+            
             console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
             document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
         }
