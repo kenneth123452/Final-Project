@@ -48,18 +48,11 @@
 <script>
     function submitForm() {
         var allowanceValue = document.getElementById("value").value;
-        localStorage.setItem("Weekly Allowance", allowanceValue);
-        saveAllowance(allowanceValue, function() {
+        var jsonString = JSON.stringify(myForm);
+        localStorage.setItem("Weekly Allowance", jsonString);
             var index = "index.html";
             window.location.href = index;
         });
-    }
-
-    function saveAllowance(value, callback) {
-        setTimeout(function() {
-            console.log("Value saved:", value);
-            callback();
-        }, 2000); // Simulating a 1-second delay, replace with your actual saving logic
     }
 </script>
 </body>
