@@ -57,13 +57,13 @@
             <button type="submit">Submit</button>
     </form>
     <script>
-       /* function calculate() {
+       function calculate() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
 
             // Save the weekly allowance to localStorage
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
-            localStorage.setItem("Weekly Allowance", weeklyAllowance - expenseValue);
+            localStorage.setItem("Weekly Allowance", weeklyAllowance - Results);
             
             calculateAndDisplayExpense(expenseType, expenseValue);
             calculateAndDisplayTotal();
@@ -89,12 +89,7 @@
             }
 
             console.log("Total Weekly Expenses: $" + totalAllExpenses);
-        }*/
-
-      function calculateExpense() {
-            var expenseType = document.getElementById("expenseType").value;
-            var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
-
+        }
             // Perform computation or adjust as needed
             var result = expenseValue * 2;
 
