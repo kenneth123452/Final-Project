@@ -55,26 +55,13 @@
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
-
-            // Perform any processing or saving logic here
-
-            // Add the value to the total sum
             calculateAndDisplayTotal(expenseType, expenseValue);
-
-            // You can perform additional actions or save the data here
         }
 
         function calculateAndDisplayTotal(expenseType, expenseValue) {
-            // Retrieve the current total sum for the specific expense type
             var currentTotal = parseInt(localStorage.getItem(expenseType)) || 0;
-
-            // Add the new expense value to the total
             var newTotal = currentTotal + expenseValue;
-
-            // Display or store the new total
             console.log(expenseType + " Expenses: $" + newTotal);
-
-            // Update the total in localStorage for the specific expense type
             localStorage.setItem(expenseType, newTotal);
         }
     </script>
