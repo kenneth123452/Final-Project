@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar</title>
+    <title>Vertical Calendar</title>
     <style>
         body {
             font-family: sans-serif;
         }
 
         .calendar {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             width: 100%;
             margin: 0 auto;
             border-collapse: collapse;
@@ -22,6 +25,8 @@
             text-align: center;
             padding: 5px;
             border: 1px solid #ccc;
+            height: 50px;
+            width: 50px;
         }
 
         .calendar th {
@@ -71,6 +76,7 @@
     </table>
 </body>
 </html>
+
 
 
 
