@@ -59,9 +59,10 @@
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
-            
+
             // Save the weekly allowance to localStorage
-            localStorage.setItem("Weekly Allowance", expenseValue);
+            var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
+            localStorage.setItem("Weekly Allowance", weeklyAllowance - expenseValue);
 
             // Calculate and display the individual expense
             calculateAndDisplayExpense(expenseType, expenseValue);
@@ -73,7 +74,7 @@
         function calculateAndDisplayExpense(expenseType, expenseValue) {
             var currentTotal = parseInt(localStorage.getItem(expenseType)) || 0;
             var newTotal = currentTotal + expenseValue;
-            
+
             console.log(expenseType + " Expenses: $" + newTotal);
 
             localStorage.setItem(expenseType, newTotal);
