@@ -40,19 +40,16 @@
 </head>
     <body>
       <form id="myForm">
-    <label for="List of Expenses">Select an option:</label>
-        <option value="Food Expenses">Food Expenses</option>
-        <input id="value" type="number" min="100" max="2000">
-        <option value="Transportation Expenses">Transportation Expenses</option>
-        <input id="value" type="number" min="100" max="2000">
-        <option value="School Expenses">School Expenses</option>
-        <input id="value" type="number" min="100" max="2000">
-        <option value="other">other</option>
-        <input id="value" type="number" min="100" max="2000">
-    <button type="button" onclick="submitForm()">Submit</button>
+    <label for="expenseType">Select an option:</label>
+           <select id="expenseType" name="expenseType">
+        <expense Value="Food Expenses">Food Expenses</option>
+        <expense Value="Transportation Expenses">Transportation Expenses</option>
+        <expense Value="School Expenses">School Expenses</option>
+        <expense Value="other">other</option>
+           </select>
+          <input id="value" type="number" min="100" max="2000">
+        <button type="button" onclick="submitForm()">Submit</button>
       </form>
-
-         <script>
 <script>
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
@@ -74,7 +71,7 @@
             var newTotal = currentTotal + expenseValue;
 
             // Display or store the new total
-            console.log(`Total ${expenseType} Expenses: $${newTotal}`);
+            console.log(expenseType + " Expenses: $" + newTotal);
 
             // Update the total in localStorage for the specific expense type
             localStorage.setItem(expenseType, newTotal);
