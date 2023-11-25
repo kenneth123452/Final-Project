@@ -40,17 +40,17 @@
 </head>
     <body>
       <form id="myForm">
-    <label for="value">Expenses Type:</label>
-        <option Value="Food Expenses">Food Expenses</option>
-             <input id="value" type="number" min="100" max="2000">
-        <option Value="Transportation Expenses">Transportation Expenses</option>
-             <input id="value" type="number" min="100" max="2000">
-        <option Value="School Expenses">School Expenses</option>
-             <input id="value" type="number" min="100" max="2000">
-        <option Value="other">other</option>
-             <input id="value" type="number" min="100" max="2000">
-              <button type="button" onclick="submitForm()">Submit</button>
-      </form>
+  <label for="expenseType">Expenses Type:</label>
+   <select id="expenseType">
+    <option value="Food Expenses">Food Expenses</option>
+    <option value="Transportation Expenses">Transportation Expenses</option>
+    <option value="School Expenses">School Expenses</option>
+    <option value="other">Other</option>
+   </select>
+   <label for="expenseValue">Expense Value:</label>
+   <input id="expenseValue" type="number" min="100" max="2000" required>
+   <button type="button" onclick="submitForm()">Submit</button>
+   </form>
 <script>
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
