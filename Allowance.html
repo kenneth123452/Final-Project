@@ -46,13 +46,16 @@
 </form>
 
 <script>
-    function submitForm() {
+  function submitForm() {
         var allowanceValue = document.getElementById("value").value;
-        var jsonString = JSON.stringify(myForm);
+        var dataToStore = {
+            "Weekly Allowance": allowanceValue
+        };
+        var jsonString = JSON.stringify(dataToStore);
         localStorage.setItem("Weekly Allowance", jsonString);
-            var index = "index.html";
-            window.location.href = index;
-        });
+      
+        var index = "index.html";
+        window.location.href = index;
     }
 </script>
 </body>
