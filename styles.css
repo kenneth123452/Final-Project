@@ -7,33 +7,30 @@ body {
 
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: flex-start;
   margin-top: 50px;
 }
 
-.weekdays, .weekend {
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.day-box {
+  width: 150px;
+  height: 100px;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  width: 200px;
-}
-
-h2 {
-  margin-top: 0;
-  color: #333;
-}
-
-.weekdays p, .weekend p {
-  margin: 10px 0;
-  color: #555;
-}
-
-.weekday-box, .weekend-box {
   border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.weekend {
+  background-color: #ffd700; /* Different background for weekend days */
+}
+
