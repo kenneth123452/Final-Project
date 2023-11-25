@@ -52,6 +52,8 @@
          <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="other">Other</option>
          <input id="expenseValue" type="number" min="100" max="2000" required>
+            <button onclick="calculateExpense()">Calculate</button>
+            <p id="result"></p>
             <button type="submit">Submit</button>
     </form>
     
@@ -59,18 +61,15 @@
     <div id="totalExpenses"></div>
     
     <script>
-        function submitForm() {
+        function calculate() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
 
             // Save the weekly allowance to localStorage
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
             localStorage.setItem("Weekly Allowance", weeklyAllowance - expenseValue);
-
-            // Calculate and display the individual expense
+            
             calculateAndDisplayExpense(expenseType, expenseValue);
-
-            // Calculate and display the total of all expenses
             calculateAndDisplayTotal();
         }
 
