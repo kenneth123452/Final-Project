@@ -32,10 +32,9 @@ h2 {
 }
 
 .weekday-box, .weekend-box {
-  background-color: #fff; /* Set all boxes to white */
+  background-color: #fff;
   border-radius: 5px;
   padding: 8px;
   margin-bottom: 5px;
+  border: 1px solid #ccc; /* Add a border for each box */
 }
-
-
