@@ -7,23 +7,10 @@ body {
 
 .container {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: flex-start;
   margin-top: 50px;
-}
-
-.weekdays, .weekend {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  width: 200px;
-}
-
-h2 {
-  margin-top: 0;
-  color: #333;
 }
 
 .day-box {
@@ -36,9 +23,5 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.weekend {
-  background-color: #ffd700; /* Different background for weekend days */
 }
 
