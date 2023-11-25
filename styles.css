@@ -20,7 +20,7 @@ body {
 }
 
 .day-box {
-  width: 150px;
+  width: 100px;
   height: 100px;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -33,4 +33,3 @@ body {
 .weekend {
   background-color: #ffd700; /* Different background for weekend days */
 }
-
