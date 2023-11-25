@@ -55,8 +55,19 @@
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
+            localStorage.setItem("Weekly Allowance", Weekly Allowance);
+            window.location.href = "menu2.html";
             calculateAndDisplayTotal(expenseType, expenseValue);
         }
+     /*function sendValueToMenu2() {
+        var valueFromMenu1 = document.getElementById("valueFromMenu1").value;
+
+        // Save the value to localStorage (you can use other methods like cookies, sessionStorage, etc.)
+        localStorage.setItem("valueFromMenu1", valueFromMenu1);
+
+        // Redirect to Menu 2
+        window.location.href = "menu2.html";
+    }*/
 
         function calculateAndDisplayTotal(expenseType, expenseValue) {
             var currentTotal = parseInt(localStorage.getItem(expenseType)) || 0;
