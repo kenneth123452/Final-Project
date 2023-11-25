@@ -54,7 +54,7 @@
 <script>
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
-            var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
+            var expenseValue = parseInt(document.getElementById("Weekly Allowance").value) || 0;
             localStorage.setItem("Weekly Allowance", Weekly Allowance);
             window.location.href = "Allowance.html";
             calculateAndDisplayTotal(expenseType, expenseValue);
