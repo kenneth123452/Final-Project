@@ -43,12 +43,15 @@
   <label for="expenseType">Expenses Type:</label>
    <select id="expenseType">
     <option value="Food Expenses">Food Expenses</option>
+       <input id="expenseValue" type="number" min="100" max="2000" required>
     <option value="Transportation Expenses">Transportation Expenses</option>
+       <input id="expenseValue" type="number" min="100" max="2000" required>
     <option value="School Expenses">School Expenses</option>
+       <input id="expenseValue" type="number" min="100" max="2000" required>
     <option value="other">Other</option>
+       <input id="expenseValue" type="number" min="100" max="2000" required>
    </select>
-   <input id="expenseValue" type="number" min="100" max="2000" required>
-   <button type="button" onclick="submitForm()">Submit</button>
+   <button type="submit">Submit</button>
    </form>
 <script>
         function submitForm() {
