@@ -91,15 +91,20 @@
             console.log("Total Weekly Expenses: $" + totalAllExpenses);
         }*/
 
-        function calculateExpense() {
-            var expenseValue = document.getElementById("expenseInput").value;
-            var parsedExpense = parseInt(expenseValue);
-            if (!isNaN(parsedExpense)) {
-                var result = parsedExpense * 2;
-                document.getElementById("result").innerHTML = "Result: " + result;
-            } else {
-                document.getElementById("result").innerHTML = "Please enter a valid number.";
-            }
+      function calculateExpense() {
+            var expenseType = document.getElementById("expenseType").value;
+            var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
+
+            // Perform computation or adjust as needed
+            var result = expenseValue * 2;
+
+            // Display the result
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+
+        function submitForm() {
+            // Add any additional logic for form submission if needed
+            console.log("Form submitted");
         }
     </script>
 </body>
