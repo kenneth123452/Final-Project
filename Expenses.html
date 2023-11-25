@@ -53,33 +53,31 @@
       </form>
 
          <script>
+<script>
         function submitForm() {
-            var expenseType = document.getElementById("Food Expenses").value;
-             var expenseType = document.getElementById("Transportation Expenses").value;
-             var expenseType = document.getElementById("School Expenses").value;
-             var expenseType = document.getElementById("other").value;
+            var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
 
             // Perform any processing or saving logic here
 
             // Add the value to the total sum
-            calculateAndDisplayTotal(expenseValue);
+            calculateAndDisplayTotal(expenseType, expenseValue);
 
             // You can perform additional actions or save the data here
         }
 
-        function calculateAndDisplayTotal(expenseValue) {
-            // Retrieve the current total sum
-            var currentTotal = parseInt(localStorage.getItem("total")) || 0;
+        function calculateAndDisplayTotal(expenseType, expenseValue) {
+            // Retrieve the current total sum for the specific expense type
+            var currentTotal = parseInt(localStorage.getItem(expenseType)) || 0;
 
             // Add the new expense value to the total
             var newTotal = currentTotal + expenseValue;
 
             // Display or store the new total
-            console.log("Total Expenses: $" + newTotal);
+            console.log(`Total ${expenseType} Expenses: $${newTotal}`);
 
-            // Update the total in localStorage
-            localStorage.setItem("total", newTotal);
+            // Update the total in localStorage for the specific expense type
+            localStorage.setItem(expenseType, newTotal);
         }
     </script>
     </body>
