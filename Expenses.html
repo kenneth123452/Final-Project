@@ -42,16 +42,19 @@
 </head>
 
 <body>
+    <body>
     <form id="myForm" onsubmit="submitForm(); return false;">
         <label for="expenseType">Expenses Type:</label>
+        <select id="expenseType">
             <option value="Food Expenses">Food Expenses</option>
-        <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="Transportation Expenses">Transportation Expenses</option>
-        <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="School Expenses">School Expenses</option>
-        <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="other">Other</option>
-        <input id="expenseValue" type="number" min="100" max="2000" required>
+        </select>
+        <input id="expenseValue1" type="number" min="100" max="2000" required>
+        <input id="expenseValue2" type="number" min="100" max="2000" required>
+        <input id="expenseValue3" type="number" min="100" max="2000" required>
+        <input id="expenseValue4" type="number" min="100" max="2000" required>
         <button onclick="calculate()">Calculate</button>
         <p id="result"></p>
         <button type="submit">Submit</button>
@@ -60,15 +63,16 @@
     <script>
         function calculate() {
             var expenseType = document.getElementById("expenseType").value;
-            var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
+            var expenseValue1 = parseInt(document.getElementById("expenseValue1").value) || 0;
+            var expenseValue2 = parseInt(document.getElementById("expenseValue2").value) || 0;
+            var expenseValue3 = parseInt(document.getElementById("expenseValue3").value) || 0;
+            var expenseValue4 = parseInt(document.getElementById("expenseValue4").value) || 0;
 
             // Save the weekly allowance to localStorage
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
-            var storedData = localStorage.getItem("Weakly Allowance");
-            var retrievedData = JSON.parse(storedData);
-            localStorage.setItem("Weekly Allowance", weeklyAllowance - expenseValue);
+            localStorage.setItem("Weekly Allowance", weeklyAllowance - expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
 
-            calculateAndDisplayExpense(expenseType, expenseValue);
+            calculateAndDisplayExpense(expenseType, expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
             calculateAndDisplayTotal();
         }
 
@@ -103,4 +107,3 @@
 </body>
 
 </html>
-
