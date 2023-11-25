@@ -1,104 +1,47 @@
+Copy code
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Financial Dashboard</title>
+  <title>Simple Calendar</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="dashboard">
-    <header>
-      <h1>Financial Dashboard</h1>
-    </header>
-    <section class="overview">
-      <h2>Overview</h2>
-      <!-- Display user's financial overview here -->
-      <p>Total Income: $5000</p>
-      <p>Total Expenses: $2500</p>
-      <p>Savings: $2500</p>
-    </section>
-    <section class="expenses">
-      <h2>Expenses</h2>
-      <!-- Display user's expenses here -->
-      <ul>
-        <li>Food: $500</li>
-        <li>Utilities: $300</li>
-        <li>Entertainment: $700</li>
-        <!-- Add more expense categories -->
-      </ul>
-    </section>
-    <section class="savings-goals">
-      <h2>Savings Goals</h2>
-      <!-- Display user's savings goals here -->
-      <div class="goal">
-        <h3>Vacation</h3>
-        <p>Goal Amount: $3000</p>
-        <p>Progress: $1500 saved (50%)</p>
-      </div>
-      <div class="goal">
-        <h3>Emergency Fund</h3>
-        <p>Goal Amount: $5000</p>
-        <p>Progress: $2500 saved (50%)</p>
-      </div>
-      <!-- Add more savings goals -->
-    </section>
+  <div class="calendar">
+    <h1>November 2023</h1>
+    <table>
+      <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <!-- Add more rows for the remaining days -->
+      <!-- Example: -->
+      <!--
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+      </tr>
+      -->
+    </table>
   </div>
 </body>
 </html>
-CSS (styles.css):
-
-css
-Copy code
-/* Basic CSS for styling the dashboard */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.dashboard {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-h1 {
-  color: #333;
-}
-
-section {
-  margin-bottom: 30px;
-}
-
-h2 {
-  color: #555;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 5px;
-}
-
-.goal {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.goal h3 {
-  margin-top: 0;
-  color: #333;
-}
