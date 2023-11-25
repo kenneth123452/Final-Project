@@ -44,16 +44,15 @@
 <body>
     <form id="myForm" onsubmit="submitForm(); return false;">
         <label for="expenseType">Expenses Type:</label>
-        <select id="expenseType">
             <option value="Food Expenses">Food Expenses</option>
+         <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="Transportation Expenses">Transportation Expenses</option>
+         <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="School Expenses">School Expenses</option>
+         <input id="expenseValue" type="number" min="100" max="2000" required>
             <option value="other">Other</option>
-        </select>
-
-        <input id="expenseValue" type="number" min="100" max="2000" required>
-
-        <button type="submit">Submit</button>
+         <input id="expenseValue" type="number" min="100" max="2000" required>
+            <button type="submit">Submit</button>
     </form>
 
     <script>
