@@ -51,29 +51,31 @@
       <input id="expenseValue" type="number" min="100" max="2000" required>
           <button type="submit">Submit</button>
    </form>
-<script>
+  <script>
         function submitForm() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue = parseInt(document.getElementById("expenseValue").value) || 0;
-            localStorage.setItem("Weekly Allowance", Weekly Allowance);
-            window.location.href = "Allowance.html";
+            localStorage.setItem("Weekly Allowance", expenseValue);
             calculateAndDisplayTotal(expenseType, expenseValue);
+            window.location.href = "Allowance.html";
         }
-     /*function sendValueToMenu2() {
-        var valueFromMenu1 = document.getElementById("valueFromMenu1").value;
-
-        // Save the value to localStorage (you can use other methods like cookies, sessionStorage, etc.)
-        localStorage.setItem("valueFromMenu1", valueFromMenu1);
-
-        // Redirect to Menu 2
-        window.location.href = "menu2.html";
-    }*/
 
         function calculateAndDisplayTotal(expenseType, expenseValue) {
             var currentTotal = parseInt(localStorage.getItem(expenseType)) || 0;
             var newTotal = currentTotal + expenseValue;
             console.log(expenseType + " Expenses: $" + newTotal);
             localStorage.setItem(expenseType, newTotal);
+            
+            var allExpenses = ["Food Expenses", "Transportation Expenses", "School Expenses", "other"];
+            var totalAllExpenses = 0;
+
+            for (var i = 0; i < allExpenses.length; i++) {
+                var expense = allExpenses[i];
+                var expenseAmount = parseInt(localStorage.getItem(expense)) || 0;
+                totalAllExpenses += expenseAmount;
+            }
+
+            console.log("Total Weekly Expenses: $" + totalAllExpenses);
         }
     </script>
     </body>
