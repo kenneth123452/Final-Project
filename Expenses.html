@@ -45,16 +45,15 @@
     <body>
     <form id="myForm" onsubmit="submitForm(); return false;">
         <label for="expenseType">Expenses Type:</label>
-        <select id="expenseType">
             <option value="Food Expenses">Food Expenses</option>
+         <input id="expenseValue1" type="number" min="100" max="2000" required>
             <option value="Transportation Expenses">Transportation Expenses</option>
+         <input id="expenseValue1" type="number" min="100" max="2000" required>
             <option value="School Expenses">School Expenses</option>
+         <input id="expenseValue1" type="number" min="100" max="2000" required>
             <option value="other">Other</option>
-        </select>
-        <input id="expenseValue1" type="number" min="100" max="2000" required>
-        <input id="expenseValue2" type="number" min="100" max="2000" required>
-        <input id="expenseValue3" type="number" min="100" max="2000" required>
-        <input id="expenseValue4" type="number" min="100" max="2000" required>
+         <input id="expenseValue1" type="number" min="100" max="2000" required>
+        
         <button onclick="calculate()">Calculate</button>
         <p id="result"></p>
         <button type="submit">Submit</button>
