@@ -51,38 +51,19 @@
             <th>Dec</th>
         </tr>
         <script>
-            for (let year = 2022; year <= 2023; year++) {
+            for (let day = 1; day <= 31; day++) {
                 document.write('<tr>');
                 for (let month = 0; month < 12; month++) {
-                    document.write('<td><table>');
-                    document.write('<caption>' + new Date(year, month).toLocaleString('default', { month: 'long', year: 'numeric' }) + '</caption>');
-                    document.write('<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>');
-
-                    let startDate = new Date(year, month, 1);
-                    let endDate = new Date(year, month + 1, 0);
-                    let currentDate = new Date(startDate);
-
-                    while (currentDate <= endDate) {
-                        if (currentDate.getDay() === 0) {
-                            document.write('<tr>');
+                    const date = new Date(2022, month, day);
+                    if (date.getMonth() === month) {
+                        document.write('<td');
+                        if (date.toDateString() === new Date().toDateString()) {
+                            document.write(' class="today"');
                         }
-
-                        let newCell = '<td';
-                        if (currentDate.toDateString() === new Date().toDateString()) {
-                            newCell += ' class="today"';
-                        }
-                        newCell += '>' + currentDate.getDate() + '</td>';
-
-                        document.write(newCell);
-
-                        if (currentDate.getDay() === 6) {
-                            document.write('</tr>');
-                        }
-
-                        currentDate.setDate(currentDate.getDate() + 1);
+                        document.write('>' + date.getDate() + '</td>');
+                    } else {
+                        document.write('<td></td>');
                     }
-
-                    document.write('</table></td>');
                 }
                 document.write('</tr>');
             }
@@ -90,6 +71,7 @@
     </table>
 </body>
 </html>
+
 
 
 
