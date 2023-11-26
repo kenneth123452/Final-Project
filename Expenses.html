@@ -101,7 +101,7 @@
                 totalAllExpenses += expenseAmount;
             }
 
-            var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
+            var remainingWeeklyAllowance =  Math.abs(weeklyAllowance - totalAllExpenses);
 
             console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
             console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
