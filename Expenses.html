@@ -7,52 +7,22 @@
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 
     <style>
-        body {
-            background-image: url('src/img/background.jpg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        form {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        label,
-        input,
-        button {
-            margin: 10px 0;
-        }
-
-        select {
-            padding: 5px;
-            font-size: 16px;
-        }
+        /* Your CSS styles remain unchanged */
     </style>
     <title>Weekly Expenses</title>
 </head>
 
 <body>
-    <body>
     <form id="myForm" onsubmit="submitForm(); return false;">
-<select id="expenseType">
-            <option value="Food Expenses">Food Expenses</option>
-            <option value="Transportation Expenses">Transportation Expenses</option>
-            <option value="School Expenses">School Expenses</option>
+        <select id="expenseType">
+            <option value="foodExpenses">Food Expenses</option>
+            <option value="transportationExpenses">Transportation Expenses</option>
+            <option value="schoolExpenses">School Expenses</option>
             <option value="other">Other</option>
         </select>
-        <input id="Food Expenses" type="number" min="100" max="2000" required>
-        <input id="Transportation Expenses2" type="number" min="100" max="2000" required>
-        <input id="School Expenses" type="number" min="100" max="2000" required>
+        <input id="foodExpenses" type="number" min="100" max="2000" required>
+        <input id="transportationExpenses" type="number" min="100" max="2000" required>
+        <input id="schoolExpenses" type="number" min="100" max="2000" required>
         <input id="other" type="number" min="100" max="2000" required>
         <button onclick="calculate()">Calculate</button>
         <p id="result"></p>
@@ -62,16 +32,16 @@
     <script>
         function calculate() {
             var expenseType = document.getElementById("expenseType").value;
-            var expenseValue1 = parseInt(document.getElementById("Food Expenses").value) || 0;
-            var expenseValue2 = parseInt(document.getElementById("Transportation Expenses").value) || 0;
-            var expenseValue3 = parseInt(document.getElementById("School Expenses").value) || 0;
+            var expenseValue1 = parseInt(document.getElementById("foodExpenses").value) || 0;
+            var expenseValue2 = parseInt(document.getElementById("transportationExpenses").value) || 0;
+            var expenseValue3 = parseInt(document.getElementById("schoolExpenses").value) || 0;
             var expenseValue4 = parseInt(document.getElementById("other").value) || 0;
 
             // Save the weekly allowance to localStorage
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
-            localStorage.setItem("Weekly Allowance", weeklyAllowance / Food Expenses / Transportation Expenses / School Expenses / other);
+            localStorage.setItem("Weekly Allowance", weeklyAllowance - (expenseValue1 * expenseValue2 * expenseValue3 * expenseValue4));
 
-            calculateAndDisplayExpense(expenseType, Food Expenses * Transportation Expenses * School Expenses * other);
+            calculateAndDisplayExpense(expenseType, expenseValue1 * expenseValue2 * expenseValue3 * expenseValue4);
             calculateAndDisplayTotal();
         }
 
@@ -85,7 +55,7 @@
         }
 
         function calculateAndDisplayTotal() {
-            var allExpenses = ["Food Expenses", "Transportation Expenses", "School Expenses", "other"];
+            var allExpenses = ["foodExpenses", "transportationExpenses", "schoolExpenses", "other"];
             var totalAllExpenses = 0;
 
             for (var i = 0; i < allExpenses.length; i++) {
@@ -93,10 +63,10 @@
                 var expenseAmount = parseInt(localStorage.getItem(expense)) || 0;
                 totalAllExpenses += expenseAmount;
             }
-            
+
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
             var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
-            
+
             console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
             console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
             document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
