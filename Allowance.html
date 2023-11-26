@@ -42,9 +42,9 @@
     <label for="value">Weekly Allowance:</label>
     <input id="value" type="number" min="100" max="2000">
        <button type="submit">Submit</button>
+       <div id="displayValue"></div>
     </form>
-         <div id="displayValue"></div>
-         document.getElementById("displayValue").innerText = "Entered Value: " + allowanceValue;
+         <!--<div id="displayValue"></div>-->
 <script>
   function submitForm() {
         var allowanceValue = document.getElementById("value").value;
