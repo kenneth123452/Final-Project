@@ -70,7 +70,16 @@
             var weeklyAllowance = parsedData["Weekly Allowance"];
             document.getElementById("displayValue").innerText = "Stored Value: " + weeklyAllowance;
         }
+      
+        function submitForm() {
+            var expenseValue1 = parseInt(document.getElementById("foodExpenses").value) || 0;
+            var expenseValue2 = parseInt(document.getElementById("transportationExpenses").value) || 0;
+            var expenseValue3 = parseInt(document.getElementById("schoolExpenses").value) || 0;
+            var expenseValue4 = parseInt(document.getElementById("other").value) || 0;
 
+            console.log("Form submitted");
+            return false; 
+}
         function calculate() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue1 = parseInt(document.getElementById("foodExpenses").value) || 0;
