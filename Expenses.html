@@ -68,6 +68,7 @@
         <div id="displayValue"></div>
         <p id="remainingAllowance"></p>
         <button type="submit">Submit</button>
+        <button onclick="goBack()">Back</button>
     </form>
 
   <script>
@@ -143,4 +144,10 @@
             // Add any additional logic for form submission if needed
             console.log("Form submitted");
         }
+       function goBack() {
+            window.history.back();
+        }
     </script>
+    </body>
+
+</html>
