@@ -58,7 +58,15 @@
         <button type="submit">Submit</button>
     </form>
 
-    <script>
+  <script>
+        // Retrieve the stored value
+        var storedData = localStorage.getItem("WeeklyAllowance");
+        if (storedData) {
+            var parsedData = JSON.parse(storedData);
+            var weeklyAllowance = parsedData["Weekly Allowance"];
+            document.getElementById("displayValue").innerText = "Stored Value: " + weeklyAllowance;
+        }
+
         function calculate() {
             var expenseType = document.getElementById("expenseType").value;
             var expenseValue1 = parseInt(document.getElementById("foodExpenses").value) || 0;
@@ -67,8 +75,8 @@
             var expenseValue4 = parseInt(document.getElementById("other").value) || 0;
 
             // Save the weekly allowance to localStorage
-            var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
-            localStorage.setItem("Weekly Allowance", weeklyAllowance - (foodExpenses + transportationExpenses + schoolExpenses + other));
+            var updatedWeeklyAllowance = weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
+            localStorage.setItem("WeeklyAllowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
 
             calculateAndDisplayExpense(expenseType, expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
             calculateAndDisplayTotal();
@@ -93,7 +101,6 @@
                 totalAllExpenses += expenseAmount;
             }
 
-            var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
             var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
 
             console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
@@ -106,6 +113,3 @@
             console.log("Form submitted");
         }
     </script>
-</body>
-
-</html>
