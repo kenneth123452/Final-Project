@@ -43,16 +43,16 @@
 
 <body>
     <form id="myForm" onsubmit="submitForm(); return false;">
-        <select id="expenseType">
+        
             <option value="foodExpenses">Food Expenses</option>
-            <option value="transportationExpenses">Transportation Expenses</option>
-            <option value="schoolExpenses">School Expenses</option>
-            <option value="other">Other</option>
-        </select>
         <input id="foodExpenses" type="number" min="100" max="2000" required>
-        <input id="transportationExpenses" type="number" min="100" max="2000" required>
-        <input id="schoolExpenses" type="number" min="100" max="2000" required>
-        <input id="other" type="number" min="100" max="2000" required>
+            <option value="transportationExpenses">Transportation Expenses</option>
+        <input id="foodExpenses" type="number" min="100" max="2000" required>
+            <option value="schoolExpenses">School Expenses</option>
+        <input id="foodExpenses" type="number" min="100" max="2000" required>
+            <option value="other">Other</option>
+        <input id="foodExpenses" type="number" min="100" max="2000" required>
+        
         <button onclick="calculate()">Calculate</button>
         <p id="result"></p>
         <p id="remainingAllowance"></p>
