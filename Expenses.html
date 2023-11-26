@@ -42,7 +42,7 @@
 </head>
 
 <body>
-     <form id="myForm" onsubmit="submitForm(); return false;">
+     <form id="myForm" onsubmit="return submitForm();">
         <label for="foodExpenses">Food Expenses</label>
         <input id="foodExpenses" type="number" min="100" max="2000" required>
 
