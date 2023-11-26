@@ -69,7 +69,7 @@
 
             // Save the weekly allowance to localStorage
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
-            localStorage.setItem("Weekly Allowance", weeklyAllowance + Food Expenses + Transportation Expenses + School Expenses + other);
+            localStorage.setItem("Weekly Allowance", weeklyAllowance / Food Expenses / Transportation Expenses / School Expenses / other);
 
             calculateAndDisplayExpense(expenseType, Food Expenses * Transportation Expenses * School Expenses * other);
             calculateAndDisplayTotal();
