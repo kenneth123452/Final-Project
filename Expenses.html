@@ -7,7 +7,36 @@
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 
     <style>
-        /* Your CSS styles remain unchanged */
+        body {
+            background-image: url('src/img/background.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        label,
+        input,
+        button {
+            margin: 10px 0;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 16px;
+        }
     </style>
     <title>Weekly Expenses</title>
 </head>
@@ -39,7 +68,7 @@
 
             // Save the weekly allowance to localStorage
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
-            localStorage.setItem("Weekly Allowance", weeklyAllowance - (expenseValue1 * expenseValue2 * expenseValue3 * expenseValue4));
+            localStorage.setItem("Weekly Allowance", weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4));
 
             calculateAndDisplayExpense(expenseType, expenseValue1 * expenseValue2 * expenseValue3 * expenseValue4);
             calculateAndDisplayTotal();
