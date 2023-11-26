@@ -42,7 +42,14 @@
 </head>
 
 <body>
-     <form id="myForm" onsubmit="return submitForm();">
+     <form id="myForm" onsubmit="submitForm(); return false;">
+        <label for="expenseType">Expense Type</label>
+        <select id="expenseType">
+            <option value="foodExpenses">Food Expenses</option>
+            <option value="transportationExpenses">Transportation Expenses</option>
+            <option value="schoolExpenses">School Expenses</option>
+            <option value="other">Other</option>
+        </select>
         <label for="foodExpenses">Food Expenses</label>
         <input id="foodExpenses" type="number" min="100" max="2000" required>
 
@@ -58,6 +65,7 @@
         
         <button onclick="calculate()">Calculate</button>
         <p id="result"></p>
+        <div id="displayValue"></div>
         <p id="remainingAllowance"></p>
         <button type="submit">Submit</button>
     </form>
