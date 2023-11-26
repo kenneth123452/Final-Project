@@ -68,9 +68,9 @@
 
             // Save the weekly allowance to localStorage
             var weeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || 0;
-            localStorage.setItem("Weekly Allowance", weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4));
+            localStorage.setItem("Weekly Allowance", weeklyAllowance - (foodExpenses + transportationExpenses + schoolExpenses + other));
 
-            calculateAndDisplayExpense(expenseType, expenseValue1 * expenseValue2 * expenseValue3 * expenseValue4);
+            calculateAndDisplayExpense(expenseType, expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
             calculateAndDisplayTotal();
         }
 
