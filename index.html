@@ -5,13 +5,24 @@
     <meta charset="UTF-8">
     <style>
         body {
-            background-image: url('src/img/wallpaperflare.com_wallpaper (1).jpg');
+            
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+        .background {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-image: url('src/img/wallpaperflare.com_wallpaper (1).jpg'); /* Replace with the path to your wallpaper */
+              background-size: cover;
+              filter: brightness(50%); /* Adjust the brightness percentage as needed */
+              z-index: -1; /* Place the background behind other content */
+}
 
         }
         .large-text {
