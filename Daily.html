@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Days of the Week</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="day-box">
-      <p>Monday</p>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <div class="calendar-title">
+                <span>University of Makati - Technology Based Learning Hub</span>
+            </div>
+            <div class="calendar-navigation">
+                <button id="prevMonthButton">Previous Month</button>
+                <button id="nextMonthButton">Next Month</button>
+            </div>
+        </div>
+        <div class="calendar-body">
+            <div class="calendar-month">
+                <span id="monthDisplay"></span>
+                <span id="yearDisplay"></span>
+            </div>
+            <div class="calendar-days">
+                <div class="calendar-day-header">
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+                </div>
+                <div class="calendar-days-content" id="calendarDaysContent">
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="day-box">
-      <p>Tuesday</p>
-    </div>
-    <div class="day-box">
-      <p>Wednesday</p>
-    </div>
-    <div class="day-box">
-      <p>Thursday</p>
-    </div>
-    <div class="day-box">
-      <p>Friday</p>
-    </div>
-    <div class="day-box">
-      <p>Saturday</p>
-    </div>
-    <div class="day-box">
-      <p>Sunday</p>
-    </div>
-  </div>
+    <script src="script.js"></script>
 </body>
 </html>
