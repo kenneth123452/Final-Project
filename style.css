@@ -1,10 +1,10 @@
 .calendar {
-  display: block;
-  width: 100%;
+  display: table;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   font-family: sans-serif;
+  width: 300px;
 }
 
 .calendar h2 {
@@ -12,26 +12,77 @@
   margin-bottom: 20px;
 }
 
-.calendar-days {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.calendar-days .calendar-day {
-  flex: 0 0 calc(14.28% - 4px); 
-  margin: 2px;
-  padding: 10px;
-  border: 1px solid #ccc;
+.calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
   text-align: center;
 }
 
-.calendar-days .calendar-day-header {
-  flex: 0 0 calc(14.28% - 4px); 
-  margin: 2px;
-  padding: 10px;
+.calendar table th,
+.calendar table td {
+  padding: 5px;
   border: 1px solid #ccc;
-  text-align: center;
+}
+
+.calendar table th {
   background-color: #eee;
+  font-weight: bold;
+}
+
+.calendar table tr.week-row {
+  background-color: #f9f9f9;
+}
+
+.calendar table tr.week-row:first-child {
+  background-color: #fff;
+}
+
+.calendar table .date {
+  font-weight: normal;
+  color: #000;
+}
+
+.calendar table .today {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.calendar-days {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+
+.calendar-days th,
+.calendar-days td {
+  padding: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.calendar-days th {
+  background-color: #eee;
+  font-weight: bold;
+}
+
+.calendar-days tr.week-row {
+  background-color: #f9f9f9;
+}
+
+.calendar-days tr.week-row:first-child {
+  background-color: #fff;
+}
+
+.calendar-days .date {
+  font-weight: normal;
+  color: #000;
+}
+
+.calendar-days .today {
+  background-color: #007bff;
+  color: #fff;
 }
 
