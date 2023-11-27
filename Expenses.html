@@ -104,7 +104,7 @@
              var currentWeeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
 
             // Save the weekly allowance to localStorage
-            var updatedWeeklyAllowance = weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
+            var updatedWeeklyAllowance = currentweeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
             localStorage.setItem("WeeklyAllowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
 
             calculateAndDisplayExpense(expenseType, expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
@@ -139,8 +139,7 @@
             if (remainingWeeklyAllowance >= 0) {
                 console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
                 document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
-        } else {
-                console.log("Overspent: ₱" + Math.abs(remainingWeeklyAllowance));
+        } else {g
                 document.getElementById("remainingAllowance").innerHTML = "Overspent: ₱" + Math.abs(remainingWeeklyAllowance);
     }
 }
