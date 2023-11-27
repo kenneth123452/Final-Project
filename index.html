@@ -16,8 +16,8 @@
         }
 
         nav {
-            text-align: right;
-            margin-right: 20px; /* Adjust the margin to create space between the navigation and the right edge */
+            text-align: left; /* Change to left */
+            margin-left: 20px; /* Adjust the margin to create space between the navigation and the left edge */
         }
 
         nav ul {
@@ -52,7 +52,8 @@
             padding: 10px 20px;
             text-align: center;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
             align-items: center;
             min-height: 150px; /* Adjust the minimum height for header content */
         }
@@ -60,7 +61,7 @@
         .logo {
             width: 80px;
             height: 80px;
-            margin-left: auto; /* Change margin-right to margin-left, and set margin-left to auto */
+            margin-left: auto;
         }
 
         .header-content {
@@ -100,9 +101,6 @@
         // alert("" + daily);
     </script>
     <header>
-        <div class="header-content">
-            <h1>Budgeting Financial Management</h1>
-        </div>
         <nav>
             <ul>
                 <li><a href="Allowance.html" target="_self">Allowance</a></li>
@@ -111,6 +109,9 @@
                 <li><a href="Daily.html" target="_self">Daily</a></li>
             </ul>
         </nav>
+        <div class="header-content">
+            <h1>Budgeting Financial Management</h1>
+        </div>
         <img src="src/img/photo_2023-11-24_15-23-57.jpg" alt="Budgeting Financial Management Logo" class="logo">
     </header>
 
