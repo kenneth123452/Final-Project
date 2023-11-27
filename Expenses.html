@@ -133,13 +133,15 @@
             var remainingWeeklyAllowance = (weeklyAllowance - totalAllExpenses);
 
             console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
-            console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
+            //console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
             document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
             
             if (remainingWeeklyAllowance >= 0) {
-        document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
+                console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
+                document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
         } else {
-        document.getElementById("remainingAllowance").innerHTML = "Overspent: ₱" + Math.abs(remainingWeeklyAllowance);
+                console.log("Overspent: ₱" + Math.abs(remainingWeeklyAllowance));
+                document.getElementById("remainingAllowance").innerHTML = "Overspent: ₱" + Math.abs(remainingWeeklyAllowance);
     }
 }
         function submitForm() {
