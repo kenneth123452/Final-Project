@@ -104,7 +104,7 @@
              var currentWeeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
 
             // Save the weekly allowance to localStorage
-            var updatedWeeklyAllowance = currentweeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
+            var updatedWeeklyAllowance = weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
             localStorage.setItem("WeeklyAllowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
 
             calculateAndDisplayExpense(expenseType, expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
@@ -113,7 +113,7 @@
 
         function calculateAndDisplayExpense(expenseType, expenseValue) {
             var currentTotal = parseInt(localStorage.getItem(expenseType)) || 0;
-            var newTotal = currentTotal + expenseValue;
+            var newTotal = currentTotal - expenseValue;
 
             console.log(expenseType + " Expenses: ₱" + newTotal);
 
