@@ -114,7 +114,7 @@
       var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
       var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
         
-        var totalAllExpenses = foodExpenses + transportationExpenses + schoolExpenses + otherExpenses;
+        var totalAllExpenses = expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4;
         var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
 
         console.log("Total Weekly Expenses: ₱" + totalAllExpenses.toFixed(2));
