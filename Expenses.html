@@ -123,9 +123,6 @@
             if (remainingWeeklyAllowance >= 0) {
                 console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2));
                 document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2);
-            } else {
-                document.getElementById("remainingAllowance").innerHTML = "Overspent: ₱" + Math.abs(remainingWeeklyAllowance).toFixed(2);
-            }
         }
 
      // var currentWeeklyAllowance = parseFloat(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
