@@ -12,38 +12,25 @@
   margin-bottom: 20px;
 }
 
-.calendar table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  table-layout: fixed; 
+.calendar-days {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-.calendar table th,
-.calendar table td {
+.calendar-days .calendar-day {
+  flex: 0 0 calc(14.28% - 4px); /* Adjust width and margin accordingly */
+  margin: 2px;
   padding: 10px;
   border: 1px solid #ccc;
   text-align: center;
-  width: 14.28%; 
-  margin: 2px;
 }
 
-.calendar table th {
+.calendar-days .calendar-day-header {
+  flex: 0 0 calc(14.28% - 4px); /* Adjust width and margin accordingly */
+  margin: 2px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
   background-color: #eee;
 }
-
-.calendar table tr.week-row {
-  background-color: #f9f9f9;
-}
-
-.calendar table tr.week-row:first-child {
-  background-color: #fff;
-}
-
-.calendar table .date {
-  font-weight: bold;
-}
-
-
-
-
-
