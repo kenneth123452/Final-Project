@@ -77,99 +77,48 @@
       var parsedData = JSON.parse(storedData);
       var weeklyAllowance = parsedData["Weekly Allowance"];
       document.getElementById("displayValue").innerText = "Weekly Allowance: ₱" + weeklyAllowance;
-    } //else {
-    //console.error("Weekly Allowance not set. Redirecting to set_allowance.html");
-    //var index = "Allowance.html";
-    // window.location.href = index;
-
-    //}
-
-    function submitForm() {
-      var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
-      var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
-      var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
-      var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
-
-        calculateAndDisplayExpense("foodExpenses", expenseValue1);
-        calculateAndDisplayExpense("transportationExpenses", expenseValue2);
-        calculateAndDisplayExpense("schoolExpenses", expenseValue3);
-        calculateAndDisplayExpense("other", expenseValue4);
-        calculateAndDisplayTotal();
-        
-        console.log("Form submitted");
-        return false;
     }
-    function calculateAndDisplayExpense(expenseType, expenseValue) {
-            var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
-            var newTotal = currentTotal + expenseValue;
-
-            console.log(expenseType + " Expenses: ₱" + newTotal);
-            localStorage.setItem(expenseType, newTotal);
-        }
-
-    function calculateAndDisplayTotal() {
-      var expenseType = document.getElementById("expenseType").value;
+      
+      function submitForm() {
       var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
       var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
       var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
       var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
-        
-        var totalAllExpenses = expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4;
-        var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
 
-        console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
-        document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
-        
-            if (remainingWeeklyAllowance >= 0) {
-                console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
-                document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
-        }
+      calculateAndDisplayExpense("foodExpenses", expenseValue1);
+      calculateAndDisplayExpense("transportationExpenses", expenseValue2);
+      calculateAndDisplayExpense("schoolExpenses", expenseValue3);
+      calculateAndDisplayExpense("other", expenseValue4);
+      calculateAndDisplayTotal();
 
-     // var currentWeeklyAllowance = parseFloat(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
+      console.log("Form submitted");
+      return false;
+    }
 
-      // Save the weekly allowance to localStorage
-      //var updatedWeeklyAllowance = currentWeeklyAllowance + (expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
-      //localStorage.setItem("Weekly Allowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
-
-      //calculateAndDisplayExpense(expenseType, expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
-      //calculateAndDisplayTotal();
-    //}
-
-    /*function calculateAndDisplayExpense(expenseType, expenseValue) {
+    function calculateAndDisplayExpense(expenseType, expenseValue) {
       var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
       var newTotal = currentTotal + expenseValue;
 
-      console.log(expenseType + " Expenses: ₱" + newTotal.toFixed(2));
-
+      console.log(expenseType + " Expenses: ₱" + newTotal);
       localStorage.setItem(expenseType, newTotal);
     }
 
     function calculateAndDisplayTotal() {
-      var allExpenses = (foodExpenses + transportationExpenses + schoolExpenses + other);
-      var totalAllExpenses = 0;
+      var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
+      var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
+      var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
+      var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
 
-      for (var i = 0; i < allExpenses.length; i++) {
-        var expense = allExpenses[i];
-        var expenseAmount = parseFloat(localStorage.getItem(expense)) || 0;
-        totalAllExpenses += expenseAmount;
-      }
+      var totalAllExpenses = expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4;
+      var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
 
-      var remainingWeeklyAllowance = (weeklyAllowance - totalAllExpenses);
-
-      console.log("Total Weekly Expenses: ₱" + totalAllExpenses.toFixed(2));
-      //console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2));
-      document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses.toFixed(2);
+      console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
+      document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
 
       if (remainingWeeklyAllowance >= 0) {
-        console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2));
-        document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2);
-      } else {
-        document.getElementById("remainingAllowance").innerHTML = "Overspent: ₱" + Math.abs(remainingWeeklyAllowance).toFixed(2);
+        console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
+        document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
       }
-    }*/
-
-    function submitForm() {
-      console.log("Form submitted");
     }
 
     function goBack() {
@@ -177,5 +126,4 @@
     }
   </script>
 </body>
-
 </html>
