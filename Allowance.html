@@ -43,8 +43,8 @@
     <input id="value" type="number" min="100" max="2000">
        <button type="submit">Submit</button>
        <div id="displayValue"></div>
-       <button onclick="goBack()">Back</button>
     </form>
+    <button onclick="goBack()">Back</button>
          <!--<div id="displayValue"></div>-->
 <script>
   function submitForm() {
@@ -56,11 +56,11 @@
         localStorage.setItem("Weekly Allowance", jsonString);
       
         //document.getElementById("displayValue").innerText = "Entered Value: " + allowanceValue;
-      function goBack() {
-      window.history.back();
-    }
         var index = "Expenses.html";
         window.location.href = index;
+    }
+     function goBack() {
+      window.history.back();
     }
     
 </script>
