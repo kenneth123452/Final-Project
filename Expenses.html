@@ -103,7 +103,7 @@
             var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
             var newTotal = currentTotal + expenseValue;
 
-            console.log(expenseType + " Expenses: ₱" + newTotal.toFixed(2));
+            console.log(expenseType + " Expenses: ₱" + newTotal);
             localStorage.setItem(expenseType, newTotal);
         }
 
@@ -118,11 +118,11 @@
         var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
 
         console.log("Total Weekly Expenses: ₱" + totalAllExpenses.toFixed(2));
-        document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses.toFixed(2);
+        document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
         
             if (remainingWeeklyAllowance >= 0) {
-                console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2));
-                document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2);
+                console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
+                document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
         }
 
      // var currentWeeklyAllowance = parseFloat(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
