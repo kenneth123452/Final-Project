@@ -104,10 +104,10 @@
       var currentWeeklyAllowance = parseFloat(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
 
       // Save the weekly allowance to localStorage
-      var updatedWeeklyAllowance = currentWeeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
+      var updatedWeeklyAllowance = currentWeeklyAllowance + (expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
       localStorage.setItem("Weekly Allowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
 
-      calculateAndDisplayExpense(expenseType, expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
+      calculateAndDisplayExpense(expenseType, expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
       calculateAndDisplayTotal();
     }
 
