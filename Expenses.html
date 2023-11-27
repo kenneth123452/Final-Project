@@ -113,7 +113,7 @@
 
         function calculateAndDisplayExpense(expenseType, expenseValue) {
             var currentTotal = parseInt(localStorage.getItem(expenseType)) || 0;
-            var newTotal = currentTotal - expenseValue;
+            var newTotal = currentTotal + expenseValue;
 
             console.log(expenseType + " Expenses: ₱" + newTotal);
 
