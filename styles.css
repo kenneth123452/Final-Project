@@ -72,22 +72,16 @@
 /* Style each day box */
 .calendar-day {
     border: 1px solid #ccc;
-    padding: 10px; /* Increased padding to accommodate larger font size */
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     /* Set fixed height and width for each day */
-    height: 50px; /* Reduced height to accommodate larger font size */
+    height: 50px;
     width: 50px;
 }
 
 .calendar-day:hover {
     background-color: #f2f2f2;
 }
-
-
-.calendar-day:hover {
-    background-color: #f2f2f2;
-}
-
