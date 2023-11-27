@@ -90,18 +90,45 @@
       var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
       var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
 
-      console.log("Form submitted");
-      return false;
+        calculateAndDisplayExpense("foodExpenses", expenseValue1);
+        calculateAndDisplayExpense("transportationExpenses", expenseValue2);
+        calculateAndDisplayExpense("schoolExpenses", expenseValue3);
+        calculateAndDisplayExpense("other", expenseValue4);
+        calculateAndDisplayTotal();
+        
+        console.log("Form submitted");
+        return false;
     }
+    function calculateAndDisplayExpense(expenseType, expenseValue) {
+            var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
+            var newTotal = currentTotal + expenseValue;
 
-    function calculate() {
+            console.log(expenseType + " Expenses: ₱" + newTotal.toFixed(2));
+            localStorage.setItem(expenseType, newTotal);
+        }
+
+    function calculateAndDisplayTotal() {
       var expenseType = document.getElementById("expenseType").value;
       var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
       var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
       var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
       var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
+        
+        var totalAllExpenses = foodExpenses + transportationExpenses + schoolExpenses + otherExpenses;
+        var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
 
-      var currentWeeklyAllowance = parseFloat(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
+        console.log("Total Weekly Expenses: ₱" + totalAllExpenses.toFixed(2));
+        document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses.toFixed(2);
+        
+            if (remainingWeeklyAllowance >= 0) {
+                console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2));
+                document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2);
+            } else {
+                document.getElementById("remainingAllowance").innerHTML = "Overspent: ₱" + Math.abs(remainingWeeklyAllowance).toFixed(2);
+            }
+        }
+
+     // var currentWeeklyAllowance = parseFloat(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
 
       // Save the weekly allowance to localStorage
       //var updatedWeeklyAllowance = currentWeeklyAllowance + (expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
@@ -109,9 +136,9 @@
 
       //calculateAndDisplayExpense(expenseType, expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
       //calculateAndDisplayTotal();
-    }
+    //}
 
-    function calculateAndDisplayExpense(expenseType, expenseValue) {
+    /*function calculateAndDisplayExpense(expenseType, expenseValue) {
       var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
       var newTotal = currentTotal + expenseValue;
 
@@ -142,10 +169,9 @@
       } else {
         document.getElementById("remainingAllowance").innerHTML = "Overspent: ₱" + Math.abs(remainingWeeklyAllowance).toFixed(2);
       }
-    }
+    }*/
 
     function submitForm() {
-      // Add any additional logic for form submission if needed
       console.log("Form submitted");
     }
 
