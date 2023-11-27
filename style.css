@@ -21,7 +21,7 @@
 
 .calendar table th,
 .calendar table td {
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #ccc;
 }
 
@@ -58,7 +58,7 @@
 
 .calendar-days th,
 .calendar-days td {
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #ccc;
   text-align: center;
 }
@@ -85,4 +85,29 @@
   background-color: #007bff;
   color: #fff;
 }
+
+/* Additional styles for the calendar days */
+.calendar-days-content {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar-day-header th {
+  padding: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #f2f2f2;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.calendar-days-content td {
+  padding: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+}
+
 
