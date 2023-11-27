@@ -1,87 +1,98 @@
 .calendar-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .calendar-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.calendar-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .calendar-navigation button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .calendar-navigation button:hover {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .calendar-body {
-    padding: 20px;
+  padding: 20px;
 }
 
 .calendar-month {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .calendar-month span {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .calendar-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
 }
 
 .calendar-day-header {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    background-color: #f2f2f2;
-    padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #f2f2f2;
+  padding: 5px;
 }
 
 .calendar-days-content {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-    padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  padding: 5px;
 }
 
-/* Style each day box */
 .calendar-day {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-    /* Set fixed height and width for each day */
-    height: 50px;
-    width: 50px;
+  /* Set fixed height and width for each day */
+  height: 50px;
+  width: 50px;
 }
 
 .calendar-day:hover {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
+
+.calendar-day.event {
+  background-color: #f00;
+  color: #fff;
+}
+
