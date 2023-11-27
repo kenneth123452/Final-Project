@@ -77,7 +77,8 @@
     </main>
 
     <script>
-        let goalsData = {
+        // Load existing data from local storage
+        let goalsData = JSON.parse(localStorage.getItem('goalsData')) || {
             labels: [],
             datasets: [{
                 data: [],
@@ -93,7 +94,7 @@
 
         const ctx = document.getElementById('goalChart').getContext('2d');
         const goalChart = new Chart(ctx, {
-            type: 'pie',
+            type: 'bar', // Change chart type to 'bar'
             data: goalsData,
         });
 
@@ -112,6 +113,9 @@
                 // Update the chart
                 goalChart.update();
 
+                // Save data to local storage
+                localStorage.setItem('goalsData', JSON.stringify(goalsData));
+
                 goalInput.value = '';
                 dateInput.value = '';
             }
@@ -120,4 +124,5 @@
 
 </body>
 </html>
+
 
