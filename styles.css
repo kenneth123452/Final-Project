@@ -1,4 +1,3 @@
-
 .calendar-container {
     width: 100%;
     max-width: 800px;
@@ -70,14 +69,20 @@
     padding: 5px;
 }
 
+/* Style each day box */
 .calendar-day {
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+
+    /* Set fixed height and width for each day */
+    height: 50px;
+    width: 50px;
 }
 
 .calendar-day:hover {
     background-color: #f2f2f2;
 }
+
