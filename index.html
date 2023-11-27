@@ -1,170 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <style>
-        body {
-            
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        .background {
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-image: url('src/img/wallpaperflare.com_wallpaper (1).jpg'); /* Replace with the path to your wallpaper */
-              background-size: cover;
-              filter: brightness(50%); /* Adjust the brightness percentage as needed */
-              z-index: -1; /* Place the background behind other content */
-}
-
-        }
-        .large-text {
-            font-size: 30px; /* You can adjust this value */
-        }
-        .bold {
-            font-size: 40px; /* You can adjust this value */
-        }
-        .services {
-            font-size: 40px; /* You can adjust this value */
-        }
-        .smalltext {
-            font-size: 30px; /* You can adjust this value */
-        }
-        .bold2 {
-            font-size: 40px; /* You can adjust this value */
-        }
-        .bullet1 {
-            font-size: 30px; /* You can adjust this value */
-        }
-        .bullet2 {
-            font-size: 30px; /* You can adjust this value */
-        }
-        .bullet3 {
-            font-size: 30px; /* You can adjust this value */
-        }
-        header {
-            
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            width: 160px;
-            height: 160px;
-            margin-right: 20px;
-        }
-
-        .header-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .header-content h1 {
-            margin: 0;
-            font-size: 20px;
-        }
-
-        nav {
-            text-align: right;
-            margin-right: 20px; /* Adjust the margin to create space between the navigation and the right edge */
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        nav ul li a:hover {
-            color: #ddd;
-        }
-
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            overflow: hidden;
-        }
-
-        .main {
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-        footer {
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-    <title>Budgeting Financial Management</title>
+    <title>WiseBudge</title>
+    <link rel="stylesheet" href="styless.css">
 </head>
-
 <body>
-    <script>
-        // const variableValue = localStorage.getItem('daily');
-        // alert("" + daily);
-    </script>
-    <header>
-        <img src="src/img/photo_2023-11-24_15-23-57.jpg" alt="Budgeting Financial Management Logo" class="logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="Allowance.html" target="_self">Allowance</a></li>
-                <li><a href="Expenses.html" target="_self">Expenses</a></li>
-                <li><a href="Goal.html" target="_self">Goal</a></li>
-                <li><a href="Daily.html" target="_self">Daily</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="banner">
+    <div class="navbar">
+        <img src="logo.png" class="logo">
+        <ul>
+            <li><a href="Allowance.html">Allowance</a></li>
+            <li><a href="Expenses.html">Expenses</a></li>
+            <li><a href="Goal.html">Goal</a></li>
+            <li><a href="Daily.html">Daily</a></li>
+        </ul>
 
-    <div class="container">
-        <div class="main">
-             <section id="budgeting">
-                <h1 class = "budget">Budgeting Financial Management</h1>
-            <section id="home">
-                <h2 class = "bold">Home</h2>
-                <p class="large-text">Welcome to WiseBudge.</p>
-            </section>
-            <section id="services">
-                <h2 class="bold2">Services</h2>
-                <p class="smalltext">Our services include:</p>
-                <ul>
-                    <li class="bullet1">Planning</li>
-                    <li class="bullet2">Budgeting</li>
-                    <li class="bullet3">Saving</li>
-                </ul>
-                <!-- Add more content as needed -->
-            </section>
-        </div>
     </div>
-    <footer>
-        <p>&copy; 2023 Budgeting Financial Management. All Rights Reserved.</p>
-    </footer>
-</body>
+    <div class="Budgeting">
+        <h1>Budgeting Financial Management</h1>
 
+    </div>
+
+    <div class="content">
+        <p>Welcome to WiseBudge.</p>
+    </div>
+    <div class="pees">
+        <p>Plan.</p>
+        <p>Budget.</p>
+        <p>Save.</p>
+    </div>
+    </div>
+</body>
 </html>
