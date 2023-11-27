@@ -6,11 +6,6 @@
     <style>
         body {
             background-image: url('src/img/background.jpg.jpg');
-        }
-    </style>
-    <title>Budgeting Financial Management</title>
-    <style>
-        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -19,6 +14,7 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
         header {
             background-color: #333;
             color: #fff;
@@ -28,51 +24,63 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             width: 150px;
             height: 80px;
             margin-right: 20px;
         }
+
         .header-content {
             flex: 1;
             display: flex;
             flex-direction: column;
-            text-align: center; center;
+            text-align: center;
+            center;
         }
+
         .header-content h1 {
             margin: 0;
             font-size: 20px;
         }
+
         nav {
             text-align: right;
+            margin-right: 20px; /* Adjust the margin to create space between the navigation and the right edge */
         }
+
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            text-align: right; /* Align the text to the right */
         }
+
         nav ul li {
-            margin-right: 20px;
             display: inline;
+            margin-right: 20px;
         }
+
         nav ul li a {
             color: #fff;
             text-decoration: none;
         }
+
         nav ul li a:hover {
             color: #ddd;
         }
+
         .container {
             width: 80%;
             margin: 20px auto;
             overflow: hidden;
         }
+
         .main {
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
         }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -83,29 +91,28 @@
             width: 100%;
         }
     </style>
+    <title>Budgeting Financial Management</title>
 </head>
 
 <body>
     <script>
-       // const variableValue = localStorage.getItem('daily');
-       // alert("" + daily);
+        // const variableValue = localStorage.getItem('daily');
+        // alert("" + daily);
     </script>
     <header>
-        <img src="src/img/photo_2023-11-24_15-23-57.jpg"
-            alt="Budgeting Financial Management Logo" class="logo">
+        <img src="src/img/photo_2023-11-24_15-23-57.jpg" alt="Budgeting Financial Management Logo" class="logo">
         <div class="header-content">
             <h1>Budgeting Financial Management</h1>
         </div>
+        <nav>
+            <ul>
+                <li><a href="Allowance.html" target="_self">Allowance</a></li>
+                <li><a href="Expenses.html" target="_self">Expenses</a></li>
+                <li><a href="Goal.html" target="_self">Goal</a></li>
+                <li><a href="Daily.html" target="_self">Daily</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <nav>
-         <ul>
-            <li><a href="Allowance.html" target="_self">Allowance</a></li>
-            <li><a href="Expenses.html" target="_self">Expenses</a></li>
-            <li><a href="Goal.html" target="_self">Goal</a></li>
-            <li><a href="Daily.html" target="_self">Daily</a></li>
-        </ul>
-    </nav>
 
     <div class="container">
         <div class="main">
