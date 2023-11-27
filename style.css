@@ -16,15 +16,15 @@
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  table-layout: fixed; /* Added to ensure fixed table layout */
-}
+  table-layout: fixed; 
 
 .calendar table th,
 .calendar table td {
   padding: 10px;
   border: 1px solid #ccc;
   text-align: center;
-  width: 14.28%; /* 100% / 7 columns = 14.28% */
+  width: 14.28%; 
+  margin: 2px;
 }
 
 .calendar table th {
