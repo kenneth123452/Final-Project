@@ -101,6 +101,8 @@
             var expenseValue3 = parseInt(document.getElementById("schoolExpenses").value) || 0;
             var expenseValue4 = parseInt(document.getElementById("other").value) || 0;
 
+             var currentWeeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
+
             // Save the weekly allowance to localStorage
             var updatedWeeklyAllowance = weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
             localStorage.setItem("WeeklyAllowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
