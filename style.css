@@ -19,7 +19,7 @@
 }
 
 .calendar-days .calendar-day {
-  flex: 0 0 calc(14.28% - 4px); /* Adjust width and margin accordingly */
+  flex: 0 0 calc(14.28% - 4px); 
   margin: 2px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -27,7 +27,7 @@
 }
 
 .calendar-days .calendar-day-header {
-  flex: 0 0 calc(14.28% - 4px); /* Adjust width and margin accordingly */
+  flex: 0 0 calc(14.28% - 4px); 
   margin: 2px;
   padding: 10px;
   border: 1px solid #ccc;
