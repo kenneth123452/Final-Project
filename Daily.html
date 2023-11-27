@@ -1,39 +1,42 @@
-
-.calendar-container {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    font-family: sans-serif;
-}
-
-.calendar-title {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.calendar-days {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; /* Fixed table layout for equal column widths */
-}
-
-.calendar-day-header th {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-    background-color: #eee;
-}
-
-.calendar-days-content td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-/* Adjust width and margin for equal columns */
-.calendar-days-content td {
-    width: 14.28%; /* 100% / 7 columns = 14.28% */
-    margin: 2px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <div class="calendar-title">
+                <span>University of Makati - Technology Based Learning Hub</span>
+            </div>
+            <div class="calendar-navigation">
+                <button id="prevMonthButton">Previous Month</button>
+                <button id="nextMonthButton">Next Month</button>
+            </div>
+        </div>
+        <div class="calendar-body">
+            <div class="calendar-month">
+                <span id="monthDisplay"></span>
+                <span id="yearDisplay"></span>
+            </div>
+            <div class="calendar-days">
+                <div class="calendar-day-header">
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+                </div>
+                <div class="calendar-days-content" id="calendarDaysContent">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html
