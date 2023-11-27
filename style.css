@@ -16,6 +16,7 @@
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  table-layout: fixed; /* Added to ensure fixed table layout */
 }
 
 .calendar table th,
@@ -23,6 +24,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   text-align: center;
+  width: 14.28%; /* 100% / 7 columns = 14.28% */
 }
 
 .calendar table th {
@@ -39,6 +41,8 @@
 
 .calendar table .date {
   font-weight: bold;
+}
+
 
 
 
