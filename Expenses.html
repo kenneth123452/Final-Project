@@ -104,11 +104,11 @@
       var currentWeeklyAllowance = parseFloat(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
 
       // Save the weekly allowance to localStorage
-      var updatedWeeklyAllowance = currentWeeklyAllowance + (expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
-      localStorage.setItem("Weekly Allowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
+      //var updatedWeeklyAllowance = currentWeeklyAllowance + (expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
+      //localStorage.setItem("Weekly Allowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
 
-      calculateAndDisplayExpense(expenseType, expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
-      calculateAndDisplayTotal();
+      //calculateAndDisplayExpense(expenseType, expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
+      //calculateAndDisplayTotal();
     }
 
     function calculateAndDisplayExpense(expenseType, expenseValue) {
@@ -121,7 +121,7 @@
     }
 
     function calculateAndDisplayTotal() {
-      var allExpenses = ["foodExpenses", "transportationExpenses", "schoolExpenses", "other"];
+      var allExpenses = (foodExpenses + transportationExpenses + schoolExpenses + other);
       var totalAllExpenses = 0;
 
       for (var i = 0; i < allExpenses.length; i++) {
