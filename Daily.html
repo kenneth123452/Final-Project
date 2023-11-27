@@ -22,19 +22,22 @@
                 <span id="monthDisplay"></span>
                 <span id="yearDisplay"></span>
             </div>
-            <div class="calendar-days">
-                <div class="calendar-day-header">
-                    <span>Mon</span>
-                    <span>Tue</span>
-                    <span>Wed</span>
-                    <span>Thu</span>
-                    <span>Fri</span>
-                    <span>Sat</span>
-                    <span>Sun</span>
-                </div>
-                <div class="calendar-days-content" id="calendarDaysContent">
-                </div>
-            </div>
+            <table class="calendar-days">
+                <thead class="calendar-day-header">
+                    <tr>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                    </tr>
+                </thead>
+                <tbody class="calendar-days-content" id="calendarDaysContent">
+                    <!-- Days will be added dynamically here -->
+                </tbody>
+            </table>
         </div>
     </div>
     <script src="script.js"></script>
