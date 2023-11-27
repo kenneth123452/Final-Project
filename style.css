@@ -39,32 +39,6 @@
 
 .calendar table .date {
   font-weight: bold;
-  color: #000;
-}
-
-.calendar table .today {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* Additional styles for the calendar days */
-.calendar-days {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.calendar-day-header th {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-  background-color: #f2f2f2;
-}
-
-.calendar-days-content td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-}
 
 
 
