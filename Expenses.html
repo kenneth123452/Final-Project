@@ -42,115 +42,117 @@
 </head>
 
 <body>
-     <form id="myForm" onsubmit="submitForm(); return false;">
-        <label for="expenseType">Expense Type</label>
-        <select id="expenseType">
-            <option value="foodExpenses">Food Expenses</option>
-            <option value="transportationExpenses">Transportation Expenses</option>
-            <option value="schoolExpenses">School Expenses</option>
-            <option value="other">Other</option>
-        </select>
-        <label for="foodExpenses">Food Expenses</label>
-        <input id="foodExpenses" type="number" min="0" max="2000" required>
+  <form id="myForm" onsubmit="submitForm(); return false;">
+    <label for="expenseType">Expense Type</label>
+    <select id="expenseType">
+      <option value="foodExpenses">Food Expenses</option>
+      <option value="transportationExpenses">Transportation Expenses</option>
+      <option value="schoolExpenses">School Expenses</option>
+      <option value="other">Other</option>
+    </select>
+    <label for="foodExpenses">Food Expenses</label>
+    <input id="foodExpenses" type="number" min="0" max="2000" required>
 
-        <label for="transportationExpenses">Transportation Expenses</label>
-        <input id="transportationExpenses" type="number" min="0" max="2000" required>
+    <label for="transportationExpenses">Transportation Expenses</label>
+    <input id="transportationExpenses" type="number" min="0" max="2000" required>
 
-        <label for="schoolExpenses">School Expenses</label>
-        <input id="schoolExpenses" type="number" min="0" max="2000" required>
+    <label for="schoolExpenses">School Expenses</label>
+    <input id="schoolExpenses" type="number" min="0" max="2000" required>
 
-        <label for="other">Other</label>
-        <input id="other" type="number" min="0" max="2000" required>
+    <label for="other">Other</label>
+    <input id="other" type="number" min="0" max="2000" required>
 
-        
-        <button onclick="calculate()">Calculate</button>
-        <p id="result"></p>
-        <div id="displayValue"></div>
-        <p id="remainingAllowance"></p>
-        <button type="submit">Submit</button>
-        <button onclick="goBack()">Back</button>
-    </form>
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+    <div id="displayValue"></div>
+    <p id="remainingAllowance"></p>
+    <button type="submit">Submit</button>
+    <button onclick="goBack()">Back</button>
+  </form>
 
   <script>
-        // Retrieve the stored value
-        var storedData = localStorage.getItem("Weekly Allowance");
-        if (storedData) {
-            var parsedData = JSON.parse(storedData);
-            var weeklyAllowance = parsedData["Weekly Allowance"];
-            document.getElementById("displayValue").innerText = "Weekly Allowance: " + weeklyAllowance;
-        } //else {
-            //console.error("Weekly Allowance not set. Redirecting to set_allowance.html");
-            //var index = "Allowance.html";
-           // window.location.href = index;
+    // Retrieve the stored value
+    var storedData = localStorage.getItem("Weekly Allowance");
+    if (storedData) {
+      var parsedData = JSON.parse(storedData);
+      var weeklyAllowance = parsedData["Weekly Allowance"];
+      document.getElementById("displayValue").innerText = "Weekly Allowance: ₱" + weeklyAllowance.toFixed(2);
+    } //else {
+    //console.error("Weekly Allowance not set. Redirecting to set_allowance.html");
+    //var index = "Allowance.html";
+    // window.location.href = index;
 
-        //}
-      
-        function submitForm() {
-            var expenseValue1 = parseInt(document.getElementById("foodExpenses").value) || 0;
-            var expenseValue2 = parseInt(document.getElementById("transportationExpenses").value) || 0;
-            var expenseValue3 = parseInt(document.getElementById("schoolExpenses").value) || 0;
-            var expenseValue4 = parseInt(document.getElementById("other").value) || 0;
+    //}
 
-            console.log("Form submitted");
-            return false; 
-}
-        function calculate() {
-            var expenseType = document.getElementById("expenseType").value;
-            var expenseValue1 = parseInt(document.getElementById("foodExpenses").value) || 0;
-            var expenseValue2 = parseInt(document.getElementById("transportationExpenses").value) || 0;
-            var expenseValue3 = parseInt(document.getElementById("schoolExpenses").value) || 0;
-            var expenseValue4 = parseInt(document.getElementById("other").value) || 0;
+    function submitForm() {
+      var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
+      var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
+      var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
+      var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
 
-             var currentWeeklyAllowance = parseInt(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
-
-            // Save the weekly allowance to localStorage
-            var updatedWeeklyAllowance = weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
-            localStorage.setItem("WeeklyAllowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
-
-            calculateAndDisplayExpense(expenseType, expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
-            calculateAndDisplayTotal();
-        }
-
-        function calculateAndDisplayExpense(expenseType, expenseValue) {
-            var currentTotal = parseInt(localStorage.getItem(expenseType)) || 0;
-            var newTotal = currentTotal + expenseValue;
-
-            console.log(expenseType + " Expenses: ₱" + newTotal);
-
-            localStorage.setItem(expenseType, newTotal);
-        }
-
-        function calculateAndDisplayTotal() {
-            var allExpenses = ["foodExpenses", "transportationExpenses", "schoolExpenses", "other"];
-            var totalAllExpenses = 0;
-
-            for (var i = 0; i < allExpenses.length; i++) {
-                var expense = allExpenses[i];
-                var expenseAmount = parseInt(localStorage.getItem(expense)) || 0;
-                totalAllExpenses += expenseAmount;
-            }
-
-            var remainingWeeklyAllowance = (weeklyAllowance - totalAllExpenses);
-
-            console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
-            //console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
-            document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
-            
-            if (remainingWeeklyAllowance >= 0) {
-                console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
-                document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
-        } else {
-                document.getElementById("remainingAllowance").innerHTML = "Overspent: ₱" + Math.abs(remainingWeeklyAllowance);
+      console.log("Form submitted");
+      return false;
     }
-}
-        function submitForm() {
-            // Add any additional logic for form submission if needed
-            console.log("Form submitted");
-        }
-       function goBack() {
-            window.history.back();
-        }
-    </script>
-    </body>
+
+    function calculate() {
+      var expenseType = document.getElementById("expenseType").value;
+      var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
+      var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
+      var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
+      var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
+
+      var currentWeeklyAllowance = parseFloat(localStorage.getItem("Weekly Allowance")) || weeklyAllowance;
+
+      // Save the weekly allowance to localStorage
+      var updatedWeeklyAllowance = currentWeeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
+      localStorage.setItem("Weekly Allowance", JSON.stringify({ "Weekly Allowance": updatedWeeklyAllowance }));
+
+      calculateAndDisplayExpense(expenseType, expenseValue1 - expenseValue2 - expenseValue3 - expenseValue4);
+      calculateAndDisplayTotal();
+    }
+
+    function calculateAndDisplayExpense(expenseType, expenseValue) {
+      var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
+      var newTotal = currentTotal + expenseValue;
+
+      console.log(expenseType + " Expenses: ₱" + newTotal.toFixed(2));
+
+      localStorage.setItem(expenseType, newTotal);
+    }
+
+    function calculateAndDisplayTotal() {
+      var allExpenses = ["foodExpenses", "transportationExpenses", "schoolExpenses", "other"];
+      var totalAllExpenses = 0;
+
+      for (var i = 0; i < allExpenses.length; i++) {
+        var expense = allExpenses[i];
+        var expenseAmount = parseFloat(localStorage.getItem(expense)) || 0;
+        totalAllExpenses += expenseAmount;
+      }
+
+      var remainingWeeklyAllowance = (weeklyAllowance - totalAllExpenses);
+
+      console.log("Total Weekly Expenses: ₱" + totalAllExpenses.toFixed(2));
+      //console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2));
+      document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses.toFixed(2);
+
+      if (remainingWeeklyAllowance >= 0) {
+        console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2));
+        document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance.toFixed(2);
+      } else {
+        document.getElementById("remainingAllowance").innerHTML = "Overspent: ₱" + Math.abs(remainingWeeklyAllowance).toFixed(2);
+      }
+    }
+
+    function submitForm() {
+      // Add any additional logic for form submission if needed
+      console.log("Form submitted");
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
 
 </html>
