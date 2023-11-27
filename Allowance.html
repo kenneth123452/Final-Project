@@ -43,6 +43,7 @@
     <input id="value" type="number" min="100" max="2000">
        <button type="submit">Submit</button>
        <div id="displayValue"></div>
+        <button onclick="goBack()">Back</button>
     </form>
          <!--<div id="displayValue"></div>-->
 <script>
@@ -58,6 +59,9 @@
       
         var index = "Expenses.html";
         window.location.href = index;
+    }
+      function goBack() {
+      window.history.back();
     }
 </script>
 </body>
