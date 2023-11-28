@@ -1,72 +1,82 @@
-.calendar {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  font-family: sans-serif;
-}
+const date = new Date();
 
-.calendar h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+const renderCalendar = () => {
+  date.setDate(1);
 
-.calendar table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+  const monthDays = document.querySelector(".days");
 
-.calendar table th,
-.calendar table td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-}
+  const lastDay = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDate();
 
-.calendar table th {
-  background-color: #eee;
-}
+  const prevLastDay = new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    0
+  ).getDate();
 
-.calendar table tr.week-row {
-  background-color: #f9f9f9;
-}
+  const firstDayIndex = date.getDay();
 
-.calendar table tr.week-row:first-child {
-  background-color: #fff;
-}
+  const lastDayIndex = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDay();
 
-.calendar table .date {
-  font-weight: bold;
-  color: #000;
-}
+  const nextDays = 7 - lastDayIndex - 1;
 
-.calendar table .today {
-  background-color: #007bff;
-  color: #fff;
-}
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-/* Additional styles for the calendar days */
-.calendar-days {
-  width: 100%;
-  border-collapse: collapse;
-}
+  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
 
-.calendar-day-header th {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-  background-color: #f2f2f2;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
+  document.querySelector(".date p").innerHTML = new Date().toDateString();
 
-.calendar-days-content td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-  font-size: 12px;
-  color: #333; 
-}
+  let days = "";
+
+  for (let x = firstDayIndex; x > 0; x--) {
+    days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+  }
+
+  for (let i = 1; i <= lastDay; i++) {
+    if (
+      i === new Date().getDate() &&
+      date.getMonth() === new Date().getMonth()
+    ) {
+      days += `<div class="today">${i}</div>`;
+    } else {
+      days += `<div>${i}</div>`;
+    }
+  }
+
+  for (let j = 1; j <= nextDays; j++) {
+    days += `<div class="next-date">${j}</div>`;
+    monthDays.innerHTML = days;
+  }
+};
+
+document.querySelector(".prev").addEventListener("click", () => {
+  date.setMonth(date.getMonth() - 1);
+  renderCalendar();
+});
+
+document.querySelector(".next").addEventListener("click", () => {
+  date.setMonth(date.getMonth() + 1);
+  renderCalendar();
+});
+
+renderCalendar();
