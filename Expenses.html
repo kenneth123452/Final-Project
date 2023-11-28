@@ -42,7 +42,7 @@
 </head>
 
 <body>
- <form id="myForm" onsubmit="submitForm(); return false;">
+ <form id="myForm" action="Goal.html" onsubmit="submitForm(); return false;">
     <label for="expenseType">Expense Type</label>
     <select id="expenseType">
       <option value="foodExpenses">Food Expenses</option>
@@ -91,7 +91,7 @@
       calculateAndDisplayTotal();
 
       console.log("Form submitted");
-      return false;
+      return true;
     }
 
     function calculateAndDisplayExpense(expenseType, expenseValue) {
