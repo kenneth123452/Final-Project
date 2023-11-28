@@ -85,8 +85,6 @@ body {
 .today {
   background-color: lightblue;
 }
-
-
 .day-box {
   width: 120px; 
   height: 80px;
@@ -96,6 +94,6 @@ body {
   margin: 5px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 }
 
