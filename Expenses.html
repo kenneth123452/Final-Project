@@ -71,13 +71,16 @@
   </form>
 
   <script>
-    // Retrieve the stored value
     var storedData = localStorage.getItem("Weekly Allowance");
     if (storedData) {
       var parsedData = JSON.parse(storedData);
       var weeklyAllowance = parsedData["Weekly Allowance"];
       document.getElementById("displayValue").innerText = "Weekly Allowance: ₱" + weeklyAllowance;
     }
+       function moveToAnotherPage() {
+      var destination = "Goal.html";
+      window.location.href = destination;
+     }
       
       function submitForm() {
       var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
