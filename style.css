@@ -4,9 +4,9 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full height of the viewport */
+  justify-content: center; 
+  align-items: center;
+  height: 100vh; 
 }
 
 .calendar-container {
@@ -67,8 +67,8 @@
 
 .calendar-days-content {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+  grid-template-columns: repeat(7, 140fr);
+  gap: 10px;
 }
 
 .calendar-days-content > div {
