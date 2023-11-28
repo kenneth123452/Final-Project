@@ -66,7 +66,8 @@
     <p id="result"></p>
     <div id="displayValue"></div>
     <p id="remainingAllowance"></p>
-    <button type="submit">Submit</button>
+    <button type="button" onclick="moveToAnotherPage()">Submit</button>
+    <!--<button type="submit">Submit</button>-->
     <button onclick="goBack()">Back</button>
   </form>
 
@@ -77,10 +78,6 @@
       var weeklyAllowance = parsedData["Weekly Allowance"];
       document.getElementById("displayValue").innerText = "Weekly Allowance: ₱" + weeklyAllowance;
     }
-       function moveToAnotherPage() {
-      var destination = "Goal.html";
-      window.location.href = destination;
-     }
       
       function submitForm() {
       var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
@@ -97,7 +94,10 @@
       console.log("Form submitted");
           return false;
     }
-
+        function moveToAnotherPage() {
+          var index = "Goal.html";
+          window.location.href = index;
+     }
     function calculateAndDisplayExpense(expenseType, expenseValue) {
       var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
       var newTotal = currentTotal + expenseValue;
