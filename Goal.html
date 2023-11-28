@@ -92,6 +92,12 @@
             }],
         };
 
+        let remainingAllowance = localStorage.getItem("Remaining Allowance");
+        
+        if (remainingAllowance !== null) {
+            console.log("Remaining Allowance: ₱" + remainingAllowance);
+        }
+
         const ctx = document.getElementById('goalChart').getContext('2d');
         const goalChart = new Chart(ctx, {
             type: 'bar', // Change chart type to 'bar'
@@ -105,15 +111,12 @@
             if (goalInput.value.trim() !== '' && dateInput.value !== '') {
                 const goalLabel = goalInput.value;
                 const goalDate = dateInput.value;
-
-                // Add goal to the chart data
+                
                 goalsData.labels.push(`${goalLabel} - ${goalDate}`);
                 goalsData.datasets[0].data.push(1);
 
-                // Update the chart
                 goalChart.update();
 
-                // Save data to local storage
                 localStorage.setItem('goalsData', JSON.stringify(goalsData));
 
                 goalInput.value = '';
