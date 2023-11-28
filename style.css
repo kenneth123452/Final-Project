@@ -67,7 +67,7 @@
 
 .calendar-days-content {
   display: grid;
-  grid-template-columns: repeat(7, 300fr);
+  grid-template-columns: repeat(7, 350fr);
   gap: 10px;
 }
 
@@ -75,13 +75,14 @@
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
+  width: 300px;
 }
 
 .today {
   background-color: lightblue;
 }
 
-/* Additional styling for day boxes */
+
 .day-box {
   width: 120px;
   height: 80px;
