@@ -80,7 +80,7 @@
       document.getElementById("displayValue").innerText = "Weekly Allowance: ₱" + weeklyAllowance;
     }
       
-      function submitForm() {
+    function submitForm() {
       var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
       var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
       var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
@@ -90,10 +90,12 @@
       calculateAndDisplayExpense("transportationExpenses", expenseValue2);
       calculateAndDisplayExpense("schoolExpenses", expenseValue3);
       calculateAndDisplayExpense("other", expenseValue4);
-       return calculateAndDisplayTotal();
+
+      // This line was moved after the console.log statement
+      var result = calculateAndDisplayTotal();
 
       console.log("Form submitted");
-      return true;
+      return result;
     }
 
     function calculateAndDisplayExpense(expenseType, expenseValue) {
@@ -120,18 +122,27 @@
         console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
         document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
       }
+
+      // Return true if the form submission was successful
+      return true;
     }
+
     function submit() {
-          submitForm();
-          var confirmation = confirm("THANK YO FOR ANSWERING?");
-          if (confirmation) {
-        var index = "index.html";
-        window.location.href = index;
-  }
-}
+      // Check if the form submission was successful before navigating
+      if (submitForm()) {
+        var confirmation = confirm("THANK YOU FOR ANSWERING?");
+        if (confirmation) {
+          var index = "index.html";
+          window.location.href = index;
+        }
+      }
+    }
+
     function goBack() {
       window.history.back();
     }
   </script>
 </body>
+</html>
+
 </html>
