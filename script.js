@@ -1,42 +1,70 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const monthDisplay = document.getElementById("monthDisplay");
-  const yearDisplay = document.getElementById("yearDisplay");
-  const calendarDaysContent = document.getElementById("calendarDaysContent");
-  const prevMonthButton = document.getElementById("prevMonthButton");
-  const nextMonthButton = document.getElementById("nextMonthButton");
+const date = new Date();
 
-  let currentDate = new Date();
+const renderCalendar = () => {
+  date.setDate(1);
 
-  function updateCalendar() {
-    const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-    const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+  const monthDays = document.querySelector(".calendar-days-content");
 
-    monthDisplay.textContent = new Intl.DateTimeFormat("en-US", { month: "long" }).format(currentDate);
-    yearDisplay.textContent = currentDate.getFullYear();
+  const lastDay = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDate();
 
-    let day = firstDayOfMonth;
-    let calendarHTML = "";
+  const prevLastDay = new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    0
+  ).getDate();
 
-    while (day <= lastDayOfMonth) {
-      calendarHTML += `<span>${day.getDate()}</span>`;
-      day.setDate(day.getDate() + 1);
+  const firstDayIndex = date.getDay();
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  document.getElementById("monthDisplay").innerHTML = months[date.getMonth()];
+  document.getElementById("yearDisplay").innerHTML = date.getFullYear();
+
+  let days = "";
+
+  for (let x = firstDayIndex; x > 0; x--) {
+    days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+  }
+
+  for (let i = 1; i <= lastDay; i++) {
+    if (
+      i === new Date().getDate() &&
+      date.getMonth() === new Date().getMonth()
+    ) {
+      days += `<div class="today">${i}</div>`;
+    } else {
+      days += `<div>${i}</div>`;
     }
-
-    calendarDaysContent.innerHTML = calendarHTML;
   }
 
-  function goToPreviousMonth() {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    updateCalendar();
-  }
+  monthDays.innerHTML = days;
+};
 
-  function goToNextMonth() {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    updateCalendar();
-  }
-
-  prevMonthButton.addEventListener("click", goToPreviousMonth);
-  nextMonthButton.addEventListener("click", goToNextMonth);
-
-  updateCalendar();
+document.getElementById("prevMonthButton").addEventListener("click", () => {
+  date.setMonth(date.getMonth() - 1);
+  renderCalendar();
 });
+
+document.getElementById("nextMonthButton").addEventListener("click", () => {
+  date.setMonth(date.getMonth() + 1);
+  renderCalendar(); 
+});
+
+renderCalendar();
