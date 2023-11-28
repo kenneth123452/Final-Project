@@ -79,6 +79,17 @@
     }
       
       function submitForm() {
+        var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
+        var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
+        var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
+        var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
+
+          calculateAndDisplayExpense("foodExpenses", expenseValue1);
+          calculateAndDisplayExpense("transportationExpenses", expenseValue2);
+          calculateAndDisplayExpense("schoolExpenses", expenseValue3);
+          calculateAndDisplayExpense("other", expenseValue4);
+          calculateAndDisplayTotal();
+          
       console.log("Form submitted");
       return true;
     }
