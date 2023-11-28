@@ -67,7 +67,7 @@
 
 .calendar-days-content {
   display: grid;
-  grid-template-columns: repeat(7, 140fr);
+  grid-template-columns: repeat(7, 300fr);
   gap: 10px;
 }
 
