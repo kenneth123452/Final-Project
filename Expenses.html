@@ -92,11 +92,6 @@
       calculateAndDisplayTotal();
 
       console.log("Form submitted");
-          
-        var index = "Goal.html";
-          
-        window.location.href = index;
-         
           return false;
     }
 
@@ -126,6 +121,9 @@
         localStorage.setItem("Remaining Allowance", remainingWeeklyAllowance);
       }
     }
+       var index = "Goal.html";
+        window.location.href = index;
+      }
     function goBack() {
       window.history.back();
     }
