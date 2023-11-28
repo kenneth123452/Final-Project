@@ -92,6 +92,8 @@
       calculateAndDisplayTotal();
 
       console.log("Form submitted");
+            var index = "Goal.html";
+            window.location.href = index;
           return false;
     }
 
@@ -120,8 +122,6 @@
         document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
         localStorage.setItem("Remaining Allowance", remainingWeeklyAllowance);
       }
-         var index = "Goal.html";
-        window.location.href = index;
     }
     function goBack() {
       window.history.back();
