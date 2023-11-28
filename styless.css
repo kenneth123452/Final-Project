@@ -18,13 +18,7 @@
     align-items: center;
     justify-content: space-between;
 }
-.logo{
-    background-image: url("logo.png");
-    width: 160px;
-    height: 80px;
-    cursor: pointer;
-}
-.navbar ul li{
+}.navbar ul li{
     list-style: none;
     display: inline-block;
     margin: 0 20px;
