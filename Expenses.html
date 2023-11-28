@@ -42,7 +42,7 @@
 </head>
 
 <body>
-<form id="myForm" onsubmit="return calculateAndDisplayTotal();">
+<form id="myForm" onsubmit="return submitForm();">
     <label for="expenseType">Expense Type</label>
     <select id="expenseType">
       <option value="foodExpenses">Food Expenses</option>
@@ -107,6 +107,7 @@
         console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
         document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
       }
+        return false;
     }
 
     function goBack() {
