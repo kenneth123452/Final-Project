@@ -66,8 +66,7 @@
     <p id="result"></p>
     <div id="displayValue"></div>
     <p id="remainingAllowance"></p>
-    <button type="button" onclick="moveToAnotherPage()">Submit</button>
-    <!--<button type="submit">Submit</button>-->
+    <button type="submit">Submit</button>
     <button onclick="goBack()">Back</button>
   </form>
 
@@ -94,10 +93,6 @@
       console.log("Form submitted");
           return false;
     }
-        function moveToAnotherPage() {
-          var index = "Goal.html";
-          window.location.href = index;
-     }
     function calculateAndDisplayExpense(expenseType, expenseValue) {
       var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
       var newTotal = currentTotal + expenseValue;
