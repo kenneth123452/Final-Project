@@ -14,15 +14,15 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 100vw;
+  max-width: 99vw;
 }
 
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300%;
-  max-width: 100vw;
+  width: 100%;
+  max-width: 99vw;
   padding: 10px;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
@@ -48,7 +48,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  width: 100%; 
+  max-width: 99vw;
   padding: 20px;
 }
 
@@ -70,7 +71,7 @@ body {
 
 .calendar-days-content {
   display: grid;
-  grid-template-columns: repeat(7, 350fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 5px;
 }
 
@@ -85,9 +86,9 @@ body {
   background-color: lightblue;
 }
 
-/* Ensure the width of .day-box is consistent with the width of the columns */
+
 .day-box {
-  width: 120px; /* Adjust this value to your desired width */
+  width: 120px; 
   height: 80px;
   background-color: #fff;
   border: 1px solid #ccc;
