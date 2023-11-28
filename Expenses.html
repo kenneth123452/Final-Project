@@ -42,7 +42,7 @@
 </head>
 
 <body>
-  <form id="myForm" onsubmit="submitForm(); return false;">
+ <form id="myForm" onsubmit="submitForm(); return false;">
     <label for="expenseType">Expense Type</label>
     <select id="expenseType">
       <option value="foodExpenses">Food Expenses</option>
@@ -62,7 +62,7 @@
     <label for="other">Other</label>
     <input id="other" type="number" min="0" max="2000" required>
 
-  <button type="button" onclick="calculate()">Calculate</button>
+    <button onclick="calculate()">Calculate</button>
     <p id="result"></p>
     <div id="displayValue"></div>
     <p id="remainingAllowance"></p>
@@ -91,8 +91,9 @@
       calculateAndDisplayTotal();
 
       console.log("Form submitted");
-          return false;
+      return false;
     }
+
     function calculateAndDisplayExpense(expenseType, expenseValue) {
       var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
       var newTotal = currentTotal + expenseValue;
@@ -116,9 +117,9 @@
       if (remainingWeeklyAllowance >= 0) {
         console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
         document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
-        localStorage.setItem("Remaining Allowance", remainingWeeklyAllowance);
       }
     }
+
     function goBack() {
       window.history.back();
     }
