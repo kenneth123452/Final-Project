@@ -3,129 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goal Week Tracker</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Financial Goal Tracker</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
         }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #fff;
+        #goal-form {
+            max-width: 400px;
+            margin: 50px auto;
             padding: 20px;
-            border-radius: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
         }
 
         button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
 
-        canvas {
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
             margin-top: 20px;
-            max-width: 400px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Goal Week Tracker</h1>
-    </header>
+<div id="goal-form">
+    <h2>Set Financial Goal</h2>
+    <label for="goal-amount">Desired Goal Amount:</label>
+    <input type="number" id="goal-amount" placeholder="Enter goal amount" required>
 
-    <main>
-        <label for="goalInput">Goal:</label>
-        <input type="text" id="goalInput" placeholder="Enter your goal">
+    <label for="time-frame">Time Frame:</label>
+    <select id="time-frame">
+        <option value="week">Per Week</option>
+        <option value="month">Per Month</option>
+        <option value="year">Per Year</option>
+    </select>
 
-        <label for="dateInput">Target Date:</label>
-        <input type="date" id="dateInput">
+    <button onclick="calculateRecommendedSpending()">Set Goal</button>
 
-        <button onclick="addGoal()">Add Goal</button>
+    <div id="result"></div>
+</div>
 
-        <canvas id="goalChart"></canvas>
-    </main>
+<script>
+    function calculateRecommendedSpending() {
+        const goalAmount = parseFloat(document.getElementById('goal-amount').value);
+        const timeFrame = document.getElementById('time-frame').value;
 
-    <script>
-        // Load existing data from local storage
-        let goalsData = JSON.parse(localStorage.getItem('goalsData')) || {
-            labels: [],
-            datasets: [{
-                data: [],
-                backgroundColor: [
-                    '#FF6384',
-                    '#36A2EB',
-                    '#FFCE56',
-                    '#4BC0C0',
-                    '#9966FF',
-                ],
-            }],
-        };
+        const currentDate = new Date();
+        const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+        let daysDifference;
 
-        let remainingAllowance = localStorage.getItem("Remaining Allowance");
-        
-        if (remainingAllowance !== null) {
-            console.log("Remaining Allowance: ₱" + remainingAllowance);
+        switch (timeFrame) {
+            case 'week':
+                daysDifference = 7;
+                break;
+            case 'month':
+                daysDifference = daysInMonth;
+                break;
+            case 'year':
+                daysDifference = 365;
+                break;
+            default:
+                daysDifference = 1;
         }
 
-        const ctx = document.getElementById('goalChart').getContext('2d');
-        const goalChart = new Chart(ctx, {
-            type: 'bar', // Change chart type to 'bar'
-            data: goalsData,
-        });
+        const recommendedDailySpending = goalAmount / daysDifference;
 
-        function addGoal() {
-            const goalInput = document.getElementById('goalInput');
-            const dateInput = document.getElementById('dateInput');
-
-            if (goalInput.value.trim() !== '' && dateInput.value !== '') {
-                const goalLabel = goalInput.value;
-                const goalDate = dateInput.value;
-                
-                goalsData.labels.push(`${goalLabel} - ${goalDate}`);
-                goalsData.datasets[0].data.push(1);
-
-                goalChart.update();
-
-                localStorage.setItem('goalsData', JSON.stringify(goalsData));
-
-                goalInput.value = '';
-                dateInput.value = '';
-            }
-        }
-    </script>
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+            <h3>Recommended Daily Spending:</h3>
+            <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
+            <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
+        `;
+    }
+</script>
 
 </body>
 </html>
-
-
