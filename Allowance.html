@@ -66,9 +66,8 @@ button {
        <!--<button type="submit">Submit</button>-->
        <button type="submit">Submit</button>
        <div id="displayValue"></div>
+       button type="button" onclick="goBack()">Back</button>
     </form>
-       <button onclick="goBack()">Back</button>
-         <!--<div id="displayValue"></div>-->
 <script>
   function submitForm() {
         var allowanceValue = document.getElementById("value").value;
@@ -83,11 +82,15 @@ button {
         window.location.href = index;
   }
       
-     function goBack() {
-        window.history.back();
+      function goBack() {
+            var storedData = localStorage.getItem("Weekly Allowance");
+            if (storedData) {
+                var parsedData = JSON.parse(storedData);
+                document.getElementById("displayValue").innerText = "Stored Value: " + parsedData["Weekly Allowance"];
+            }
 
-    }
-    
+            window.history.back();
+      }
 </script>
 </body>
 </html>
