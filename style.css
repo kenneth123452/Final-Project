@@ -55,8 +55,9 @@ body {
 }
 
 .calendar-week-header span {
-  width: 210px;
+   width: calc(100% / 7); 
   text-align: center;
+  border: 1px solid #ccc; 
 }
 
 .calendar-body {
