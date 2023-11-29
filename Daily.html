@@ -8,6 +8,10 @@
 </head>
 <body>
     <div class="calendar-container">
+        <div class="daily-dashboard">
+            <p>Daily Dashboard Content</p>
+        </div>
+
         <div class="calendar-header">
             <div class="calendar-title">
                 <span>Daily - Dashboard</span>
@@ -17,11 +21,13 @@
                 <button id="nextMonthButton">Next Month</button>
             </div>
         </div>
+
         <div class="calendar-body">
             <div class="calendar-month">
                 <span id="monthDisplay"></span>
                 <span id="yearDisplay"></span>
             </div>
+
             <div class="calendar-days">
                 <div class="calendar-day-header">
                     <span>Mon</span>
@@ -33,10 +39,13 @@
                     <span>Sun</span>
                 </div>
                 <div class="calendar-days-content" id="calendarDaysContent">
+                    <!-- Calendar days will be populated dynamically -->
                 </div>
             </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
-</html
+</html>
+
