@@ -71,11 +71,11 @@ body {
 
 .calendar-days-content {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 150px);
   gap: 5px;
 }
 
-/* Remove explicit width from day boxes */
+
 .calendar-days-content > div {
   border: 1px solid #ccc;
   padding: 10px;
