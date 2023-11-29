@@ -63,13 +63,13 @@ button {
    <form id="myForm" onsubmit="submitForm(); return false;">
     <label for="value">Weekly Allowance:</label>
     <input id="value" type="number" min="100" max="2000">
-       <button type="submit">Submit</button>
+       <!--<button type="submit">Submit</button>-->
+       <button onclick="goBack()">Back</button>
         <button onclick="goBack()">Back</button>
        <div id="displayValue"></div>
     </form>
          <!--<div id="displayValue"></div>-->
 <script>
-    let formSubmitted = false;
   function submitForm() {
         var allowanceValue = document.getElementById("value").value;
         var dataToStore = {
@@ -81,8 +81,6 @@ button {
         //document.getElementById("displayValue").innerText = "Entered Value: " + allowanceValue;
         var index = "Expenses.html";
         window.location.href = index;
-
-      formSubmitted = true;
       
     }
      function goBack() {
