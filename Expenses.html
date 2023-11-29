@@ -59,10 +59,8 @@ button {
     </style>
     <title>Weekly Expenses</title>
 </head>
-
-
 <body>
-   <form id="myForm" onsubmit="submitForm(); return false;">
+  <form id="myForm" onsubmit="submitForm(); return false;">
     <label for="expenseType">Expense Type</label>
     <select id="expenseType">
       <option value="foodExpenses">Food Expenses</option>
@@ -86,8 +84,7 @@ button {
     <p id="result"></p>
     <div id="displayValue"></div>
     <p id="remainingAllowance"></p>
-    <button onclick="submit()">Submit</button>
-    <!--<button type="submit">Submit</button>-->
+    <button type="submit">Submit</button>
     <button onclick="goBack()">Back</button>
   </form>
 
@@ -100,7 +97,7 @@ button {
       document.getElementById("displayValue").innerText = "Weekly Allowance: ₱" + weeklyAllowance;
     }
       
-    function submitForm() {
+      function submitForm() {
       var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
       var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
       var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
@@ -110,12 +107,10 @@ button {
       calculateAndDisplayExpense("transportationExpenses", expenseValue2);
       calculateAndDisplayExpense("schoolExpenses", expenseValue3);
       calculateAndDisplayExpense("other", expenseValue4);
-
-      // This line was moved after the console.log statement
-      var result = calculateAndDisplayTotal();
+      calculateAndDisplayTotal();
 
       console.log("Form submitted");
-      return result;
+      return false;
     }
 
     function calculateAndDisplayExpense(expenseType, expenseValue) {
@@ -141,20 +136,6 @@ button {
       if (remainingWeeklyAllowance >= 0) {
         console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
         document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
-      }
-
-      // Return true if the form submission was successful
-      return true;
-    }
-
-    function submit() {
-      // Check if the form submission was successful before navigating
-      if (submitForm()) {
-        var confirmation = confirm("THANK YOU FOR ANSWERING?");
-        if (confirmation) {
-          var index = "index.html";
-          window.location.href = index;
-        }
       }
     }
 
