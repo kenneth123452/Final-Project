@@ -73,6 +73,13 @@ body {
   margin-bottom: 10px;
 }
 
+.calendar-day-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 5px 10px;
+}
+
 .calendar-day-header span {
   width: 100%;
   text-align: center;
@@ -88,5 +95,24 @@ body {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.today {
+  background-color: lightblue;
+}
+
+.day-box {
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 
