@@ -71,7 +71,7 @@ body {
 
 .calendar-days-content {
   display: grid;
-  grid-template-columns: repeat(7, 250px);
+  grid-template-columns: repeat(7, 180px);
   gap: 5px;
 }
 
