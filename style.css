@@ -44,6 +44,24 @@ body {
   background-color: #ddd;
 }
 
+.calendar-week-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 5px 10px;
+}
+
+.calendar-week-header span {
+  width: 210px;
+  text-align: center;
+  
+.calendar-week-header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+}
 .calendar-body {
   display: flex;
   flex-direction: column;
@@ -86,7 +104,7 @@ body {
   background-color: lightblue;
 }
 .day-box {
-  width: 150px; 
+  width: 100%; 
   height: 300px;
   background-color: #fff;
   border: 1px solid #ccc;
