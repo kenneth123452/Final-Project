@@ -81,7 +81,7 @@ body {
 }
 
 .calendar-day-header span {
-  width: 40px;
+  width: 100%;
   text-align: center;
 }
 
@@ -95,6 +95,9 @@ body {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .today {
