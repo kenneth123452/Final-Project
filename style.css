@@ -49,24 +49,21 @@ body {
   justify-content: space-between;
   background-color: #fff;
   padding: 5px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .calendar-week-header span {
   width: 210px;
   text-align: center;
-  
-.calendar-week-header {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 1;
 }
-}
+
 .calendar-body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%; 
+  width: 80%;
   max-width: 99vw;
   padding: 20px;
 }
@@ -93,7 +90,6 @@ body {
   gap: 5px;
 }
 
-
 .calendar-days-content > div {
   border: 1px solid #ccc;
   padding: 10px;
@@ -103,8 +99,9 @@ body {
 .today {
   background-color: lightblue;
 }
+
 .day-box {
-  width: 100%; 
+  width: 100%;
   height: 300px;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -112,6 +109,5 @@ body {
   margin: 5px;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
-
