@@ -64,10 +64,10 @@ button:hover::after {
 }
 
 logo {
-            width: 10px; /* Adjust the width as needed */
-            height: auto; /* Maintain aspect ratio */
-            position: absolute;
-            top: 20px; /* Adjust the top position as needed */
-            left: 20px; /* Adjust the left position as needed */
-        }
+  max-width: 1in;
+  max-height: 1in;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
   
