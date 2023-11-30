@@ -111,10 +111,7 @@ button {
           
 
       console.log("Form submitted");
-      var remainingWeeklyAllowance = weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
-      if (remainingWeeklyAllowance >= 0) {
-      window.location.href = "index.html";
-    }
+      return false;
      }
 
     function calculateAndDisplayExpense(expenseType, expenseValue) {
@@ -136,10 +133,12 @@ button {
 
       console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
       document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
-
+        
+      var remainingWeeklyAllowance = weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
       if (remainingWeeklyAllowance >= 0) {
         console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
         document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
+        window.location.href = "index.html";
       }
     }
 
