@@ -19,8 +19,8 @@
     justify-content: space-between;
 }
 .logo{
-    width: 100px;
-    height: 100px;
+    width: 1in;
+    height: 1in;
     cursor: pointer;
 }
 .navbar ul li{
@@ -52,12 +52,12 @@
 }
 .Budgeting{
     width: 50%;
-    transform: translate(30%, -235%);
+    transform: translate(15%, -285%);
     position: fixed;
     text-align: center;
     color: #fff;
     margin-top: 5px;
-    font-size: larger;
+    font-size: medium;
 }
 .footer {
   background-color: rgba(255, 255, 255, 0); /* Transparent background */
@@ -68,7 +68,8 @@
   transform: translate(-10%,-50%);
   width: 100%;
   color: white;
-}.content{
+}
+.content{
     width: 100%;
     position: absolute;
     top: 45%;
