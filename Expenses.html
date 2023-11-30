@@ -111,8 +111,11 @@ button {
           
 
       console.log("Form submitted");
-     window.location.href = "index.html";
+      var remainingWeeklyAllowance = weeklyAllowance - (expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4);
+      if (remainingWeeklyAllowance >= 0) {
+      window.location.href = "index.html";
     }
+     }
 
     function calculateAndDisplayExpense(expenseType, expenseValue) {
       var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
