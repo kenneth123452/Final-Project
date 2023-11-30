@@ -59,9 +59,9 @@
     color: #fff;
     margin-top: 5px;
 }
-.footer {
-  .main-content {
-  flex: 1;
+
+.main-content {
+flex: 1;
 }
 .footer {
   background-color: rgba(255, 255, 255, 0); /* Adjust the last value (0.8) to make it more or less transparent */
