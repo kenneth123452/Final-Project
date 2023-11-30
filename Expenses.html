@@ -133,6 +133,11 @@ button {
 
       console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
       document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
+     
+        if (remainingWeeklyAllowance >= 0) {
+        console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
+        document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
+      }
     }
 
     function goBack() {
