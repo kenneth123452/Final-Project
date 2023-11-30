@@ -69,5 +69,8 @@ button:hover::after {
   cursor: pointer;
   display: block;
   margin: 0 auto;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
   
