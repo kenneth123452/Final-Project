@@ -4,58 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Goal Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        #goal-form {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #result {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="Goal Style.css">
 </head>
 <body>
-
+<div class="banner">
 <div id="goal-form">
     <h2>Set Financial Goal</h2>
-    <label for="goal-amount">Desired Goal Amount:</label>
+    <label for="goal-amount">Desired Goal Amount</label>
     <input type="number" id="goal-amount" placeholder="Enter goal amount" required>
 
-    <label for="time-frame">Time Frame:</label>
+    <label for="time-frame">Time Frame</label>
     <select id="time-frame">
         <option value="week">Per Week</option>
         <option value="month">Per Month</option>
@@ -64,22 +22,11 @@
 
     <button onclick="calculateRecommendedSpending()">Set Goal</button>
 
-    <div id="result"></div>
-</div>
+    <div id="result"></div> 
 
-<script>
-    function calculateRecommendedSpending() {
-        const goalAmount = parseFloat(document.getElementById('goal-amount').value);
-        const timeFrame = document.getElementById('time-frame').value;
+</div>div
 
-        const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
-
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = `
-            <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
-        `;
-    }
-</script>
+<script src="Goaljs.js"></script>
 
 </body>
 </html>
