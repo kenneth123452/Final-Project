@@ -59,10 +59,6 @@
     color: #fff;
     margin-top: 5px;
 }
-
-.main-content {
-flex: 1;
-}
 .footer {
   background-color: rgba(255, 255, 255, 0); /* Adjust the last value (0.8) to make it more or less transparent */
   padding: 20px; /* Adjust the padding as needed */
