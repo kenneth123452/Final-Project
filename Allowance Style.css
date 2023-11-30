@@ -60,4 +60,12 @@ body {
 button:hover::after {
   width: 100%;
 }
+
+.logo {
+  max-width: 1in;
+  max-height: 1in;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
   
