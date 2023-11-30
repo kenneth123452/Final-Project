@@ -4,57 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Permissions-Policy" content="...">
-    
-    <style>
-       body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 50px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-label {
-  font-size: 18px;
-  font-weight: 500;
-  display: block;
-  margin-bottom: 5px;
-}
-
-input,
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-}
-    </style>
+    <link rel="stylesheet" href="Allowance Style.css">
     <title>Dropdown Menu</title>
 </head>
 <body>
@@ -66,29 +16,6 @@ button {
        <button type="button" onclick="goBack()">Back</button>
        <div id="displayValue"></div>
     </form>
-<script>
-  function submitForm() {
-        var allowanceValue = document.getElementById("value").value;
-        var dataToStore = {
-            "Weekly Allowance": allowanceValue
-        };
-        var jsonString = JSON.stringify(dataToStore);
-        localStorage.setItem("Weekly Allowance", jsonString);
-      
-        //document.getElementById("displayValue").innerText = "Entered Value: " + allowanceValue;
-        var index = "Expenses.html";
-        window.location.href = index;
-  }
-      
-      function goBack() {
-            var storedData = localStorage.getItem("Weekly Allowance");
-            if (storedData) {
-                var parsedData = JSON.parse(storedData);
-                document.getElementById("displayValue").innerText = "Stored Value: " + parsedData["Weekly Allowance"];
-            }
-
-            window.history.back();
-      }
-</script>
+<script src="Allowancejs.js"></script>
 </body>
 </html>
