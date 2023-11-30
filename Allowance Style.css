@@ -62,8 +62,8 @@ button:hover::after {
 }
 
 .logo {
-  max-width: 1in;
-  max-height: 1in;
+  max-width: 2.54cm;
+  max-height: 2.54cm;
   cursor: pointer;
   display: block;
   margin: 0 auto;
