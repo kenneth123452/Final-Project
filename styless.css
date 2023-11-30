@@ -52,10 +52,8 @@
 }
 .Budgeting{
     width: 50%;
-    position: absolute;
-    top: 10%;
-    transform: translateY(-50%);
-    transform: transateX(-70%);
+    transform: translate(30%, -235%);
+    position: fixed;
     text-align: center;
     color: #fff;
     margin-top: 5px;
