@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="...">
+    <link rel="stylesheet" href="Allowance Style.css">
+    <title>Dropdown Menu</title>
+</head>
+<body>
+   <form id="myForm" onsubmit="submitForm(); return false;">
+    <label for="value">Weekly Allowance:</label>
+    <input id="value" type="number" min="100" max="2000">
+       <!--<button type="submit">Submit</button>-->
+       <button type="submit">Submit</button>
+       <button type="button" onclick="goBack()">Back</button>
+       <div id="displayValue"></div>
+    </form>
+<script src="Allowancejs.js"></script>
+</body>
+</html>
