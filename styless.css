@@ -62,11 +62,14 @@
     font-size: larger;
 }
 .footer {
-  background-color: rgba(255, 255, 255, 0); /* Adjust the last value (0.8) to make it more or less transparent */
-  padding: 20px; /* Adjust the padding as needed */
+  background-color: rgba(255, 255, 255, 0); /* Transparent background */
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
   color: white;
-  align-self: center; /* Center the footer horizontally */
-}
 }.content{
     width: 100%;
     position: absolute;
