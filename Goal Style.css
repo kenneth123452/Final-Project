@@ -1,1 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg');
+    background-size: auto;
+    background-position: center;
+
+}
+
+#goal-form{
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.995);
+    color: white;
+    transform: translateY(80%);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    background: none;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        color: #ffffff;
+        text-transform: uppercase;
+        position: relative;
+        transform: translateX(130%);
+
+  }
+  button::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.5s;
+}
+button:hover::after {
+  width: 100%;
+}
 
