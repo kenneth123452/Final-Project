@@ -84,7 +84,7 @@ button {
     <p id="result"></p>
     <div id="displayValue"></div>
     <p id="remainingAllowance"></p>
-    <button type="submit">Submit</button>
+     <button type="button" onclick="redirectToAnotherPage()">Submit</button>
     <button onclick="goBack()">Back</button>
   </form>
 
@@ -138,6 +138,10 @@ button {
         console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
         document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
       }
+    }
+
+      function redirectToAnotherPage() {
+      window.location.href = "index.html";
     }
 
     function goBack() {
