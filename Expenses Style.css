@@ -62,12 +62,12 @@ button:hover::after {
 }
 
 .logo-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
-}
+ position: fixed;
+    top: 10px; /* Adjust the distance from the top */
+    left: 10px; /* Adjust the distance from the left */
+    width: 100px;
+    height: 100px;
+    padding: 10px; /* Optional padding for better visibility */
 
 .logo-container img {
   width: 100%;
