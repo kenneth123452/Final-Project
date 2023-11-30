@@ -61,19 +61,11 @@ button:hover::after {
   width: 100%;
 }
 
-#logo-container {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            width: 100px;
-            height: 100px;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        #logo-container img {
-            width: 50%;
-            height: 50%;
-            cursor: pointer;
+logo {
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            position: absolute;
+            top: 20px; /* Adjust the top position as needed */
+            left: 20px; /* Adjust the left position as needed */
         }
   
