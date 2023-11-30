@@ -61,15 +61,15 @@ button:hover::after {
   width: 100%;
 }
 
-logo-container {
-  position: absolute;
+.logo-container {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100px;
   height: 100px;
 }
 
-logo-container img {
+.logo-container img {
   width: 100%;
   height: 100%;
 }
