@@ -64,7 +64,7 @@
     position: absolute;
     top: 100%;
     transform: translateY(-50%);
-    text-align: center;
+    text-align: end;
     color: #fff;
     margin-top: 5px;
     font-size: larger;
