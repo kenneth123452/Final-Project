@@ -63,7 +63,7 @@ button:hover::after {
   width: 100%;
 }
 
-logo {
+.logo {
   max-width: 1in;
   max-height: 1in;
   cursor: pointer;
