@@ -5,10 +5,11 @@ body {
     background-repeat: no-repeat;
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    display: flex;
+    display: flex-start;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    position: relative;
 }
 
 form {
@@ -26,6 +27,7 @@ label {
     font-weight: 500;
     display: block;
     margin-bottom: 5px;
+    position: relative;
 }
 
 input,
