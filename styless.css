@@ -65,7 +65,7 @@
   position: fixed;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-10%,-50%);
   width: 100%;
   color: white;
 }.content{
