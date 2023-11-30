@@ -6,142 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 
-    <style>
-       body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 50px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-label {
-  font-size: 18px;
-  font-weight: 500;
-  display: block;
-  margin-bottom: 5px;
-}
-
-input,
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-}
-    </style>
+    <link rel="stylesheet" href="Expenses Style.css">
     <title>Weekly Expenses</title>
 </head>
+
 <body>
-  <form id="myForm" onsubmit="submitForm(); return false;">
-    <label for="expenseType">Weekly Expense Type:</label>
-      
-    <label for="foodExpenses">Personal Expenses:</label>
-    <input id="foodExpenses" type="number" min="0" max="2000" required>
+    <form id="myForm" onsubmit="submitForm(); return false;">
+        <label for="expenseType">Weekly Expense Type:</label>
 
-    <label for="transportationExpenses">Transportation Expenses:</label>
-    <input id="transportationExpenses" type="number" min="0" max="2000" required>
+        <label for="foodExpenses">Personal Expenses:</label>
+        <input id="foodExpenses" type="number" min="0" max="2000" required>
 
-    <label for="schoolExpenses">School Expenses:</label>
-    <input id="schoolExpenses" type="number" min="0" max="2000" required>
+        <label for="transportationExpenses">Transportation Expenses:</label>
+        <input id="transportationExpenses" type="number" min="0" max="2000" required>
 
-    <label for="other">Other Expenses:</label>
-    <input id="other" type="number" min="0" max="2000" required>
+        <label for="schoolExpenses">School Expenses:</label>
+        <input id="schoolExpenses" type="number" min="0" max="2000" required>
 
-    <button onclick="calculate()">Calculate</button>
-    <p id="result"></p>
-    <div id="displayValue"></div>
-    <p id="remainingAllowance"></p>
-     <button type="button" onclick="redirectToAnotherPage()">Submit</button>
-    <button onclick="goBack()">Back</button>
-  </form>
+        <label for="other">Other Expenses:</label>
+        <input id="other" type="number" min="0" max="2000" required>
 
-  <script>
-    // Retrieve the stored value
-    var storedData = localStorage.getItem("Weekly Allowance");
-    if (storedData) {
-      var parsedData = JSON.parse(storedData);
-      var weeklyAllowance = parsedData["Weekly Allowance"];
-      document.getElementById("displayValue").innerText = "Weekly Allowance: ₱" + weeklyAllowance;
-    }
-      
-      function submitForm() {
-      var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
-      var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
-      var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
-      var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
-          
-      calculateAndDisplayExpense("foodExpenses", expenseValue1);
-      calculateAndDisplayExpense("transportationExpenses", expenseValue2);
-      calculateAndDisplayExpense("schoolExpenses", expenseValue3);
-      calculateAndDisplayExpense("other", expenseValue4);
-      calculateAndDisplayTotal();
-          
+        <button onclick="calculate()">Calculate</button>
+        <p id="result"></p>
+        <div id="displayValue"></div>
+        <p id="remainingAllowance"></p>
+        <button type="button" onclick="redirectToAnotherPage()">Submit</button>
+        <button onclick="goBack()">Back</button>
+    </form>
 
-      console.log("Form submitted");
-     return false;
-     }
-
-    function calculateAndDisplayExpense(expenseType, expenseValue) {
-      var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
-      var newTotal = currentTotal + expenseValue;
-
-      console.log(expenseType + " Expenses: ₱" + newTotal);
-      localStorage.setItem(expenseType, newTotal);
-    }
-
-    function calculateAndDisplayTotal() {
-      var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
-      var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
-      var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
-      var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
-
-      var totalAllExpenses = expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4;
-      var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
-
-      console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
-      document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
-     
-        if (remainingWeeklyAllowance >= 0) {
-        console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
-        document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
-      }
-    }
-
-      function redirectToAnotherPage() {
-      window.location.href = "index.html";
-    }
-
-    function goBack() {
-      window.history.back();
-    }
-  </script>
+    <script src="Expensesjs.js"></script>
 </body>
+
 </html>
