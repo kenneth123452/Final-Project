@@ -65,8 +65,8 @@ button:hover::after {
  position: fixed;
     top: 10px; /* Adjust the distance from the top */
     left: 10px; /* Adjust the distance from the left */
-    width: 100px;
-    height: 100px;
+    width: 10px;
+    height: 10px;
     padding: 10px; /* Optional padding for better visibility */
 
 .logo-container img {
