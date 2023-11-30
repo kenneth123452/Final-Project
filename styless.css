@@ -55,6 +55,7 @@
     position: absolute;
     top: 10%;
     transform: translateY(-50%);
+    transform: transateX(-30%);
     text-align: center;
     color: #fff;
     margin-top: 5px;
