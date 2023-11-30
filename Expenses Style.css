@@ -61,7 +61,7 @@ button:hover::after {
   width: 100%;
 }
 
-.logo-container {
+#logo-container {
             position: fixed;
             top: 10px;
             left: 10px;
@@ -71,7 +71,7 @@ button:hover::after {
             box-sizing: border-box;
         }
 
-        .logo-container img {
+        #logo-container img {
             width: 50%;
             height: 50%;
             cursor: pointer;
