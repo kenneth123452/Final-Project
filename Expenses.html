@@ -84,7 +84,7 @@ button {
     <p id="result"></p>
     <div id="displayValue"></div>
     <p id="remainingAllowance"></p>
-    <button type="submit">Submit</button>
+     <button type="button" onclick="submitForm()">Submit</button>
     <button onclick="goBack()">Back</button>
   </form>
 
@@ -111,7 +111,7 @@ button {
           
 
       console.log("Form submitted");
-      return false;
+     window.location.href = "index.html";
     }
 
     function calculateAndDisplayExpense(expenseType, expenseValue) {
