@@ -61,17 +61,17 @@ button:hover::after {
   width: 100%;
 }
 
-/*.logo-container {
+.logo-container {
  position: fixed;
     top: 10px; 
     left: 10px; 
     width: 10px;
     height: 10px;
-    padding: 10px;*/
-
+    padding: 10px;
+}
 .logo-container img {
-  width: 1in;
-    height: 1in;
+  width: 10px;
+    height: 10px;
     cursor: pointer;
 }
   
