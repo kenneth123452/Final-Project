@@ -9,7 +9,6 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    position: relative;
 }
 
 form {
@@ -27,7 +26,6 @@ label {
     font-weight: 500;
     display: block;
     margin-bottom: 5px;
-    position: relative;
 }
 
 input,
@@ -47,7 +45,6 @@ button {
         cursor: pointer;
         color: #000000;
         text-transform: uppercase;
-        position: relative;
   }
   button::after {
     content: '';
