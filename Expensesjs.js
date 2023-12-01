@@ -45,6 +45,7 @@ function calculateAndDisplayTotal() {
     if (remainingWeeklyAllowance >= 0) {
         console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
         document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
+        localStorage.setItem("Remaining Allowance", remainingWeeklyAllowance);
     }
 }
 
