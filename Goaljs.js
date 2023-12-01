@@ -70,4 +70,11 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
         });
     }
 }
+    
+    function submitGoal() {
+    window.location.href = "Daily.html";
+}
+    function goBack() {
+    window.location.href = "Expenses.html";
+}
 
