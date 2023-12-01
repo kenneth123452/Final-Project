@@ -23,7 +23,7 @@ function updateProgressAndChart(goalAmount) {
     const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
     const goalInfoString = localStorage.getItem('goalInfo');
     
-    if (retrievedRemainingAllowance !== null) {
+    if (retrievedRemainingAllowance !== null && !isNaN(retrievedRemainingAllowance)) {
         console.log("Retrieved Remaining Allowance: ₱" + retrievedRemainingAllowance);
         document.getElementById("displayRemainingAllowance").innerText = "Remaining Allowance: ₱" + retrievedRemainingAllowance;
 
@@ -44,9 +44,9 @@ function updateProgressAndChart(goalAmount) {
         updateProgressBar(percentageCompletion);
         createOrUpdateBarChart(goalInfo.remainingAllowance, goalAmount);
         
+        }
     }
 }
-
 function updateProgressBar(percentage) {
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
@@ -107,6 +107,7 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
     document.getElementById('backButton').addEventListener('click', goBack);
     
     function submitGoal() {
+    updateCompletionDate()
     window.location.href = "Daily.html";
 }
     function goBack() {
