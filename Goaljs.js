@@ -9,18 +9,20 @@ function calculateRecommendedSpending() {
     resultDiv.innerHTML = `
         <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
     `;
+    
     if (retrievedRemainingAllowance !== null) {
         console.log("Retrieved Remaining Allowance: ₱" + retrievedRemainingAllowance);
         // Do something with the retrievedRemainingAllowance, such as displaying it on the page
         document.getElementById("displayRemainingAllowance").innerText = "Remaining Allowance: ₱" + retrievedRemainingAllowance;
         // Calculate percentage completion
         const percentageCompletion = (retrievedRemainingAllowance / goalAmount) * 100;
+        console.log("Percentage Completion: " + percentageCompletion); // Debugging line
         // Update the progress bar and text
         updateProgressBar(percentageCompletion);
-      }
-      
         createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
+    }
 }
+
 
     function updateProgressBar(percentage) {
       const progressBar = document.getElementById('progressBar');
@@ -31,8 +33,8 @@ function calculateRecommendedSpending() {
     }
 
     function createOrUpdateBarChart(remainingAllowance, goalAmount) {
-        const ctx = document.getElementById('barChart').getContext('2d');
-        const data = {
+    const ctx = document.getElementById('barChart').getContext('2d');
+    const data = {
         labels: ['Remaining Allowance', 'Goal'],
         datasets: [{
             label: 'Completion',
