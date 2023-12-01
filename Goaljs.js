@@ -18,10 +18,8 @@ function calculateRecommendedSpending() {
         // Update the progress bar and text
         updateProgressBar(percentageCompletion);
       }
-     /*const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = `
-        <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
-    `;*/
+      
+        createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
 }
 
     function updateProgressBar(percentage) {
@@ -31,3 +29,46 @@ function calculateRecommendedSpending() {
       progressBar.style.width = `${percentage}%`;
       progressText.innerText = `Progress: ${percentage.toFixed(2)}%`;
     }
+
+    function createOrUpdateBarChart(remainingAllowance, goalAmount) {
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const data = {
+        labels: ['Remaining Allowance', 'Goal'],
+        datasets: [{
+            label: 'Completion',
+            data: [remainingAllowance, goalAmount - remainingAllowance],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)', // Remaining Allowance color
+                'rgba(255, 99, 132, 0.2)'  // Goal completion color
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    const options = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+
+    // Check if the chart already exists
+    if (window.myBarChart) {
+        // Update existing chart
+        window.myBarChart.data = data;
+        window.myBarChart.update();
+    } else {
+        // Create a new chart
+        window.myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+    }
+}
+
