@@ -3,20 +3,22 @@ function setGoal() {
     const timeFrame = document.getElementById('time-frame').value;
     const selectedDay = localStorage.getItem('selectedDay');
     const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = `
-            <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
-        `;
+    
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `
+        <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
+    `;
+
     updateProgressAndChart(goalAmount);
 
-    
     const goalInfo = {
         goalAmount: goalAmount,
         timeFrame: timeFrame,
-        completionDate: null // Set to null initially
+        completionDate: null, // Set to null initially
+        remainingAllowance: goalAmount // Initialize remaining allowance with the goal amount
     };
+
     localStorage.setItem('goalInfo', JSON.stringify(goalInfo));
-    
 }
 
 function updateProgressAndChart(goalAmount) {
@@ -113,4 +115,3 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
     function goBack() {
     window.location.href = "Expenses.html";
 }
-
