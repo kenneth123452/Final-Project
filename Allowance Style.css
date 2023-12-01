@@ -1,71 +1,75 @@
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 50px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-    text-align: center;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  label {
-    font-size: 18px;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 5px;
-    transform: translate(0%, -30%);
-  }
-  
-  input,select {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    background: none;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        color: #040404;
-        text-transform: uppercase;
-        position: relative;
-  }
-  button::after {
-    content: '';
-    height: 3px;
-    width: 0;
-    background: #009688;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transition: 0.5s;
-}
-button:hover::after {
-  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-logo {
-  transform: translate(300%, -2000%);
-  cursor: pointer;
-  display: block;
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-width: 400px;
   margin: 0 auto;
-  position: absolute;
 }
+
+label {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+  transform: translate(0%, -30%);
+}
+
+input,select {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+button {
+  background: none;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      color: #040404;
+      text-transform: uppercase;
+      position: relative;
+}
+.logo {
+  width: 100px; 
+  height: auto; 
+  cursor: pointer;
+  position: absolute;
+  left: 30px; 
+  top: 30px; 
   
+}
+
+
+button::after {
+  content: '';
+  height: 3px;
+  width: 0;
+  background: #009688;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: 0.5s;
+}
+button:hover::after {
+width: 100%;
+}
+
+
