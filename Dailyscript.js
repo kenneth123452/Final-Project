@@ -61,19 +61,30 @@ const renderCalendar = () => {
     day.addEventListener("click", handleDayClick);
   });
   if (goalInfo !== null) {
-      console.log("Retrieved Goal Info:", goalInfo);
-    
+      console.log("Retrieved Goal Info:", goalInfo);  
     }
 };
+
+const updateGoalElements = () => {
+            // Use goalInfo to update goal-related elements
+  if (goalInfo !== null) {
+        document.getElementById('goalAmountElement').innerText = goalInfo.goalAmount;
+        }
+};
+
 
 document.getElementById("prevMonthButton").addEventListener("click", () => {
   date.setMonth(date.getMonth() - 1);
   renderCalendar();
+  updateGoalElements();
+        
 });
 
 document.getElementById("nextMonthButton").addEventListener("click", () => {
   date.setMonth(date.getMonth() + 1);
   renderCalendar(); 
+  updateGoalElements();
+        
 });
 const openSchedulingModal = (day) => {
   document.getElementById("selectedDay").innerHTML = day;
@@ -110,3 +121,4 @@ document.getElementById("closeModalButton").addEventListener("click", () => {
 
 // Initial render
 renderCalendar();
+updateGoalElements();
