@@ -1,17 +1,27 @@
 function setGoal() {
     const goalAmount = parseFloat(document.getElementById('goal-amount').value);
     const timeFrame = document.getElementById('time-frame').value;
-    const selectedDay = localStorage.getItem('selectedDay'); 
+    const selectedDay = localStorage.getItem('selectedDay');
     const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
         const resultDiv = document.getElementById('result');
         resultDiv.innerHTML = `
             <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
         `;
     updateProgressAndChart(goalAmount);
+
+    
+    const goalInfo = {
+        goalAmount: goalAmount,
+        timeFrame: timeFrame,
+        completionDate: null // Set to null initially
+    };
+    localStorage.setItem('goalInfo', JSON.stringify(goalInfo));
+    
 }
 
 function updateProgressAndChart(goalAmount) {
     const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
+    const goalInfoString = localStorage.getItem('goalInfo');
     
     if (retrievedRemainingAllowance !== null) {
         console.log("Retrieved Remaining Allowance: ₱" + retrievedRemainingAllowance);
@@ -22,6 +32,18 @@ function updateProgressAndChart(goalAmount) {
         
         updateProgressBar(percentageCompletion);
         createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
+
+        if (goalInfoString !== null) {
+        const goalInfo = JSON.parse(goalInfoString);
+        console.log("Retrieved Remaining Allowance: ₱" + goalInfo.remainingAllowance);
+        document.getElementById("displayRemainingAllowance").innerText = "Remaining Allowance: ₱" + goalInfo.remainingAllowance;
+
+        const percentageCompletion = (goalInfo.remainingAllowance / goalAmount) * 100;
+        console.log("Percentage Completion: " + percentageCompletion);
+
+        updateProgressBar(percentageCompletion);
+        createOrUpdateBarChart(goalInfo.remainingAllowance, goalAmount);
+        
     }
 }
 
@@ -69,6 +91,15 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
             data: data,
             options: options
         });
+    }
+}
+    
+    function updateCompletionDate() {
+    const goalInfoString = localStorage.getItem('goalInfo');
+    if (goalInfoString !== null) {
+        const goalInfo = JSON.parse(goalInfoString);
+        goalInfo.completionDate = new Date().toLocaleDateString(); // Update completion date to the current date
+        localStorage.setItem('goalInfo', JSON.stringify(goalInfo));
     }
 }
 
