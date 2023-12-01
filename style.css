@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0; /* Added margin to reset any default margin */
+  margin: 0; 
   height: 100vh;
 }
 
