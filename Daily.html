@@ -10,7 +10,7 @@
 <body>
     <div class="calendar-container">
         <div class="calendar-header">
-         <img src="src/img/WiseBudgeLogo.png" class="logo">
+            <img src="src/img/WiseBudgeLogo.png" class="logo">
             <div class="calendar-title">
                 <span>Daily - Dashboard</span>
             </div>
@@ -44,21 +44,25 @@
     </div>
 
     <div id="schedulingModal" class="modal">
-    <div class="modal-content">
-      <span id="closeModalButton" class="close">&times;</span>
-      <h2>Schedule Event for <span id="selectedDay"></span></h2>
-      <form id="eventForm">
-        <label for="eventTitle">Title:</label>
-        <input type="text" id="eventTitle" required>
-        <label for="eventTime">Time:</label>
-        <input type="text" id="eventTime" required>
-        <label for="eventDescription">Description:</label>
-        <textarea id="eventDescription" rows="3"></textarea>
-        <button type="submit">Schedule Event</button>
-      </form>
+        <div class="modal-content">
+            <span id="closeModalButton" class="close">&times;</span>
+            <h2>Schedule Event for <span id="selectedDay"></span></h2>
+            <form id="eventForm">
+                <label for="eventTitle">Title:</label>
+                <input type="text" id="eventTitle" required>
+                <label for="eventTime">Time:</label>
+                <input type="text" id="eventTime" required>
+                <label for="eventDescription">Description:</label>
+                <textarea id="eventDescription" rows="3"></textarea>
+                <button type="submit">Schedule Event</button>
+            </form>
+        </div>
     </div>
 
     <script src="Dailyscript.js"></script>
+    <script>
+        // Add any additional scripts or modifications here
+    </script>
 </body>
 </html>
 
