@@ -16,6 +16,15 @@ body {
  width: 100%;
  max-width: 99vw;
 }
+.logo {
+    width: 100px; 
+    height: auto; 
+    cursor: pointer;
+    position: absolute;
+    left: 30px; 
+    top: 30px; 
+}
+ 
 
 .calendar-header {
  display: flex;
