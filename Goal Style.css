@@ -40,13 +40,13 @@ input, select {
     box-sizing: border-box;
 }
 .logo {
-  width: 100px; 
-  height: auto; 
-  cursor: pointer;
-  position: absolute;
-  left: 30px; 
-  top: 30px; 
-  
+    width: 100px; 
+    height: auto; 
+    cursor: pointer;
+    position: absolute;
+    left: 30px; 
+    top: 30px; 
+    
 }
 button {
     background: none;
