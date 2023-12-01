@@ -103,9 +103,10 @@ const handleFormSubmit = (event) => {
     if (selectedDay) {
         const eventData = {
             title: document.getElementById("eventTitle").value,
-            time: document.getElementById("eventTime").value,
-            description: document.getElementById("eventDescription").value,
+            day: document.getElementById("eventDay").value,
         };
+
+        const completionDate = new Date().toLocaleDateString();
 
         const goalInfo = {
             goalAmount: /* Set your goal amount here */,
