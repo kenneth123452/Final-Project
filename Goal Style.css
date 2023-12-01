@@ -50,7 +50,18 @@ button {
         position: relative;
         transform: translateX(130%);
 
-  }
+    /* Style for the "Submit" button */
+    #submitGoalButton {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
+    
+    /* Style for the "Back" button */
+    #backButton {
+        background-color: #f44336; /* Red */
+        color: white;
+    }
+    
   button::after {
     content: '';
     height: 3px;
@@ -60,7 +71,18 @@ button {
     left: 0;
     bottom: -5px;
     transition: 0.5s;
-}
-button:hover::after {
-  width: 100%;
-}
+      
+    }
+    button:hover::after {
+      width: 100%;
+    }
+    
+    /* Hover effect for "Submit" button */
+    #submitGoalButton:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+    
+    /* Hover effect for "Back" button */
+    #backButton:hover {
+        background-color: #d32f2f; /* Darker red on hover */
+    }
