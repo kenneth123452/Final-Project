@@ -61,7 +61,7 @@ button:hover::after {
   width: 100%;
 }
 
-.logo {
+logo {
   transform: translate(300%, -2000%);
   cursor: pointer;
   display: block;
