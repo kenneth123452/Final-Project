@@ -5,11 +5,10 @@ body {
     background-repeat: no-repeat;
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    display: flex-start;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
 }
 
 form {
@@ -21,7 +20,15 @@ form {
     max-width: 400px;
     margin: 0 auto;
 }
-
+.logo {
+    width: 100px; 
+    height: auto; 
+    cursor: pointer;
+    position: absolute;
+    left: 30px; 
+    top: 30px; 
+    
+}
 label {
     font-size: 18px;
     font-weight: 500;
@@ -46,6 +53,7 @@ button {
         cursor: pointer;
         color: #000000;
         text-transform: uppercase;
+        position: relative;
   }
   button::after {
     content: '';
@@ -60,12 +68,27 @@ button {
 button:hover::after {
   width: 100%;
 }
-
-.logo {
-  max-width: 1in;
-  max-height: 1in;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
+.back-button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #000000;
+    text-transform: uppercase;
+    position: relative;
+  }
+   button::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.5s;
 }
+  
+  .back-button:hover {
+    background-color: #00796b;
+  }
   
