@@ -62,8 +62,7 @@ button:hover::after {
 }
 
 .logo {
-  max-width: 2.54cm;
-  max-height: 2.54cm;
+  transform: translate(300%, -2000%);
   cursor: pointer;
   display: block;
   margin: 0 auto;
