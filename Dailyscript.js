@@ -5,9 +5,18 @@ const renderCalendar = () => {
 
   const monthDays = document.querySelector(".calendar-days-content");
   
-  const monthDays = document.querySelector(".calendar-days-content");
-  const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+   const lastDay = new Date(
+  date.getFullYear(),
+  date.getMonth() + 1,
+  0
+ ).getDate();
+
+ const prevLastDay = new Date(
+  date.getFullYear(),
+  date.getMonth(),
+  0
+ ).getDate();
+
 
   const firstDayIndex = date.getDay();
 
