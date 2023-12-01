@@ -35,7 +35,7 @@ function updateProgressAndChart(goalAmount) {
         updateProgressBar(percentageCompletion);
         createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
 
-        if (goalInfoString !== null) {
+        /*if (goalInfoString !== null) {
         const goalInfo = JSON.parse(goalInfoString);
         console.log("Retrieved Remaining Allowance: ₱" + goalInfo.remainingAllowance);
         document.getElementById("displayRemainingAllowance").innerText = "Remaining Allowance: ₱" + goalInfo.remainingAllowance;
@@ -46,7 +46,7 @@ function updateProgressAndChart(goalAmount) {
         updateProgressBar(percentageCompletion);
         createOrUpdateBarChart(goalInfo.remainingAllowance, goalAmount);
         
-        }
+        }*/
     }
 }
 function updateProgressBar(percentage) {
