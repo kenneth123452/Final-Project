@@ -92,6 +92,7 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
             options: options
         });
     }
+    createOrUpdateBarChart(remainingAllowance, goalAmount);
 }
     
     function updateCompletionDate() {
