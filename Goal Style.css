@@ -67,7 +67,7 @@ button:hover::after {
 }
 
 #goal-form button:first-child {
-    background-color: #ccc;
+    background-color: #009688;
     color: white;
 }
 
