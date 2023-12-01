@@ -13,6 +13,12 @@ function updateProgressAndChart(goalAmount) {
         console.log("Retrieved Remaining Allowance: ₱" + retrievedRemainingAllowance);
         document.getElementById("displayRemainingAllowance").innerText = "Remaining Allowance: ₱" + retrievedRemainingAllowance;
 
+        const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+            <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
+        `;
+
         const percentageCompletion = (retrievedRemainingAllowance / goalAmount) * 100;
         console.log("Percentage Completion: " + percentageCompletion);
         
