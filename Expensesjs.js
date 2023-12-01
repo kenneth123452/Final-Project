@@ -54,5 +54,5 @@ function redirectToAnotherPage() {
 }
 
 function goBack() {
-    window.history.back();
+    window.location.href = "Allowance.html";
 }
