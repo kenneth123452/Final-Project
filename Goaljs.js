@@ -1,6 +1,7 @@
 function setGoal() {
     const goalAmount = parseFloat(document.getElementById('goal-amount').value);
     const timeFrame = document.getElementById('time-frame').value;
+    const selectedDay = localStorage.getItem('selectedDay'); 
     const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
         const resultDiv = document.getElementById('result');
         resultDiv.innerHTML = `
