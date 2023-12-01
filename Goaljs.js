@@ -4,6 +4,11 @@ function calculateRecommendedSpending() {
     const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
 
     const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
+   
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `
+        <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
+    `;
     if (retrievedRemainingAllowance !== null) {
         console.log("Retrieved Remaining Allowance: ₱" + retrievedRemainingAllowance);
         // Do something with the retrievedRemainingAllowance, such as displaying it on the page
@@ -13,10 +18,10 @@ function calculateRecommendedSpending() {
         // Update the progress bar and text
         updateProgressBar(percentageCompletion);
       }
-     const resultDiv = document.getElementById('result');
+     /*const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
-    `;
+    `;*/
 }
 
     function updateProgressBar(percentage) {
