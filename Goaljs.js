@@ -70,6 +70,9 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
         });
     }
 }
+
+    document.getElementById('submitGoalButton').addEventListener('click', submitGoal);
+    document.getElementById('backButton').addEventListener('click', goBack);
     
     function submitGoal() {
     window.location.href = "Daily.html";
