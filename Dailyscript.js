@@ -1,5 +1,12 @@
 const date = new Date();
 
+const goalInfoString = localStorage.getItem('goalInfo');
+        let goalInfo = null;
+
+        if (goalInfoString !== null) {
+            goalInfo = JSON.parse(goalInfoString);
+}
+
 const renderCalendar = () => {
   date.setDate(1);
 
@@ -53,6 +60,10 @@ const renderCalendar = () => {
   document.querySelectorAll(".day").forEach((day) => {
     day.addEventListener("click", handleDayClick);
   });
+  if (goalInfo !== null) {
+      console.log("Retrieved Goal Info:", goalInfo);
+    
+    }
 };
 
 document.getElementById("prevMonthButton").addEventListener("click", () => {
