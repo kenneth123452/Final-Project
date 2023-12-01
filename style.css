@@ -1,14 +1,16 @@
 body {
- font-family: Arial, sans-serif;
- background-image: url('images/your_image.jpg'); /* Replace with the path to your image */
- background-size: cover;
- background-repeat: no-repeat
- padding: 0;
- display: flex;
- justify-content: center;
- align-items: center;
- height: 100vh;
+  font-family: Arial, sans-serif;
+  background-image: url('src/img/background.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0; /* Added margin to reset any default margin */
+  height: 100vh;
 }
+
 
 .calendar-container {
  display: flex;
