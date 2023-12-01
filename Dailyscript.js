@@ -72,6 +72,7 @@ const openSchedulingModal = (day) => {
 // Add this function to handle day clicks
 const handleDayClick = (event) => {
   const selectedDay = event.currentTarget.dataset.day;
+  localStorage.setItem('selectedDay', selectedDay); 
   openSchedulingModal(selectedDay);
 };
 
