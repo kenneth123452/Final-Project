@@ -1,8 +1,8 @@
 const date = new Date();
+let goalInfo = null;
+let selectedDay = null;
 
 const goalInfoString = localStorage.getItem('goalInfo');
-        let goalInfo = null;
-
         if (goalInfoString !== null) {
             goalInfo = JSON.parse(goalInfoString);
 }
@@ -96,14 +96,12 @@ const handleDayClick = (event) => {
   const selectedDay = event.currentTarget.dataset.day;
   localStorage.setItem('selectedDay', selectedDay); 
   openSchedulingModal(selectedDay);
-  openSchedulingModal(selectedDay);
         
 };
 
 // Add this function to handle form submission
 const handleFormSubmit = (event) => {
   event.preventDefault();
-  openSchedulingModal(selectedDay);
 
   if (selectedDay) {
   const eventData = {
@@ -143,3 +141,15 @@ document.getElementById("closeModalButton").addEventListener("click", () => {
 
 renderCalendar();
 updateGoalElements();
+
+  }
+}
+
+document.getElementById("eventForm").addEventListener("submit", handleFormSubmit);
+document.getElementById("schedulingModal").style.display = "none";
+
+});
+
+renderCalendar();
+updateGoalElements();
+
