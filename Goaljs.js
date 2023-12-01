@@ -82,15 +82,16 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
         }
     };
 
-    if (window.myBarChart) {
-        window.myBarChart.destroy();
-    }
-
-    window.myBarChart = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: options
+    if (window.myChart) {
+    window.myChart.data = data;
+    window.myChart.update();
+  } else {
+    window.myChart = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: options
     });
+  }
 }
     
     function updateCompletionDate() {
