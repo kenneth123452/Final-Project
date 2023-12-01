@@ -2,10 +2,14 @@ const date = new Date();
 let goalInfo = null;
 let selectedDay = null;
 
-const goalInfoString = localStorage.getItem('goalInfo');
+const retrieveGoalInfo = () => {
+const retrivegoalInfoString = localStorage.getItem('goalInfo');
 if (goalInfoString !== null) {
     goalInfo = JSON.parse(goalInfoString);
+    }
 }
+
+retrieveGoalInfo();
 
 const renderCalendar = () => {
     date.setDate(1);
@@ -94,6 +98,7 @@ const handleDayClick = (event) => {
     selectedDay = event.currentTarget.dataset.day;
     localStorage.setItem('selectedDay', selectedDay);
     openSchedulingModal(selectedDay);
+    retrieveGoalInfo();
 };
 
 // Add this function to handle form submission
@@ -106,18 +111,12 @@ const handleFormSubmit = (event) => {
             day: selectedDay,
         };
 
-        const goalInfo = {
-            goalAmount:
-            timeFrame: 
-            completionDate:
-            remainingAllowance: 
-            eventData: eventData:
-        };
+       goalInfo.eventData = eventData;
 
         localStorage.setItem(`goalInfo_${selectedDay}`, JSON.stringify(goalInfo));
         console.log("Event Scheduled:", eventData);
         document.getElementById("schedulingModal").style.display = "none";
-    
+
         renderCalendar();
         updateGoalElements();
     } else {
@@ -125,14 +124,10 @@ const handleFormSubmit = (event) => {
     }
 };
 
-// Add event listener for form submission
 document.getElementById("eventForm").addEventListener("submit", handleFormSubmit);
-
-// Add event listener to close modal
 document.getElementById("closeModalButton").addEventListener("click", () => {
     document.getElementById("schedulingModal").style.display = "none";
 });
 
-// Initial render
 renderCalendar();
 updateGoalElements();
