@@ -84,18 +84,13 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
 
     if (window.myBarChart) {
         window.myBarChart.destroy();
-        window.myBarChart = new Chart(ctx, {
-            type: 'bar',
-            data: data,
-            options: options
-    });
-    } else {
-        window.myBarChart = new Chart(ctx, {
-            type: 'bar',
-            data: data,
-            options: options
-        });
     }
+
+    window.myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
 }
     
     function updateCompletionDate() {
