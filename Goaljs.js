@@ -72,11 +72,11 @@ function calculateRecommendedSpending() {
             options: options
         });
     }
-        function redirectToAnotherPage() {
+        /*function redirectToAnotherPage() {
     window.location.href = "Daily.html";
 }
 
 function goBack() {
     window.location.href = "Expenses.html";
-}
+}*/
 
