@@ -50,7 +50,7 @@ function calculateAndDisplayTotal() {
 }
 
 function redirectToAnotherPage() {
-    window.location.href = "index.html";
+    window.location.href = "Goal.html";
 }
 
 function goBack() {
