@@ -72,7 +72,7 @@ const updateGoalElements = () => {
     }
 };
 
-document.getElementById("prevMonthButton").addEventListener("click", () => {
+/*document.getElementById("prevMonthButton").addEventListener("click", () => {
     date.setMonth(date.getMonth() - 1);
     renderCalendar();
     updateGoalElements();
@@ -87,7 +87,7 @@ document.getElementById("nextMonthButton").addEventListener("click", () => {
 const openSchedulingModal = (day) => {
     document.getElementById("selectedDay").innerHTML = day;
     document.getElementById("schedulingModal").style.display = "block";
-};
+};*/
 
 // Add this function to handle day clicks
 const handleDayClick = (event) => {
@@ -103,28 +103,21 @@ const handleFormSubmit = (event) => {
     if (selectedDay) {
         const eventData = {
             title: document.getElementById("eventTitle").value,
-            day: document.getElementById("eventDay").value,
+            day: selectedDay,
         };
 
-        const completionDate = new Date().toLocaleDateString();
-
         const goalInfo = {
-            goalAmount: /* Set your goal amount here */,
-            timeFrame: /* Set your time frame here */,
-            completionDate: /* Set your completion date here */,
-            remainingAllowance: /* Set your remaining allowance here */,
-            eventData: eventData // Save the event data
+            goalAmount:
+            timeFrame: 
+            completionDate:
+            remainingAllowance: 
+            eventData: eventData:
         };
 
         localStorage.setItem(`goalInfo_${selectedDay}`, JSON.stringify(goalInfo));
-
-        // Log the scheduled event
         console.log("Event Scheduled:", eventData);
-
-        // Close the scheduling modal
         document.getElementById("schedulingModal").style.display = "none";
-
-        // Update the calendar and goal elements
+    
         renderCalendar();
         updateGoalElements();
     } else {
