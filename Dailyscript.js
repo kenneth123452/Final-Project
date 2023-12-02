@@ -1,5 +1,15 @@
 const date = new Date();
 
+// Retrieve the time frame from localStorage
+const storedTimeFrame = localStorage.getItem('timeFrame');
+
+// Check if the time frame is available and not null
+if (storedTimeFrame !== null) {
+    console.log('Retrieved Time Frame:', storedTimeFrame);
+} else {
+    console.log('Time Frame not found in localStorage.');
+}
+
 const renderCalendar = () => {
   date.setDate(1);
 
@@ -55,7 +65,7 @@ const renderCalendar = () => {
     ) {
       days += `<div class="today">${i}</div>`;
     } else {
-      days += `<div>${i}</div>`;
+      days += `<div class="day" data-day="${i}">${i}</div>`;
     }
   }
 
@@ -93,11 +103,42 @@ const handleFormSubmit = (event) => {
     time: document.getElementById("eventTime").value,
     description: document.getElementById("eventDescription").value,
   };
-  // Add logic to save the event data and update the calendar
-  console.log("Event Scheduled:", eventData);
-  document.getElementById("schedulingModal").style.display = "none";
+
+  const storedTimeFrame = localStorage.getItem('timeFrame');
+
+    // Check if the time frame is available and not null
+    if (storedTimeFrame !== null) {
+        console.log('Retrieved Time Frame:', storedTimeFrame);
+
+        // Add logic to set the schedule based on the time frame
+        // This is a simple example; customize it based on your needs
+        const scheduleTime = calculateScheduleTime(storedTimeFrame);
+        eventData.time = scheduleTime;
+
+        // Add logic to save the event data and update the calendar
+        console.log("Event Scheduled:", eventData);
+        document.getElementById("schedulingModal").style.display = "none";
+    } else {
+        console.log('Time Frame not found in localStorage.');
+    }
 };
 
+const calculateScheduleTime = (timeFrame) => {
+    // Get the current date
+    const currentDate = new Date();
+
+    // Find the next occurrence of the specified day in the current week
+    let nextOccurrenceDate = currentDate;
+    while (nextOccurrenceDate.toLocaleDateString('en-US', { weekday: 'long' }) !== timeFrame) {
+        nextOccurrenceDate.setDate(nextOccurrenceDate.getDate() + 1);
+    }
+    // Set the time for the event (in this example, set it to 12:00 PM)
+    nextOccurrenceDate.setHours(12, 0, 0, 0);
+    // Format the resulting date and time
+    const formattedTime = nextOccurrenceDate.toLocaleString('en-US', { weekday: 'long', hour: 'numeric', minute: 'numeric', hour12: true });
+    return formattedTime;
+};
+  
 // Add event listener for form submission
 document.getElementById("eventForm").addEventListener("submit", handleFormSubmit);
 
