@@ -87,7 +87,7 @@ const updateGoalElements = () => {
     }
 };
 
-/*document.getElementById("prevMonthButton").addEventListener("click", () => {
+document.getElementById("prevMonthButton").addEventListener("click", () => {
     date.setMonth(date.getMonth() - 1);
     renderCalendar();
     updateGoalElements();
@@ -102,7 +102,7 @@ document.getElementById("nextMonthButton").addEventListener("click", () => {
 const openSchedulingModal = (day) => {
     document.getElementById("selectedDay").innerHTML = day;
     document.getElementById("schedulingModal").style.display = "block";
-};*/
+};
 
 // Add this function to handle day clicks
 const handleDayClick = (event) => {
