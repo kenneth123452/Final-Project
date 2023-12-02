@@ -4,8 +4,13 @@ let selectedDay = null;
 
 const retrieveGoalInfo = () => {
 const retrivegoalInfoString = localStorage.getItem('goalInfo');
+selectedDay = localStorage.getItem('selectedDay');
+    
 if (goalInfoString !== null) {
     goalInfo = JSON.parse(goalInfoString);
+    }
+if (goalInfo === null) {
+        goalInfo = {}; // Initialize goalInfo as an object if it's null
     }
     if (selectedDay === null) {
         // If no selected day is found in local storage, set a default day
@@ -117,7 +122,8 @@ const handleFormSubmit = (event) => {
             day: selectedDay,
         };
 
-       goalInfo.eventData = eventData;
+        goalInfo = goalInfo || {};
+        goalInfo.eventData = eventData;
 
         localStorage.setItem(`goalInfo_${selectedDay}`, JSON.stringify(goalInfo));
         console.log("Event Scheduled:", eventData);
