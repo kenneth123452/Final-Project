@@ -7,6 +7,12 @@ const retrivegoalInfoString = localStorage.getItem('goalInfo');
 if (goalInfoString !== null) {
     goalInfo = JSON.parse(goalInfoString);
     }
+    if (selectedDay === null) {
+        // If no selected day is found in local storage, set a default day
+        const defaultDay = 1; // Set your desired default day here
+        selectedDay = defaultDay;
+        localStorage.setItem('selectedDay', selectedDay);
+    }
 }
 
 retrieveGoalInfo();
