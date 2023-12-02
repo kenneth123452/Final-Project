@@ -19,6 +19,7 @@ function setGoal() {
     };
 
     localStorage.setItem('goalInfo', JSON.stringify(goalInfo));
+    localStorage.setItem('timeFrame', timeFrame);
 }
 
 function updateProgressAndChart(goalAmount) {
