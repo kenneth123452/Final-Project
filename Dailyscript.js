@@ -3,15 +3,17 @@ let goalInfo = null;
 let selectedDay = null;
 
 const retrieveGoalInfo = () => {
-const retrivegoalInfoString = localStorage.getItem('goalInfo');
-selectedDay = localStorage.getItem('selectedDay');
-    
-if (goalInfoString !== null) {
-    goalInfo = JSON.parse(goalInfoString);
+    const goalInfoString = localStorage.getItem('goalInfo');
+    selectedDay = localStorage.getItem('selectedDay');
+
+    if (goalInfoString !== null) {
+        goalInfo = JSON.parse(goalInfoString);
     }
-if (goalInfo === null) {
+
+    if (goalInfo === null) {
         goalInfo = {}; // Initialize goalInfo as an object if it's null
     }
+
     if (selectedDay === null) {
         // If no selected day is found in local storage, set a default day
         const defaultDay = 1; // Set your desired default day here
@@ -26,26 +28,14 @@ const renderCalendar = () => {
     date.setDate(1);
 
     const monthDays = document.querySelector(".calendar-days-content");
-  
-  const monthDays = document.querySelector(".calendar-days-content");
-  const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
 
-  const firstDayIndex = date.getDay();
+    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+    const firstDayIndex = date.getDay();
 
     const months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
     ];
 
     document.getElementById("monthDisplay").innerHTML = months[date.getMonth()];
@@ -69,13 +59,14 @@ const renderCalendar = () => {
 
     if (goalInfo !== null) {
         console.log("Retrieved Goal Info:", goalInfo);
+        // Use goalInfo to update goal-related elements or display it on the calendar
     }
 };
 
 const updateGoalElements = () => {
     // Use goalInfo to update goal-related elements
     if (goalInfo !== null) {
-        document.getElementById('goalAmountElement').innerText = goalInfo.goalAmount;
+        document.getElementById('goalAmountElement').innerText = goalInfo.goalAmount || '';
     }
 };
 
@@ -123,15 +114,16 @@ const handleFormSubmit = (event) => {
 
         renderCalendar();
         updateGoalElements();
-    } else {
-        console.error("No selected day found.");
-    }
 };
 
+// Add event listener for form submission
 document.getElementById("eventForm").addEventListener("submit", handleFormSubmit);
+
+// Add event listener to close modal
 document.getElementById("closeModalButton").addEventListener("click", () => {
     document.getElementById("schedulingModal").style.display = "none";
 });
 
 renderCalendar();
 updateGoalElements();
+
