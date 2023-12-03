@@ -75,6 +75,10 @@ body {
     background-color: #f5f5f5;
 }
 
+.retrieved-time-frame {
+    background-color: yellow; 
+}
+
 .modal {
     display: none;
     position: fixed;
