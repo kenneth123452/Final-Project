@@ -108,7 +108,7 @@ const handleFormSubmit = (event) => {
     if (storedTimeFrame !== null) {
         console.log('Retrieved Time Frame:', storedTimeFrame);
         
-        onst scheduleTime = calculateScheduleTime(storedTimeFrame);
+        const scheduleTime = calculateScheduleTime(storedTimeFrame);
         eventData.time = scheduleTime;
         
         const scheduleTime = calculateScheduleTime(storedTimeFrame);
