@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         return 0; // Invalid time frame type
     }
-        };
 
     };
 
@@ -167,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
             nextOccurrenceDate.setDate(nextOccurrenceDate.getDate() + 1);
         }
 
-        return formattedTime;
+        return nextOccurrenceDate; 
     };
 
     document.getElementById("eventForm").addEventListener("submit", handleFormSubmit);
