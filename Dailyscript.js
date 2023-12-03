@@ -1,5 +1,6 @@
 const date = new Date();
 const storedTimeFrame = localStorage.getItem('timeFrame');
+const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 if (storedTimeFrame !== null) {
     console.log('Retrieved Time Frame:', storedTimeFrame);
@@ -20,6 +21,63 @@ const getTargetDay = (timeFrame) => {
     } else {
         return targetDate.getDate();
     }
+};
+
+const determineTimeFrameType = (timeFrame) => {
+    if (timeFrame.length === 3) {
+        return "week";
+    } else if (timeFrame.length > 3 && timeFrame.includes(" ")) {
+        return "month";
+    } else {
+        return "year";
+    }
+};
+
+const calculateDaysRemaining = (timeFrameType, timeFrame) => {
+    const currentDate = new Date();
+    const daysInWeek = 7;
+    const daysInMonth = 30;
+    const daysInYear = 365;
+
+    if (timeFrameType === "week") {
+        const targetDayIndex = weekDays.indexOf(timeFrame);
+        const currentDayIndex = currentDate.getDay();
+        return (targetDayIndex + 7 - currentDayIndex) % 7;
+    } else if (timeFrameType === "month") {
+        return daysInMonth - currentDate.getDate();
+    } else if (timeFrameType === "year") {
+        return daysInYear - getDayInYear(timeFrame);
+    } else {
+        return 0; // Invalid time frame type
+    }
+};
+
+const getDayInYear = (timeFrame) => {
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+
+    const monthDay = timeFrame.split(" ");
+    const month = months.indexOf(monthDay[0]);
+    const day = parseInt(monthDay[1]);
+
+    let dayInYear = day;
+    for (let i = 0; i < month; i++) {
+        dayInYear += new Date(date.getFullYear(), i + 1, 0).getDate();
+    }
+
+    return dayInYear;
 };
 
 const renderCalendar = () => {
@@ -45,14 +103,14 @@ const renderCalendar = () => {
         "December",
     ];
 
-    // **Added current date logic**
     const currentDate = new Date();
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
 
-    // **Added logic to mark the retrieved time frame**
     const retrievedTimeFrameDay = getTargetDay(storedTimeFrame);
+    const timeFrameType = determineTimeFrameType(storedTimeFrame);
+    const daysRemaining = calculateDaysRemaining(timeFrameType, storedTimeFrame);
 
     document.getElementById("monthDisplay").innerHTML = months[date.getMonth()];
     document.getElementById("yearDisplay").innerHTML = date.getFullYear();
@@ -60,7 +118,7 @@ const renderCalendar = () => {
     let days = "";
 
     for (let x = firstDayIndex; x > 0; x--) {
-        days += `<div class="prev-date"><span class="math-inline">${prevLastDay - x + 1}</div>`;
+        days += `<div class="prev-date"><span class="math-inline">${prevLastDay - x + 1}</span></div>`;
     }
 
     for (let i = 1; i <= lastDay; i++) {
@@ -86,6 +144,8 @@ const renderCalendar = () => {
     document.querySelectorAll(".day").forEach((day) => {
         day.addEventListener("click", handleDayClick);
     });
+
+    document.getElementById("daysRemaining").innerHTML = `Days remaining: ${daysRemaining}`;
 };
 
 document.getElementById("prevMonthButton").addEventListener("click", () => {
@@ -118,14 +178,12 @@ const handleFormSubmit = (event) => {
 
     const storedTimeFrame = localStorage.getItem('timeFrame');
 
-    // Check if the time frame is available and not null
     if (storedTimeFrame !== null) {
         console.log('Retrieved Time Frame:', storedTimeFrame);
 
         const scheduleTime = calculateScheduleTime(storedTimeFrame);
         eventData.time = scheduleTime;
 
-        // Add logic to save the event data and update the calendar
         console.log("Event Scheduled:", eventData);
         document.getElementById("schedulingModal").style.display = "none";
     } else {
@@ -134,31 +192,24 @@ const handleFormSubmit = (event) => {
 };
 
 const calculateScheduleTime = (timeFrame) => {
-    // Get the current date
     const currentDate = new Date();
-
-    // Find the next occurrence of the specified day in the current week
     let nextOccurrenceDate = currentDate;
+
     while (nextOccurrenceDate.toLocaleDateString('en-US', { weekday: 'long' }) !== timeFrame) {
         nextOccurrenceDate.setDate(nextOccurrenceDate.getDate() + 1);
     }
-    // Set the time for the event (in this example, set it to 12:00 PM)
+
     nextOccurrenceDate.setHours(12, 0, 0, 0);
-    // Format the resulting date and time
     const formattedTime = nextOccurrenceDate.toLocaleString('en-US', { weekday: 'long', hour: 'numeric', minute: 'numeric', hour12: true });
     return formattedTime;
 };
 
-// Add event listener for form submission
+document.getElementById("eventForm").addEventListener("submit",
+                                                      
 document.getElementById("eventForm").addEventListener("submit", handleFormSubmit);
 
-// Add event listener to close modal
 document.getElementById("closeModalButton").addEventListener("click", () => {
     document.getElementById("schedulingModal").style.display = "none";
 });
 
-// Initial rendering of the calendar
 renderCalendar();
-
-
-
