@@ -1,8 +1,14 @@
+:root {
+    --primary-color: #4285f4;
+    --background-color: #f5f5f5;
+    --modal-overlay-bg: rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: var(--background-color);
 }
 
 .calendar-container {
@@ -18,7 +24,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: #4285f4;
+    background-color: var(--primary-color);
     color: #fff;
 }
 
@@ -28,7 +34,7 @@ body {
 
 .calendar-navigation button {
     background-color: #fff;
-    color: #4285f4;
+    color: var(--primary-color);
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -50,7 +56,7 @@ body {
 .calendar-day-header {
     display: flex;
     justify-content: space-between;
-    background-color: #4285f4;
+    background-color: var(--primary-color);
     color: #fff;
     padding: 10px;
 }
@@ -76,7 +82,7 @@ body {
 }
 
 .retrieved-time-frame {
-    background-color: yellow; 
+    background-color: yellow;
 }
 
 .modal {
@@ -86,7 +92,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--modal-overlay-bg);
 }
 
 .modal-content {
@@ -125,7 +131,7 @@ body {
 }
 
 #eventForm button {
-    background-color: #4285f4;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     padding: 10px;
@@ -137,8 +143,7 @@ body {
 }
 
 .time-frame {
-    font-size: 10px;  /* Customize the font size for the time frame */
-    color: #333;      /* Customize the color for the time frame */
+    font-size: 0.8em;
+    color: #333;
     /* Add any other styles as needed */
 }
-
