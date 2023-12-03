@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
 const date = new Date();
 const storedTimeFrame = localStorage.getItem('timeFrame');
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+     const getDayInYear = (timeFrame) => {
+    };
 
 if (storedTimeFrame !== null) {
     console.log('Retrieved Time Frame:', storedTimeFrame);
