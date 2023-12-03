@@ -94,29 +94,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let days = "";
 
-        for (let x = firstDayIndex; x > 0; x--) {
-            days += `<div class="prev-date"><span class="math-inline">${prevLastDay - x + 1}</span></div>`;
+    for (let x = firstDayIndex; x > 0; x--) {
+        days += `<div class="prev-date"><span class="math-inline">${prevLastDay - x + 1}</span></div>`;
+    }
+
+    for (let i = 1; i <= lastDay; i++) {
+        let dayClass = "day";
+        let timeFrameDisplay = "";
+
+        if (i === currentDay && date.getMonth() === currentMonth) {
+            dayClass = "today";
         }
 
-        for (let i = 1; i <= lastDay; i++) {
-            let dayClass = "day";
-            let timeFrameDisplay = "";
-
-            if (i === currentDay && date.getMonth() === currentMonth) {
-                dayClass = "today";
-            }
-
-            if (i === retrievedTimeFrameDay) {
-                dayClass += " retrieved-time-frame";
-                timeFrameDisplay = `<div class="time-frame">${storedTimeFrame}</div>`;
-            }
-
-            days += `<div class="${dayClass}" data-day="${i}">
-                        ${i}
-                        ${timeFrameDisplay} <!-- Add the time frame display here -->
-                    </div>`;
+        if (i === retrievedTimeFrameDay) {
+            dayClass += " retrieved-time-frame";
+            timeFrameDisplay = `<div class="time-frame">${storedTimeFrame}</div>`;
         }
 
+        // Check if the current date matches the retrieved time frame
+        const currentDateInLoop = new Date(date.getFullYear(), date.getMonth(), i);
+        const formattedCurrentDate = currentDateInLoop.toLocaleDateString('en-US', { weekday: 'long' });
+        if (formattedCurrentDate === storedTimeFrame) {
+            dayClass += " marked-date"; // Add a class to mark the date
+        }
+
+        days += `<div class="${dayClass}" data-day="${i}">
+                    ${i}
+                    ${timeFrameDisplay} <!-- Add the time frame display here -->
+                </div>`;
+    }
         monthDays.innerHTML = days;
         document.querySelectorAll(".day").forEach((day) => {
             day.addEventListener("click", handleDayClick);
