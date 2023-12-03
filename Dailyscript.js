@@ -8,7 +8,6 @@ if (storedTimeFrame !== null) {
 }
 const getTargetDay = (timeFrame) => {
   const currentDate = new Date();
-
   const targetDate = new Date(timeFrame);
 
   if (targetDate < currentDate) {
@@ -60,15 +59,22 @@ const renderCalendar = () => {
 
      for (let i = 1; i <= lastDay; i++) {
         let dayClass = "day";
+        let timeFrameDisplay = "";
+         
         if (i === currentDay && date.getMonth() === currentMonth) {
             dayClass = "today";
         }
-         
+
+        const storedTimeFrame = localStorage.getItem('timeFrame');
         if (storedTimeFrame !== null && getTargetDay(storedTimeFrame) === i) {
             dayClass += " retrieved-time-frame";
+            timeFrameDisplay = `<div class="time-frame">${storedTimeFrame}</div>`;
         }
 
-        days += `<div class="${dayClass}" data-day="${i}">${i}</div>`;
+         days += `<div class="${dayClass}" data-day="${i}">
+                    ${i}
+                    ${timeFrameDisplay} <!-- Add the time frame display here -->
+                </div>`;
     }
 
     monthDays.innerHTML = days;
