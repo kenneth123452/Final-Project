@@ -6,20 +6,22 @@ if (storedTimeFrame !== null) {
 } else {
     console.log('Time Frame not found in localStorage.');
 }
-const getTargetDay = (timeFrame) => {
-  const currentDate = new Date();
-  const targetDate = new Date(timeFrame);
 
-  if (targetDate < currentDate) {
-    let nextOccurrenceDate = currentDate;
-    while (nextOccurrenceDate.toLocaleDateString('en-US', { weekday: 'long' }) !== timeFrame) {
-      nextOccurrenceDate.setDate(nextOccurrenceDate.getDate() + 1);
+const getTargetDay = (timeFrame) => {
+    const currentDate = new Date();
+    const targetDate = new Date(timeFrame);
+
+    if (targetDate < currentDate) {
+        let nextOccurrenceDate = currentDate;
+        while (nextOccurrenceDate.toLocaleDateString('en-US', { weekday: 'long' }) !== timeFrame) {
+            nextOccurrenceDate.setDate(nextOccurrenceDate.getDate() + 1);
+        }
+        return nextOccurrenceDate.getDate();
+    } else {
+        return targetDate.getDate();
     }
-    return nextOccurrenceDate.getDate();
-  } else {
-    return targetDate.getDate();
-  }
 };
+
 const renderCalendar = () => {
     date.setDate(1);
 
@@ -42,36 +44,39 @@ const renderCalendar = () => {
         "November",
         "December",
     ];
+
     // **Added current date logic**
-      const currentDate = new Date();
-      const currentDay = currentDate.getDate();
-      const currentMonth = currentDate.getMonth();
-      const currentYear = currentDate.getFullYear();
-    
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+
+    // **Added logic to mark the retrieved time frame**
+    const retrievedTimeFrameDay = getTargetDay(storedTimeFrame);
+
     document.getElementById("monthDisplay").innerHTML = months[date.getMonth()];
     document.getElementById("yearDisplay").innerHTML = date.getFullYear();
 
     let days = "";
 
     for (let x = firstDayIndex; x > 0; x--) {
-        days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+        days += `<div class="prev-date"><span class="math-inline">${prevLastDay - x + 1}</div>`;
     }
 
-     for (let i = 1; i <= lastDay; i++) {
+    for (let i = 1; i <= lastDay; i++) {
         let dayClass = "day";
         let timeFrameDisplay = "";
-         
+
         if (i === currentDay && date.getMonth() === currentMonth) {
             dayClass = "today";
         }
 
-        const storedTimeFrame = localStorage.getItem('timeFrame');
-        if (storedTimeFrame !== null && getTargetDay(storedTimeFrame) === i) {
+        if (i === retrievedTimeFrameDay) {
             dayClass += " retrieved-time-frame";
             timeFrameDisplay = `<div class="time-frame">${storedTimeFrame}</div>`;
         }
 
-         days += `<div class="${dayClass}" data-day="${i}">
+        days += `<div class="${dayClass}" data-day="${i}">
                     ${i}
                     ${timeFrameDisplay} <!-- Add the time frame display here -->
                 </div>`;
@@ -116,7 +121,7 @@ const handleFormSubmit = (event) => {
     // Check if the time frame is available and not null
     if (storedTimeFrame !== null) {
         console.log('Retrieved Time Frame:', storedTimeFrame);
-        
+
         const scheduleTime = calculateScheduleTime(storedTimeFrame);
         eventData.time = scheduleTime;
 
@@ -154,5 +159,6 @@ document.getElementById("closeModalButton").addEventListener("click", () => {
 
 // Initial rendering of the calendar
 renderCalendar();
+
 
 
