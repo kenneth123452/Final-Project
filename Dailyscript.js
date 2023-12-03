@@ -43,7 +43,14 @@ const renderCalendar = () => {
         "November",
         "December",
     ];
-
+    // **Added current date logic**
+      const currentDate = new
+     
+    Date();
+      const currentDay = currentDate.getDate();
+      const currentMonth = currentDate.getMonth();
+      const currentYear = currentDate.getFullYear();
+    
     document.getElementById("monthDisplay").innerHTML = months[date.getMonth()];
     document.getElementById("yearDisplay").innerHTML = date.getFullYear();
 
@@ -100,9 +107,10 @@ const handleFormSubmit = (event) => {
     // Check if the time frame is available and not null
     if (storedTimeFrame !== null) {
         console.log('Retrieved Time Frame:', storedTimeFrame);
-
-        // Add logic to set the schedule based on the time frame
-        // This is a simple example; customize it based on your needs
+        
+        onst scheduleTime = calculateScheduleTime(storedTimeFrame);
+        eventData.time = scheduleTime;
+        
         const scheduleTime = calculateScheduleTime(storedTimeFrame);
         eventData.time = scheduleTime;
 
