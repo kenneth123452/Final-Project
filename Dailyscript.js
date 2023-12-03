@@ -204,8 +204,6 @@ const calculateScheduleTime = (timeFrame) => {
     return formattedTime;
 };
 
-document.getElementById("eventForm").addEventListener("submit",
-                                                      
 document.getElementById("eventForm").addEventListener("submit", handleFormSubmit);
 
 document.getElementById("closeModalButton").addEventListener("click", () => {
