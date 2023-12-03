@@ -54,41 +54,13 @@ button {
         color: #000000;
         text-transform: uppercase;
         position: relative;
+        transition: background-color 0.5s ease, color 0.5s ease; /* Add transition property */
   }
-  button::after {
-    content: '';
-    height: 3px;
-    width: 0;
-    background: #009688;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transition: 0.5s;
-}
-button:hover::after {
-  width: 100%;
-}
-.back-button {
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    color: #000000;
-    text-transform: uppercase;
-    position: relative;
+  button:hover{
+    background-color: #312f2f; /* Darker green on hover */
+    color: white;
   }
-   button::after {
-    content: '';
-    height: 3px;
-    width: 0;
-    background: #009688;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transition: 0.5s;
-}
   
-  .back-button:hover {
-    background-color: #00796b;
-  }
+  
+
   
