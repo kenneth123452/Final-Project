@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
 const date = new Date();
 const storedTimeFrame = localStorage.getItem('timeFrame');
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
+    
+const storedTimeFrame = localStorage.getItem('timeFrame');
 if (storedTimeFrame !== null) {
     console.log('Retrieved Time Frame:', storedTimeFrame);
 } else {
@@ -159,14 +160,22 @@ document.getElementById("nextMonthButton").addEventListener("click", () => {
     renderCalendar();
 });
 
-const openSchedulingModal = (day) => {
-    document.getElementById("selectedDay").innerHTML = day;
-    document.getElementById("schedulingModal").style.display = "block";
+document.querySelectorAll(".day").forEach((day) => {
+            day.addEventListener("click", handleDayClick);
+});
+
+document.getElementById("daysRemaining").innerHTML = `Days remaining: ${daysRemaining}`;
+
 };
 
 const handleDayClick = (event) => {
     const selectedDay = event.currentTarget.dataset.day;
     openSchedulingModal(selectedDay);
+};
+
+const openSchedulingModal = (day) => {
+    document.getElementById("selectedDay").innerHTML = day;
+    document.getElementById("schedulingModal").style.display = "block";
 };
 
 const handleFormSubmit = (event) => {
@@ -209,6 +218,16 @@ document.getElementById("eventForm").addEventListener("submit", handleFormSubmit
 
 document.getElementById("closeModalButton").addEventListener("click", () => {
     document.getElementById("schedulingModal").style.display = "none";
+});
+
+document.getElementById("prevMonthButton").addEventListener("click", () => {
+        date.setMonth(date.getMonth() - 1);
+        renderCalendar();
+});
+
+    document.getElementById("nextMonthButton").addEventListener("click", () => {
+        date.setMonth(date.getMonth() + 1);
+        renderCalendar();
 });
 
 renderCalendar();
