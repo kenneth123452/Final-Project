@@ -1,15 +1,26 @@
 const date = new Date();
-
-// Retrieve the time frame from localStorage
 const storedTimeFrame = localStorage.getItem('timeFrame');
 
-// Check if the time frame is available and not null
 if (storedTimeFrame !== null) {
     console.log('Retrieved Time Frame:', storedTimeFrame);
 } else {
     console.log('Time Frame not found in localStorage.');
 }
+const getTargetDay = (timeFrame) => {
+  const currentDate = new Date();
 
+  const targetDate = new Date(timeFrame);
+
+  if (targetDate < currentDate) {
+    let nextOccurrenceDate = currentDate;
+    while (nextOccurrenceDate.toLocaleDateString('en-US', { weekday: 'long' }) !== timeFrame) {
+      nextOccurrenceDate.setDate(nextOccurrenceDate.getDate() + 1);
+    }
+    return nextOccurrenceDate.getDate();
+  } else {
+    return targetDate.getDate();
+  }
+};
 const renderCalendar = () => {
     date.setDate(1);
 
@@ -71,13 +82,11 @@ const openSchedulingModal = (day) => {
     document.getElementById("schedulingModal").style.display = "block";
 };
 
-// Add this function to handle day clicks
 const handleDayClick = (event) => {
     const selectedDay = event.currentTarget.dataset.day;
     openSchedulingModal(selectedDay);
 };
 
-// Add this function to handle form submission
 const handleFormSubmit = (event) => {
     event.preventDefault();
     const eventData = {
