@@ -110,9 +110,6 @@ const handleFormSubmit = (event) => {
         
         const scheduleTime = calculateScheduleTime(storedTimeFrame);
         eventData.time = scheduleTime;
-        
-        const scheduleTime = calculateScheduleTime(storedTimeFrame);
-        eventData.time = scheduleTime;
 
         // Add logic to save the event data and update the calendar
         console.log("Event Scheduled:", eventData);
