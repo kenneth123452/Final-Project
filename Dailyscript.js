@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 const date = new Date();
 const storedTimeFrame = localStorage.getItem('timeFrame');
 const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -211,3 +212,4 @@ document.getElementById("closeModalButton").addEventListener("click", () => {
 });
 
 renderCalendar();
+});
