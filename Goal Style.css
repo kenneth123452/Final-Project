@@ -10,19 +10,29 @@ body {
     background-size: cover;
     background-position: center;
     overflow: hidden;
-
+    margin: 0; /* Add this line to remove default body margin */
+}
+#selected-option {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-#goal-form{
+.hidden {
+    display: none;
+}
+
+
+#goal-form {
     background-color: white;
     max-width: 400px;
+    height: 320px;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.995);
     color: black;
-    text-align: center; /* Center text horizontally */
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,66 +41,64 @@ body {
 label {
     display: block;
     margin-bottom: 8px;
+    
 }
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
     box-sizing: border-box;
 }
+
 .logo {
-    width: 100px; 
-    height: auto; 
+    width: 100px;
+    height: auto;
     cursor: pointer;
     position: absolute;
-    left: 30px; 
-    top: 30px; 
-    
+    left: 30px;
+    top: 30px;
 }
+
 button {
     background: none;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        color: black;
-        text-transform: uppercase;
-        position: relative;
-        transform: translateX(130%);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: black;
+    text-transform: uppercase;
+    position: relative;
+    transform: translate(5%, 50%);
+    transition: background-color 0.5s ease, color 0.5s ease; /* Add transition property */
+}
+button:hover {
+    background-color: black; /* Add your desired hover color */
+    color: white;
+    
+}
 
-    /* Style for the "Submit" button */
-    #submitGoalButton {
-        background-color: #4CAF50; /* Green */
-        color: white;
-    }
-    
-    /* Style for the "Back" button */
-    #backButton {
-        background-color: #f44336; /* Red */
-        color: white;
-    }
-    
-  button::after {
-    content: '';
-    height: 3px;
-    width: 0;
-    background: #009688;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transition: 0.5s;
-      
-    }
-    button:hover::after {
-      width: 100%;
-    }
-    
-    /* Hover effect for "Submit" button */
-    #submitGoalButton:hover {
-        background-color: #45a049; /* Darker green on hover */
-    }
-    
-    /* Hover effect for "Back" button */
-    #backButton:hover {
-        background-color: #d32f2f; /* Darker red on hover */
-    }
+/* Style for the "Submit" button */
+#submitGoalButton {
+    color: rgb(0, 0, 0);
+    transform: translate(150%, -50%);
+}
+
+/* Style for the "Back" button */
+#backButton {
+    color: rgb(0, 0, 0);
+    transform: translate(-170%, -146%);
+}
+
+
+/* Hover effect for "Submit" button */
+#submitGoalButton:hover {
+    background-color: #312f2f; /* Darker green on hover */
+    color: white;
+}
+
+/* Hover effect for "Back" button */
+#backButton:hover {
+    background-color: #312f2f; /* Darker red on hover */
+    color: white;
+}
