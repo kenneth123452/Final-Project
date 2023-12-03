@@ -44,9 +44,7 @@ const renderCalendar = () => {
         "December",
     ];
     // **Added current date logic**
-      const currentDate = new
-     
-    Date();
+      const currentDate = new Date();
       const currentDay = currentDate.getDate();
       const currentMonth = currentDate.getMonth();
       const currentYear = currentDate.getFullYear();
@@ -60,12 +58,17 @@ const renderCalendar = () => {
         days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
     }
 
-    for (let i = 1; i <= lastDay; i++) {
-        if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
-            days += `<div class="today">${i}</div>`;
-        } else {
-            days += `<div class="day" data-day="${i}">${i}</div>`;
+     for (let i = 1; i <= lastDay; i++) {
+        let dayClass = "day";
+        if (i === currentDay && date.getMonth() === currentMonth) {
+            dayClass = "today";
         }
+         
+        if (storedTimeFrame !== null && getTargetDay(storedTimeFrame) === i) {
+            dayClass += " retrieved-time-frame";
+        }
+
+        days += `<div class="${dayClass}" data-day="${i}">${i}</div>`;
     }
 
     monthDays.innerHTML = days;
