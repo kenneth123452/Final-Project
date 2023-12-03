@@ -173,7 +173,7 @@ const handleFormSubmit = (event) => {
     event.preventDefault();
     const eventData = {
         title: document.getElementById("eventTitle").value,
-        time: document.getElementById("eventTime").value,
+        time: document.getElementById("eventDay").value,
         description: document.getElementById("eventDescription").value,
     };
 
