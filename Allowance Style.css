@@ -1,5 +1,5 @@
-body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg');
+body, html {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -8,7 +8,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
+  margin: 0;
 }
 
 form {
@@ -29,7 +30,7 @@ label {
   transform: translate(0%, -30%);
 }
 
-input,select {
+input, select {
   width: 90%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -40,13 +41,22 @@ input,select {
 
 button {
   background: none;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      color: #040404;
-      text-transform: uppercase;
-      position: relative;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #040404;
+  text-transform: uppercase;
+  position: relative;
+  transition: background-color 0.5s ease, color 0.5s ease, border-radius 0.5s ease; /* Add transition property */
+  
 }
+button:hover {
+  background-color: black; /* Add your desired hover color */
+  color: white;
+  border-radius: 15px;
+}
+
+
 .logo {
   width: 100px; 
   height: auto; 
@@ -54,22 +64,23 @@ button {
   position: absolute;
   left: 30px; 
   top: 30px; 
-  
+}
+
+label[for="value"] {
+  color: rgb(0, 0, 0);
+  font-size: 19px;
+  font-weight: bold;
 }
 
 
-button::after {
-  content: '';
-  height: 3px;
-  width: 0;
-  background: #009688;
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  transition: 0.5s;
-}
-button:hover::after {
-width: 100%;
+.content {
+  display: none;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-
+.active {
+  display: block;
+  opacity: 1;
+}
