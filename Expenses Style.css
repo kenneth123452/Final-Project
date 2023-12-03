@@ -54,11 +54,12 @@ button {
         color: #000000;
         text-transform: uppercase;
         position: relative;
-        transition: background-color 0.5s ease, color 0.5s ease; /* Add transition property */
+        transition: background-color 0.5s ease, color 0.5s ease, border-radius 0.5s ease; /* Add transition property */
   }
   button:hover{
     background-color: #312f2f; /* Darker green on hover */
     color: white;
+    border-radius: 15px;
   }
   
   
