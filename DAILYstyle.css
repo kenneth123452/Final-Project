@@ -136,13 +136,6 @@ body {
     background-color: #3c78d8;
 }
 
-/* ... (existing styles) */
-
-.retrieved-time-frame {
-    background-color: yellow;  /* Customize the highlight color */
-    /* Add any other styles as needed */
-}
-
 .time-frame {
     font-size: 10px;  /* Customize the font size for the time frame */
     color: #333;      /* Customize the color for the time frame */
