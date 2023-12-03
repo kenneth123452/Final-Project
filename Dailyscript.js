@@ -3,12 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const storedTimeFrame = localStorage.getItem('timeFrame');
     const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    if (storedTimeFrame !== null) {
-        console.log('Retrieved Time Frame:', storedTimeFrame);
-    } else {
-        console.log('Time Frame not found in localStorage.');
-    }
-
     const getTargetDay = (timeFrame) => {
         const currentDate = new Date();
         const targetDate = new Date(timeFrame);
@@ -127,6 +121,58 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("daysRemaining").innerHTML = `Days remaining: ${daysRemaining}`;
     };
 
+    const handleDayClick = (event) => {
+        const selectedDay = event.currentTarget.dataset.day;
+        openSchedulingModal(selectedDay);
+    };
+
+    const openSchedulingModal = (day) => {
+        document.getElementById("selectedDay").innerHTML = day;
+        document.getElementById("schedulingModal").style.display = "block";
+    };
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        const eventData = {
+            title: document.getElementById("eventTitle").value,
+            time: document.getElementById("eventDay").value,
+            description: document.getElementById("eventDescription").value,
+        };
+
+        const storedTimeFrame = localStorage.getItem('timeFrame');
+
+        if (storedTimeFrame !== null) {
+            console.log('Retrieved Time Frame:', storedTimeFrame);
+
+            const scheduleTime = calculateScheduleTime(storedTimeFrame);
+            eventData.time = scheduleTime;
+
+            console.log("Event Scheduled:", eventData);
+            document.getElementById("schedulingModal").style.display = "none";
+        } else {
+            console.log('Time Frame not found in localStorage.');
+        }
+    };
+
+    const calculateScheduleTime = (timeFrame) => {
+        const currentDate = new Date();
+        let nextOccurrenceDate = currentDate;
+
+        while (nextOccurrenceDate.toLocaleDateString('en-US', { weekday: 'long' }) !== timeFrame) {
+            nextOccurrenceDate.setDate(nextOccurrenceDate.getDate() + 1);
+        }
+
+        nextOccurrenceDate.setHours(12, 0, 0, 0);
+        const formattedTime = nextOccurrenceDate.toLocaleString('en-US', { weekday: 'long', hour: 'numeric', minute: 'numeric', hour12: true });
+        return formattedTime;
+    };
+
+    document.getElementById("eventForm").addEventListener("submit", handleFormSubmit);
+
+    document.getElementById("closeModalButton").addEventListener("click", () => {
+        document.getElementById("schedulingModal").style.display = "none";
+    });
+
     document.getElementById("prevMonthButton").addEventListener("click", () => {
         date.setMonth(date.getMonth() - 1);
         renderCalendar();
@@ -137,73 +183,5 @@ document.addEventListener("DOMContentLoaded", function () {
         renderCalendar();
     });
 
-    document.querySelectorAll(".day").forEach((day) => {
-        day.addEventListener("click", handleDayClick);
-    });
-
-    document.getElementById("daysRemaining").innerHTML = `Days remaining: ${daysRemaining}`;
-
-    const handleDayClick = (event) => {
-        const selectedDay = event.currentTarget.dataset.day;
-        openSchedulingModal(selectedDay);
-    };
-
-const openSchedulingModal = (day) => {
-    document.getElementById("selectedDay").innerHTML = day;
-    document.getElementById("schedulingModal").style.display = "block";
-};
-
-const handleFormSubmit = (event) => {
-    event.preventDefault();
-    const eventData = {
-        title: document.getElementById("eventTitle").value,
-        time: document.getElementById("eventDay").value,
-        description: document.getElementById("eventDescription").value,
-    };
-
-    const storedTimeFrame = localStorage.getItem('timeFrame');
-
-    if (storedTimeFrame !== null) {
-        console.log('Retrieved Time Frame:', storedTimeFrame);
-
-        const scheduleTime = calculateScheduleTime(storedTimeFrame);
-        eventData.time = scheduleTime;
-
-        console.log("Event Scheduled:", eventData);
-        document.getElementById("schedulingModal").style.display = "none";
-    } else {
-        console.log('Time Frame not found in localStorage.');
-    }
-};
-
-const calculateScheduleTime = (timeFrame) => {
-    const currentDate = new Date();
-    let nextOccurrenceDate = currentDate;
-
-    while (nextOccurrenceDate.toLocaleDateString('en-US', { weekday: 'long' }) !== timeFrame) {
-        nextOccurrenceDate.setDate(nextOccurrenceDate.getDate() + 1);
-    }
-
-    nextOccurrenceDate.setHours(12, 0, 0, 0);
-    const formattedTime = nextOccurrenceDate.toLocaleString('en-US', { weekday: 'long', hour: 'numeric', minute: 'numeric', hour12: true });
-    return formattedTime;
-};
-
-document.getElementById("eventForm").addEventListener("submit", handleFormSubmit);
-
-document.getElementById("closeModalButton").addEventListener("click", () => {
-    document.getElementById("schedulingModal").style.display = "none";
-});
-
-document.getElementById("prevMonthButton").addEventListener("click", () => {
-    date.setMonth(date.getMonth() - 1);
     renderCalendar();
-});
-
-document.getElementById("nextMonthButton").addEventListener("click", () => {
-    date.setMonth(date.getMonth() + 1);
-    renderCalendar();
-});
-
-renderCalendar();
 });
