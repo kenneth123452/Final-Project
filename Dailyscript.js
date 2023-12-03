@@ -110,17 +110,15 @@ document.addEventListener("DOMContentLoaded", function () {
             dayClass += " retrieved-time-frame";
             timeFrameDisplay = `<div class="time-frame">${storedTimeFrame}</div>`;
         }
-
-        // Check if the current date matches the retrieved time frame
         const currentDateInLoop = new Date(date.getFullYear(), date.getMonth(), i);
         const formattedCurrentDate = currentDateInLoop.toLocaleDateString('en-US', { weekday: 'long' });
         if (formattedCurrentDate === storedTimeFrame) {
-            dayClass += " marked-date"; // Add a class to mark the date
+            dayClass += " marked-date";
         }
 
         days += `<div class="${dayClass}" data-day="${i}">
                     ${i}
-                    ${timeFrameDisplay} <!-- Add the time frame display here -->
+                    ${timeFrameDisplay}
                 </div>`;
     }
         monthDays.innerHTML = days;
