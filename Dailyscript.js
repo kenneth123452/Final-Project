@@ -23,7 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
             return "week";
         } else if (timeFrame.length > 3 && timeFrame.includes(" ")) {
             return "month";
+         } else if (timeFrame.length > 3 && !timeFrame.includes(" ")) {
+            return "day";
         } else {
+            
             return "year";
         }
     };
@@ -34,17 +37,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const daysInMonth = 30;
         const daysInYear = 365;
 
-        if (timeFrameType === "week") {
-            const targetDayIndex = weekDays.indexOf(timeFrame);
-            const currentDayIndex = currentDate.getDay();
-            return (targetDayIndex + 7 - currentDayIndex) % 7;
-        } else if (timeFrameType === "month") {
-            return daysInMonth - currentDate.getDate();
-        } else if (timeFrameType === "year") {
-            return daysInYear - getDayInYear(timeFrame);
-        } else {
-            return 0; // Invalid time frame type
-        }
+    if (timeFrameType === "week") {
+        const targetDayIndex = weekDays.indexOf(timeFrame);
+        const currentDayIndex = currentDate.getDay();
+        return (targetDayIndex + 7 - currentDayIndex) % 7;
+    } else if (timeFrameType === "month") {
+        return daysInMonth - currentDate.getDate();
+    } else if (timeFrameType === "year") {
+        return daysInYear - getDayInYear(timeFrame);
+    } else {
+        return 0; // Invalid time frame type
+    }
+        };
+
     };
 
     const getDayInYear = (timeFrame) => {
@@ -144,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (storedTimeFrame !== null) {
             console.log('Retrieved Time Frame:', storedTimeFrame);
 
-            const scheduleTime = calculateScheduleTime(storedTimeFrame);
+    const scheduleTime = calculateScheduleTime(storedTimeFrame);
             eventData.time = scheduleTime;
 
             console.log("Event Scheduled:", eventData);
@@ -162,8 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
             nextOccurrenceDate.setDate(nextOccurrenceDate.getDate() + 1);
         }
 
-        nextOccurrenceDate.setHours(12, 0, 0, 0);
-        const formattedTime = nextOccurrenceDate.toLocaleString('en-US', { weekday: 'long', hour: 'numeric', minute: 'numeric', hour12: true });
         return formattedTime;
     };
 
