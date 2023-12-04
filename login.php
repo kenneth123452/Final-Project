@@ -1,19 +1,32 @@
-<!-- login.php -->
-
 <?php
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Replace the following with your actual authentication logic
-    $validUser = ($_POST['username'] == 'admin' && $_POST['password'] == 'admin');
+$conn = mysqli_connect("your_host", "your_username", "your_password", "your_database");
 
-    if ($validUser) {
-        $_SESSION['username'] = $_POST['username'];
-        header("Location: dashboard.php");
-        exit();
-    } else {
-        header("Location: index.html?error=1");
-        exit();
-    }
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$sql = "SELECT * FROM users WHERE username='$username'";
+$result = mysqli_query($conn, $sql);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $user = mysqli_fetch_assoc($result);
+
+    if (password_verify($password, $user['password'])) {
+        $_SESSION['username'] = $username;
+        $_SESSION['role'] = $user['role'];
+
+        echo "Login successful!";
+    } else {
+        echo "Invalid password!";
+    }
+} else {
+    echo "User not found!";
+}
+
+mysqli_close($conn);
 ?>
