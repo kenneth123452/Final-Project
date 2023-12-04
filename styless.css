@@ -91,3 +91,52 @@
     font-size: larger;
 
 }
+
+body.user-dashboard {
+    background-color: #e6f7ff;
+}
+
+.banner.user-dashboard {
+    background-color: #b3e0ff;
+}
+
+.navbar.user-dashboard {
+    background-color: #66b3ff;
+}
+
+.Budgeting.user-dashboard {
+    color: #004080;
+}
+
+.content.user-dashboard {
+    color: #004080;
+}
+
+.pees.user-dashboard {
+    color: #004080;
+}
+
+/* Admin Styles */
+body.admin-dashboard {
+    background-color: #ffe6e6;
+}
+
+.banner.admin-dashboard {
+    background-color: #ff6666;
+}
+
+.navbar.admin-dashboard {
+    background-color: #ff3333;
+}
+
+.Budgeting.admin-dashboard {
+    color: #990000;
+}
+
+.content.admin-dashboard {
+    color: #990000;
+}
+
+.pees.admin-dashboard {
+    color: #990000;
+}
