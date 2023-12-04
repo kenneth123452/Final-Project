@@ -15,22 +15,6 @@
             <li><a href="Daily.html">Daily</a></li>
         </ul>
     </div>
-        <div class="content">
-            <?php
-            if (isset($_GET['error']) && $_GET['error'] == 1) {
-                echo '<p style="color: red;">Invalid username or password</p>';
-            }
-            ?>
-            <form action="login.php" method="post">
-                <label for="username">Username:</label>
-                <input type="text" name="username" required>
-                <br>
-                <label for="password">Password:</label>
-                <input type="password" name="password" required>
-                <br>
-                <input type="submit" value="Login">
-            </form>
-        </div>
         
     <div class="Budgeting">
         <h1>Budgeting Financial Management</h1>
