@@ -20,7 +20,7 @@ const renderCalendar = () => {
   const firstDayIndex = date.getDay();
 
   const months = [
-    "January",
+    "January", 
     "February",
     "March",
     "April",
