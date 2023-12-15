@@ -44,5 +44,22 @@
 
     <!-- Our script must be loaded after firebase references -->
     <script type="module" src="Database.js"></script>
+
+    <script>
+        // Your Firebase authentication logic here
+        // Example: Check if the user is authenticated and toggle visibility accordingly
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // User is signed in, show the main content
+                document.getElementById("login_container").style.display = "none";
+                document.getElementById("main_content").style.display = "block";
+            } else {
+                // No user is signed in, show the login/register form
+                document.getElementById("login_container").style.display = "block";
+                document.getElementById("main_content").style.display = "none";
+            }
+        });
+    </script>
+    
 </body>
 </html>
