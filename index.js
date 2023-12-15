@@ -18,6 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const auth = getAuth(app);
     const database = getDatabase(app);  // Use getDatabase to initialize the database
 
+  // Check if the user is already logged in
+    auth.onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in, redirect to the main content page
+            window.location.href = "main.html"; // Change to your main content page
+        }
+    });
+
     document.getElementById("registerBtn").addEventListener("click", register);
     document.getElementById("loginBtn").addEventListener("click", login);
 
@@ -85,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("User Logged In!");
             })
             .catch((error) => {
-                alert(error.message);
+                window.location.href = "index.html";
             });
     }
 
