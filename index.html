@@ -1,39 +1,80 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+    <meta charset="utf-8">
     <title>WiseBudge</title>
+    <!-- Cool Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <!-- Your custom stylesheets -->
     <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <!-- Favicon -->
     <link rel="icon" href="src/img/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <div class="banner">
-    <div class="navbar">
-        <img src="src/img/WiseBudgeLogo.png" class="logo">
-        <ul>
-            <li><a href="Allowance.html">Allowance</a></li>
-            <li><a href="Expenses.html">Expenses</a></li>
-            <li><a href="Goal.html">Goal</a></li>
-            <li><a href="Daily.html">Daily</a></li>
-        </ul>
-    </div>
-        
-    <div class="Budgeting">
-        <h1>Budgeting Financial Management</h1>
+        <div class="navbar">
+            <img src="src/img/WiseBudgeLogo.png" class="logo">
+            <ul>
+                <li><a href="Allowance.html">Allowance</a></li>
+                <li><a href="Expenses.html">Expenses</a></li>
+                <li><a href="Goal.html">Goal</a></li>
+                <li><a href="Daily.html">Daily</a></li>
+            </ul>
+        </div>
 
+        <div class="Budgeting">
+            <h1>Budgeting Financial Management</h1>
+        </div>
+
+        <div class="content">
+            <p>Welcome to WiseBudge.</p>
+        </div>
+        <div class="pees">
+            <p>Plan.</p>
+            <p>Budget.</p>
+            <p>Save.</p>
+        </div>
     </div>
 
-    <div class="content">
-        <p>Welcome to WiseBudge.</p>
+    <div id="content_container">
+        <div id="form_container">
+            <div id="form_header_container">
+                <h2 id="form_header">WiseBudge</h2>
+            </div>
+
+            <div id="form_content_container">
+                <div id="form_content_inner_container">
+                    <!-- Input fields -->
+                    <input type="text" id="full_name" placeholder="Full name">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="password" id="password" placeholder="New Password">
+                    <!-- Button container -->
+                    <div id="button_container">
+                        <button id="loginBtn">Login</button>
+                        <button id="registerBtn">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="pees">
-        <p>Plan.</p>
-        <p>Budget.</p>
-        <p>Save.</p>
-   
-    </div>
-    </div>
+
     <footer>
-         <p class="footer">"2023 WiseBudge. All rights reserved."</p>
+        <p class="footer">"2023 WiseBudge. All rights reserved."</p>
     </footer>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+
+    <!-- Your custom scripts must be loaded after Firebase references -->
+    <script type="module" src="index.js"></script>
 </body>
 </html>
