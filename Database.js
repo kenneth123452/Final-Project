@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("main_content").style.display = "none";
     }
 });
-    });
 
     document.getElementById("registerBtn").addEventListener("click", register);
     document.getElementById("loginBtn").addEventListener("click", login);
