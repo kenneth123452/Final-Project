@@ -1,145 +1,109 @@
-*{
+/* Reset styles */
+html, body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
-.banner{
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("src/img/background.jpg");
-    background-size: cover;
-    background-position: center;
+
+/* Styles for the login form */
+#content_container {
+    width: 30%;
+    height: 70%;
 }
-.navbar{
-    width: 85%;
-    margin: auto;
-    padding: 35px 0;
+
+#form_container {
+    width: 100%;
+    height: 100%;
+    background-color: #370617;
+    box-shadow: 0 0 50px -20px #000;
+    border-radius: 2%;
+    overflow: hidden;
+}
+
+#form_header_container {
+    width: 100%;
+    height: 5%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    float: left;
+    padding: 20px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    border-bottom: 1px solid transparent;
+    border-image: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF) 20;
+    background: #000;
 }
-.logo{
-    width: 1in;
-    height: 1in;
-    cursor: pointer;
-}
-.navbar ul li{
-    list-style: none;
+
+#form_header {
     display: inline-block;
-    margin: 0 20px;
-    position: relative;
-
-}
-.navbar ul li a{
-    text-decoration: none;
-    color: #fff;
+    font-size: 15px;
+    font-family: Bowlby One SC;
+    font-weight: 900;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    background: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-}
-.navbar ul li::after{
-    content: '';
-    height: 3px;
-    width: 0;
-    background: #009688;
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    transition: 0.5s;
-}
-.navbar ul li:hover::after{
+#form_content_container {
     width: 100%;
-
+    height: 90%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
 }
-.Budgeting{
+
+#form_content_inner_container {
+    width: 75%;
+    height: 100%;
+    float: left;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    background: #000;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #fff;
+    font-size: 12px;
+    border-bottom: 2px solid transparent;
+    border-top-left-radius: 2%;
+    border-top-right-radius: 2%;
+    border-image: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF) 1;
+}
+
+#button_container {
+    width: 100%;
+    height: 10%;
+    background-image: linear-gradient(80deg, #FFBE0B, #FB5607 50%, #FF006E 50%, #8338EC);
+    color: #fff;
+    float: left;
+    margin-top: 5px;
+}
+
+#button_container button {
     width: 50%;
-    transform: translate(20%, -285%);
-    position: fixed;
-    text-align: center;
-    color: #fff;
-    margin-top: 5px;
-    font-size: medium;
-}
-.footer {
-  background-color: rgba(255, 255, 255, 0); 
-  padding: 20px;
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-10%,-50%);
-  width: 100%;
-  color: white;
-}
-.content{
-    width: 100%;
-    position: absolute;
-    top: 45%;
-    transform: translateY(-50%);
-    text-align: center;
-    color: #fff;
-    margin-top: 5px;
-    font-size: x-large;
-
-}
-.pees{
-    width: 100%;
-    position: absolute;
-    top: 52%;
-    transform: translateY(-50%);
-    text-align: center;
-    color: #fff;
-    margin-top: 5px;
-    font-size: larger;
-
+    height: 100%;
+    float: left;
+    background: transparent;
+    color: inherit;
+    font-family: Montserrat;
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-body.user-dashboard {
-    background-color: #e6f7ff;
-}
-
-.banner.user-dashboard {
-    background-color: #b3e0ff;
-}
-
-.navbar.user-dashboard {
-    background-color: #66b3ff;
-}
-
-.Budgeting.user-dashboard {
-    color: #004080;
-}
-
-.content.user-dashboard {
-    color: #004080;
-}
-
-.pees.user-dashboard {
-    color: #004080;
-}
-
-/* Admin Styles */
-body.admin-dashboard {
-    background-color: #ffe6e6;
-}
-
-.banner.admin-dashboard {
-    background-color: #ff6666;
-}
-
-.navbar.admin-dashboard {
-    background-color: #ff3333;
-}
-
-.Budgeting.admin-dashboard {
-    color: #990000;
-}
-
-.content.admin-dashboard {
-    color: #990000;
-}
-
-.pees.admin-dashboard {
-    color: #990000;
-}
 #logoutBtn {
     width: 50%;
     height: 100%;
@@ -157,3 +121,109 @@ body.admin-dashboard {
     border: none;
     outline: none;
 }
+
+/* Styles for the main content */
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("src/img/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 1in;
+    height: 1in;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.Budgeting,
+.content,
+.pees {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.footer {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-10%, -50%);
+    width: 100%;
+    color: white;
+}
+
+/* Additional styling for user-dashboard and admin-dashboard */
+body.user-dashboard {
+    background-color: #e6f7ff;
+}
+
+.banner.user-dashboard {
+    background-color: #b3e0ff;
+}
+
+.navbar.user-dashboard {
+    background-color: #66b3ff;
+}
+
+.Budgeting.user-dashboard,
+.content.user-dashboard,
+.pees.user-dashboard {
+    color: #004080;
+}
+
+body.admin-dashboard {
+    background-color: #ffe6e6;
+}
+
+.banner.admin-dashboard {
+    background-color: #ff6666;
+}
+
+.navbar.admin-dashboard {
+    background-color: #ff3333;
+}
+
+.Budgeting.admin-dashboard,
+.content
