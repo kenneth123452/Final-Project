@@ -15,12 +15,13 @@ html, body {
     border: none;
     outline: none;
 }
-#content_container {
+
+.login-form #content_container {
     width: 30%;
     height: 70%;
 }
 
-#form_container {
+.login-form #form_container {
     width: 100%;
     height: 100%;
 
@@ -31,7 +32,7 @@ html, body {
     overflow: hidden;
 }
 
-#form_header_container {
+.login-form #form_header_container {
     width: 100%;
     height: 5%;
 
@@ -49,7 +50,7 @@ html, body {
     background: #000;
 }
 
-#form_header {
+.login-form #form_header {
     display: inline-block;
     font-size: 15px;
     font-family: Bowlby One SC;
@@ -57,13 +58,12 @@ html, body {
     text-transform: uppercase;
     letter-spacing: 1px;
 
-
     background: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-#form_content_container {
+.login-form #form_content_container {
     width: 100%;
     height: 90%;
 
@@ -76,15 +76,14 @@ html, body {
     padding-top: 30px;
 }
 
-#form_content_inner_container {
+.login-form #form_content_inner_container {
     width: 75%;
     height: 100%;
 
     float: left;
-
 }
 
-input {
+.login-form input {
     width: 100%;
     height: 40px;
 
@@ -103,7 +102,7 @@ input {
     border-image: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF) 1;
 }
 
-#button_container {
+.login-form #button_container {
     width: 100%;
     height: 10%;
 
@@ -115,7 +114,7 @@ input {
     margin-top: 5px;
 }
 
-#button_container button {
+.login-form #button_container button {
     width: 50%;
     height: 100%;
     float: left;
@@ -135,7 +134,7 @@ input {
     align-items: center;
 }
 
-#logoutBtn {
+.login-form #logoutBtn {
     width: 50%;
     height: 100%;
     float: left;
@@ -151,4 +150,6 @@ input {
     align-items: center;
     border: none;
     outline: none;
+}
+line: none;
 }
