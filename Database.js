@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("registerBtn").addEventListener("click", register);
     document.getElementById("loginBtn").addEventListener("click", login);
+    document.getElementById("logoutBtn").addEventListener("click", logout);
 
     // Set up our register function
     function register() {
@@ -99,6 +100,18 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch((error) => {
                 window.location.href = "index.html";
+            });
+    }
+  
+  function logout() {
+        signOut(auth)
+            .then(() => {
+                // User signed out
+                alert("User Logged Out!");
+                // Redirect or perform additional actions after logout if needed
+            })
+            .catch((error) => {
+                console.error("Error during logout:", error.message);
             });
     }
 
