@@ -23,6 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (user) {
             // User is signed in, redirect to the main content page
             window.location.href = "index.html"; // Change to your main content page
+        } else {
+        // No user is signed in, show the login/register form
+        document.getElementById("content_container").style.display = "block";
+        document.getElementById("main_content").style.display = "none";
+          
         }
     });
 
