@@ -117,4 +117,3 @@ document.addEventListener("DOMContentLoaded", function () {
     function validate_field(field) {
         return field !== null && field.length > 0;
     }
-});
