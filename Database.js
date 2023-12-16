@@ -19,8 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const database = getDatabase(app);  // Use getDatabase to initialize the database
 
   // Check if the user is already logged in
-    auth.onAuthStateChanged(function (user) {
-        firebase.auth().onAuthStateChanged(function (user) {
+    onAuthStateChanged(auth, function (user) {
     if (user) {
         // User is signed in, redirect to the main content page
         document.getElementById("content_container").style.display = "none";
