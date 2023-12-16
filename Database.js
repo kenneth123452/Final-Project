@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     auth.onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in, redirect to the main content page
-            window.location.href = "main.html"; // Change to your main content page
+            window.location.href = "index.html"; // Change to your main content page
         }
     });
 
