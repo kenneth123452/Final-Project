@@ -134,3 +134,21 @@ input {
     justify-content: center;
     align-items: center;
 }
+
+#logoutBtn {
+    width: 50%;
+    height: 100%;
+    float: left;
+    background: #ff6347;
+    color: #fff;
+    font-family: Montserrat;
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+}
