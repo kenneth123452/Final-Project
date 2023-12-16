@@ -20,15 +20,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Check if the user is already logged in
     auth.onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in, redirect to the main content page
-            window.location.href = "index.html"; // Change to your main content page
-        } else {
+        firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in, redirect to the main content page
+        document.getElementById("content_container").style.display = "none";
+        document.getElementById("main_content").style.display = "block";
+    } else {
         // No user is signed in, show the login/register form
         document.getElementById("content_container").style.display = "block";
         document.getElementById("main_content").style.display = "none";
-          
-        }
+    }
+});
     });
 
     document.getElementById("registerBtn").addEventListener("click", register);
