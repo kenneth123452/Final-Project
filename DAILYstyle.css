@@ -13,8 +13,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 100vw; /* Set maximum width to the viewport width */
-    width: 100%; /* Allow the container to take full width within its parent */
+    max-width: 100vw; 
+    width: 100%; 
 }
 
 .logo {
@@ -115,7 +115,7 @@ body {
    }
    
    .day-box {
-    width: 500px; !important;
+    width: 500px !important;
     height: 500px !important; 
     background-color: #fff;
     border: 1px solid #ccc;
@@ -125,4 +125,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-   }
+}
+
+.day-box input {
+    width: 80%;
+    padding: 5px;
+    margin-top: 10px;
+}
