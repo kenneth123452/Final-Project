@@ -9,9 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Allowance Value:", allowanceValue);
 
         // Display the retrieved data
-        document.getElementById("displayStoredData").innerText =
-            "Stored Allowance Type: " + allowanceType + "\n" +
-            "Stored Allowance Amount: " + allowanceValue;
+        var document.getElementById("displayStoredData");
+        if (displayStoredDataElement) {
+            displayStoredDataElement.innerText =
+                "Stored Allowance Type: " + allowanceType + "\n" +
+                "Stored Allowance Amount: " + allowanceValue;
     }
 
     // Submit form function
