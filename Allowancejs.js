@@ -1,4 +1,3 @@
-function submitForm() {
     function submitForm() {
     var allowanceType = document.getElementById("allowanceType").value;
     var allowanceValue = document.getElementById("value").value;
