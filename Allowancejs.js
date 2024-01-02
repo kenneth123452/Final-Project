@@ -18,10 +18,10 @@ function goBack() {
     var storedData = localStorage.getItem("DataAllowance");
     if (storedData) {
         var parsedData = JSON.parse(storedData);
-        document.getElementById("displayValue").innerText = 
-            "Stored Value: " + parsedData["Weekly Allowance"];
-            "Stored Value: " + parsedData["Daily Allowance"];
-            "Stored Value: " + parsedData["Monthly Allowance"];
+        document.getElementById("displayValue").innerText =
+            "Stored Weekly Allowance: " + parsedData["Weekly Allowance"] + "\n" +
+            "Stored Daily Allowance: " + parsedData["Daily Allowance"] + "\n" +
+            "Stored Monthly Allowance: " + parsedData["Monthly Allowance"];
     }
 
     window.history.back();
