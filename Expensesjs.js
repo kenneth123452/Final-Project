@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Submit form function
-    function submitForm() {
+    function calculate() {
         var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
         var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
         var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
