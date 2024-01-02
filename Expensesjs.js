@@ -48,15 +48,15 @@ function calculateAndDisplayTotal() {
     var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
 
     var totalAllExpenses = expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4;
-    var remainingWeeklyAllowance = weeklyAllowance - totalAllExpenses;
+    var remainingAllowance = DataAllowance - totalAllExpenses;
 
-    console.log("Total Weekly Expenses: ₱" + totalAllExpenses);
-    document.getElementById("result").innerHTML = "Total Weekly Expenses: ₱" + totalAllExpenses;
+    console.log("Total Expenses: ₱" + totalAllExpenses);
+    document.getElementById("result").innerHTML = "Total Expenses: ₱" + totalAllExpenses;
 
-    if (remainingWeeklyAllowance >= 0) {
-        console.log("Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance);
-        document.getElementById("remainingAllowance").innerHTML = "Remaining Weekly Allowance: ₱" + remainingWeeklyAllowance;
-        localStorage.setItem("Remaining Allowance", remainingWeeklyAllowance);
+    if (remainingAllowance >= 0) {
+        console.log("Remaining Weekly Allowance: ₱" + remainingAllowance);
+        document.getElementById("remainingAllowance").innerHTML = "Remaining  Allowance: ₱" + remainingAllowance;
+        localStorage.setItem("Remaining Allowance", remainingAllowance);
     }
 }
 
