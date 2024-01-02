@@ -1,11 +1,14 @@
 // Retrieve the stored value
-// Retrieve stored data
-var storedData = localStorage.getItem("DataAllowance");
+/var storedData = localStorage.getItem("DataAllowance");
 
 if (storedData) {
     var parsedData = JSON.parse(storedData);
-    var weeklyAllowance = parsedData["Weekly Allowance"];
-    document.getElementById("displayValue").innerText = "Weekly Allowance: ₱" + weeklyAllowance;
+    var allowanceType = Object.keys(parsedData)[0];
+    var allowanceValue = Object.values(parsedData)[0];
+
+    // Now you can use allowanceType and allowanceValue as needed
+    console.log("Stored Allowance Type: " + allowanceType);
+    console.log("Stored Allowance Amount: " + allowanceValue);
 }
 
 // Submit form function
