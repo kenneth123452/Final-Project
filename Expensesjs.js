@@ -1,6 +1,5 @@
 // Retrieve the stored value
-/var storedData = localStorage.getItem("DataAllowance");
-
+var storedData = localStorage.getItem("DataAllowance");
 if (storedData) {
     var parsedData = JSON.parse(storedData);
     var allowanceType = Object.keys(parsedData)[0];
