@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,32 +9,35 @@
     <link rel="icon" href="src/img/favicon.ico" type="image/x-icon">
     <title>Dropdown Menu</title>
 </head>
+
 <body>
 
     <a href="index.html">
-    <div id="logo">
-        <img src="src/img/WiseBudgeLogo.png" class="logo">
-      </div> 
+        <div id="logo">
+            <img src="src/img/WiseBudgeLogo.png" class="logo">
+        </div>
     </a>
-    
-   <form id="myForm" onsubmit="submitForm(); return false;">
-    <label for="value">Weekly Allowance</label>
-    <label for="value2">Daily Allowance</label>
-    <label for="value3">Monthly Allowance</label>
 
-    <select id="allowanceType">
-         <option value="Weekly Allowance">Weekly Allowance</option>
-        <option value="Daily Allowance">Daily Allowance</option>
-        <option value="Monthly Allowance">Monthly Allowance</option>
-    </select>
-       
-   <input id="value" type="number" min="100" max="2000">
-       <!--<button type="submit">Submit</button>-->
+    <form id="myForm" onsubmit="submitForm(); return false;">
+        <label for="value">Weekly Allowance</label>
+        <label for="value2">Daily Allowance</label>
+        <label for="value3">Monthly Allowance</label>
+
+        <select id="allowanceType">
+            <option value="Weekly Allowance">Weekly Allowance</option>
+            <option value="Daily Allowance">Daily Allowance</option>
+            <option value="Monthly Allowance">Monthly Allowance</option>
+        </select>
+
+        <input id="value" type="number" min="100" max="2000">
+        <!--<button type="submit">Submit</button>-->
         <button type="button" onclick="goBack()">Back</button>
-       <button type="submitForm">Submit</button>
-       
-       <div id="displayValue"></div>
+        <button type="submit">Submit</button>
+
+        <div id="displayValue"></div>
     </form>
-<script src="Allowancejs.js"></script>
+    <script src="Allowancejs.js"></script>
 </body>
+
 </html>
+
