@@ -20,8 +20,8 @@
 
     <form id="myForm" onsubmit="submitForm(); return false;">
         <label for="value">Weekly Allowance</label>
-        <label for="value2">Daily Allowance</label>
-        <label for="value3">Monthly Allowance</label>
+        <label for="value">Daily Allowance</label>
+        <label for="value">Monthly Allowance</label>
 
         <select id="allowanceType">
             <option value="Weekly Allowance">Weekly Allowance</option>
@@ -34,7 +34,7 @@
         <!-- Change the type attribute of the "Submit" button to "button" -->
         <button type="button" onclick="goBack()">Back</button>
         <!-- Correct the onclick attribute for the "Submit" button -->
-        <button type="button" onclick="submitForm()">Submit</button>
+        <button type="submit">Submit</button>
 
         <div id="displayValue"></div>
     </form>
