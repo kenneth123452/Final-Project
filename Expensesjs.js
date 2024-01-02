@@ -1,27 +1,34 @@
 // Retrieve the stored value
-var storedData = localStorage.getItem("Weekly Allowance");
+// Retrieve stored data
+var storedData = localStorage.getItem("DataAllowance");
+
 if (storedData) {
     var parsedData = JSON.parse(storedData);
     var weeklyAllowance = parsedData["Weekly Allowance"];
     document.getElementById("displayValue").innerText = "Weekly Allowance: ₱" + weeklyAllowance;
 }
 
+// Submit form function
 function submitForm() {
     var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
     var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
     var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
     var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
 
+    // Calculate and display expenses
     calculateAndDisplayExpense("foodExpenses", expenseValue1);
     calculateAndDisplayExpense("transportationExpenses", expenseValue2);
     calculateAndDisplayExpense("schoolExpenses", expenseValue3);
     calculateAndDisplayExpense("other", expenseValue4);
+
+    // Calculate and display total
     calculateAndDisplayTotal();
 
     console.log("Form submitted");
     return false;
 }
 
+// Calculate and display expense function
 function calculateAndDisplayExpense(expenseType, expenseValue) {
     var currentTotal = parseFloat(localStorage.getItem(expenseType)) || 0;
     var newTotal = currentTotal + expenseValue;
@@ -30,6 +37,7 @@ function calculateAndDisplayExpense(expenseType, expenseValue) {
     localStorage.setItem(expenseType, newTotal);
 }
 
+// Calculate and display total function
 function calculateAndDisplayTotal() {
     var expenseValue1 = parseFloat(document.getElementById("foodExpenses").value) || 0;
     var expenseValue2 = parseFloat(document.getElementById("transportationExpenses").value) || 0;
@@ -49,10 +57,12 @@ function calculateAndDisplayTotal() {
     }
 }
 
+// Redirect to another page function
 function redirectToAnotherPage() {
     window.location.href = "Goal.html";
 }
 
+// Go back function
 function goBack() {
     window.location.href = "Allowance.html";
 }
