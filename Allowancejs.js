@@ -1,12 +1,10 @@
 function submitForm() {
     function submitForm() {
+    var allowanceType = document.getElementById("allowanceType").value;
     var allowanceValue = document.getElementById("value").value;
-    var allowanceValue2= document.getElementById("value").value;
-    var allowanceValue3= document.getElementById("value").value;
+
     var dataToStore = {
-        "Weekly Allowance": allowanceValue
-        "Daily Allowance" : allowanceValue2
-        "Monthly Allowance" : allowanceValue3
+        [allowanceType]: allowanceValue
     };
     var jsonString = JSON.stringify(dataToStore);
     localStorage.setItem("DataAllowance", jsonString);
