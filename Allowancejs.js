@@ -19,11 +19,9 @@ function goBack() {
     if (storedData) {
         var parsedData = JSON.parse(storedData);
         document.getElementById("displayValue").innerText =
-            "Stored Weekly Allowance: " + parsedData["Weekly Allowance"] + "\n" +
-            "Stored Daily Allowance: " + parsedData["Daily Allowance"] + "\n" +
-            "Stored Monthly Allowance: " + parsedData["Monthly Allowance"];
+            "Stored Allowance Type: " + Object.keys(parsedData)[0] + "\n" +
+            "Stored Allowance Amount: " + Object.values(parsedData)[0];
     }
 
     window.history.back();
     }
-}
