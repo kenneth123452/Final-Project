@@ -17,9 +17,7 @@ function goBack() {
     var storedData = localStorage.getItem("DataAllowance");
     if (storedData) {
         var parsedData = JSON.parse(storedData);
-        document.getElementById("displayValue").innerText =
-            "Stored Allowance Type: " + Object.keys(parsedData)[0] + "\n" +
-            "Stored Allowance Amount: " + Object.values(parsedData)[0];
+        document.getElementById("displayValue").innerText = Object.keys(parsedData)[0] + "\n" + Object.values(parsedData)[0];
     }
 
     window.history.back();
