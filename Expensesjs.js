@@ -11,9 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Display the retrieved data
         var displayStoredDataElement= document.getElementById("displayStoredData");
         if (displayStoredDataElement) {
-            displayStoredDataElement.innerText =
-                "Stored Allowance Type: " + allowanceType + "\n" +
-                "Stored Allowance Amount: " + allowanceValue;
+            displayStoredDataElement.innerText = allowanceType + "\n" + allowanceValue;
         }
     }
 
