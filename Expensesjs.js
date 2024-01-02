@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             displayStoredDataElement.innerText =
                 "Stored Allowance Type: " + allowanceType + "\n" +
                 "Stored Allowance Amount: " + allowanceValue;
+        }
     }
 
     // Submit form function
