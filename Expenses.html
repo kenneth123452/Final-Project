@@ -12,12 +12,12 @@
 
 <body>
     <a href="index.html">
-    <div id="logo">
-        <img src="src/img/WiseBudgeLogo.png" class="logo">
-      </div> 
+        <div id="logo">
+            <img src="src/img/WiseBudgeLogo.png" class="logo">
+        </div>
     </a>
-      
-    <form id="myForm" onsubmit="submitForm(); return false;">
+
+    <form id="myForm">
         <label for="expenseType">Weekly Expenses Type</label>
 
         <label for="foodExpenses">Personal Expenses</label>
@@ -32,14 +32,13 @@
         <label for="other">Other Expenses</label>
         <input id="other" type="number" min="0" max="2000" required>
 
-        <button onclick="calculate()">Calculate</button>
+        <button type="button" onclick="calculate()">Calculate</button>
         <p id="result"></p>
         <div id="displayValue"></div>
         <p id="remainingAllowance"></p>
-       
-         <button onclick="goBack()">Back</button>
-         <button type="button" onclick="redirectToAnotherPage()">Submit</button>
-    
+
+        <button onclick="goBack()">Back</button>
+        <button type="button" onclick="submitForm()">Submit</button>
     </form>
 
     <script src="Expensesjs.js"></script>
