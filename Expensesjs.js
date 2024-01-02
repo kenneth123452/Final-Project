@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
         var allowanceType = Object.keys(parsedData)[0];
         var allowanceValue = Object.values(parsedData)[0];
 
+         console.log("Allowance Type:", allowanceType);
+        console.log("Allowance Value:", allowanceValue);
+
         // Display the retrieved data
         document.getElementById("displayStoredData").innerText =
             "Stored Allowance Type: " + allowanceType + "\n" +
