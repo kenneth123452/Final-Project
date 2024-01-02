@@ -19,17 +19,15 @@
     </a>
 
     <form id="myForm" onsubmit="submitForm(); return false;">
-        <label for="value">Weekly Allowance</label>
-        <label for="value2">Daily Allowance</label>
-        <label for="value3">Monthly Allowance</label>
-
+        <label for="allowanceType">Select Allowance Type:</label>
         <select id="allowanceType">
             <option value="Weekly Allowance">Weekly Allowance</option>
             <option value="Daily Allowance">Daily Allowance</option>
             <option value="Monthly Allowance">Monthly Allowance</option>
         </select>
 
-        <input id="value, value2, value3" type="number" min="100" max="2000">
+        <label for="value">Enter Allowance Amount:</label>
+        <input id="value" type="number" min="100" max="2000">
         
         <!-- Change the type attribute of the "Submit" button to "button" -->
         <button type="button" onclick="goBack()">Back</button>
