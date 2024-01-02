@@ -1,4 +1,5 @@
 // Retrieve the stored value
+document.addEventListener("DOMContentLoaded", function () {
 var storedData = localStorage.getItem("DataAllowance");
 if (storedData) {
     var parsedData = JSON.parse(storedData);
@@ -9,7 +10,7 @@ if (storedData) {
    document.getElementById("displayStoredData").innerText =
         "Stored Allowance Type: " + allowanceType + "\n" +
         "Stored Allowance Amount: " + allowanceValue;
-}
+});
 
 // Submit form function
 function submitForm() {
