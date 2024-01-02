@@ -10,7 +10,7 @@ if (storedData) {
    document.getElementById("displayStoredData").innerText =
         "Stored Allowance Type: " + allowanceType + "\n" +
         "Stored Allowance Amount: " + allowanceValue;
-});
+}
 
 // Submit form function
 function submitForm() {
