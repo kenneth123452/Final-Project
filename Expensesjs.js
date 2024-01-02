@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Allowance Value:", allowanceValue);
 
         // Display the retrieved data
-        var document.getElementById("displayStoredData");
+        var displayStoredDataElement= document.getElementById("displayStoredData");
         if (displayStoredDataElement) {
             displayStoredDataElement.innerText =
                 "Stored Allowance Type: " + allowanceType + "\n" +
