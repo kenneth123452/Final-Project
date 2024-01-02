@@ -70,4 +70,4 @@ function redirectToAnotherPage() {
 function goBack() {
     window.location.href = "Allowance.html";
     }
-}
+});
