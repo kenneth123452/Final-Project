@@ -69,4 +69,5 @@ function redirectToAnotherPage() {
 // Go back function
 function goBack() {
     window.location.href = "Allowance.html";
+    }
 }
