@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             displayStoredDataElement.innerText = allowanceType + "\n" + allowanceValue;
         }
     }
+});
 
     // Submit form function
     function submitForm() {
@@ -73,6 +74,3 @@ document.addEventListener("DOMContentLoaded", function () {
     function goBack() {
         window.location.href = "Allowance.html";
     }
-
-    // Now you can call these functions as needed in your application.
-});
