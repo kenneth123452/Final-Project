@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Display the retrieved data
         var displayStoredDataElement= document.getElementById("displayStoredData");
         if (displayStoredDataElement) {
-            displayStoredDataElement.innerText = allowanceType + "\n" + allowanceValue;
+            displayStoredDataElement.innerText = allowanceType + ":" + allowanceValue;
         }
     }
 });
