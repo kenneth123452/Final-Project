@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (storedData) {
         var parsedData = JSON.parse(storedData);
         var allowanceType = Object.keys(parsedData)[0];
-        var allowanceValue = Object.values(parsedData)[0];
+        allowanceValue = Object.values(parsedData)[0];
 
          console.log("Allowance Type:", allowanceType);
         console.log("Allowance Value:", allowanceValue);
