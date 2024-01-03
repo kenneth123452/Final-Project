@@ -34,6 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
         calculateAndDisplayTotal();
 
         console.log("Form submitted");
+
+        redirectToAnotherPage();
+
         return false;
     }
 
