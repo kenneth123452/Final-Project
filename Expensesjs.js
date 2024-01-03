@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
         var allowanceType = Object.keys(parsedData)[0];
         allowanceValue = Object.values(parsedData)[0];
 
-         console.log("Allowance Type:", allowanceType);
-        console.log("Allowance Value:", allowanceValue);
+         //console.log("Allowance Type:", allowanceType);
+         //console.log("Allowance Value:", allowanceValue);
 
         // Display the retrieved data
         var displayStoredDataElement= document.getElementById("displayStoredData");
         if (displayStoredDataElement) {
-            displayStoredDataElement.innerText = allowanceType + ":" + allowanceValue;
+            displayStoredDataElement.innerText = allowanceType + ":" + "₱" + allowanceValue;
         }
     }
 });
