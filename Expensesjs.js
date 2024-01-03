@@ -1,3 +1,4 @@
+var allowanceValue;
 document.addEventListener("DOMContentLoaded", function () {
     var storedData = localStorage.getItem("DataAllowance");
     if (storedData) {
