@@ -132,7 +132,7 @@ function setGoal() {
     `;
 }*/
     
-    function calculateRecommendedSpending(formattedGoalAmount, timeFrame, recommendedDailySpending) {
+    function calculateRecommendedSpending(formattedGoalAmount, recommendedDailySpending) {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
 
