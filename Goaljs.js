@@ -1,5 +1,5 @@
 let goalAmount;
-
+let goalAmount;
 document.addEventListener('DOMContentLoaded', setGoal);
 
 function setGoal() {
