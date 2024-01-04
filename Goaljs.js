@@ -135,11 +135,7 @@ function setGoal() {
     function calculateRecommendedSpending() {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
-
-        function calculateRecommendedSpending() {
-    const goalAmount = parseFloat(document.getElementById('goal-amount').value);
-    const timeFrame = document.getElementById('time-frame').value;
-
+        
     const currentDate = new Date();
     const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
     let daysDifference;
