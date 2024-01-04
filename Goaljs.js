@@ -11,10 +11,10 @@ function setGoal() {
 
         const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
 
-        const resultDiv = document.getElementById('result');
+        /*const resultDiv = document.getElementById('result');
         resultDiv.innerHTML = `
             <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
-        `;
+        `;*/
         // Display the remaining allowance in the designated element
         const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
         console.log(remainingAllowanceDisplay);
@@ -126,6 +126,13 @@ function setGoal() {
         window.location.href = "Expenses.html";
     }
 
+    function showResultMessage(formattedGoalAmount, timeFrame) {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `
+        <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
+    `;
+}
+    
     function calculateRecommendedSpending() {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
@@ -156,5 +163,4 @@ function setGoal() {
             <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
             <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
         `;
-    }
 }
