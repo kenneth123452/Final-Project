@@ -64,7 +64,7 @@ function updateProgressAndChart(goalAmount) {
 }
 function updateDisplayRemainingAllowance(remainingAllowance) {
     const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
-    remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + remainingAllowance;
+    //remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + remainingAllowance;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
