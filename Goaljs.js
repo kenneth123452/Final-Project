@@ -26,6 +26,8 @@ function setGoal() {
         updateDisplayRemainingAllowance(retrievedRemainingAllowance, goalAmount);
         // Update progress and chart
         updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
+        
+        showResultMessage(formattedGoalAmount, timeFrame);
 
         const goalInfo = {
             goalAmount: goalAmount,
