@@ -26,8 +26,6 @@ function setGoal() {
         updateDisplayRemainingAllowance(retrievedRemainingAllowance, goalAmount);
         // Update progress and chart
         updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
-        
-        showResultMessage(formattedGoalAmount, timeFrame);
 
         const goalInfo = {
             goalAmount: goalAmount,
@@ -157,11 +155,17 @@ function setGoal() {
     }
 
     const recommendedDailySpending = goalAmount / daysDifference;
-
+        
+    showResultMessage(formatCurrency(goalAmount), timeFrame);
+        
     const resultDiv = document.getElementById('remain');
     resultDiv.innerHTML = `
         <h3>Recommended Daily Spending:</h3>
         <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
         <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
     `;
+}
+
+function formatCurrency(amount) {
+    return amount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
 }
