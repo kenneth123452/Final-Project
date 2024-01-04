@@ -1,6 +1,20 @@
 document.addEventListener('DOMContentLoaded', setGoal);
+const goalAmountInput = document.getElementById('goal-amount');
+    const goalAmount = parseFloat(goalAmountInput?.value) || 0;
+    const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
+
+    // Use a promise to wait for the setGoal function to finish
+    setGoal().then(() => {
+        // Once the goal is set, update progress and chart
+        updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
+        // Display the success message
+        displaySuccessMessage();
+    });
+});
+
 
 function setGoal() {
+    return new Promise((resolve) => {
     const goalAmount = parseFloat(document.getElementById('goal-amount').value);
     const timeFrame = document.getElementById('time-frame').value;
     const selectedDay = localStorage.getItem('selectedDay');
@@ -12,6 +26,10 @@ function setGoal() {
     resultDiv.innerHTML = `
         <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
     `;
+        
+    resolve(); // Resolve the promise to indicate that setGoal is complete
+        });
+    }
     
     // Display the remaining allowance in the designated element
     const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
