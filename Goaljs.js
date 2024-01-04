@@ -34,7 +34,6 @@ function setGoal() {
 
     localStorage.setItem('goalInfo', JSON.stringify(goalInfo));
     localStorage.setItem('timeFrame', timeFrame);
-}
 
 function updateProgressAndChart(goalAmount) {
     const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
