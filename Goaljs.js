@@ -10,8 +10,6 @@ const goalAmountInput = document.getElementById('goal-amount');
         // Display the success message
         displaySuccessMessage();
     });
-});
-
 
 function setGoal() {
     return new Promise((resolve) => {
