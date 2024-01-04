@@ -22,6 +22,7 @@ function setGoal() {
     console.log("Remaining Allowance: ₱" + displayedRemainingAllowance);
     remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + displayedRemainingAllowance;
 
+    updateDisplayRemainingAllowance(retrievedRemainingAllowance);
     // Update progress and chart
     updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
     
@@ -41,9 +42,6 @@ function updateProgressAndChart(goalAmount) {
     const goalInfoString = localStorage.getItem('goalInfo');
     
     if (retrievedRemainingAllowance !== null && !isNaN(retrievedRemainingAllowance)) {
-        console.log("Retrieved Remaining Allowance: ₱" + retrievedRemainingAllowance);
-        document.getElementById("displayRemainingAllowance").innerText = "Remaining Allowance: ₱" + retrievedRemainingAllowance;
-
         const percentageCompletion = (retrievedRemainingAllowance / goalAmount) * 100;
         console.log("Percentage Completion: " + percentageCompletion);
         
@@ -63,6 +61,10 @@ function updateProgressAndChart(goalAmount) {
         
         }*/
     }
+}
+function updateDisplayRemainingAllowance(remainingAllowance) {
+    const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
+    remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + remainingAllowance;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
