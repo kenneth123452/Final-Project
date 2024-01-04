@@ -167,3 +167,4 @@ function setGoal() {
         <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
     `;
 }
+    }
