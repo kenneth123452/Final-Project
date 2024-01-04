@@ -125,14 +125,14 @@ function setGoal() {
         window.location.href = "Expenses.html";
     }
 
-    function showResultMessage(formattedGoalAmount, timeFrame) {
+    /*function showResultMessage(formattedGoalAmount, timeFrame) {
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
     `;
-}
+}*/
     
-    function calculateRecommendedSpending() {
+    function calculateRecommendedSpending(formattedGoalAmount, timeFrame, recommendedDailySpending) {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
 
