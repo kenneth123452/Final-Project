@@ -155,7 +155,7 @@ function setGoal() {
         }
         
         const resultDiv = document.getElementById('remain');
-        resultDiv.innerHTML = 
+        resultDiv.innerHTML = '
             <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
             <h3>Recommended Daily Spending:</h3>
             <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
