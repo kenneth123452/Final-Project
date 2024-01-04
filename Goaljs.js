@@ -170,3 +170,4 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
         <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
         <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
     `;
+ }
