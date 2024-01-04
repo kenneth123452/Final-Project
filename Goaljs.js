@@ -5,20 +5,24 @@ function setGoal() {
     const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
 
     const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
-    console.log("Remaining Allowance Display Element: ", remainingAllowanceDisplay);
     
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
     `;
     
+    // Display the remaining allowance in the designated element
     const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
+    console.log("Remaining Allowance Display Element: ", remainingAllowanceDisplay);
+
+    // Display the remaining allowance value (or default to goal amount if not retrieved)
+    const displayedRemainingAllowance = retrievedRemainingAllowance || goalAmount;
     console.log("Remaining Allowance: ₱" + displayedRemainingAllowance);
-    remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + (retrievedRemainingAllowance || goalAmount);
-    
+    remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + displayedRemainingAllowance;
 
+    // Update progress and chart
     updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
-
+    
     const goalInfo = {
         goalAmount: goalAmount,
         timeFrame: timeFrame,
