@@ -125,14 +125,14 @@ function setGoal() {
         window.location.href = "Expenses.html";
     }
 
-    /*function showResultMessage(formattedGoalAmount, timeFrame) {
+    function showResultMessage(formattedGoalAmount, timeFrame) {
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
     `;
-*/}
+}
     
-    function calculateRecommendedSpending(formattedGoalAmount, recommendedDailySpending) {
+    function calculateRecommendedSpending() {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
         
@@ -158,7 +158,6 @@ function setGoal() {
 
     const resultDiv = document.getElementById('remain');
     resultDiv.innerHTML = `
-        <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
         <h3>Recommended Daily Spending:</h3>
         <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
         <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
