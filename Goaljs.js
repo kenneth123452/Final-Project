@@ -22,7 +22,7 @@ function setGoal() {
     console.log("Remaining Allowance: ₱" + displayedRemainingAllowance);
     //remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + displayedRemainingAllowance;
 
-    updateDisplayRemainingAllowance(retrievedRemainingAllowance);
+    updateDisplayRemainingAllowance(retrievedRemainingAllowance, goalAmount);
     // Update progress and chart
     updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
     
@@ -62,7 +62,7 @@ function updateProgressAndChart(goalAmount) {
         }*/
     }
 }
-function updateDisplayRemainingAllowance(remainingAllowance) {
+function updateDisplayRemainingAllowance(remainingAllowance, goalAmount) {
     const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
     const displayedRemainingAllowance = remainingAllowance || goalAmount;
     remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + remainingAllowance;
