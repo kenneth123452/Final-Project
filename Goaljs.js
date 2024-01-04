@@ -160,7 +160,6 @@ function setGoal() {
         resultDiv.innerHTML = `
             <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
         `;
-     }
         const resultDiv = document.getElementById('remain');
         resultDiv.innerHTML = `
             <h3>Recommended Daily Spending:</h3>
