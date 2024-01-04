@@ -20,7 +20,7 @@ function setGoal() {
     // Display the remaining allowance value (or default to goal amount if not retrieved)
     const displayedRemainingAllowance = retrievedRemainingAllowance || goalAmount;
     console.log("Remaining Allowance: ₱" + displayedRemainingAllowance);
-    remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + displayedRemainingAllowance;
+    //remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + displayedRemainingAllowance;
 
     updateDisplayRemainingAllowance(retrievedRemainingAllowance);
     // Update progress and chart
