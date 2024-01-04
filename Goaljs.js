@@ -172,3 +172,4 @@ function createOrUpdateBarChart(remainingAllowance, goalAmount) {
     `;
  }
     });
+}
