@@ -3,13 +3,18 @@ function setGoal() {
     const timeFrame = document.getElementById('time-frame').value;
     const selectedDay = localStorage.getItem('selectedDay');
     const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
+
+    const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
     
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
     `;
+    
+    const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
+    remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + (retrievedRemainingAllowance || goalAmount);
 
-    updateProgressAndChart(goalAmount);
+    updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
 
     const goalInfo = {
         goalAmount: goalAmount,
