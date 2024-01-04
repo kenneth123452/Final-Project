@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', setGoal);
+
 function setGoal() {
     const goalAmount = parseFloat(document.getElementById('goal-amount').value);
     const timeFrame = document.getElementById('time-frame').value;
@@ -62,6 +64,13 @@ function updateProgressAndChart(goalAmount) {
         }*/
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const goalAmount = parseFloat(document.getElementById('goal-amount').value);
+    const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
+    updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
+});
+
 function updateProgressBar(percentage) {
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
