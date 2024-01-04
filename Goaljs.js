@@ -136,28 +136,34 @@ function setGoal() {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
 
-        const currentDate = new Date();
-        const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
-        let daysDifference;
+        function calculateRecommendedSpending() {
+    const goalAmount = parseFloat(document.getElementById('goal-amount').value);
+    const timeFrame = document.getElementById('time-frame').value;
 
-        switch (timeFrame) {
-            case 'week':
-                daysDifference = 7;
-                break;
-            case 'month':
-                daysDifference = daysInMonth;
-                break;
-            case 'year':
-                daysDifference = 365;
-                break;
-            default:
-                daysDifference = 1;
-        }
-        
-        const resultDiv = document.getElementById('remain');
-        resultDiv.innerHTML = `
-            <h3>Recommended Daily Spending:</h3>
-            <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
-            <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
-        `;
+    const currentDate = new Date();
+    const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+    let daysDifference;
+
+    switch (timeFrame) {
+        case 'week':
+            daysDifference = 7;
+            break;
+        case 'month':
+            daysDifference = daysInMonth;
+            break;
+        case 'year':
+            daysDifference = 365;
+            break;
+        default:
+            daysDifference = 1;
     }
+
+    const recommendedDailySpending = goalAmount / daysDifference;
+
+    const resultDiv = document.getElementById('remain');
+    resultDiv.innerHTML = `
+        <h3>Recommended Daily Spending:</h3>
+        <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
+        <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
+    `;
+}
