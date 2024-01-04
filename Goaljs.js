@@ -27,7 +27,6 @@ function setGoal() {
         
     resolve(); // Resolve the promise to indicate that setGoal is complete
         });
-    }
     
     // Display the remaining allowance in the designated element
     const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
