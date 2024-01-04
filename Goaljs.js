@@ -69,7 +69,7 @@ function updateDisplayRemainingAllowance(remainingAllowance, goalAmount) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    //const goalAmount = parseFloat(document.getElementById('goal-amount').value);
+    const goalAmountInput = parseFloat(document.getElementById('goal-amount').value);
     const goalAmount = parseFloat(goalAmountInput.value) || 0; // Use 0 if the value is not valid
     const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
     
