@@ -15,7 +15,7 @@ function setGoal() {
     
     // Display the remaining allowance in the designated element
     const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
-    console.log("Remaining Allowance Display Element: ", remainingAllowanceDisplay);
+    console.log(remainingAllowanceDisplay);
 
     // Display the remaining allowance value (or default to goal amount if not retrieved)
     const displayedRemainingAllowance = retrievedRemainingAllowance || goalAmount;
