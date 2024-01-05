@@ -24,6 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
         var expenseValue3 = parseFloat(document.getElementById("schoolExpenses").value) || 0;
         var expenseValue4 = parseFloat(document.getElementById("other").value) || 0;
 
+         // Save expense types and values in localStorage
+        saveExpenseData("foodExpenses", expenseValue1);
+        saveExpenseData("transportationExpenses", expenseValue2);
+        saveExpenseData("schoolExpenses", expenseValue3);
+        saveExpenseData("other", expenseValue4);
+
         // Calculate and display expenses
         calculateAndDisplayExpense("foodExpenses", expenseValue1);
         calculateAndDisplayExpense("transportationExpenses", expenseValue2);
@@ -39,6 +45,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return false;
     }
+
+    // Save expense types and values function
+    function saveExpenseData(expenseType, expenseValue) {
+        var expenseData = localStorage.getItem("ExpenseData") || "{}";
+        var parsedExpenseData = JSON.parse(expenseData);
+    
+        // Update or add the expense type and value
+        parsedExpenseData[expenseType] = expenseValue;
+    
+        localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
+}
 
     // Calculate and display expense function
     function calculateAndDisplayExpense(expenseType, expenseValue) {
