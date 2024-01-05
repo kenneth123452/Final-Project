@@ -1,5 +1,7 @@
 let goalAmount;
-document.addEventListener('DOMContentLoaded', setGoal);
+document.addEventListener('DOMContentLoaded', () => {
+    setGoal(); // or call other functions directly if needed
+});
 
 function setGoal() {
     return new Promise((resolve) => {
