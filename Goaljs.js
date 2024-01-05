@@ -136,6 +136,8 @@ function setGoal() {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
         
+        const retrievedRemainingAllowance = parseFloat(localStorage.getItem('Remaining Allowance')) || goalAmount;
+        
     const currentDate = new Date();
     const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
     let daysDifference;
@@ -156,14 +158,16 @@ function setGoal() {
 
     const recommendedDailySpending = goalAmount / daysDifference;
         
-    showResultMessage(formatCurrency(goalAmount), timeFrame);
-        
     const resultDiv = document.getElementById('remain');
     resultDiv.innerHTML = `
         <h3>Recommended Daily Spending:</h3>
         <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
         <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
     `;
+        
+    showResultMessage(formatCurrency(goalAmount), timeFrame);
+    updateProgressBar((retrievedRemainingAllowance / goalAmount) * 100);
+    createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
 }
 
 function formatCurrency(amount) {
