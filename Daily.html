@@ -57,50 +57,27 @@
             </div>
             <div class="month-list"></div>
 
-              <div class="card-container">
-    <div class="card" id="personal-card">
-        <h2>Personal Expenses</h2>
-        <div id="storedDataPersonal"></div>
-        <!-- Display current expense value here -->
-        <div id="currentExpensePersonal">Current Expense: <span id="displayPersonalExpenseData"></span></div>
-        <!-- ... -->
-    </div>
-    <div class="card" id="transportation-card">
-        <h2>Transportation Expenses</h2>
-        <div id="storedDataTransportation"></div>
-        <!-- Display current expense value here -->
-        <div id="currentExpenseTransportation">Current Expense: <span id="displayTransportationExpenseData"></span></div>
-        <!-- ... -->
-    </div>
-    <div class="card" id="school-card">
-        <h2>School Expenses</h2>
-        <div id="storedDataSchool"></div>
-        <!-- Display current expense value here -->
-        <div id="currentExpenseSchool">Current Expense: <span id="displaySchoolExpenseData"></span></div>
-        <!-- ... -->
-    </div>
-    <div class="card" id="other-card">
-        <h2>Other Expenses</h2>
-        <div id="storedDataOther"></div>
-        <!-- Display current expense value here -->
-        <div id="currentExpenseOther">Current Expense: <span id="displayOtherExpenseData"></span></div>
-        <!-- ... -->
-    </div>
-
+   <div class="card" id="personal-card">
+    <h2>Personal Expenses</h2>
     <div>
         <label for="personal-expense">Enter Expense:</label>
         <input type="text" id="personal-expense" placeholder="Enter expense value">
     </div>
+    <button class="thumbs-up">Thumbs Up</button>
+    <button class="thumbs-down">Thumbs Down</button>
+    <!-- Display current expense value here -->
+    <div id="currentExpensePersonal">Current Expense: <span id="displayPersonalExpenseData"></span></div>
+    <!-- Display stored data here -->
+    <div id="storedDataPersonal"></div>
 </div>
-
-        
-                        <label for="personal-expense">Enter Expense:</label>
-                        <input type="text" id="personal-expense" placeholder="Enter expense value">
-                    </div>
-                    <button class="thumbs-up">Thumbs Up</button>
-                    <button class="thumbs-down">Thumbs Down</button>
-                    <div id="storedDataPersonal"></div>
-             </div>
+   <label for="personal-expense">Enter Expense:</label>
+     <input type="text" id="personal-expense" placeholder="Enter expense value">
+            
+    </div>
+         <button class="thumbs-up">Thumbs Up</button>
+         <button class="thumbs-down">Thumbs Down</button>
+         <div id="storedDataPersonal"></div>
+     </div>
         
                     <!-- Include Chart.js library -->
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
