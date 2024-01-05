@@ -282,15 +282,22 @@ function saveExpenseData(expenseType) {
 
     localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
 
-    // Example: Display the stored data
-    var storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
+    // Display the stored data
+    var storedDataElement = document.getElementById("display" + capitalizeFirstLetter(expenseType) + "ExpenseData");
     if (storedDataElement) {
-        storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
+        storedDataElement.innerText = JSON.stringify(parsedExpenseData[expenseType]);
+    }
+
+    // Display the current expense value
+    var currentExpenseElement = document.getElementById("currentExpense" + capitalizeFirstLetter(expenseType));
+    if (currentExpenseElement) {
+        currentExpenseElement.innerText = "Current Expense: " + JSON.stringify(parsedExpenseData[expenseType]);
     }
 
     // Call the generateCalendar function with the current month and year
     generateCalendar(currentMonth.value, currentYear.value);
 }
+
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
