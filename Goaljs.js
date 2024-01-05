@@ -44,11 +44,12 @@ function setGoal() {
         const progressBar = document.getElementById('progressBar');
         const progressText = document.getElementById('progressText');
 
+        const goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
+        
         progressBar.style.width = `${percentage}%`;
         progressText.innerText = `Progress: ${percentage.toFixed(2)}%`;
 
         const retrievedRemainingAllowance = parseFloat(localStorage.getItem('Remaining Allowance')) || goalAmount;
-        const goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
         createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
 }
 
