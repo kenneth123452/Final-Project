@@ -283,14 +283,19 @@ function saveExpenseData(expenseType) {
     localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
 
     // Example: Display the stored data
-    var storedDataElement = document.getElementById("storedData");
+    var storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
     if (storedDataElement) {
-        storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData);
+        storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
     }
 
     // Call the generateCalendar function with the current month and year
     generateCalendar(currentMonth.value, currentYear.value);
 }
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
   document.querySelectorAll('.card button').forEach(button => {
     button.addEventListener('click', function () {
         if (this.classList.contains('thumbs-up')) {
@@ -304,3 +309,92 @@ function saveExpenseData(expenseType) {
         }
     });
 });
+
+function updateCharts(parsedExpenseData) {
+    // Example: Update Pie Chart
+    updatePieChart(parsedExpenseData);
+
+    // Example: Update Line Chart
+    updateLineChart(parsedExpenseData);
+
+    // Example: Update Bar Chart
+    updateBarChart(parsedExpenseData);
+}
+
+// Example: Function to update the Pie Chart
+function updatePieChart(parsedExpenseData) {
+    var pieChartElement = document.getElementById('pie-chart');
+    if (pieChartElement) {
+        // Use parsedExpenseData to update your Pie Chart
+        // Example: Create a Pie Chart using Chart.js
+        var pieChart = new Chart(pieChartElement, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(parsedExpenseData),
+                datasets: [{
+                    data: Object.values(parsedExpenseData),
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50'], // Customize the colors as needed
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Expense Distribution'
+                }
+            }
+        });
+    }
+}
+
+// Example: Function to update the Line Chart
+function updateLineChart(parsedExpenseData) {
+    var lineChartElement = document.getElementById('line-chart');
+    if (lineChartElement) {
+        // Use parsedExpenseData to update your Line Chart
+        // Example: Create a Line Chart using Chart.js
+        var lineChart = new Chart(lineChartElement, {
+            type: 'line',
+            data: {
+                labels: Object.keys(parsedExpenseData),
+                datasets: [{
+                    label: 'Expense Trend',
+                    data: Object.values(parsedExpenseData),
+                    borderColor: '#FF6384', // Customize the line color as needed
+                    fill: false
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Expense Trend Over Time'
+                }
+            }
+        });
+    }
+}
+
+// Example: Function to update the Bar Chart
+function updateBarChart(parsedExpenseData) {
+    var barChartElement = document.getElementById('bar-chart');
+    if (barChartElement) {
+        // Use parsedExpenseData to update your Bar Chart
+        // Example: Create a Bar Chart using Chart.js
+        var barChart = new Chart(barChartElement, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(parsedExpenseData),
+                datasets: [{
+                    label: 'Expense Amount',
+                    data: Object.values(parsedExpenseData),
+                    backgroundColor: '#36A2EB' // Customize the bar color as needed
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Expense Comparison'
+                }
+            }
+        });
+    }
+}
