@@ -46,6 +46,8 @@ function setGoal() {
 
         progressBar.style.width = `${percentage}%`;
         progressText.innerText = `Progress: ${percentage.toFixed(2)}%`;
+
+        createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
     }
 
     function updateDisplayRemainingAllowance(remainingAllowance, goalAmount) {
