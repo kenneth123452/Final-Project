@@ -307,16 +307,16 @@ function capitalizeFirstLetter(string) {
         if (this.classList.contains('thumbs-up')) {
             console.log('Thumbs Up clicked');
             alert('Successfully achieved!');
-            saveExpenseData('personal'); // Replace 'personal' with the correct expense type
+            var expenseType = this.closest('.card').id.replace('-card', '');
+            saveExpenseData(expenseType);// Replace 'personal' with the correct expense type
         } else if (this.classList.contains('thumbs-down')) {
             console.log('Thumbs Down clicked');
             alert('Failed to earn money!');
-            saveExpenseData('personal'); // Replace 'personal' with the correct expense type
         }
     });
 });
 
-function updateCharts(parsedExpenseData) {
+/*function updateCharts(parsedExpenseData) {
     // Example: Update Pie Chart
     updatePieChart(parsedExpenseData);
 
@@ -402,5 +402,5 @@ function updateBarChart(parsedExpenseData) {
                 }
             }
         });
-    }
+    }*/
 }
