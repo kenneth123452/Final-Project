@@ -38,7 +38,7 @@ function setGoal() {
 
         localStorage.setItem('goalInfo', JSON.stringify(goalInfo));
         localStorage.setItem('timeFrame', timeFrame);
-    });
+    //});
 }
     function updateProgressAndChart(goalAmount) {
         const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
@@ -59,13 +59,18 @@ function setGoal() {
         remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + displayedRemainingAllowance;
     }
 
-    function updateProgressBar(percentage) {
-        const progressBar = document.getElementById('progressBar');
-        const progressText = document.getElementById('progressText');
+function updateProgressAndChart(remainingAllowance, goalAmount) {
+    const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
+    const goalInfoString = localStorage.getItem('goalInfo');
 
-        progressBar.style.width = `${percentage}%`;
-        progressText.innerText = `Progress: ${percentage.toFixed(2)}%`;
+    if (retrievedRemainingAllowance !== null && !isNaN(retrievedRemainingAllowance)) {
+        const percentageCompletion = (retrievedRemainingAllowance / goalAmount) * 100;
+        console.log("Percentage Completion: " + percentageCompletion);
+
+        updateProgressBar(percentageCompletion);
+        createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
     }
+}
 
     function createOrUpdateBarChart(remainingAllowance, goalAmount) {
         const ctx = document.getElementById('barChart').getContext('2d');
