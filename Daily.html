@@ -57,34 +57,17 @@
             </div>
             <div class="month-list"></div>
         </div>
-        <div class="card-container">
             <div class="card" id="personal-card">
-                <h2>Personal</h2>
-                <div id="storedDataPersonal"></div>
-                <!-- ... -->
+            <h2>Personal</h2>
+            <div>
+                <label for="personal-expense">Enter Expense:</label>
+                <input type="text" id="personal-expense" placeholder="Enter expense value">
             </div>
-            <div class="card" id="transportation-card">
-                <h2>Transportation</h2>
-                <div id="storedDataTransportation"></div>
-                <!-- ... -->
-            </div>
-            <div class="card" id="school-card">
-                <h2>School</h2>
-                <div id="storedDataSchool"></div>
-                <!-- ... -->
-            </div>
-            <div class="card" id="other-card">
-                <h2>Other</h2>
-                <div id="storedDataOther"></div>
-                <!-- ... -->
-            </div>
-            
-            <!-- Placeholder for Chart.js charts -->
-            <div id="chart-container">
-                <canvas id="pie-chart"></canvas>
-                <canvas id="line-chart"></canvas>
-                <canvas id="bar-chart"></canvas>
-            </div>
+            <button class="thumbs-up">Thumbs Up</button>
+            <button class="thumbs-down">Thumbs Down</button>
+            <div id="storedDataPersonal"></div>
+     </div>
+
             <!-- Include Chart.js library -->
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </div>
