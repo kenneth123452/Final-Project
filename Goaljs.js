@@ -51,7 +51,6 @@ function setGoal() {
         const goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
         createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
 }
-    }
 
     function updateDisplayRemainingAllowance(remainingAllowance, goalAmount) {
         const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
