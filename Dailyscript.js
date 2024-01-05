@@ -273,7 +273,7 @@ const barChart = new Chart(barChartCanvas, {
 });
 
 function saveExpenseData(expenseType) {
-    var expenseValue = parseFloat(document.getElementById(expenseType).value) || 0;
+    var expenseValue = parseFloat(document.getElementById(expenseType + "-expense").value) || 0;
     var expenseData = localStorage.getItem("ExpenseData") || "{}";
     var parsedExpenseData = JSON.parse(expenseData);
 
@@ -283,36 +283,35 @@ function saveExpenseData(expenseType) {
     localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
 
     // Display the stored data
-    var storedDataElement = document.getElementById("display" + capitalizeFirstLetter(expenseType) + "ExpenseData");
+    var storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
     if (storedDataElement) {
-        storedDataElement.innerText = JSON.stringify(parsedExpenseData[expenseType]);
+        storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
     }
 
     // Display the current expense value
-    var currentExpenseElement = document.getElementById("currentExpense" + capitalizeFirstLetter(expenseType));
+    var currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(expenseType) + "ExpenseData");
     if (currentExpenseElement) {
-        currentExpenseElement.innerText = "Current Expense: " + JSON.stringify(parsedExpenseData[expenseType]);
+        currentExpenseElement.innerText = JSON.stringify(parsedExpenseData[expenseType]);
     }
 
     // Call the generateCalendar function with the current month and year
     generateCalendar(currentMonth.value, currentYear.value);
 }
 
-
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-  document.querySelectorAll('.card button').forEach(button => {
+ document.querySelectorAll('.card button').forEach(button => {
     button.addEventListener('click', function () {
         if (this.classList.contains('thumbs-up')) {
             console.log('Thumbs Up clicked');
             alert('Successfully achieved!');
-            saveExpenseData('thumbs-up'); // Save the expense data
+            saveExpenseData('personal'); // Replace 'personal' with the correct expense type
         } else if (this.classList.contains('thumbs-down')) {
             console.log('Thumbs Down clicked');
             alert('Failed to earn money!');
-            saveExpenseData('thumbs-down'); // Save the expense data
+            saveExpenseData('personal'); // Replace 'personal' with the correct expense type
         }
     });
 });
