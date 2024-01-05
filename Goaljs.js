@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function setGoal() {
     return new Promise((resolve) => {
-        const goalAmount = parseFloat(document.getElementById('goal-amount').value);
+        goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
         const selectedDay = localStorage.getItem('selectedDay');
         const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
