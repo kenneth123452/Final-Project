@@ -40,17 +40,12 @@ function setGoal() {
         localStorage.setItem('timeFrame', timeFrame);
     });
 }
-    function updateProgressAndChart(goalAmount) {
-        const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
-        const goalInfoString = localStorage.getItem('goalInfo');
+    function updateProgressBar(percentage) {
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
 
-        if (retrievedRemainingAllowance !== null && !isNaN(retrievedRemainingAllowance)) {
-            const percentageCompletion = (retrievedRemainingAllowance / goalAmount) * 100;
-            console.log("Percentage Completion: " + percentageCompletion);
-
-            updateProgressBar(percentageCompletion);
-            createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
-        }
+        progressBar.style.width = `${percentage}%`;
+        progressText.innerText = `Progress: ${percentage.toFixed(2)}%`;
     }
 
     function updateDisplayRemainingAllowance(remainingAllowance, goalAmount) {
