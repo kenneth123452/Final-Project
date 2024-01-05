@@ -44,8 +44,6 @@ function setGoal() {
         const progressBar = document.getElementById('progressBar');
         const progressText = document.getElementById('progressText');
 
-        const goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
-
         progressBar.style.width = `${percentage}%`;
         progressText.innerText = `Progress: ${percentage.toFixed(2)}%`;
 
