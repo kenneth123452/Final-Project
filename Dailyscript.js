@@ -272,3 +272,35 @@ const barChart = new Chart(barChartCanvas, {
   
 });
 
+function saveExpenseData(expenseType) {
+    var expenseValue = parseFloat(document.getElementById(expenseType).value) || 0;
+    var expenseData = localStorage.getItem("ExpenseData") || "{}";
+    var parsedExpenseData = JSON.parse(expenseData);
+
+    // Update or add the expense type and value
+    parsedExpenseData[expenseType] = expenseValue;
+
+    localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
+
+    // Example: Display the stored data
+    var storedDataElement = document.getElementById("storedData");
+    if (storedDataElement) {
+        storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData);
+    }
+
+    // Call the generateCalendar function with the current month and year
+    generateCalendar(currentMonth.value, currentYear.value);
+}
+  document.querySelectorAll('.card button').forEach(button => {
+    button.addEventListener('click', function () {
+        if (this.classList.contains('thumbs-up')) {
+            console.log('Thumbs Up clicked');
+            alert('Successfully achieved!');
+            saveExpenseData('thumbs-up'); // Save the expense data
+        } else if (this.classList.contains('thumbs-down')) {
+            console.log('Thumbs Down clicked');
+            alert('Failed to earn money!');
+            saveExpenseData('thumbs-down'); // Save the expense data
+        }
+    });
+});
