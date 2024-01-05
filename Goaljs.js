@@ -26,8 +26,8 @@ function setGoal() {
         //remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + displayedRemainingAllowance;
 
         updateDisplayRemainingAllowance(retrievedRemainingAllowance, goalAmount);
-        // Update progress and chart
         updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
+        createOrUpdateBarChart(remainingAllowance, goalAmount);
 
         const goalInfo = {
             goalAmount: goalAmount,
