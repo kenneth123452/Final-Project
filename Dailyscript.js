@@ -173,7 +173,7 @@ document.querySelectorAll('.card button').forEach(button => {
 const chartContainer = document.getElementById('chart-container');
 
 const pieChartCanvas = document.getElementById('pie-chart');
-pieChartCanvas.id = 'shared-chart';
+pieChartCanvas.id = 'pie-chart';
 const pieChart = new Chart(pieChartCanvas, {
   type: 'pie',
   data: {
@@ -196,7 +196,7 @@ const pieChart = new Chart(pieChartCanvas, {
 });
 
 const lineChartCanvas = document.getElementById('line-chart');
-lineChartCanvas.id = 'shared-chart';
+lineChartCanvas.id = 'line-chart';
 chartContainer.appendChild(lineChartCanvas);
 
 const lineChart = new Chart(lineChartCanvas, {
@@ -233,9 +233,8 @@ const lineChart = new Chart(lineChartCanvas, {
   },
 });
 
-
 const barChartCanvas = document.getElementById('bar-chart');
-barChartCanvas.id = 'shared-chart';
+barChartCanvas.id = 'bar-chart';
 chartContainer.appendChild(barChartCanvas);
 
 const barChart = new Chart(barChartCanvas, {
@@ -269,7 +268,6 @@ const barChart = new Chart(barChartCanvas, {
       },
     },
   },
-  
 });
 
 function saveExpenseData(expenseType) {
