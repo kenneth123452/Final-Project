@@ -67,7 +67,11 @@ const generateCalendar = (month, year) => {
 
   let first_day = new Date(year, month, 1);
 
-  for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
+console.log('days_of_month:', days_of_month);
+console.log('month:', month);
+console.log('first_day:', first_day);
+
+  for (let i = 0; i < days_of_month[month] + first_day.getDay() - 1; i++) {
     let day = document.createElement('div');
 
     if (i >= first_day.getDay()) {
@@ -158,164 +162,68 @@ setInterval(() => {
   todayShowTime.textContent = formateTimer;
 }, 1000);
 
-/*document.querySelectorAll('.card button').forEach(button => {
-  button.addEventListener('click', function () {
-    if (this.classList.contains('thumbs-up')) {
-      console.log('Thumbs Up clicked');
-      alert('Successfully achieved!');
-    } else if (this.classList.contains('thumbs-down')) {
-      console.log('Thumbs Down clicked');
-      alert('Failed to earn money!');
-    }
-  });
-});
+function displayStoredDataContainer(expenseType, expenseValue) {
+  // Create a new card element
+  var card = document.createElement('div');
+  card.className = 'card';
+  card.id = expenseType + '-card';
 
-/*const chartContainer = document.getElementById('chart-container');
+  // Create elements within the card for displaying data
+  var title = document.createElement('h2');
+  title.textContent = capitalizeFirstLetter(expenseType) + ' Expenses';
 
-const pieChartCanvas = document.getElementById('pie-chart');
-pieChartCanvas.id = 'pie-chart';
-const pieChart = new Chart(pieChartCanvas, {
-  type: 'pie',
-  data: {
-    labels: ['Label 1', 'Label 2', 'Label 3'],
-    datasets: [{
-      label: 'Data',
-      data: [10, 20, 30],
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-    }],
-  },
-  options: {
-    plugins: {
-      legend: {
-        labels: {
-          color: 'white', // Set the text color to white
-        },
-      },
-    },
-  },
-});
+  var input = document.createElement('input');
+  input.type = 'number';
+  input.id = expenseType + '-expense-input';
+  input.placeholder = 'Enter expense value';
 
-const lineChartCanvas = document.getElementById('line-chart');
-lineChartCanvas.id = 'line-chart';
-chartContainer.appendChild(lineChartCanvas);
+  var displayDataDiv = document.createElement('div');
+  displayDataDiv.id = 'display' + capitalizeFirstLetter(expenseType) + 'ExpenseData';
 
-const lineChart = new Chart(lineChartCanvas, {
-  type: 'line',
-  data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-    datasets: [{
-      label: 'Sales',
-      data: [65, 59, 80, 81, 56, 55],
-      borderColor: '#36A2EB',
-      backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    }],
-  },
-  options: {
-    plugins: {
-      legend: {
-        labels: {
-          color: 'white', // Set the text color to white
-        },
-      },
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: 'white',
-        },
-      },
-      y: {
-        ticks: {
-          color: 'white',
-        },
-      },
-    },
-  },
-});
+  var storedDataDiv = document.createElement('div');
+  storedDataDiv.id = 'storedData' + capitalizeFirstLetter(expenseType);
+  storedDataDiv.textContent = 'Stored Expense Data: ' + JSON.stringify(expenseValue);
 
-const barChartCanvas = document.getElementById('bar-chart');
-barChartCanvas.id = 'bar-chart';
-chartContainer.appendChild(barChartCanvas);
+  var thumbsUpButton = document.createElement('button');
+  thumbsUpButton.type = 'button';
+  thumbsUpButton.className = 'thumbs-up';
+  thumbsUpButton.textContent = 'Thumbs Up';
 
-const barChart = new Chart(barChartCanvas, {
-  type: 'bar',
-  data: {
-    labels: ['Category A', 'Category B', 'Category C', 'Category D'],
-    datasets: [{
-      label: 'Values',
-      data: [12, 19, 3, 5],
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-    }],
-  },
-  options: {
-    plugins: {
-      legend: {
-        labels: {
-          color: 'white',
-        },
-      },
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: 'white',
-        },
-      },
-      y: {
-        ticks: {
-          color: 'white',
-        },
-      },
-    },
-  },
-});*/
+  var thumbsDownButton = document.createElement('button');
+  thumbsDownButton.type = 'button';
+  thumbsDownButton.className = 'thumbs-down';
+  thumbsDownButton.textContent = 'Thumbs Down';
+
+  // Append elements to the card
+  card.appendChild(title);
+  card.appendChild(input);
+  card.appendChild(displayDataDiv);
+  card.appendChild(storedDataDiv);
+  card.appendChild(thumbsUpButton);
+  card.appendChild(thumbsDownButton);
+
+  // Append the card to the stored data container
+  var storedDataContainer = document.getElementById('storedDataContainer');
+  if (storedDataContainer) {
+      storedDataContainer.appendChild(card);
+  }
+}
 
 function saveExpenseData(expenseType) {
-    var expenseValue = parseFloat(document.getElementById(expenseType + "-expense").value) || 0;
-    var expenseData = localStorage.getItem("ExpenseData") || "{}";
-    var parsedExpenseData = JSON.parse(expenseData);
+  var expenseValue = parseFloat(document.getElementById(expenseType + "-expense-input").value) || 0;
+  var expenseData = localStorage.getItem("ExpenseData") || "{}";
+  var parsedExpenseData = JSON.parse(expenseData);
 
-    // Update or add the expense type and value
-    parsedExpenseData[expenseType] = expenseValue;
+  // Update or add the expense type and value
+  parsedExpenseData[expenseType] = expenseValue;
 
-    localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
+  localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
 
-    // Display the stored data
-    var storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
-    if (storedDataElement) {
-        storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
-    }
-
-    // Display the current expense value
-    var currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(expenseType) + "ExpenseData");
-    if (currentExpenseElement) {
-        currentExpenseElement.innerText = JSON.stringify(parsedExpenseData[expenseType]);
-    }
-
-    // Call the generateCalendar function with the current month and year
-    generateCalendar(currentMonth.value, currentYear.value);
+  displayStoredDataContainer(expenseType, parsedExpenseData[expenseType]);
+  generateCalendar(currentMonth.value, currentYear.value);
 }
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toLowerCase() + string.slice(1);
-}
 
-document.querySelectorAll('.card button').forEach(button => {
-   });
-
- document.querySelectorAll('.card button').forEach(button => {
-    button.addEventListener('click', function () {
-        if (this.classList.contains('thumbs-up')) {
-            console.log('Thumbs Up clicked');
-            alert('Successfully achieved!');
-            var expenseType = this.closest('.card').id.replace('-card', '');
-            saveExpenseData(expenseType);// Replace 'personal' with the correct expense type
-        } else if (this.classList.contains('thumbs-down')) {
-            console.log('Thumbs Down clicked');
-            alert('Failed to earn money!');
-        }
-    });
-});
 
 /*function updateCharts(parsedExpenseData) {
     // Example: Update Pie Chart
