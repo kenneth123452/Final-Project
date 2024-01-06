@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>CALENDAR</title>
     <link rel="stylesheet" href="DAILYstyle.css">
     <script src="Dailyscript.js" defer></script>
@@ -24,11 +24,9 @@
                 <span class="month-picker" id="month-picker"> May </span>
                 <div class="year-picker" id="year-picker">
                     <span class="year-change" id="pre-year">
-                        <pre></pre>
                     </span>
                     <span id="year">2020 </span>
                     <span class="year-change" id="next-year">
-                        <pre>></pre>
                     </span>
                 </div>
             </div>
@@ -54,57 +52,46 @@
                     <div class="time-formate">02:51:20</div>
                     <div class="date-formate">23 - July - 2022</div>
                 </div>
-                
             </div>
             <div class="month-list"></div>
-            
-            <div class="card-container">
+
+            <div class="card-container"></div>
                 <div class="card" id="personal-card">
                     <h2>Personal Expenses</h2>
-                    <input type="number" id="personal-expense-input" placeholder="Enter expense value" />
+                    <input type="number" id="personal-expense-input" placeholder="Enter expense value" >
                     <div id="displayPersonalExpenseData"></div>
                     <div id="storedDataPersonal"></div> <!-- Placeholder for displaying expenses value -->
-                    <button class="thumbs-up">Thumbs Up</button>
-                    <button class="thumbs-down">Thumbs Down</button>
+                    <button type="button" class="thumbs-up">Thumbs Up</button>
+                    <button type="button" class="thumbs-down">Thumbs Down</button>
                     <!-- ... (other content) ... -->
                 </div>
-                <div class="card" id="transportation-card">
+              <div class="card" id="transportation-card">
                     <h2>Transportation Expenses</h2>
-                    <input type="number" id="transportation-card-input" placeholder="Enter expense value" />
+                    <input type="number" id="transportation-card-input" placeholder="Enter expense value" >
                     <div id="displayTransportationExpenseData"></div>
                     <div id="storedDataTransportation"></div> <!-- Placeholder for displaying expenses value -->
-                    <button class="thumbs-up">Thumbs Up</button>
-                    <button class="thumbs-down">Thumbs Down</button>
+                    <button type="button" class="thumbs-up">Thumbs Up</button>
+                    <button type="button" class="thumbs-down">Thumbs Down</button>
                     <!-- ... (other content) ... -->
                 </div>
                 <div class="card" id="school-card">
                     <h2>School Expenses</h2>
-                    <input type="number" id="school-card-input" placeholder="Enter expense value" />
+                    <input type="number" id="school-card-input" placeholder="Enter expense value" >
                     <div id="displaySchoolExpenseData"></div>
                     <div id="storedDataSchool"></div> <!-- Placeholder for displaying expenses value -->
-                    <button class="thumbs-up">Thumbs Up</button>
-                    <button class="thumbs-down">Thumbs Down</button>
+                    <button type="button" class="thumbs-up">Thumbs Up</button>
+                    <button type="button" class="thumbs-down">Thumbs Down</button>
                     <!-- ... (other content) ... -->
                 </div>
                 <div class="card" id="other-card">
                     <h2>Other Expenses</h2>
-                    <input type="number" id="other-card-input" placeholder="Enter expense value" />
+                    <input type="number" id="other-card-input" placeholder="Enter expense value" >
                     <div id="displayOtherExpenseData"></div>
                     <div id="storedDataOther"></div> <!-- Placeholder for displaying expenses value -->
-                    <button class="thumbs-up">Thumbs Up</button>
-                    <button class="thumbs-down">Thumbs Down</button>
+                    <button type="button" class="thumbs-up">Thumbs Up</button>
+                    <button type="button" class="thumbs-down">Thumbs Down</button>
                     <!-- ... (other content) ... -->
-                </div>
-
-            <!-- Placeholder for Chart.js charts -->
-            <!--<div id="chart-container">
-                <canvas id="pie-chart"></canvas>
-                <canvas id="line-chart"></canvas>
-                <canvas id="bar-chart"></canvas>
-            </div>-->
-            
-             <!-- Include Chart.js library -->
-                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    </div>
                 </div>
             </div>
         </body>
