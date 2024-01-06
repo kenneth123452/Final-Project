@@ -283,13 +283,13 @@ function saveExpenseData(expenseType) {
     localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
 
     // Display the stored data
-    var storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
+    var storedDataElement = document.getElementById("storedData" + expenseType.toLowerCase());
     if (storedDataElement) {
         storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
     }
 
     // Display the current expense value
-    var currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(expenseType) + "ExpenseData");
+    var currentExpenseElement = document.getElementById("display" + expenseType.toLowerCase() + "ExpenseData");
     if (currentExpenseElement) {
         currentExpenseElement.innerText = JSON.stringify(parsedExpenseData[expenseType]);
     }
