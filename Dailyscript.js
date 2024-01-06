@@ -298,8 +298,8 @@ function saveExpenseData(expenseType) {
     generateCalendar(currentMonth.value, currentYear.value);
 }
 
-/*function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toLowerCase() + string.slice(1);
 }
 
  document.querySelectorAll('.card button').forEach(button => {
@@ -314,7 +314,7 @@ function saveExpenseData(expenseType) {
             alert('Failed to earn money!');
         }
     });
-});*/
+});
 
 /*function updateCharts(parsedExpenseData) {
     // Example: Update Pie Chart
