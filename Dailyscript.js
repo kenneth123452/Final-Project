@@ -402,5 +402,5 @@ function updateBarChart(parsedExpenseData) {
                 }
             }
         });
-    }*/
-}
+    }
+}*/
