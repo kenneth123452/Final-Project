@@ -302,6 +302,9 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
 }
 
+document.querySelectorAll('.card button').forEach(button => {
+   });
+
  document.querySelectorAll('.card button').forEach(button => {
     button.addEventListener('click', function () {
         if (this.classList.contains('thumbs-up')) {
