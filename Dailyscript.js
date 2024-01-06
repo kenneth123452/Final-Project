@@ -298,7 +298,7 @@ function saveExpenseData(expenseType) {
     generateCalendar(currentMonth.value, currentYear.value);
 }
 
-function capitalizeFirstLetter(string) {
+/*function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -314,7 +314,7 @@ function capitalizeFirstLetter(string) {
             alert('Failed to earn money!');
         }
     });
-});
+});*/
 
 /*function updateCharts(parsedExpenseData) {
     // Example: Update Pie Chart
