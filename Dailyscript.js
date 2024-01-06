@@ -158,7 +158,7 @@ setInterval(() => {
   todayShowTime.textContent = formateTimer;
 }, 1000);
 
-document.querySelectorAll('.card button').forEach(button => {
+/*document.querySelectorAll('.card button').forEach(button => {
   button.addEventListener('click', function () {
     if (this.classList.contains('thumbs-up')) {
       console.log('Thumbs Up clicked');
@@ -170,7 +170,7 @@ document.querySelectorAll('.card button').forEach(button => {
   });
 });
 
-const chartContainer = document.getElementById('chart-container');
+/*const chartContainer = document.getElementById('chart-container');
 
 const pieChartCanvas = document.getElementById('pie-chart');
 pieChartCanvas.id = 'pie-chart';
@@ -268,7 +268,7 @@ const barChart = new Chart(barChartCanvas, {
       },
     },
   },
-});
+});*/
 
 function saveExpenseData(expenseType) {
     var expenseValue = parseFloat(document.getElementById(expenseType + "-expense").value) || 0;
