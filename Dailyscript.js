@@ -67,10 +67,6 @@ const generateCalendar = (month, year) => {
 
   let first_day = new Date(year, month, 1);
 
-console.log('days_of_month:', days_of_month);
-console.log('month:', month);
-console.log('first_day:', first_day);
-
   for (let i = 0; i < days_of_month[month] + first_day.getDay() - 1; i++) {
     let day = document.createElement('div');
 
@@ -112,6 +108,11 @@ month_names.forEach((e, index) => {
 (function () {
   month_list.classList.add('hideonce');
 })();
+
+
+let currentMonth = { value: 0 };
+let currentYear = { value: 2024 }; // Set your initial year here
+
 document.querySelector('#pre-year').onclick = () => {
   --currentMonth.value;
   if (currentMonth.value < 0) {
@@ -129,100 +130,106 @@ document.querySelector('#next-year').onclick = () => {
   generateCalendar(currentMonth.value, currentYear.value);
 };
 
+/*document.addEventListener("DOMContentLoaded", function () {
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}*/
+
+
 let currentDate = new Date();
-let currentMonth = { value: currentDate.getMonth() };
-let currentYear = { value: currentDate.getFullYear() };
+//let currentMonth = { value: currentDate.getMonth() };
+//let currentYear = { value: currentDate.getFullYear() };
 generateCalendar(currentMonth.value, currentYear.value);
 
-const todayShowTime = document.querySelector('.time-formate');
-const todayShowDate = document.querySelector('.date-formate');
+let todayShowTime = document.querySelector('.time-formate');
+let todayShowDate = document.querySelector('.date-formate');
 
-const currshowDate = new Date();
-const showCurrentDateOption = {
+let currshowDate = new Date();
+let showCurrentDateOption = {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
   weekday: 'long',
 };
-const currentDateFormate = new Intl.DateTimeFormat(
+let currentDateFormate = new Intl.DateTimeFormat(
   'en-US',
   showCurrentDateOption
 ).format(currshowDate);
 todayShowDate.textContent = currentDateFormate;
 setInterval(() => {
-  const timer = new Date();
-  const option = {
+  let timer = new Date();
+  let option = {
     hour: 'numeric',
     minute: 'numeric',
     second: 'numeric',
   };
-  const formateTimer = new Intl.DateTimeFormat('en-us', option).format(timer);
+  let formateTimer = new Intl.DateTimeFormat('en-us', option).format(timer);
   let time = `${timer.getHours()}`.padStart(2, '0') +
     `:${`${timer.getMinutes()}`.padStart(2, '0')}: ${`${timer.getSeconds()}`.padStart(2, '0')}`;
   todayShowTime.textContent = formateTimer;
 }, 1000);
 
-function displayStoredDataContainer(expenseType, expenseValue) {
-  // Create a new card element
-  var card = document.createElement('div');
-  card.className = 'card';
-  card.id = expenseType + '-card';
+  document.addEventListener("DOMContentLoaded", function () {
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    
+  function saveExpenseData(expenseType) {
+    let expenseValue = parseFloat(document.getElementById(expenseType + "-expense").value) || 0;
+    let expenseData = localStorage.getItem("ExpenseData") || "{}";
+    let parsedExpenseData = JSON.parse(expenseData);
 
-  // Create elements within the card for displaying data
-  var title = document.createElement('h2');
-  title.textContent = capitalizeFirstLetter(expenseType) + ' Expenses';
+    // Update or add the expense type and value
+    parsedExpenseData[expenseType] = expenseValue;
 
-  var input = document.createElement('input');
-  input.type = 'number';
-  input.id = expenseType + '-expense-input';
-  input.placeholder = 'Enter expense value';
+    localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
 
-  var displayDataDiv = document.createElement('div');
-  displayDataDiv.id = 'display' + capitalizeFirstLetter(expenseType) + 'ExpenseData';
+    // Display the stored data
+    let storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
+    if (storedDataElement) {
+      storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
+    }
 
-  var storedDataDiv = document.createElement('div');
-  storedDataDiv.id = 'storedData' + capitalizeFirstLetter(expenseType);
-  storedDataDiv.textContent = 'Stored Expense Data: ' + JSON.stringify(expenseValue);
-
-  var thumbsUpButton = document.createElement('button');
-  thumbsUpButton.type = 'button';
-  thumbsUpButton.className = 'thumbs-up';
-  thumbsUpButton.textContent = 'Thumbs Up';
-
-  var thumbsDownButton = document.createElement('button');
-  thumbsDownButton.type = 'button';
-  thumbsDownButton.className = 'thumbs-down';
-  thumbsDownButton.textContent = 'Thumbs Down';
-
-  // Append elements to the card
-  card.appendChild(title);
-  card.appendChild(input);
-  card.appendChild(displayDataDiv);
-  card.appendChild(storedDataDiv);
-  card.appendChild(thumbsUpButton);
-  card.appendChild(thumbsDownButton);
-
-  // Append the card to the stored data container
-  var storedDataContainer = document.getElementById('storedDataContainer');
-  if (storedDataContainer) {
-      storedDataContainer.appendChild(card);
+    // Display the current expense value
+    let currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(expenseType) + "ExpenseData");
+    if (currentExpenseElement) {
+      currentExpenseElement.innerText = JSON.stringify(parsedExpenseData[expenseType]);
+    }
+    // Call the generateCalendar function with the current month and year
+    generateCalendar(currentMonth.value, currentYear.value);
   }
-}
+      function retrieveAndDisplayExpenses() {
+        var expenseData = localStorage.getItem("ExpenseData") || "{}";
+        var parsedExpenseData = JSON.parse(expenseData);
 
-function saveExpenseData(expenseType) {
-  var expenseValue = parseFloat(document.getElementById(expenseType + "-expense-input").value) || 0;
-  var expenseData = localStorage.getItem("ExpenseData") || "{}";
-  var parsedExpenseData = JSON.parse(expenseData);
+        // Iterate over the expense types and display expenses for each card
+        displayExpenseData("personal", parsedExpenseData);
+        displayExpenseData("transportation", parsedExpenseData);
+        displayExpenseData("school", parsedExpenseData);
+        displayExpenseData("other", parsedExpenseData);
+  }
+    // Function to display expenses for a specific card
+    function displayExpenseData(cardType, parsedExpenseData) {
+      // Update the ID and input ID accordingly
+      var expenseValue = parsedExpenseData[cardType] || 0;
+      var storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(cardType));
+      var currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(cardType) + "ExpenseData");
+      var inputElement = document.getElementById(cardType + "-expense-input");
 
-  // Update or add the expense type and value
-  parsedExpenseData[expenseType] = expenseValue;
+      if (storedDataElement) {
+          storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(expenseValue);
+      }
 
-  localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
+      if (currentExpenseElement) {
+          currentExpenseElement.innerText = JSON.stringify(expenseValue);
+      }
 
-  displayStoredDataContainer(expenseType, parsedExpenseData[expenseType]);
-  generateCalendar(currentMonth.value, currentYear.value);
-}
-
+      if (inputElement) {
+          inputElement.value = expenseValue;
+      }
+  }
+    retrieveAndDisplayExpenses();
+  });
 
 
 /*function updateCharts(parsedExpenseData) {
