@@ -8,14 +8,24 @@
     <link rel="stylesheet" href="DAILYstyle.css">
     <script src="Dailyscript.js" defer></script>
     <style>
+        <style>
         #chart-container {
             transform: translate(-30%, -65%);
             width: 300px; /* Adjust the width of each canvas */
             height: auto;
-          margin: 20px; /* Adjust the margin as needed */
+            margin: 20px; /* Adjust the margin as needed */
         }
 
-      </style>
+        .expense-inputs {
+            /* Add your styles for expense inputs here */
+            margin-top: 20px;
+        }
+
+        .expense-input {
+            /* Add your styles for individual expense inputs here */
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -23,11 +33,9 @@
             <div class="calendar-header">
                 <span class="month-picker" id="month-picker"> May </span>
                 <div class="year-picker" id="year-picker">
-                    <span class="year-change" id="pre-year">
-                    </span>
+                    <span class="year-change" id="pre-year"></span>
                     <span id="year">2020 </span>
-                    <span class="year-change" id="next-year">
-                    </span>
+                    <span class="year-change" id="next-year"></span>
                 </div>
             </div>
 
@@ -52,47 +60,42 @@
                     <div class="time-formate">02:51:20</div>
                     <div class="date-formate">23 - July - 2022</div>
                 </div>
+                <div class="month-list"></div>
             </div>
-            <div class="month-list"></div>
 
-            <div class="card-container"></div>
-                <div class="card" id="personal-card">
-                    <h2>Personal Expenses</h2>
-                    <input type="number" id="personal-expense-input" placeholder="Enter expense value" >
-                    <div id="displayPersonalExpenseData"></div>
-                    <div id="storedDataPersonal"></div> <!-- Placeholder for displaying expenses value -->
-                    <button type="button" class="thumbs-up">Thumbs Up</button>
-                    <button type="button" class="thumbs-down">Thumbs Down</button>
-                    <!-- ... (other content) ... -->
-                </div>
-              <div class="card" id="transportation-card">
-                    <h2>Transportation Expenses</h2>
-                    <input type="number" id="transportation-card-input" placeholder="Enter expense value" >
-                    <div id="displayTransportationExpenseData"></div>
-                    <div id="storedDataTransportation"></div> <!-- Placeholder for displaying expenses value -->
-                    <button type="button" class="thumbs-up">Thumbs Up</button>
-                    <button type="button" class="thumbs-down">Thumbs Down</button>
-                    <!-- ... (other content) ... -->
-                </div>
-                <div class="card" id="school-card">
-                    <h2>School Expenses</h2>
-                    <input type="number" id="school-card-input" placeholder="Enter expense value" >
-                    <div id="displaySchoolExpenseData"></div>
-                    <div id="storedDataSchool"></div> <!-- Placeholder for displaying expenses value -->
-                    <button type="button" class="thumbs-up">Thumbs Up</button>
-                    <button type="button" class="thumbs-down">Thumbs Down</button>
-                    <!-- ... (other content) ... -->
-                </div>
-                <div class="card" id="other-card">
-                    <h2>Other Expenses</h2>
-                    <input type="number" id="other-card-input" placeholder="Enter expense value" >
-                    <div id="displayOtherExpenseData"></div>
-                    <div id="storedDataOther"></div> <!-- Placeholder for displaying expenses value -->
-                    <button type="button" class="thumbs-up">Thumbs Up</button>
-                    <button type="button" class="thumbs-down">Thumbs Down</button>
-                    <!-- ... (other content) ... -->
-                    </div>
+            <div class="expense-input">
+                <h2>Personal Expenses</h2>
+                <p id="storedDataPersonal"></p>
+                <p id="displayPersonalExpenseData"></p>
+                <input type="number" id="personal-expense-input" placeholder="Enter Personal Expense">
+                <button onclick="saveExpenseData('personal')">Save Personal Expense</button>
+              </div>
+              
+              <div class="expense-input">
+                <h2>Transportation Expenses</h2>
+                <p id="storedDataTransportation"></p>
+                <p id="displayTransportationExpenseData"></p>
+                <input type="number" id="transportation-expense-input" placeholder="Enter Transportation Expense">
+                <button onclick="saveExpenseData('transportation')">Save Transportation Expense</button>
+              </div>
+              
+              <div class="expense-input">
+                <h2>School Expenses</h2>
+                <p id="storedDataSchool"></p>
+                <p id="displaySchoolExpenseData"></p>
+                <input type="number" id="school-expense-input" placeholder="Enter School Expense">
+                <button onclick="saveExpenseData('school')">Save School Expense</button>
+              </div>
+              
+              <div class="expense-input">
+                <h2>Other Expenses</h2>
+                <p id="storedDataOther"></p>
+                <p id="displayOtherExpenseData"></p>
+                <input type="number" id="other-expense-input" placeholder="Enter Other Expense">
+                <button onclick="saveExpenseData('other')">Save Other Expense</button>
+              </div>
                 </div>
             </div>
-        </body>
-        </html>
+        </div>
+    </body>
+    </html>
