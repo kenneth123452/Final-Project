@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="Expenses Style.css">
     <title>Weekly Expenses</title>
 </head>
+</head>
 
 <body>
     <a href="index.html">
@@ -16,31 +17,49 @@
             <img src="src/img/WiseBudgeLogo.png" class="logo">
         </div>
     </a>
+    <h1 class="expenses-title">Expenses</h1>
 
     <form id="myForm">
-        <label for="expenseType">Expenses Type</label>
-
-        <label for="foodExpenses">Personal Expenses</label>
-        <input id="foodExpenses" type="number" min="0" max="2000" required>
-
-        <label for="transportationExpenses">Transportation Expenses</label>
-        <input id="transportationExpenses" type="number" min="0" max="2000" required>
-
-        <label for="schoolExpenses">School Expenses</label>
-        <input id="schoolExpenses" type="number" min="0" max="2000" required>
-
-        <label for="other">Other Expenses</label>
-        <input id="other" type="number" min="0" max="10000" required>
-
-        <!-- Update the onclick attribute to "submitForm()" -->
-        <button type="button" onclick="calculateAndDisplayTotal()">Calculate</button>
-        <p id="result"></p>
-       <div id="displayStoredData"></div>
-        <p id="remainingAllowance"></p>
-
-        <button onclick="goBack()">Back</button>
-        <button type="button" onclick="submitForm()">Submit</button>
+        <div class="expense-box personal-expense">
+            <label for="foodExpenses">Personal Expenses</label>
+            <input id="foodExpenses" type="text" min="0" max="2000" required>
+        </div>
     </form>
+    <form id="myForm1">
+        <div class="expense-box transportation-expense">
+            <label for="transportationExpenses">Tranportation Expenses</label>
+            <input id="transportationExpenses" type="text" min="0" max="2000" required>
+        </div>
+    </form>
+    <form id="myForm2">
+        <div class="expense-box school-expense">
+            <label for="schoolExpenses">School Expenses</label>
+            <input id="schoolExpenses" type="text" min="0" max="2000" required>
+        </div>
+    </form>
+    <form id="myForm3">
+        <div class="expense-box other-expense">
+            <label for="other">Other Expenses</label>
+            <input id="other" type="text" min="0" max="10000" required>
+        </div>
+    </form>
+
+    <div class="bottom-buttons">
+        <div class="button-container">
+            <button type="button" id="backButton" onclick="goBack()">Back</button>
+        </div>
+        <div class="button-container">
+            <button type="button" id="calculateButton" onclick="calculateAndDisplayTotal()">Calculate</button>
+        </div>
+        <div class="button-container">
+            <button type="button" id="submitButton" onclick="submitForm()">Submit</button>
+        </div>
+    </div>
+
+    <p id="result"></p>
+    <div id="displayStoredData"></div>
+    <p id="remainingAllowance"></p>
+    <div id="remainingBalanceContainer"></div>
 
     <script src="Expensesjs.js"></script>
 </body>
