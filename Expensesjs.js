@@ -88,10 +88,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Redirect to another page function
-    function redirectToAnotherPage() {
-        window.location.href = "Goal.html";
+    function submitForm() {
+        // Redirect to goal.html
+        window.location.href = 'goal.html';
     }
-
     // Go back function
     function goBack() {
         window.location.href = "Allowance.html";
