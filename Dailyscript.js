@@ -109,12 +109,14 @@ const generateCalendar = (month, year) => {
       }
       const storedData = getStoredExpenseData(dayNumber, month, year);
       if (storedData !== null) {
-        const storedDataElement = document.createElement('div');
-        storedDataElement.classList.add('expense-data');
-        storedDataElement.innerText = "Expense: " + storedData;
-        day.appendChild(storedDataElement);
+        Object.keys(storedData).forEach((type) => {
+          const expenseDataElement = document.createElement('div');
+            storedDataElements[type] = document.createElement('div');
+            storedDataElements[type].classList.add('expense-input');
+            day.appendChild(storedDataElements[type]);
+        });
+      }
     }
-  }
     calendar_days.appendChild(day);
   }
 };
@@ -196,9 +198,77 @@ setInterval(() => {
       const expenseValue = parseFloat(document.querySelector(`[data-type="${expenseType}"] input`).value) || 0;
       const expenseData = localStorage.getItem("ExpenseData") || "{}";
       const parsedExpenseData = JSON.parse(expenseData);
+
+      // Create a date key for the current day
+    const currentDate = new Date();
+    const dateKey = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+
+      // Check if there is already stored data for the current day
+    if (!parsedExpenseData[dateKey]) {
+      parsedExpenseData[dateKey] = {};
+    }
+
       parsedExpenseData[expenseType] = expenseValue;
+
       localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
-      const storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
+
+      // Display the stored expense data
+      retrieveAndDisplayExpenses();
+      generateCalendar(currentMonth.value, currentYear.value);
+    }
+
+    function handleThumbsDown(expenseType) {
+      console.log('Thumbs Down clicked for ' + expenseType);
+      const thumbsDownCountElement = document.getElementById("thumbsDownCount" + capitalizeFirstLetter(expenseType));
+
+      // Increment the thumbs-down count and update the display
+      let thumbsDownCount = parseInt(thumbsDownCountElement.textContent) || 0;
+      thumbsDownCount++;
+      thumbsDownCountElement.textContent = thumbsDownCount;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector('[data-type="personal"] button.thumbs-up').addEventListener('click', function () {
+        const expenseType = this.closest('.expense-input').getAttribute('data-type');
+        handleThumbsUp(expenseType);
+      });
+
+      document.querySelector('[data-type="personal"] button.thumbs-down').addEventListener('click', function () {
+        const expenseType = this.closest('.expense-input').getAttribute('data-type');
+        handleThumbsDown(expenseType);
+      });
+
+      document.querySelector('[data-type="transportation"] button.thumbs-up').addEventListener('click', function () {
+        const expenseType = this.closest('.expense-input').getAttribute('data-type');
+        handleThumbsUp(expenseType);
+      });
+
+      document.querySelector('[data-type="transportation"] button.thumbs-down').addEventListener('click', function () {
+        const expenseType = this.closest('.expense-input').getAttribute('data-type');
+        handleThumbsDown(expenseType);
+      });
+
+      document.querySelector('[data-type="school"] button.thumbs-up').addEventListener('click', function () {
+        const expenseType = this.closest('.expense-input').getAttribute('data-type');
+        handleThumbsUp(expenseType);
+      });
+
+      document.querySelector('[data-type="school"] button.thumbs-down').addEventListener('click', function () {
+        const expenseType = this.closest('.expense-input').getAttribute('data-type');
+        handleThumbsDown(expenseType);
+      });
+
+      document.querySelector('[data-type="other"] button.thumbs-up').addEventListener('click', function () {
+        const expenseType = this.closest('.expense-input').getAttribute('data-type');
+        handleThumbsUp(expenseType);
+      });
+
+      document.querySelector('[data-type="other"] button.thumbs-down').addEventListener('click', function () {
+        const expenseType = this.closest('.expense-input').getAttribute('data-type');
+        handleThumbsDown(expenseType);
+      });
+
+     const storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
       if (storedDataElement) {
           storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
       }
@@ -208,9 +278,8 @@ setInterval(() => {
           generateCalendar(currentMonth.value, currentYear.value);
       }
       retrieveAndDisplayExpenses();
-  }
+
     document.addEventListener("DOMContentLoaded", function () {
-      
   document.querySelector('[data-type="personal"] button').addEventListener('click', function () {
       saveExpenseData('personal');
       retrieveAndDisplayExpenses();
@@ -230,6 +299,7 @@ setInterval(() => {
       saveExpenseData('other');
       retrieveAndDisplayExpenses();
   });
+});
 });
 
 /*function updateCharts(parsedExpenseData) {
