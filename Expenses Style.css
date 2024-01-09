@@ -129,7 +129,7 @@ body {
 }
 
 #result,
-#remainingBalance {
+#remainingBalance{
     text-align: center; /* Center the text */
     color: #fff;
     font-size: 18px;
@@ -140,7 +140,7 @@ body {
     position: absolute;
 }
 
-#remainingBalanceContainer {
+#remainingBalanceContainer,{
     text-align: center; /* Center the container */
     margin-top: 20px; /* Adjust the margin as needed */
 }
@@ -303,7 +303,8 @@ body {
     font-size:50px; /* Adjust the font size */
     margin-bottom:650px; /* Add margin below the title */
     letter-spacing: 15px; /* Adjust the letter-spacing */
-    
+    align-items: center;
+    margin-left: 20px;
 }
 
 
