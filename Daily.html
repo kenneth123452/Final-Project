@@ -8,24 +8,13 @@
     <link rel="stylesheet" href="DAILYstyle.css">
     <script src="Dailyscript.js" defer></script>
     <style>
-        <style>
-        #chart-container {
-            transform: translate(-30%, -65%);
-            width: 300px; /* Adjust the width of each canvas */
-            height: auto;
-            margin: 20px; /* Adjust the margin as needed */
-        }
-
-        .expense-inputs {
-            /* Add your styles for expense inputs here */
-            margin-top: 200px;
-        }
-
-        .expense-input {
-            /* Add your styles for individual expense inputs here */
-            margin-bottom: 10px;
-        }
-    </style>
+            #chart-container {
+                transform: translate(-30%, -65%);
+                width: 300px; /* Adjust the width of each canvas */
+                height: auto;
+                margin: 20px; /* Adjust the margin as needed */
+            }
+        </style>
 </head>
 <body>
     <div class="container">
@@ -62,40 +51,38 @@
                 </div>
                 <div class="month-list"></div>
             </div>
+        </div>
+    </div>
 
-            <div class="expense-input">
-                <h2>Personal Expenses</h2>
-                <p id="storedDataPersonal"></p>
-                <p id="displayPersonalExpenseData"></p>
-                <input type="number" id="personal-expense-input" placeholder="Enter Personal Expense">
-                <button onclick="saveExpenseData('personal')">Save Personal Expense</button>
-              </div>
-              
-              <div class="expense-input">
-                <h2>Transportation Expenses</h2>
-                <p id="storedDataTransportation"></p>
-                <p id="displayTransportationExpenseData"></p>
-                <input type="number" id="transportation-expense-input" placeholder="Enter Transportation Expense">
-                <button onclick="saveExpenseData('transportation')">Save Transportation Expense</button>
-              </div>
-              
-              <div class="expense-input">
-                <h2>School Expenses</h2>
-                <p id="storedDataSchool"></p>
-                <p id="displaySchoolExpenseData"></p>
-                <input type="number" id="school-expense-input" placeholder="Enter School Expense">
-                <button onclick="saveExpenseData('school')">Save School Expense</button>
-              </div>
-              
-              <div class="expense-input">
-                <h2>Other Expenses</h2>
-                <p id="storedDataOther"></p>
-                <p id="displayOtherExpenseData"></p>
-                <input type="number" id="other-expense-input" placeholder="Enter Other Expense">
-                <button onclick="saveExpenseData('other')">Save Other Expense</button>
-              </div>
+            <div class="expense-inputs">
+                <div class="expense-input" data-type="personal">
+                    <h2>Personal Expenses</h2>
+                    <p id="storedDataPersonal"></p>
+                    <p id="displayPersonalExpenseData"></p>
+                    <input type="number" placeholder="Enter Personal Expense">
+                    <button type="button" onclick="saveExpenseData('personal')">Save Personal Expense</button>
+                </div>
+                <div class="expense-input" data-type="transportation">
+                    <h2>Transportation Expenses</h2>
+                    <p id="storedDataTransportation"></p>
+                    <p id="displayTransportationExpenseData"></p>
+                    <input type="number" placeholder="Enter Transportation Expense">
+                    <button type="button" onclick="saveExpenseData('transportation')">Save Transportation Expense</button>
+                </div>
+                <div class="expense-input" data-type="school">
+                    <h2>School Expenses</h2>
+                    <p id="storedDataSchool"></p>
+                    <p id="displaySchoolExpenseData"></p>
+                    <input type="number" placeholder="Enter School Expense">
+                    <button type="button" onclick="saveExpenseData('school')">Save School Expense</button>
+                </div>
+                <div class="expense-input" data-type="other">
+                    <h2>Other Expenses</h2>
+                    <p id="storedDataOther"></p>
+                    <p id="displayOtherExpenseData"></p>
+                    <input type="number" placeholder="Enter Other Expense">
+                    <button type="button" onclick="saveExpenseData('other')">Save Other Expense</button>
                 </div>
             </div>
-        </div>
     </body>
     </html>
