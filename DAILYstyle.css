@@ -18,7 +18,6 @@
 }
 html,
 body {
-  place-items: center;
   font-family: var(--font-family);
   background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg');
   overflow: hidden;
@@ -45,8 +44,7 @@ body {
   overflow: hidden;
   padding: 30px 50px 0px 50px;
   box-shadow: var(--shadow);
-  left: 0;
-  transform: translate(10%, 0%);
+  right: 0;
 }
 .calendar {
   box-shadow: var(--shadow);
@@ -241,11 +239,6 @@ transition: all 0.2s ease-in-out;
   top: -18px;
   text-align: center;
 }
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* Align items to the start (top) of the container */
-}
 
 .expense-inputs {
   /* Add your styles for expense inputs here */
@@ -259,10 +252,24 @@ transition: all 0.2s ease-in-out;
   height: auto;
 }
 
-.expense-input {
+.expense-inputs {
   /* Add your styles for individual expense inputs here */
-  margin-bottom: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightgray; /* Add your preferred background color */
+  padding: 40px 400px; /* Adjust the values as needed */
+  border-radius: 5px; 
 }
+
+
+
 .card {
   background-color: #fff;
   border-radius: 5px;
