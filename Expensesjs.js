@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Redirect to another page function
     function submitForm() {
         // Redirect to goal.html
-        window.location.href = 'goal.html';
+        window.location.href = 'Goal.html';
     }
     // Go back function
     function goBack() {
