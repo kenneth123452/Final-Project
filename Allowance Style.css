@@ -24,7 +24,7 @@ form {
 
 label {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: bold;
   display: block;
   margin-bottom: 5px;
   transform: translate(0%, -30%);
@@ -70,6 +70,14 @@ label[for="value"] {
   color: rgb(0, 0, 0);
   font-size: 19px;
   font-weight: bold;
+}
+
+.allowanceType{
+  width: 100%; /* Adjust the width as needed */
+  padding: 8000px; /* Adjust as needed */
+  font-size: 14px; /* Adjust as needed */
+  border: 1px solid #ccc; /* Adjust the border as needed */
+  border-radius: 4px; 
 }
 
 
