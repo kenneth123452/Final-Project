@@ -247,16 +247,26 @@ transition: all 0.2s ease-in-out;
   align-items: flex-start; /* Align items to the start (top) of the container */
 }
 
-.card-container {
-  display: flex;
-  flex-direction: column; /* Align cards vertically */
-  margin-left: 20px;
+.expense-inputs {
+  /* Add your styles for expense inputs here */
+  margin-top: -450px;
+  padding: 5px;
+  background-color: #f7f7f7; /* Optional: Add background color */
+  border-radius: 0px; /* Optional: Add border radius for a rounded appearance */
+  width: 500px; /* Adjust the width of the background */
+  margin-left: auto; /* Center the element horizontally */
+  margin-right: auto; /* Center the element horizontally */
+  height: auto;
 }
 
+.expense-input {
+  /* Add your styles for individual expense inputs here */
+  margin-bottom: 20px;
+}
 .card {
   background-color: #fff;
   border-radius: 5px;
-  padding: 20px;
+  padding: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-bottom: 10px; /* Add some margin between cards */
