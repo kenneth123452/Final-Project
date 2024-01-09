@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var displayStoredDataElement= document.getElementById("displayStoredData");
         if (displayStoredDataElement) {
             displayStoredDataElement.innerText = allowanceType + ":" + "₱" + allowanceValue;
+            displayStoredDataElement.id = "TotalExpenses"; // Replace "yourDesiredId" with the desired id value
         }
     }
 });
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var remainingAllowance = allowanceValue - totalAllExpenses;
 
         console.log("Total Expenses: ₱" + totalAllExpenses);
-        document.getElementById("result").innerHTML = "Total Expenses: ₱" + totalAllExpenses;
+        document.getElementById("result").innerHTML = "Total Expenses: ₱" + totalAllExpenses + "<br>Allowance: " + allowanceValue + "<br>Remaining Allowance: ₱" + remainingAllowance;
 
         if (remainingAllowance >= 0) {
             console.log("Remaining Weekly Allowance: ₱" + remainingAllowance);
