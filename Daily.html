@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CALENDAR</title>
     <link rel="stylesheet" href="DAILYstyle.css">
     <script src="Dailyscript.js" defer></script>
     <style>
-            #chart-container {
-                transform: translate(-30%, -65%);
-                width: 300px; /* Adjust the width of each canvas */
-                height: auto;
-                margin: 20px; /* Adjust the margin as needed */
-            }
-        </style>
+        #chart-container {
+            transform: translate(-30%, -65%);
+            width: 300px; /* Adjust the width of each canvas */
+            height: auto;
+            margin: 20px; /* Adjust the margin as needed */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -53,8 +53,8 @@
             </div>
         </div>
     </div>
-
-            <div class="expense-inputs">
+    <!-- Remove the extra closing </div> tag -->
+    <div class="expense-inputs">
                 <div class="expense-input" data-type="personal">
                     <h2>Personal Expenses</h2>
                     <p id="storedDataPersonal"></p>
@@ -78,7 +78,8 @@
                     <p id="storedDataSchool"></p>
                     <p id="displaySchoolExpenseData"></p>
                     <input type="number" placeholder="Enter School Expense">
-                    <button type="button" onclick="saveExpenseData('school')">Save School Expense</button>
+                    <button type="button" onclick="saveExpenseData('school')">&nbsp;&nbsp;Save&nbsp;School&nbsp;Expenses&nbsp;&nbsp;</button>
+
                     <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
                     <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
                 </div>
@@ -87,10 +88,10 @@
                     <p id="storedDataOther"></p>
                     <p id="displayOtherExpenseData"></p>
                     <input type="number" placeholder="Enter Other Expense">
-                    <button type="button" onclick="saveExpenseData('other')">Save Other Expense</button>
+                    <button type="button" onclick="saveExpenseData('other')">&nbsp;&nbsp;&nbsp;&nbsp;Save Other Expense&nbsp;&nbsp;&nbsp;&nbsp;</button>
                     <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
                     <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
                 </div>
             </div>
-    </body>
-    </html>
+</body>
+</html>
