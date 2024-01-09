@@ -1,33 +1,38 @@
+const currentMonth = { value: 0 };
+const currentYear = { value: 2024 }; // Set your initial year here
+
 const isLeapYear = (year) => {
-  return (
-    (year % 4 === 0 && year % 100 !== 0) || (year % 100 === 0 && year % 400 === 0)
-  );
+  return (year % 4 === 0 && year % 100 !== 0) || (year % 100 === 0 && year % 400 === 0);
 };
 
 const getFebDays = (year) => {
   return isLeapYear(year) ? 29 : 28;
 };
 
+const getStoredExpenseData = (day, month, year) => {
+  const expenseData = localStorage.getItem("ExpenseData") || "{}";
+  const parsedExpenseData = JSON.parse(expenseData);
+  const dateKey = `${year}-${month + 1}-${day}`;
+
+  if (parsedExpenseData[dateKey]) {
+    return parsedExpenseData[dateKey];
+  }
+
+  return null;
+};
+
 let calendar = document.querySelector('.calendar');
 const month_names = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
 ];
 let month_picker = document.querySelector('#month-picker');
 const dayTextFormate = document.querySelector('.day-text-formate');
 const timeFormate = document.querySelector('.time-formate');
 const dateFormate = document.querySelector('.date-formate');
 
+// Add this line to fix the reference error
+let month_list = document.querySelector('.month-list');
 month_picker.onclick = () => {
   month_list.classList.remove('hideonce');
   month_list.classList.remove('hide');
@@ -40,38 +45,59 @@ month_picker.onclick = () => {
   dateFormate.classList.add('hideTime');
 };
 
+function displayExpenseData(cardType, parsedExpenseData) {
+  function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  const expenseValue = parsedExpenseData[cardType] || 0;
+  const storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(cardType));
+  const currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(cardType) + "ExpenseData");
+  const inputElement = document.querySelector(`[data-type="${cardType}"] input`);
+
+  if (storedDataElement) {
+      storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(expenseValue);
+  }
+
+  if (currentExpenseElement) {
+      currentExpenseElement.innerText = JSON.stringify(expenseValue);
+  }
+
+  if (inputElement) {
+      inputElement.value = expenseValue;
+  }
+}
+
+const retrieveAndDisplayExpenses = () => {
+  const expenseData = localStorage.getItem("ExpenseData") || "{}";
+  const parsedExpenseData = JSON.parse(expenseData);
+
+  displayExpenseData("personal", parsedExpenseData);
+  displayExpenseData("transportation", parsedExpenseData);
+  displayExpenseData("school", parsedExpenseData);
+  displayExpenseData("other", parsedExpenseData);
+  generateCalendar(currentMonth.value, currentYear.value);
+}
+
 const generateCalendar = (month, year) => {
-  let calendar_days = document.querySelector('.calendar-days');
+  const calendar_days = document.querySelector('.calendar-days');
   calendar_days.innerHTML = '';
-  let calendar_header_year = document.querySelector('#year');
-  let days_of_month = [
-    31,
-    getFebDays(year),
-    31,
-    30,
-    31,
-    30,
-    31,
-    31,
-    30,
-    31,
-    30,
-    31,
+  const calendar_header_year = document.querySelector('#year');
+  const days_of_month = [
+    31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
   ];
 
-  let currentDate = new Date();
+  const currentDate = new Date();
 
   month_picker.innerHTML = month_names[month];
-
   calendar_header_year.innerHTML = year;
 
-  let first_day = new Date(year, month, 1);
+  const first_day = new Date(year, month, 1);
 
   for (let i = 0; i < days_of_month[month] + first_day.getDay() - 1; i++) {
-    let day = document.createElement('div');
+    const day = document.createElement('div');
 
     if (i >= first_day.getDay()) {
-      let dayNumber = i - first_day.getDay() + 1;
+      const dayNumber = i - first_day.getDay() + 1;
       day.innerHTML = dayNumber;
 
       if (
@@ -81,12 +107,19 @@ const generateCalendar = (month, year) => {
       ) {
         day.classList.add('current-date');
       }
+      const storedData = getStoredExpenseData(dayNumber, month, year);
+      if (storedData !== null) {
+        const storedDataElement = document.createElement('div');
+        storedDataElement.classList.add('expense-data');
+        storedDataElement.innerText = "Expense: " + storedData;
+        day.appendChild(storedDataElement);
     }
+  }
     calendar_days.appendChild(day);
   }
 };
+retrieveAndDisplayExpenses();
 
-let month_list = calendar.querySelector('.month-list');
 month_names.forEach((e, index) => {
   let month = document.createElement('div');
   month.innerHTML = `<div>${e}</div>`;
@@ -109,10 +142,6 @@ month_names.forEach((e, index) => {
   month_list.classList.add('hideonce');
 })();
 
-
-let currentMonth = { value: 0 };
-let currentYear = { value: 2024 }; // Set your initial year here
-
 document.querySelector('#pre-year').onclick = () => {
   --currentMonth.value;
   if (currentMonth.value < 0) {
@@ -120,6 +149,7 @@ document.querySelector('#pre-year').onclick = () => {
     --currentYear.value;
   }
   generateCalendar(currentMonth.value, currentYear.value);
+  retrieveAndDisplayExpenses()
 };
 document.querySelector('#next-year').onclick = () => {
   ++currentMonth.value;
@@ -128,109 +158,79 @@ document.querySelector('#next-year').onclick = () => {
     ++currentYear.value;
   }
   generateCalendar(currentMonth.value, currentYear.value);
+  retrieveAndDisplayExpenses()
 };
 
-/*document.addEventListener("DOMContentLoaded", function () {
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}*/
-
-
-let currentDate = new Date();
-//let currentMonth = { value: currentDate.getMonth() };
-//let currentYear = { value: currentDate.getFullYear() };
+const currentDate = new Date();
 generateCalendar(currentMonth.value, currentYear.value);
 
-let todayShowTime = document.querySelector('.time-formate');
-let todayShowDate = document.querySelector('.date-formate');
+const todayShowTime = document.querySelector('.time-formate');
+const todayShowDate = document.querySelector('.date-formate');
 
-let currshowDate = new Date();
-let showCurrentDateOption = {
+const showCurrentDateOption = {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
   weekday: 'long',
 };
-let currentDateFormate = new Intl.DateTimeFormat(
-  'en-US',
-  showCurrentDateOption
-).format(currshowDate);
+const currentDateFormate = new Intl.DateTimeFormat('en-US', showCurrentDateOption).format(currentDate);
 todayShowDate.textContent = currentDateFormate;
+
 setInterval(() => {
-  let timer = new Date();
-  let option = {
+  const timer = new Date();
+  const option = {
     hour: 'numeric',
     minute: 'numeric',
     second: 'numeric',
   };
-  let formateTimer = new Intl.DateTimeFormat('en-us', option).format(timer);
-  let time = `${timer.getHours()}`.padStart(2, '0') +
+  const formateTimer = new Intl.DateTimeFormat('en-us', option).format(timer);
+  const time = `${timer.getHours()}`.padStart(2, '0') +
     `:${`${timer.getMinutes()}`.padStart(2, '0')}: ${`${timer.getSeconds()}`.padStart(2, '0')}`;
   todayShowTime.textContent = formateTimer;
 }, 1000);
 
-  document.addEventListener("DOMContentLoaded", function () {
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-    
   function saveExpenseData(expenseType) {
-    let expenseValue = parseFloat(document.getElementById(expenseType + "-expense").value) || 0;
-    let expenseData = localStorage.getItem("ExpenseData") || "{}";
-    let parsedExpenseData = JSON.parse(expenseData);
-
-    // Update or add the expense type and value
-    parsedExpenseData[expenseType] = expenseValue;
-
-    localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
-
-    // Display the stored data
-    let storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
-    if (storedDataElement) {
-      storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
-    }
-
-    // Display the current expense value
-    let currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(expenseType) + "ExpenseData");
-    if (currentExpenseElement) {
-      currentExpenseElement.innerText = JSON.stringify(parsedExpenseData[expenseType]);
-    }
-    // Call the generateCalendar function with the current month and year
-    generateCalendar(currentMonth.value, currentYear.value);
-  }
-      function retrieveAndDisplayExpenses() {
-        var expenseData = localStorage.getItem("ExpenseData") || "{}";
-        var parsedExpenseData = JSON.parse(expenseData);
-
-        // Iterate over the expense types and display expenses for each card
-        displayExpenseData("personal", parsedExpenseData);
-        displayExpenseData("transportation", parsedExpenseData);
-        displayExpenseData("school", parsedExpenseData);
-        displayExpenseData("other", parsedExpenseData);
-  }
-    // Function to display expenses for a specific card
-    function displayExpenseData(cardType, parsedExpenseData) {
-      // Update the ID and input ID accordingly
-      var expenseValue = parsedExpenseData[cardType] || 0;
-      var storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(cardType));
-      var currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(cardType) + "ExpenseData");
-      var inputElement = document.getElementById(cardType + "-expense-input");
-
+      function capitalizeFirstLetter(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+      const expenseValue = parseFloat(document.querySelector(`[data-type="${expenseType}"] input`).value) || 0;
+      const expenseData = localStorage.getItem("ExpenseData") || "{}";
+      const parsedExpenseData = JSON.parse(expenseData);
+      parsedExpenseData[expenseType] = expenseValue;
+      localStorage.setItem("ExpenseData", JSON.stringify(parsedExpenseData));
+      const storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
       if (storedDataElement) {
-          storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(expenseValue);
+          storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
       }
-
+      let currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(expenseType) + "ExpenseData");
       if (currentExpenseElement) {
-          currentExpenseElement.innerText = JSON.stringify(expenseValue);
+          currentExpenseElement.innerText = JSON.stringify(parsedExpenseData[expenseType]);
+          generateCalendar(currentMonth.value, currentYear.value);
       }
-
-      if (inputElement) {
-          inputElement.value = expenseValue;
-      }
+      retrieveAndDisplayExpenses();
   }
-    retrieveAndDisplayExpenses();
+    document.addEventListener("DOMContentLoaded", function () {
+      
+  document.querySelector('[data-type="personal"] button').addEventListener('click', function () {
+      saveExpenseData('personal');
+      retrieveAndDisplayExpenses();
   });
 
+  document.querySelector('[data-type="transportation"] button').addEventListener('click', function () {
+      saveExpenseData('transportation');
+      retrieveAndDisplayExpenses();
+  });
+
+  document.querySelector('[data-type="school"] button').addEventListener('click', function () {
+      saveExpenseData('school');
+      retrieveAndDisplayExpenses();
+  });
+
+  document.querySelector('[data-type="other"] button').addEventListener('click', function () {
+      saveExpenseData('other');
+      retrieveAndDisplayExpenses();
+  });
+});
 
 /*function updateCharts(parsedExpenseData) {
     // Example: Update Pie Chart
