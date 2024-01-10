@@ -56,29 +56,46 @@
     <!-- Remove the extra closing </div> tag -->
     <div class="expense-inputs">
                 <div class="expense-input" data-type="personal">
-                    <h2>Personal Expenses</h2>
+                    <h2 class="perso-h2">Personal Expenses</h2>
                     <p id="storedDataPersonal"></p>
-                    <p id="displayPersonalExpenseData"></p>
                     <input type="number" placeholder="Enter Personal Expense">
-                    <button type="button" onclick="saveExpenseData('personal')">Save Personal Expense</button>
+                    <style>
+                        .styled-button {
+                            font-family: Arial;
+                            font-weight: bold;
+                            color: rgb(0, 0, 0);
+                            margin-top: 10px;
+                            border-radius: 5px;
+                            width: 200px;
+                            height: 30px;
+                            /* Add more styles as needed */
+                        }
+                        .thumbs-up,
+                        .thumbs-down {
+                        font-size: 20px;
+                       margin-top: 10px;
+                        border-radius: 5px;
+                            /* Add more styles as needed */
+                        }
+                    </style>
+                    
+                    <button type="button" onclick="saveExpenseData('personal')" class="styled-button">Save Personal Expense</button>
                     <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
                     <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
                 </div>
                 <div class="expense-input" data-type="transportation">
-                    <h2>Transportation Expenses</h2>
+                    <h2 class="transpo-h2">Transportation Expenses</h2>
                     <p id="storedDataTransportation"></p>
-                    <p id="displayTransportationExpenseData"></p>
                     <input type="number" placeholder="Enter Transportation Expense">
-                    <button type="button" onclick="saveExpenseData('transportation')">Save Transportation Expense</button>
+                    <button type="button" onclick="saveExpenseData('transportation')" class="styled-button">Save Transportation Expense</button>
                     <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
                     <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
                 </div>
                 <div class="expense-input" data-type="school">
                     <h2>School Expenses</h2>
                     <p id="storedDataSchool"></p>
-                    <p id="displaySchoolExpenseData"></p>
                     <input type="number" placeholder="Enter School Expense">
-                    <button type="button" onclick="saveExpenseData('school')">&nbsp;&nbsp;Save&nbsp;School&nbsp;Expenses&nbsp;&nbsp;</button>
+                    <button type="button" onclick="saveExpenseData('school')" class="styled-button">&nbsp;&nbsp;Save&nbsp;School&nbsp;Expenses&nbsp;&nbsp;</button>
 
                     <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
                     <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
@@ -86,9 +103,8 @@
                 <div class="expense-input" data-type="other">
                     <h2>Other Expenses</h2>
                     <p id="storedDataOther"></p>
-                    <p id="displayOtherExpenseData"></p>
                     <input type="number" placeholder="Enter Other Expense">
-                    <button type="button" onclick="saveExpenseData('other')">&nbsp;&nbsp;&nbsp;&nbsp;Save Other Expense&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="button" onclick="saveExpenseData('other')" class="styled-button">&nbsp;&nbsp;&nbsp;&nbsp;Save Other Expense&nbsp;&nbsp;&nbsp;&nbsp;</button>
                     <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
                     <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
                 </div>
