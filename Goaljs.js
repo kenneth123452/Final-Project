@@ -123,15 +123,7 @@ function updateProgressAndChart(remainingAllowance, goalAmount) {
     document.getElementById('submitGoalButton').addEventListener('click', submitGoal);
     document.getElementById('backButton').addEventListener('click', goBack);
 
-    function submitGoal() {
-        updateCompletionDate();
-        window.location.href = "Daily.html";
-    }
-
-    function goBack() {
-        window.location.href = "Expenses.html";
-    }
-
+    
     function showResultMessage(formattedGoalAmount, timeFrame) {
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
@@ -180,3 +172,13 @@ function updateProgressAndChart(remainingAllowance, goalAmount) {
 function formatCurrency(amount) {
     return amount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
 }
+
+function submitGoal() {
+    updateCompletionDate();
+    window.location.href = "Daily.html";
+}
+
+function goBack() {
+    window.location.href = "Expenses.html";
+}
+
