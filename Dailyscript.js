@@ -55,8 +55,29 @@ function displayExpenseData(cardType, parsedExpenseData) {
   const inputElement = document.querySelector(`[data-type="${cardType}"] input`);
 
   if (storedDataElement) {
-      storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(expenseValue);
-  }
+    // Creating a new span element to wrap the text for styling
+    const styledText = document.createElement('span');
+    
+    // Setting the inner text of the span with your content
+    styledText.innerText = "Stored Expense Data: " + JSON.stringify(expenseValue);
+
+    // Applying CSS styles to the span element
+    styledText.style.fontFamily = 'Arial';  // Setting the font to Arial
+    styledText.style.fontWeight = 'bold';   // Example style: making the text bold
+    styledText.style.color = 'black';        // Example style: setting text color to blue
+    styledText.style.marginTop = '10px';    // Adding a margin of 10 pixels at the top
+
+    // Clearing existing content of storedDataElement and appending the styled text
+    storedDataElement.innerHTML = '';
+    storedDataElement.style.position = 'relative';  // Setting the position to relative
+    storedDataElement.style.top = '5 px';          // Moving 20 pixels down
+    storedDataElement.style.left = '0px';         // Moving 30 pixels to the right
+    storedDataElement.appendChild(styledText);
+}
+
+
+
+
 
   if (currentExpenseElement) {
       currentExpenseElement.innerText = JSON.stringify(expenseValue);
@@ -139,6 +160,17 @@ month_names.forEach((e, index) => {
     dateFormate.classList.add('showtime');
   };
 });
+
+function handleThumbsUp(expenseType) {
+  // Add logic to display "Good job"
+  alert("Good job");
+}
+
+function handleThumbsDown(expenseType) {
+  // Add logic to display "Better luck next time"
+  alert("Better luck next time");
+}
+
 
 (function () {
   month_list.classList.add('hideonce');
