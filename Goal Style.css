@@ -109,3 +109,86 @@ button:hover {
 result {
     color:  white;
 }
+    margin: 60px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.995);
+    color: black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: black;
+    text-transform: uppercase;
+    position: relative;
+    transform: translate(5%, 50%);
+    transition: background-color 0.5s ease, color 0.5s ease, border-radius 0.5s ease; /* Add transition property */
+}
+button:hover {
+    background-color: black; /* Add your desired hover color */
+    color: white;
+    border-radius: 15px;
+}
+
+/* Style for the "Submit" button */
+#submitGoalButton {
+    color: rgb(0, 0, 0);
+    transform: translate(150%, -50%);
+}
+
+
+/* Style for the "Back" button */
+#backButton {
+    color: rgb(0, 0, 0);
+    transform: translate(-170%, -146%);
+}
+
+
+/* Hover effect for "Submit" button */
+#submitGoalButton:hover {
+    background-color: #312f2f; /* Darker green on hover */
+    color: white;
+    border-radius: 15px
+}
+
+/* Hover effect for "Back" button */
+#backButton:hover {
+    background-color: #312f2f; /* Darker red on hover */
+    color: white;
+    border-radius: 15px
+}
+
+result {
+    color:  white;
+}
