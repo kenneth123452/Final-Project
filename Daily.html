@@ -7,6 +7,17 @@
     <title>CALENDAR</title>
     <link rel="stylesheet" href="DAILYstyle.css">
     <script src="Dailyscript.js" defer></script>
+    <script>
+        function handleDown(expenseType) {
+            // Add logic to display "Better luck next time"
+            alert("SIR PINAGPUYATAN NAMIN TO");
+        }
+
+        function handleThumbsUp(expenseType) {
+            // Add logic to display "Good job"
+            alert("Good job");
+        }
+    </script>
     <style>
         #chart-container {
             transform: translate(-30%, -65%);
@@ -80,33 +91,33 @@
                     </style>
                     
                     <button type="button" onclick="saveExpenseData('personal')" class="styled-button">Save Personal Expense</button>
-                    <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
-                    <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
+                    <button class="thumbs-up" onclick="handleThumbsUp('personal')">✔️</button>
+                    <button class="thumbs-down" onclick="handleDown('personal')">❌</button>
                 </div>
                 <div class="expense-input" data-type="transportation">
                     <h2 class="transpo-h2">Transportation Expenses</h2>
                     <p id="storedDataTransportation"></p>
                     <input type="number" placeholder="Enter Transportation Expense">
                     <button type="button" onclick="saveExpenseData('transportation')" class="styled-button">Save Transportation Expense</button>
-                    <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
-                    <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
+                    <button class="thumbs-up" onclick="handleThumbsUp('personal')">✔️</button>
+                    <button class="thumbs-down" onclick="handleDown('personal')">❌</button>
                 </div>
                 <div class="expense-input" data-type="school">
-                    <h2>School Expenses</h2>
+                    <h2 class="expenses-h2">Expenses</h2>
                     <p id="storedDataSchool"></p>
                     <input type="number" placeholder="Enter School Expense">
                     <button type="button" onclick="saveExpenseData('school')" class="styled-button">&nbsp;&nbsp;Save&nbsp;School&nbsp;Expenses&nbsp;&nbsp;</button>
 
-                    <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
-                    <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
+                    <button class="thumbs-up" onclick="handleThumbsUp('personal')">✔️</button>
+                    <button class="thumbs-down" onclick="handleDown('personal')">❌</button>
                 </div>
                 <div class="expense-input" data-type="other">
-                    <h2>Other Expenses</h2>
+                    <h2 class="other-h2">Other Expenses</h2>
                     <p id="storedDataOther"></p>
                     <input type="number" placeholder="Enter Other Expense">
                     <button type="button" onclick="saveExpenseData('other')" class="styled-button">&nbsp;&nbsp;&nbsp;&nbsp;Save Other Expense&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                    <button class="thumbs-up" onclick="handleThumbsUp('personal')">👍</button>
-                    <button class="thumbs-down" onclick="handleThumbsDown('personal')">👎</button>
+                    <button class="thumbs-up" onclick="handleThumbsUp('personal')">✔️</button>
+                    <button class="thumbs-down" onclick="handleDown('personal')">❌</button>
                 </div>
             </div>
 </body>
