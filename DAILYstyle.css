@@ -16,6 +16,20 @@
   margin: 0;
   box-sizing: border-box;
 }
+h2 {
+  font-size: 24px; /* Set the font size */
+  color: #ffffff; /* Set the text color */
+  font-weight: bold; /* Set the font weight to bold */
+  /* Add more styling properties as needed */
+  padding: 20px;
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 20px;
+}
+.transpo-h2 {
+  margin-bottom: 10px;
+}
+
 html,
 body {
   font-family: var(--font-family);
@@ -45,6 +59,7 @@ body {
   padding: 30px 50px 0px 50px;
   box-shadow: var(--shadow);
   right: 0;
+  margin-left: 30px;
 }
 .calendar {
   box-shadow: var(--shadow);
@@ -156,7 +171,7 @@ transition: all 0.2s ease-in-out;
 }
  .calendar-days div:hover {
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-  background-color: #ffffff;
+  background-color: #000000;
   border-radius: 20%;
   color: var(--dark-text);
 }
@@ -243,7 +258,7 @@ transition: all 0.2s ease-in-out;
 .expense-inputs {
   /* Add your styles for expense inputs here */
   margin-top: -450px;
-  padding: 5px;
+  padding: 10px;
   background-color: #f7f7f7; /* Optional: Add background color */
   border-radius: 0px; /* Optional: Add border radius for a rounded appearance */
   width: 500px; /* Adjust the width of the background */
@@ -252,8 +267,8 @@ transition: all 0.2s ease-in-out;
   height: auto;
 }
 
+
 .expense-inputs {
-  /* Add your styles for individual expense inputs here */
   align-items: center;
   display: flex;
   justify-content: center;
@@ -261,12 +276,14 @@ transition: all 0.2s ease-in-out;
   margin: auto;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 62%; /* Adjust the left value as needed */
   transform: translate(-50%, -50%);
-  background-color: lightgray; /* Add your preferred background color */
-  padding: 40px 400px; /* Adjust the values as needed */
-  border-radius: 5px; 
+  background-color: rgb(255, 255, 255);
+  padding: 40px 530px;
+  border-radius: 40px; 
+  gap: 50px;
 }
+
 
 
 
