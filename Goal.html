@@ -4,48 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Goal Tracker</title>
-    <link rel="stylesheet" href="Goal Style.css">
+    <link rel="stylesheet" href="Goal.css">
     <link rel="icon" href="src/img/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #goal-form {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #progress-chart {
+            margin-top: 20px;
+        }
+
+        .progress-bar-fill {
+            /* Add your styles for progress bar fill here */
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <a href="index.html">
-    <div id="logo">
-        <img src="src/img/WiseBudgeLogo.png" class="logo">
-      </div> 
+        <div id="logo">
+            <img src="src/img/WiseBudgeLogo.png" class="logo">
+        </div> 
     </a>
-<div class="banner">
-<div id="goal-form">
-    <h2>Set Financial Goal</h2>
-    <label for="goal-amount">Desired Goal Amount</label>
-    <input type="number" id="goal-amount" placeholder="Enter goal amount" required>
 
-    <label for="time-frame">Time Frame</label>
-    <select id="time-frame">
-        <option value="week">Per Week</option>
-        <option value="month">Per Month</option>
-        <option value="year">Per Year</option>
-    </select>
+    <div class="banner">
+        <div id="goal-form">
+            <h2>Set Financial Goal</h2>
+            <label for="goal-amount">Desired Goal Amount</label>
+            <input type="number" id="goal-amount" placeholder="Enter goal amount" required>
 
+            <label for="time-frame">Time Frame</label>
+            <select id="time-frame">
+                <option value="week">Per Week</option>
+                <option value="month">Per Month</option>
+                <option value="year">Per Year</option>
+            </select>
 
-    <button onclick="calculateRecommendedSpending()">Set Goal</button>
-    <div id="remain"></div>
-    <button id="submitGoalButton">Submit</button>
-    <button id="backButton">Back</button>
+            <button onclick="calculateRecommendedSpending()">Set Goal</button>
+            <div id="remain"></div>
+            <button id="submitGoalButton">Submit</button>
+            <button id="backButton">Back</button>
 
+            <div id="result"></div>
+            <div id="displayRemainingAllowance"></div>
+            <div id="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+            <div class="progress-text" id="progressText"></div>
+        </div>
     
-    <div id="result"></div>
-    <div id="displayRemainingAllowance"></div>
-    <div id="progress-bar-container"></div>
-        <div class="progress-bar-fill" id="progressBar"></div>
-        <div class="progress-text" id="progressText"></div>
-      </div>
-    
-    <canvas id="barChart" width="400" height="600"></canvas>
+        <canvas id="barChart" width="400" height="600"></canvas>
     </div>
-  </div>
 
-<script src="Goaljs.js"></script>
-
+    <script src="goals.js"></script>
 </body>
 </html>
