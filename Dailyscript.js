@@ -65,7 +65,7 @@ function displayExpenseData(cardType, parsedExpenseData) {
     styledText.style.fontFamily = 'Arial';  // Setting the font to Arial
     styledText.style.fontWeight = 'bold';   // Example style: making the text bold
     styledText.style.color = 'black';        // Example style: setting text color to blue
-    styledText.style.marginTop = '10px';    // Adding a margin of 10 pixels at the top
+    styledText.style.marginTop = 'px';    // Adding a margin of 10 pixels at the top
 
     // Clearing existing content of storedDataElement and appending the styled text
     storedDataElement.innerHTML = '';
@@ -161,15 +161,7 @@ month_names.forEach((e, index) => {
   };
 });
 
-function handleThumbsUp(expenseType) {
-  // Add logic to display "Good job"
-  alert("Good job");
-}
 
-function handleThumbsDown(expenseType) {
-  // Add logic to display "Better luck next time"
-  alert("Better luck next time");
-}
 
 
 (function () {
