@@ -1,6 +1,5 @@
 body, html {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(255, 253, 253, 0.75)), url('src/img/background.jpg');
-  background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg') center/cover no-repeat;
   background-position: center;
   background-repeat: no-repeat;
   margin: 0;
@@ -10,6 +9,7 @@ body, html {
   justify-content: center;
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 form {
@@ -60,12 +60,12 @@ button:hover {
   transform: translate(80%,50%);
 }
 .logo {
-  width: 100px; 
+  width: 130px; 
   height: auto; 
   cursor: pointer;
   position: absolute;
-  left: 30px; 
-  top: 30px; 
+  left: 75px; 
+  top: 55px; 
 }
 
 label[for="value"] {
@@ -117,7 +117,7 @@ allowance-dropdown {
   padding: 120px;
   background-color: white;
   border: 5px solid #333;
-  border-radius: 5px;
+  border-radius: 40px;
   float: right;
   height: 60px;
   margin-right: 50px;
@@ -130,6 +130,7 @@ allowance-dropdown {
   margin-bottom:10px;
   font-size: 20px;
   color: #000000;
+  
   font-weight: bold;
   transform: translateY(-130%);
   align-items: center;
@@ -169,7 +170,7 @@ button {
   margin: 50px;
 }
 .go-back-button {
-  background-color: #5c5c5c; /* Red */
+  background-color: #fcfcfc; /* Red */
   transform: translate(-70%,700%);
 }
 .go-back-button:hover {
@@ -177,7 +178,7 @@ button {
   
 }
 .submit-button {
-  background-color: #5c5c5c; /* Teal */
+  background-color: #ffffff; /* Teal */
   transform: translate(70%,700%);
 }
 .submit-button:hover {
@@ -194,7 +195,7 @@ button {
   padding: 100px;
   background-color: white;
   border: 5px solid #333;
-  border-radius: 5px;
+  border-radius: 40px;
   align-items: center;
   margin-right: 400px;
   height: 101px;
