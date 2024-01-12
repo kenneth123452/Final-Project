@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display File Content</title>
+</head>
+<body>
+    <div id="contentContainer"></div>
+
+    <script>
+        const filePath = 'example.txt';
+        const contentContainer = document.getElementById('contentContainer');
+
+        fetch(filePath)
+          .then(response => response.text())
+          .then(content => {
+            // Display content in a div
+            contentContainer.textContent = content;
+          })
+          .catch(error => {
+            // Display error message if there's an issue
+            contentContainer.textContent = Error reading the file: ${error};
+          });
+    </script>
+</body>
+</html>
