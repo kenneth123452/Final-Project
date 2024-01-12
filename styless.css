@@ -193,6 +193,54 @@ input {
     transition: 0.5s;
 }
 
+/* Common styling for all elements */
+.Plan, .Budget, .Save {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative; /* Set the position property to relative */
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.5s ease;
+}
+
+/* Styling on hover */
+.Plan:hover,
+.Budget:hover,
+.Save:hover {
+    background-color: #f0f0f0;
+    color: black;
+    border-radius: 20px;
+    
+}
+
+
+/* Adjust the position of each element individually */
+.Plan {
+    top: 165;
+    left: 260; /* Adjust the left position for .Plan */
+}
+
+.Budget {
+    left: 640px;
+    bottom: 100; /* Adjust the left position for .Budget */
+}
+
+.Save {
+    left: 1000px; /* Adjust the left position for .Save */
+    bottom: 330;
+}
+
+
+
+
+
+
 .navbar ul li:hover::after {
     width: 100%;
 }
