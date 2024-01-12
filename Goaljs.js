@@ -1,74 +1,71 @@
 let goalAmount;
+let retrievedRemainingAllowance; // Declare the variable outside the setGoal function
+
 document.addEventListener('DOMContentLoaded', () => {
+    retrievedRemainingAllowance = parseFloat(localStorage.getItem("Remaining Allowance")) || 0;
+        console.log("Retrieved Remaining Allowance: ₱" + retrievedRemainingAllowance);
     setGoal(); // or call other functions directly if needed
 });
 
 function setGoal() {
     return new Promise((resolve) => {
+
         goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
         const selectedDay = localStorage.getItem('selectedDay');
         const formattedGoalAmount = goalAmount.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
 
-        const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
-
-        /*const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = `
-            <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
-        `;*/
-        // Display the remaining allowance in the designated element
-        const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
-        console.log(remainingAllowanceDisplay);
-
-        // Display the remaining allowance value (or default to goal amount if not retrieved)
-        const displayedRemainingAllowance = retrievedRemainingAllowance || goalAmount;
-        console.log("Remaining Allowance: ₱" + displayedRemainingAllowance);
-        //remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + displayedRemainingAllowance;
-
-        updateDisplayRemainingAllowance(retrievedRemainingAllowance, goalAmount);
-        updateProgressAndChart(goalAmount, retrievedRemainingAllowance);
-        createOrUpdateBarChart(remainingAllowance, goalAmount);
-
         const goalInfo = {
             goalAmount: goalAmount,
             timeFrame: timeFrame,
             completionDate: null, // Set to null initially
-            remainingAllowance: goalAmount // Initialize remaining allowance with the goal amount
+            remainingAllowance: retrievedRemainingAllowance // Initialize remaining allowance with the goal amount
         };
 
         localStorage.setItem('goalInfo', JSON.stringify(goalInfo));
         localStorage.setItem('timeFrame', timeFrame);
+
+        const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
+        /*console.log(remainingAllowanceDisplay);
+        // Display the remaining allowance value (or default to goal amount if not retrieved)
+        const displayedRemainingAllowance = retrievedRemainingAllowance || goalAmount;
+        console.log("Remaining Allowance: ₱" + displayedRemainingAllowance);*/
+        remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + retrievedRemainingAllowance;
+
+        updateProgressAndChart();
+        createOrUpdateBarChart();
     });
 }
     function updateProgressBar(percentage) {
         const progressBar = document.getElementById('progressBar');
         const progressText = document.getElementById('progressText');
-
         const goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
-        
+
         progressBar.style.width = `${percentage}%`;
         progressText.innerText = `Progress: ${percentage.toFixed(2)}%`;
 
-        const retrievedRemainingAllowance = parseFloat(localStorage.getItem('Remaining Allowance')) || goalAmount;
-        createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
+        //const retrievedRemainingAllowance = parseFloat(localStorage.getItem('Remaining Allowance')) || goalAmount;
+        //const remainingAllowance = retrievedRemainingAllowance || goalAmount;
+        //createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
 }
 
-    function updateDisplayRemainingAllowance(remainingAllowance, goalAmount) {
+    /*function updateDisplayRemainingAllowance(remainingAllowance, goalAmount) {
         const remainingAllowanceDisplay = document.getElementById('displayRemainingAllowance');
         const displayedRemainingAllowance = remainingAllowance || goalAmount;
         remainingAllowanceDisplay.innerText = "Remaining Allowance: ₱" + displayedRemainingAllowance;
-    }
+    }*/
 
-function updateProgressAndChart(remainingAllowance, goalAmount) {
+function updateProgressAndChart() {
     const retrievedRemainingAllowance = localStorage.getItem("Remaining Allowance");
-    const goalInfoString = localStorage.getItem('goalInfo');
+    const goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
+    //const goalInfoString = localStorage.getItem('goalInfo');
 
-    if (retrievedRemainingAllowance !== null && !isNaN(retrievedRemainingAllowance)) {
+    if (!isNaN(retrievedRemainingAllowance)) {
         const percentageCompletion = (retrievedRemainingAllowance / goalAmount) * 100;
         console.log("Percentage Completion: " + percentageCompletion);
 
         updateProgressBar(percentageCompletion);
-        createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
+        createOrUpdateBarChart();
     }
 }
 
@@ -78,7 +75,7 @@ function updateProgressAndChart(remainingAllowance, goalAmount) {
             labels: ['Remaining Allowance', 'Goal'],
             datasets: [{
                 label: 'Completion',
-                data: [remainingAllowance, goalAmount - remainingAllowance],
+                data: [retrievedRemainingAllowance, goalAmount - retrievedRemainingAllowance],
                 backgroundColor: [
                     'rgba(75, 192, 192, 0.2)', // Remaining Allowance color
                     'rgba(255, 99, 132, 0.2)'  // Goal completion color
@@ -123,20 +120,18 @@ function updateProgressAndChart(remainingAllowance, goalAmount) {
     document.getElementById('submitGoalButton').addEventListener('click', submitGoal);
     document.getElementById('backButton').addEventListener('click', goBack);
 
-    
     function showResultMessage(formattedGoalAmount, timeFrame) {
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <p>Your goal of ${formattedGoalAmount} in ${timeFrame} has been set.</p>
     `;
 }
-    
     function calculateRecommendedSpending() {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
         const timeFrame = document.getElementById('time-frame').value;
-        
+
         const retrievedRemainingAllowance = parseFloat(localStorage.getItem('Remaining Allowance')) || goalAmount;
-        
+
     const currentDate = new Date();
     const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
     let daysDifference;
@@ -156,14 +151,14 @@ function updateProgressAndChart(remainingAllowance, goalAmount) {
     }
 
     const recommendedDailySpending = goalAmount / daysDifference;
-        
+
     const resultDiv = document.getElementById('remain');
     resultDiv.innerHTML = `
         <h3>Recommended Daily Spending:</h3>
         <p>To reach your goal of ₱${goalAmount.toFixed(2)} in ${timeFrame},</p>
         <p>you should aim to spend approximately ₱${recommendedDailySpending.toFixed(2)} per day.</p>
     `;
-        
+
     showResultMessage(formatCurrency(goalAmount), timeFrame);
     updateProgressBar((retrievedRemainingAllowance / goalAmount) * 100);
     createOrUpdateBarChart(retrievedRemainingAllowance, goalAmount);
@@ -181,4 +176,3 @@ function submitGoal() {
 function goBack() {
     window.location.href = "Expenses.html";
 }
-
