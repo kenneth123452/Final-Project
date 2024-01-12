@@ -1,5 +1,5 @@
 let goalAmount;
-let retrievedRemainingAllowance; // Declare the variable outside the setGoal function
+let retrievedRemainingAllowance = 0; // Declare the variable outside the setGoal function
 
 document.addEventListener('DOMContentLoaded', () => {
     retrievedRemainingAllowance = parseFloat(localStorage.getItem("Remaining Allowance")) || 0;
