@@ -1,5 +1,5 @@
-    let goalAmount;
     var remainingAllowance;
+    var goalAmount;
 
     document.addEventListener("DOMContentLoaded", function () {
         remainingAllowance = localStorage.getItem("RemainingAllowance");
@@ -14,10 +14,14 @@
 
         setGoal().then(() => {
             updateProgressAndChart();
-
-            createOrUpdateBarChart(remainingAllowance, goalAmount);
         });
+
+        document.getElementById('goal-amount').addEventListener('input', function () {
+            // Update the chart when the goal amount is changed
+            goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
+            createOrUpdateBarChart(remainingAllowance, goalAmount);
     });
+});
 
     function calculateRecommendedSpending() {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
@@ -55,7 +59,6 @@
 
         showResultMessage(formatCurrency(goalAmount), timeFrame);
         updateProgressBar((remainingAllowance / goalAmount) * 100);
-        createOrUpdateBarChart(goalAmount, remainingAllowance);
     }
 
     function setGoal() {
@@ -86,7 +89,6 @@
             //remainingAllowance = remainingAllowance;
 
             resolve();
-            createOrUpdateBarChart(remainingAllowance, goalAmount);
             updateProgressAndChart();
 
         });
@@ -95,7 +97,7 @@
     function updateProgressAndChart() {
         if (!isNaN(remainingAllowance)) {
             const remainingAllowance = localStorage.getItem("Remaining Allowance");
-            const goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
+            goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
             const percentageCompletion = (remainingAllowance / goalAmount) * 100;
 
             updateProgressBar(percentageCompletion);
@@ -105,11 +107,21 @@
 
     function createOrUpdateBarChart(remainingAllowance, goalAmount) {
         const ctx = document.getElementById('barChart').getContext('2d');
+
+            const goalInfoString = localStorage.getItem('goalInfo');
+        if (!goalInfoString) {
+            console.error("goalInfo not found in localStorage");
+            return;
+        }
+
+        const goalInfo = JSON.parse(goalInfoString);
+        //const goalAmount = goalInfo.goalAmount;
+
         const data = {
-            labels: ['Remaining Allowance', 'Goal'],
+            labels: ['Remaining Allowance', 'goalAmount'],
             datasets: [{
-                label: 'Completion',
-                data: [remainingAllowance, goalAmount - remainingAllowance],
+                label: 'Remaining Allowance',
+                data: [remainingAllowance],
                 backgroundColor: [
                     'rgba(75, 192, 192, 0.2)', // Remaining Allowance color
                     'rgba(255, 99, 132, 0.2)'  // Goal completion color
@@ -122,14 +134,7 @@
             },
             {
                 label: 'Goal',
-                data: [0, goalAmount], // Set the remaining allowance data to 0
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)' // Goal completion color
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)'
-                ],
-                borderWidth: 1
+                data: goalAmount,
             }]
         };
 
@@ -193,7 +198,3 @@
     function goBack() {
         window.location.href = "Expenses.html";
     }
-function goBack() {
-    window.location.href = "Expenses.html";
-}
-
