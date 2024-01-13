@@ -192,3 +192,12 @@ button:hover {
 result {
     color:  white;
 }
+#chart-container {
+    flex-grow: 1; /* Take the remaining space */
+    margin-left: 20px; /* Adjust the margin as needed */
+}
+
+#barChart {
+    width: 100%; /* Make the chart fill its container */
+    height: auto;
+}
