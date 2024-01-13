@@ -17,11 +17,14 @@
         });
 
         document.getElementById('goal-amount').addEventListener('input', function () {
-            // Update the chart when the goal amount is changed
-            goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
-            createOrUpdateBarChart(remainingAllowance, goalAmount);
+            goalAmount = parseFloat(this.value);
+            if (!isNaN(goalAmount)) {
+                createOrUpdateBarChart(parseFloat(remainingAllowance), goalAmount);
+                updateProgressAndChart();
+            }
+        });
+                createOrUpdateBarChart(parseFloat(remainingAllowance), goalAmount);
     });
-});
 
     function calculateRecommendedSpending() {
         const goalAmount = parseFloat(document.getElementById('goal-amount').value);
@@ -96,12 +99,12 @@
 
     function updateProgressAndChart() {
         if (!isNaN(remainingAllowance)) {
-            const remainingAllowance = localStorage.getItem("Remaining Allowance");
+            remainingAllowance = localStorage.getItem("Remaining Allowance");
             goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
             const percentageCompletion = (remainingAllowance / goalAmount) * 100;
 
             updateProgressBar(percentageCompletion);
-            createOrUpdateBarChart(remainingAllowance, goalAmount);
+            createOrUpdateBarChart(parseFloat(remainingAllowance), goalAmount);
         }
     }
 
@@ -119,24 +122,27 @@
 
         const data = {
             labels: ['Remaining Allowance', 'goalAmount'],
-            datasets: [{
+            datasets: [
+
+            {
+
                 label: 'Remaining Allowance',
-                data: [remainingAllowance],
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)', // Remaining Allowance color
-                    'rgba(255, 99, 132, 0.2)'  // Goal completion color
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 99, 132, 1)'
-                ],
-                borderWidth: 1
+                data: [remainingAllowance, 0],
+            backgroundColor: ['rgba(75, 192, 192, 0.2)'], // Remaining Allowance color
+            borderColor: ['rgba(75, 192, 192, 1)'],
+            borderWidth: 1
             },
+
             {
                 label: 'Goal',
-                data: goalAmount,
-            }]
-        };
+            data: [goalAmount, 0],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],  // Goal completion color
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1,
+
+            }
+        ]
+    };
 
         const options = {
             scales: {
@@ -161,10 +167,12 @@
     function updateProgressBar(percentage) {
         const progressBar = document.getElementById('progressBar');
         const progressText = document.getElementById('progressText');
-        const goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
+        //const goalAmount = parseFloat(localStorage.getItem('goalInfo')).goalAmount;
 
         progressBar.style.width = `${percentage}%`;
         progressText.innerText = `Progress: ${percentage.toFixed(2)}%`;
+
+        //createOrUpdateBarChart(remainingAllowance, goalAmount)
     }
 
     function updateCompletionDate() {
