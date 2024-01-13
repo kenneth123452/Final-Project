@@ -57,7 +57,7 @@ function displayExpenseData(cardType, parsedExpenseData) {
   if (storedDataElement) {
     // Creating a new span element to wrap the text for styling
     const styledText = document.createElement('span');
-    
+
     // Setting the inner text of the span with your content
     styledText.innerText = "Stored Expense Data: " + JSON.stringify(expenseValue);
 
@@ -89,15 +89,33 @@ function displayExpenseData(cardType, parsedExpenseData) {
 }
 
 const retrieveAndDisplayExpenses = () => {
-  const expenseData = localStorage.getItem("ExpenseData") || "{}";
-  const parsedExpenseData = JSON.parse(expenseData);
+  /*const expenseData = localStorage.getItem("ExpenseData") || "{}";
+  const parsedExpenseData = JSON.parse(expenseData);*/
 
-  displayExpenseData("personal", parsedExpenseData);
+  // Retrieve total expenses and remaining allowance
+  var totalAllExpenses = localStorage.getItem("TotalExpenses");
+  var remainingAllowance = localStorage.getItem("RemainingAllowance");
+
+  // Do something with the values (e.g., display or use them as needed)
+  console.log("Retrieved Total Expenses: ₱" + totalAllExpenses);
+  console.log("Retrieved Remaining Allowance: ₱" + remainingAllowance);
+
+  // Display total expenses and remaining allowance
+  var totalAllExpensesDisplay = document.getElementById("totalAllExpenses");
+  var remainingAllowanceDisplay = document.getElementById("remainingAllowance");
+
+  totalAllExpensesDisplay.textContent = totalAllExpenses;
+  remainingAllowanceDisplay.textContent = remainingAllowance;
+
+  /*displayExpenseData("personal", parsedExpenseData);
   displayExpenseData("transportation", parsedExpenseData);
   displayExpenseData("school", parsedExpenseData);
   displayExpenseData("other", parsedExpenseData);
-  generateCalendar(currentMonth.value, currentYear.value);
+  generateCalendar(currentMonth.value, currentYear.value);*/
 }
+document.addEventListener("DOMContentLoaded", function () {
+  retrieveAndDisplayExpenses();
+});
 
 const generateCalendar = (month, year) => {
   const calendar_days = document.querySelector('.calendar-days');
@@ -292,7 +310,7 @@ setInterval(() => {
         handleThumbsDown(expenseType);
       });
 
-     const storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
+    const storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
       if (storedDataElement) {
           storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
       }
@@ -325,6 +343,7 @@ setInterval(() => {
   });
 });
 });
+
 
 /*function updateCharts(parsedExpenseData) {
     // Example: Update Pie Chart
