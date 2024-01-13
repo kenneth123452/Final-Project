@@ -31,8 +31,10 @@ var allowanceValue;
 
                 // Calculate and display total
                 var remainingAllowance = calculateAndDisplayTotal();
+                var totalAllExpenses = expenseValue1 + expenseValue2 + expenseValue3 + expenseValue4;
 
                 localStorage.setItem("RemainingAllowance", remainingAllowance);
+                localStorage.setItem("TotalExpenses", totalAllExpenses);
 
                 console.log("Form submitted");
 
@@ -91,8 +93,9 @@ var allowanceValue;
                     console.log("Remaining Allowance: ₱" + remainingAllowance);
                     remainingAllowanceElement.innerHTML = "Remaining Allowance: ₱" + remainingAllowance;
                     localStorage.setItem("Remaining Allowance", remainingAllowance);
-                }
-            }
+                    localStorage.setItem("Total Expenses", totalAllExpenses);
+        }
+    }
             return remainingAllowance;
         }
 
