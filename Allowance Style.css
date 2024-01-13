@@ -57,7 +57,7 @@ button:hover {
 }
 
 .Allowance{
-  transform: translate(80%,50%);
+  transform: translate(75%,85%);
 }
 .logo {
   width: 130px; 
@@ -66,6 +66,11 @@ button:hover {
   position: absolute;
   left: 75px; 
   top: 55px; 
+  transition: transform 0.3s ease; /* Add a subtle hover effect */
+}
+
+.logo:hover {
+  transform: scale(1.1); /* Increase size on hover */
 }
 
 label[for="value"] {
