@@ -1,45 +1,49 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #555;
+    background-image: url('src/background.jpg');
+    overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-blend-mode: overlay;
+    color: #fff;
 }
 
 header {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1em;
+    padding: 2em;
+    transition: transform 0.5s ease;
+    margin: 0;
 }
 
-.Logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%; /* Apply a circular border-radius to the logo */
-    margin-right: 10px; /* Add space between logo and text */
-    border: 2px solid #fff; /* Add a white border around the logo */
-    transition: transform 0.3s ease; /* Add a subtle hover effect */
+header:hover {
+    transform: scale(1.03);
 }
 
-.Logo:hover {
-    transform: scale(1.1); /* Increase size on hover */
+header h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+#Logo{
+    position: absolute;
+    top: 17px;
+    left: 40px;
+    max-height: 110px;
+}
 
 #about {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
 }
 
 h2 {
-    color: #333;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
 }
 
 ul {
@@ -47,47 +51,70 @@ ul {
     padding: 0;
 }
 
-li {
-    margin-bottom: 10px;
-}
-
-/* Add hover effect to list items */
-li:hover {
-    color: #1e90ff;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1em;
+    padding: 0.5em;
     position:static;
     bottom: 0;
     width: 100%;
-    length: 50%
+}
+
+#GetStarted{
+text-align: center;
+padding-bottom: 50px;
 }
 
 button {
     font-size: 25px;
-    color: rgb(0, 0, 0);
-    background: linear-gradient(to right, transparent 50%, rgb(0, 0, 0) 50%);
-    background-size: 200% 100%;
+    color: #fff;
+    background-color: #4CAF50;
     width: auto;
-    height: auto;
-    padding: 10px;
-    transition: background-position 0.5s ease, color 0.5s ease, border-radius 0.5s ease, border-color 0.5s ease;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease, border-radius 0.5s ease;
 }
 
 button:hover {
-    background-position: -100% 0;
+    background-color: #45a049;
     border-radius: 10px;
-    cursor: url(hand.cur), pointer;
-    color: white;
-    border-color: transparent;
 }
 
+#ShortDescription{
+    margin: 50px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
+    font-family: 'Verdana', sans-serif;
+    color: #fff;
+}
 
+#Features{
+    margin: 50px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
+    font-family: 'Verdana', sans-serif;
+    color: #fff;
+}
 
+#HowItWorks{
+    margin: 50px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
+    font-family: 'Verdana', sans-serif;
+    color: #fff;
+}
+
+#Join{
+    margin: 50px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
+    font-family: 'Verdana', sans-serif;
+    color: #fff;
+}
