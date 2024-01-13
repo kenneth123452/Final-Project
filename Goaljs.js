@@ -135,7 +135,7 @@
 
             {
                 label: 'Goal',
-            data: [goalAmount, 0],
+            data: [goalInfo.goalAmount, 0],
             backgroundColor: ['rgba(255, 99, 132, 0.2)'],  // Goal completion color
             borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 1,
