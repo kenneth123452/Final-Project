@@ -163,12 +163,18 @@ input {
     transform: translateX(-4%);
 }
 
-.logo {
-    width: 1in;
-    height: 1in;
-    cursor: pointer;
+.Logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Apply a circular border-radius to the logo */
+    margin-right: 10px; /* Add space between logo and text */
+    border: 2px solid #fff; /* Add a white border around the logo */
+    transition: transform 0.3s ease; /* Add a subtle hover effect */
 }
 
+.Logo:hover {
+    transform: scale(1.1); /* Increase size on hover */
+}
 .navbar ul li {
     list-style: none;
     display: inline-block;
