@@ -27,6 +27,7 @@ label {
   font-weight: 500;
   display: block;
   margin-bottom: 5px;
+  color: white;
   transform: translate(0%, -30%);
 }
 
@@ -53,7 +54,7 @@ button {
 button:hover {
   background-color: black; /* Add your desired hover color */
   color: white;
-  border-radius: 15px;
+  
 }
 
 .Allowance{
@@ -74,7 +75,7 @@ button:hover {
 }
 
 label[for="value"] {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 19px;
   font-weight: bold;
 }
@@ -90,6 +91,10 @@ label[for="value"] {
 .active {
   display: block;
   opacity: 1;
+}
+.amount-label {
+  color: /* Your desired color */;
+  /* Add any other styles you want for the amount-label class */
 }
 allowance-dropdown {
   padding: 8px;
@@ -116,25 +121,33 @@ allowance-dropdown {
 
 
 
-#myForm{
+#myForm {
   width: 350px;
   margin: 10px;
-  padding: 120px;
-  background-color: white;
-  border: 5px solid #333;
+  padding: 80px; /* Adjusted padding for better visualization */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Corrected shadow color */
+  background-color: transparent;
+  border: 2px solid #ffffff;
   border-radius: 40px;
   float: right;
   height: 60px;
   margin-right: 50px;
-  align-items: center;
+  align-items: center; /* This property is for flex containers, not applicable here */
+  animation: fadeInUp 0.5s ease-out;
+  transition: transform 0.5s ease;
 }
+
+#myForm:hover {
+  transform: scale(1.05);
+}
+
 
 
 .common-label {
   display: block;
-  margin-bottom:10px;
+  
   font-size: 20px;
-  color: #000000;
+  color: #ffffff;
   
   font-weight: bold;
   transform: translateY(-130%);
@@ -177,34 +190,42 @@ button {
 .go-back-button {
   background-color: #fcfcfc; /* Red */
   transform: translate(-70%,700%);
+  animation: fadeInUp 0.5s ease-out;
+  transition: transform 0.5s ease, background-color 0.5s ease;
 }
+
 .go-back-button:hover {
-  background-color: #ff0000; /* Red */
-  
+  background-color: #45a049; /* Red */
+  transform: translate(-70%, 700%) scale(1.05); /* Maintain translation and add scaling */
 }
+
 .submit-button {
   background-color: #ffffff; /* Teal */
   transform: translate(70%,700%);
+  animation: fadeInUp 0.5s ease-out;
+  transition: transform 0.5s ease, background-color 0.5s ease;
 }
 .submit-button:hover {
-  background-color: #358d4f; /* Red */
+  background-color: #45a049; /* Red */
+  transform: translate(70%, 700%) scale(1.05); /* Maintain translation and add scaling */
   
 }
 
-
-
-
 #Amount {
- 
+  animation: fadeInUp 0.5s ease-out;
+  transition: transform 0.5s ease;
   margin: 10px;
   padding: 100px;
-  background-color: white;
-  border: 5px solid #333;
+  background-color: transparent;
+  border: 2px solid #ffffff;
   border-radius: 40px;
   align-items: center;
   margin-right: 400px;
   height: 101px;
   margin-bottom: 14px;
+}
+#Amount:hover {
+  transform: scale(1.05);
 }
 
 
@@ -213,7 +234,7 @@ button {
   display: block;
   margin-bottom: 20px; 
   font-size: 30px;
-  color: #000000;
+  color: #ffffff;
   font-weight: lighter;
 }
 .Allowance{
