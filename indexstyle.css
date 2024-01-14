@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('src/background.jpg');
+    background-image: url('src/img/background.jpg');
     overflow-x: hidden;
     background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: overlay;
