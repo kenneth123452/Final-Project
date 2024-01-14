@@ -341,12 +341,16 @@ transition: all 0.2s ease-in-out;
   width: auto;
 }
 
+/*Summary of Expenses*/
 .expenses-summary {
   margin-top: 5px;
   padding: 15px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  position: relative;
+  top: 4rem;
+  right: 2rem;
 }
 
 .expenses-summary p {
@@ -409,9 +413,9 @@ transition: all 0.2s ease-in-out;
       transform: translateY(0);
   }
 }
-@keyframes
-.card button.thumbs-down {
-    background-color: #dc3545;
+
+.card button, .thumbs-down {
+  background-color: #dc3545;
 }
 .time-formate {
   font-size: 1.5rem;
