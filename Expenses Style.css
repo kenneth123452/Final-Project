@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src/img/background.jpg') center/cover no-repeat;
     margin: 0;
     font-family: 'Lato', sans-serif;
     display: flex;
@@ -15,22 +15,39 @@ body {
     position: absolute;
     left: 30px;
     top: 30px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    transition: transform 0.5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.05);
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    background: linear-gradient(to right, #3498db, #ffffff);
 }
 
 
+
+
 .expense-box {
-    border: 2px solid #ccc;
+    border: 2px solid #333;
     border-radius: 10px;
     padding: 10px;
-    background-color: #fff; 
+    background-color: #ffffff; 
     color: #333;
-    margin-bottom: 20px; 
+    margin-bottom: 15px; 
     text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 }
 
 
 .expense-box label {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -38,7 +55,7 @@ body {
 
 .expense-box input,
 .expense-box select {
-    font-size: 18px;
+    font-size: 16px;
     width: 50%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -55,11 +72,10 @@ body {
     transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
-    width: 70%; 
+    width: 80%; 
     z-index: 1001; 
 }
 .button-container {
-        border: 2px solid #ccc;
         overflow: hidden;
         max-width: 200px;
         border-radius: 15px;
@@ -82,15 +98,21 @@ body {
 
 .bottom-buttons button {
     background: none;
-    
+    background-color: #3498db;
     cursor: pointer;
     text-transform: uppercase;
-    transition: background-color 0.5s ease, color 0.5s ease, border-radius 0.5s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     width: 200px;
     padding: 20px 30px; /* Adjust padding */
     font-size: 16px; /* Adjust font size */
     color: #fff; /* Adjust text color */
     
+}
+
+.bottom-buttons button:hover {
+    background-color: #ffffff;
+    color: #3498db;
+    transform: scale(1.05);
 }
 
 
@@ -140,7 +162,7 @@ body {
     position: absolute;
 }
 
-#remainingBalanceContainer,{
+#remainingBalanceContainer {
     text-align: center; /* Center the container */
     margin-top: 20px; /* Adjust the margin as needed */
 }
@@ -150,10 +172,10 @@ body {
     position: fixed;
     top: 150px;
     left: 100px;
-    background-color: #000000;
+    background-color: transparent;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(156, 146, 146);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
     z-index: 1000;
     width: 500px;
     height: 150px;
@@ -162,9 +184,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center; 
-    animation: fadeIn 0.5s ease-out;
+    animation: fadeInUp 0.5s ease-out;
     border-radius: 5px;
+    transition: transform 0.5s ease;
+}
 
+.personal-expense:hover {
+    transform: scale(1.05);
 }
 
 
@@ -189,10 +215,10 @@ body {
     position: fixed;
     top: 150px;
     right: 100px;
-    background-color: #000000;
+    background-color: transparent;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(156, 146, 146);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
     z-index: 1000;
     width: 500px;
     height: 150px;
@@ -202,13 +228,20 @@ body {
     align-items: center;
     justify-content: center; 
     animation: fadeIn 0.5s ease-out;
+    transition: transform 0.5s ease;
 }
+
+.transportation-expense:hover {
+    transform: scale(1.05);
+}
+
 .transportation-expense label {
     font-size: 22px;
     font-weight: lighter;
     color: #ffffff;
     margin-bottom: 20px;
 }
+
 .transportation-expense input {
     font-size: 18px;
     width: 50%;
@@ -223,10 +256,10 @@ body {
     position: fixed;
     bottom: 150px;
     right: 100px;
-    background-color: #000000;
+    background-color: transparent;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(156, 146, 146);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
     z-index: 1000;
     width: 500px;
     height: 150px;
@@ -236,8 +269,12 @@ body {
     align-items: center;
     justify-content: center; /* Center content vertically */
     animation: fadeIn 0.5s ease-out;
+    transition: transform 0.5s ease;
 }
 
+.school-expense:hover{
+    transform: scale(1.05);
+}
 
 .school-expense label {
     font-size: 22px;
@@ -259,10 +296,10 @@ body {
     position: fixed;
     bottom: 150px;
     left: 100px;
-    background-color: #000000;
+    background-color: transparent;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(156, 146, 146);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
     z-index: 1000;
     width: 500px;
     height: 150px;
@@ -272,7 +309,13 @@ body {
     align-items: center;
     justify-content: center; /* Center content vertically */
     animation: fadeIn 0.5s ease-out;
+    transition: transform 0.5s ease;
 }
+
+.other-expense:hover{
+    transform: scale(1.05);
+}
+
 .other-expense label {
     font-size: 22px;
     font-weight: lighter;
@@ -299,26 +342,27 @@ body {
 
 .expenses-title {
     text-align: center; /* Center the title */
-    color: #fff; /* Set the color of the title */
-    font-size:50px; /* Adjust the font size */
-    margin-bottom:650px; /* Add margin below the title */
-    letter-spacing: 15px; /* Adjust the letter-spacing */
+    color: #ffffff; /* Set the color of the title */
+    font-size: 36px; /* Adjust the font size */
+    margin-bottom: 550px; /* Add margin below the title */
+    letter-spacing: 5px; /* Adjust the letter-spacing */
     align-items: center;
     margin-left: 20px;
 }
 
 
 @media (max-width: 768px) {
-    .personal-expense {
+    .personal-expense, .transportation-expense, .school-expense, .other-expense {
         position: relative;
         top: auto;
         right: auto;
-        margin-top: 20px; 
+        margin-top: 20px;
+        width: 80%; 
     }
-    @keyframes fadeIn {
+@keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateY(-20px);
         }
         to {
             opacity: 1;
