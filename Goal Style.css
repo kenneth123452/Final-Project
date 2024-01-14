@@ -41,6 +41,14 @@ h2{
     align-items: center;
     margin-right: 850px;
     margin-top: 150px;
+    animation: fadeInUp 0.5s ease-out;
+    transition: transform 0.5s ease;
+}
+
+#goal-form:hover {
+    
+    color: white;
+    transform: translate(0, 0) scale(1.07); /* Add default translation values */
 }
 
 label {
@@ -186,7 +194,6 @@ button:hover {
     background-color: #45a049; /* Darker red on hover */
     color: white;
     transform: translate(-170%, 49%) scale(1.07);
-    
 }
 
 result {
