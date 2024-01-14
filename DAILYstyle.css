@@ -335,7 +335,8 @@ transition: all 0.2s ease-in-out;
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
-  background-color: rgb(255, 255, 255); /* Add your preferred background color */
+  background-color: transparent; /* Add your preferred background color */
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 10);
   padding: 40px 80px; /* Adjust the values as needed */
   border-radius: 15px; 
   width: auto;
@@ -494,4 +495,47 @@ transition: all 0.2s ease-in-out;
     margin: 5px 0px;
   }
 }
-  
+
+#goBackFunction{
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    width: auto;
+    padding: 10px 20px;
+    border: #333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease, border-radius 0.5s ease;
+    transition: transform 0.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
+    position: relative;
+    right: 9rem;
+}
+
+#goBackFunction:hover{
+    background-color: #45a049;
+    border-radius: 10px;
+    transform: scale(1.05);
+}
+
+#redirectToAnotherPage{
+  font-size: 16px;
+  color: #fff;
+  background-color: #4CAF50;
+  width: auto;
+  padding: 10px 20px;
+  border: #333;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.5s ease, color 0.5s ease, border-radius 0.5s ease;
+  transition: transform 0.5s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 10);
+  position: relative;
+  left: 9rem;
+}
+
+#redirectToAnotherPage:hover{
+  background-color: #45a049;
+  border-radius: 10px;
+  transform: scale(1.05);
+}
