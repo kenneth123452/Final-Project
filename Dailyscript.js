@@ -51,7 +51,7 @@ function displayAllExpenses(){
   let sum = 0
   for (let i = 0; i < expenses.length; i++ ) {
     var spantotalAllExpenses = document.getElementById('totalAllExpenses')
-    spantotalAllExpenses.textContent = sum
+    spantotalAllExpenses.textContent += sum
 }
 
 function displayExpenseData(cardType, parsedExpenseData) {
