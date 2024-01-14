@@ -17,32 +17,36 @@
     </a>
 
     <div class="banner">
-        <div id="goal-form">
-            <h2>Set Financial Goal</h2>
-            <label for="goal-amount">Desired Goal Amount</label>
-            <input type="number" id="goal-amount" placeholder="Enter goal amount" required>
+        <div id="goal-form-container">
+            <div id="goal-form">
+                <h2>Set Financial Goal</h2>
+                <label for="goal-amount">Desired Goal Amount</label>
+                <input type="number" id="goal-amount" placeholder="Enter goal amount" required>
 
-            <label for="time-frame">Time Frame</label>
-            <select id="time-frame">
-                <option value="week">Per Week</option>
-                <option value="month">Per Month</option>
-                <option value="year">Per Year</option>
-            </select>
+                <label for="time-frame">Time Frame</label>
+                <select id="time-frame">
+                    <option value="week">Per Week</option>
+                    <option value="month">Per Month</option>
+                    <option value="year">Per Year</option>
+                </select>
 
-            <button onclick="calculateRecommendedSpending()">Set Goal</button>
-            <div id="remain"></div>
-            <button id="submitGoalButton">Submit</button>
-            <button id="backButton">Back</button>
-
-            <div id="result"></div>
-            <div id="displayRemainingAllowance"></div>
-            <div id="progress-bar-container">
-            <div class="progress-bar-container"></div>
-            <div class="progress-text" id="progressText"></div>
-            <div class="progress-bar-fill" id="progressBar"></div>
-            <canvas id="barChart" width="400" height="400"></canvas>
+                <button onclick="calculateRecommendedSpending()">Set Goal</button>
+                <div id="remain"></div>
+                <div id="result"></div>
+                <div id="displayRemainingAllowance"></div>
+                <div class="progress-text" id="progressText"></div>
+                <button id="submitGoalButton">Submit</button>
+                <button id="backButton">Back</button>
+            </div>
         </div>
-    </div>
+
+            <div id="chart-container">
+            <div id="progress-bar-container">
+                <div class="progress-bar-container"></div>
+                <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+            <canvas id="barChart" width="400" height="170"></canvas>
+        </div>
     </div>
 
     <script src="Goaljs.js"></script>
