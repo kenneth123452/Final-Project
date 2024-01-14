@@ -50,8 +50,10 @@ month_picker.onclick = () => {
 function displayAllExpenses(){
   let sum = 0
   for (let i = 0; i < expenses.length; i++ ) {
+    sum += parseInt(expenses[i]);
+  }
     var spantotalAllExpenses = document.getElementById('totalAllExpenses')
-    spantotalAllExpenses.textContent += sum
+    spantotalAllExpenses.textContent = sum
 }
 
 function displayExpenseData(cardType, parsedExpenseData) {
@@ -336,7 +338,7 @@ setInterval(() => {
 
     function calculateExpense(category, action) {
       var inputField = document.getElementById('calculateInput').value;
-      if (action === 'additon') {
+      if (action === 'subtract') {
           var inputValue = inputField;
           var parsedAllowance = Number(remainingAllowance.innerHTML)
           computedValue = parseInt(parsedAllowance - inputValue)
@@ -349,4 +351,4 @@ setInterval(() => {
 
    
 }
-}
+
