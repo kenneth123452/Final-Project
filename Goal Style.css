@@ -28,7 +28,7 @@ h2{
 #goal-form {
     background-color: transparent;
     max-width: 500px;
-    height: 500px;
+    height: 630px;
     margin: 60px auto;
     padding: 30px;
     border: 1px solid #ccc;
@@ -40,7 +40,7 @@ h2{
     flex-direction: column;
     align-items: center;
     margin-right: 850px;
-    margin-top: 150px;
+    margin-top: 70px;
     animation: fadeInUp 0.5s ease-out;
     transition: transform 0.5s ease;
 }
@@ -128,14 +128,14 @@ button {
     animation: fadeInUp 0.5s ease-out;
     text-transform: uppercase;
     position: relative;
-    transform: translate(-2%, 350%);
+    transform: translate(0%, -15%);
     transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease, border-radius 0.5s ease; /* Combine transition properties */
 }
 
 button:hover {
     background-color: #45a049; /* Darker green on hover */
     color: white;
-    transform: translate(-2%, 350%) scale(1.07);
+    transform: translate(0%, -15%) scale(1.07);
 }
 
 
@@ -143,7 +143,7 @@ button:hover {
 /* Style for the "Submit" button */
 #submitGoalButton {
     color: rgb(0, 0, 0);
-    transform: translate(150%, 145%);
+    transform: translate(150%, 40%);
     border-radius: 15px;
     animation: fadeInUp 0.5s ease-out;
     transition: transform 0.5s ease;
@@ -152,7 +152,7 @@ button:hover {
 #submitGoalButton:hover {
     background-color: #45a049; /* Darker green on hover */
     color: white;
-    transform: translate(150%, 145%) scale(1.07);
+    transform: translate(150%, 40%) scale(1.07);
 }
 
 /* Shared styles for the button with class "set-goal-button" and id "submitGoalButton" */
@@ -179,7 +179,7 @@ button:hover {
 /* Style for the "Back" button */
 #backButton {
     color: rgb(0, 0, 0);
-    transform: translate(-170%, 49%);
+    transform: translate(-170%, -60%);
     border-radius: 15px;
     animation: fadeInUp 0.5s ease-out;
     transition: transform 0.5s ease;
@@ -193,7 +193,7 @@ button:hover {
 #backButton:hover {
     background-color: #45a049; /* Darker red on hover */
     color: white;
-    transform: translate(-170%, 49%) scale(1.07);
+    transform: translate(-170%, -60%) scale(1.07);
 }
 
 result {
