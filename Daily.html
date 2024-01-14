@@ -7,17 +7,7 @@
     <title>CALENDAR</title>
     <link rel="stylesheet" href="DAILYstyle.css">
     <script src="Dailyscript.js" defer></script>
-    <script>
-        function handleDown(expenseType) {
-            // Add logic to display "Better luck next time"
-            alert("SIR PINAGPUYATAN NAMIN TO");
-        }
-
-        function handleThumbsUp(expenseType) {
-            // Add logic to display "Good job"
-            alert("Good job");
-        }
-    </script>
+    
     <style>
         #chart-container {
             transform: translate(-30%, -65%);
@@ -72,13 +62,14 @@
     <div class="expense-inputs">
         <div class="expense-input" data-type="other">
             <h2 class="other-h2">Overall Expenses</h2>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="otherExpenseInput" placeholder="Enter Other Expense">
-            <button type="button" onclick="saveExpenseData('other', 'save')" class="styled-button">Save Other Expense</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-            <input type="number" id="calculateInput" placeholder="Input save">
-            <button type="button" onclick="calculateExpense('other', 'subtract')" class="styled-button">Calculate</button>
-            <p id="storedDataOther"></p>
-            <button type="button" onclick="displayAllExpenses()" class="styled-button">Display Expenses</button>
+            
+            <div style="text-align: center; padding: 50px; margin-bottom: 5px;">
+                <input type="number" id="calculateInput" placeholder="Input save">
+                <button type="button" onclick="displayAllExpenses()" class="styled-button">Display Expenses</button>
+                <button type="button" onclick="calculateExpense('other', 'subtract')" class="styled-button">Calculate</button>
+            </div>
+            
+            
         </div>
     </div>
         </script>
