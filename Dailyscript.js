@@ -21,6 +21,8 @@ const getStoredExpenseData = (day, month, year) => {
   return null;
 };
 
+expenses = [];
+
 let calendar = document.querySelector('.calendar');
 const month_names = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -44,6 +46,13 @@ month_picker.onclick = () => {
   dateFormate.classList.remove('showtime');
   dateFormate.classList.add('hideTime');
 };
+
+function displayAllExpenses(){
+  let sum = 0
+  for (let i = 0; i < expenses.length; i++ ) {
+    var spantotalAllExpenses = document.getElementById('totalAllExpenses')
+    spantotalAllExpenses.textContent = sum
+}
 
 function displayExpenseData(cardType, parsedExpenseData) {
   function capitalizeFirstLetter(string) {
@@ -106,6 +115,7 @@ const retrieveAndDisplayExpenses = () => {
 
   totalAllExpensesDisplay.textContent = totalAllExpenses;
   remainingAllowanceDisplay.textContent = remainingAllowance;
+  console.log(remainingAllowance + "test 2")
 
   /*displayExpenseData("personal", parsedExpenseData);
   displayExpenseData("transportation", parsedExpenseData);
@@ -122,10 +132,25 @@ const generateCalendar = (month, year) => {
   calendar_days.innerHTML = '';
   const calendar_header_year = document.querySelector('#year');
   const days_of_month = [
-    31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+    31,   (year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
   ];
 
   const currentDate = new Date();
+  const secondDate = new Date(currentDate);
+  const thirdDate = new Date(currentDate);
+  const fourthDate = new Date(currentDate);
+  const fifthDate = new Date(currentDate);
+  const sixthDate = new Date(currentDate);
+  const seventhDate = new Date(currentDate);
+  const eightDate = new Date(currentDate);
+
+  secondDate.setDate(currentDate.getDate() + 1);
+  thirdDate.setDate(currentDate.getDate() + 2);
+  fourthDate.setDate(currentDate.getDate() + 3);
+  fifthDate.setDate(currentDate.getDate() + 4);
+  sixthDate.setDate(currentDate.getDate() + 5);
+  seventhDate.setDate(currentDate.getDate() + 6);
+  eightDate.setDate(currentDate.getDate() + 7);
 
   month_picker.innerHTML = month_names[month];
   calendar_header_year.innerHTML = year;
@@ -140,12 +165,62 @@ const generateCalendar = (month, year) => {
       day.innerHTML = dayNumber;
 
       if (
-        dayNumber === currentDate.getDate() &&
         year === currentDate.getFullYear() &&
+        dayNumber === currentDate.getDate() &&
         month === currentDate.getMonth()
       ) {
         day.classList.add('current-date');
       }
+      if (
+        year === currentDate.getFullYear() &&
+        dayNumber === secondDate.getDate() &&
+        month === currentDate.getMonth()
+        ){
+        day.classList.add('current-date');
+      }
+      if (
+        year === currentDate.getFullYear() &&
+        dayNumber === thirdDate.getDate() &&
+        month === currentDate.getMonth()
+        ){
+        day.classList.add('current-date');
+      }
+      if (
+        year === currentDate.getFullYear() &&
+        dayNumber === fourthDate.getDate() &&
+        month === currentDate.getMonth()
+        ){
+        day.classList.add('current-date');
+      }
+      if (
+        year === currentDate.getFullYear() &&
+        dayNumber === fifthDate.getDate() &&
+        month === currentDate.getMonth()
+        ){
+        day.classList.add('current-date');
+      }
+      if (
+        year === currentDate.getFullYear() &&
+        dayNumber === sixthDate.getDate() &&
+        month === currentDate.getMonth()
+        ){
+        day.classList.add('current-date');
+      }
+      if (
+        year === currentDate.getFullYear() &&
+        dayNumber === seventhDate.getDate() &&
+        month === currentDate.getMonth()
+        ){
+        day.classList.add('current-date');
+      }
+      if (
+        year === currentDate.getFullYear() &&
+        dayNumber === eightDate.getDate() &&
+        month === currentDate.getMonth()
+        ){
+        day.classList.add('current-date');
+      }
+      
       const storedData = getStoredExpenseData(dayNumber, month, year);
       if (storedData !== null) {
         Object.keys(storedData).forEach((type) => {
@@ -259,177 +334,19 @@ setInterval(() => {
       generateCalendar(currentMonth.value, currentYear.value);
     }
 
-    function handleThumbsDown(expenseType) {
-      console.log('Thumbs Down clicked for ' + expenseType);
-      const thumbsDownCountElement = document.getElementById("thumbsDownCount" + capitalizeFirstLetter(expenseType));
+    function calculateExpense(category, action) {
+      var inputField = document.getElementById('calculateInput').value;
+      if (action === 'additon') {
+          var inputValue = inputField;
+          var parsedAllowance = Number(remainingAllowance.innerHTML)
+          computedValue = parseInt(parsedAllowance - inputValue)
 
-      // Increment the thumbs-down count and update the display
-      let thumbsDownCount = parseInt(thumbsDownCountElement.textContent) || 0;
-      thumbsDownCount++;
-      thumbsDownCountElement.textContent = thumbsDownCount;
-    }
+          expenses.push(inputField)
 
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelector('[data-type="personal"] button.thumbs-up').addEventListener('click', function () {
-        const expenseType = this.closest('.expense-input').getAttribute('data-type');
-        handleThumbsUp(expenseType);
-      });
+          var spanAllowance = document.getElementById('remainingAllowance')
+          spanAllowance.textContent = computedValue
+  }
 
-      document.querySelector('[data-type="personal"] button.thumbs-down').addEventListener('click', function () {
-        const expenseType = this.closest('.expense-input').getAttribute('data-type');
-        handleThumbsDown(expenseType);
-      });
-
-      document.querySelector('[data-type="transportation"] button.thumbs-up').addEventListener('click', function () {
-        const expenseType = this.closest('.expense-input').getAttribute('data-type');
-        handleThumbsUp(expenseType);
-      });
-
-      document.querySelector('[data-type="transportation"] button.thumbs-down').addEventListener('click', function () {
-        const expenseType = this.closest('.expense-input').getAttribute('data-type');
-        handleThumbsDown(expenseType);
-      });
-
-      document.querySelector('[data-type="school"] button.thumbs-up').addEventListener('click', function () {
-        const expenseType = this.closest('.expense-input').getAttribute('data-type');
-        handleThumbsUp(expenseType);
-      });
-
-      document.querySelector('[data-type="school"] button.thumbs-down').addEventListener('click', function () {
-        const expenseType = this.closest('.expense-input').getAttribute('data-type');
-        handleThumbsDown(expenseType);
-      });
-
-      document.querySelector('[data-type="other"] button.thumbs-up').addEventListener('click', function () {
-        const expenseType = this.closest('.expense-input').getAttribute('data-type');
-        handleThumbsUp(expenseType);
-      });
-
-      document.querySelector('[data-type="other"] button.thumbs-down').addEventListener('click', function () {
-        const expenseType = this.closest('.expense-input').getAttribute('data-type');
-        handleThumbsDown(expenseType);
-      });
-
-    const storedDataElement = document.getElementById("storedData" + capitalizeFirstLetter(expenseType));
-      if (storedDataElement) {
-          storedDataElement.innerText = "Stored Expense Data: " + JSON.stringify(parsedExpenseData[expenseType]);
-      }
-      let currentExpenseElement = document.getElementById("display" + capitalizeFirstLetter(expenseType) + "ExpenseData");
-      if (currentExpenseElement) {
-          currentExpenseElement.innerText = JSON.stringify(parsedExpenseData[expenseType]);
-          generateCalendar(currentMonth.value, currentYear.value);
-      }
-      retrieveAndDisplayExpenses();
-
-    document.addEventListener("DOMContentLoaded", function () {
-  document.querySelector('[data-type="personal"] button').addEventListener('click', function () {
-      saveExpenseData('personal');
-      retrieveAndDisplayExpenses();
-  });
-
-  document.querySelector('[data-type="transportation"] button').addEventListener('click', function () {
-      saveExpenseData('transportation');
-      retrieveAndDisplayExpenses();
-  });
-
-  document.querySelector('[data-type="school"] button').addEventListener('click', function () {
-      saveExpenseData('school');
-      retrieveAndDisplayExpenses();
-  });
-
-  document.querySelector('[data-type="other"] button').addEventListener('click', function () {
-      saveExpenseData('other');
-      retrieveAndDisplayExpenses();
-  });
-});
-});
-
-
-/*function updateCharts(parsedExpenseData) {
-    // Example: Update Pie Chart
-    updatePieChart(parsedExpenseData);
-
-    // Example: Update Line Chart
-    updateLineChart(parsedExpenseData);
-
-    // Example: Update Bar Chart
-    updateBarChart(parsedExpenseData);
+   
 }
-
-// Example: Function to update the Pie Chart
-function updatePieChart(parsedExpenseData) {
-    var pieChartElement = document.getElementById('pie-chart');
-    if (pieChartElement) {
-        // Use parsedExpenseData to update your Pie Chart
-        // Example: Create a Pie Chart using Chart.js
-        var pieChart = new Chart(pieChartElement, {
-            type: 'pie',
-            data: {
-                labels: Object.keys(parsedExpenseData),
-                datasets: [{
-                    data: Object.values(parsedExpenseData),
-                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50'], // Customize the colors as needed
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Expense Distribution'
-                }
-            }
-        });
-    }
 }
-
-// Example: Function to update the Line Chart
-function updateLineChart(parsedExpenseData) {
-    var lineChartElement = document.getElementById('line-chart');
-    if (lineChartElement) {
-        // Use parsedExpenseData to update your Line Chart
-        // Example: Create a Line Chart using Chart.js
-        var lineChart = new Chart(lineChartElement, {
-            type: 'line',
-            data: {
-                labels: Object.keys(parsedExpenseData),
-                datasets: [{
-                    label: 'Expense Trend',
-                    data: Object.values(parsedExpenseData),
-                    borderColor: '#FF6384', // Customize the line color as needed
-                    fill: false
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Expense Trend Over Time'
-                }
-            }
-        });
-    }
-}
-
-// Example: Function to update the Bar Chart
-function updateBarChart(parsedExpenseData) {
-    var barChartElement = document.getElementById('bar-chart');
-    if (barChartElement) {
-        // Use parsedExpenseData to update your Bar Chart
-        // Example: Create a Bar Chart using Chart.js
-        var barChart = new Chart(barChartElement, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(parsedExpenseData),
-                datasets: [{
-                    label: 'Expense Amount',
-                    data: Object.values(parsedExpenseData),
-                    backgroundColor: '#36A2EB' // Customize the bar color as needed
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Expense Comparison'
-                }
-            }
-        });
-    }
-}*/
