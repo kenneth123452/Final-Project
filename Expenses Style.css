@@ -79,11 +79,12 @@ body {
         overflow: hidden;
         max-width: 200px;
         border-radius: 15px;
-
+        transition: transform 0.5s ease;
     }
-    
-    
 
+.button-container:hover{
+    transform: scale(1.05);
+}
 
 .bottom-buttons {
     position: fixed;
@@ -98,7 +99,7 @@ body {
 
 .bottom-buttons button {
     background: none;
-    background-color: #3498db;
+    background-color: #4CAF50;
     cursor: pointer;
     text-transform: uppercase;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
@@ -119,34 +120,36 @@ body {
 #calculateButton {
     padding: 10px 20px;
     color: #ffffff;
+    border-radius: 15px;
 }
 
 #calculateButton:hover {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #45a049;
+    color: #ffffff;
     border-radius: 15px;
 }
 
 #backButton {
     padding: 10px 20px;
     color: #ffffff;
+    border-radius: 15px;
 }
 
 #backButton:hover {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #45a049;
+    color: #ffffff;
     border-radius: 15px;
-    bottom: 500px;
 }
 
 #submitButton {
     padding: 10px 20px;
     color: #ffffff;
+    border-radius: 15px;
 }
 
 #submitButton:hover {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #45a049;
+    color: #ffffff;
     border-radius: 15px;
 }
 
