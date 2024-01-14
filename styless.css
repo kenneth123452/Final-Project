@@ -1,18 +1,166 @@
-body {
-    font-family: 'Roboto', sans-serif;
+/* Reset styles */
+html, body {
     margin: 0;
     padding: 0;
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #555;
+    font-family: sans-serif;
+   
 }
 
-header {
-    background-color: #333;
+/* Styles for the login form */
+#content_container {
+    width: 100%;
+    height: 100%;
+}
+
+#form_container {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('src/img/background.jpg');    box-shadow: 0 0 50px -20px #000;    
+    overflow: hidden;
+    transform: translate(0%, 0%);
+
+}
+
+#form_header_container {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    padding: 20px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    border-bottom: 1px solid transparent;
+    border-image: -webkit-linear-gradient(25deg, #333333, #555555, #777777, #999999, #CCCCCC) 20;
+    background: none;
+    border-bottom: none;
+    
+}
+
+#form_header {
+    display: inline-block;
+    font-size: 25px;
+    font-family: Bowlby One SC;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 300px;
+    transform: translateX(-13%);
+    
+}
+
+#form_content_container {
+    width: 100%;
+    height: 90%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    transform: translate(0%, 15%);
+}
+
+#form_content_inner_container {
+    width: 50%;
+    height: 100%;
+    float: left;
+    
+}
+
+input {
+    width: 100%;
+    height: 60px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    background: #000;
+    font-family: sans-serif;
+    font-weight: 500;
     color: #fff;
-    text-align: center;
-    padding: 1em;
+    font-size: 12px;
+    border-bottom: 2px solid transparent;
+    border-top-left-radius: 2%;
+    border-top-right-radius: 2%;
+    border-image: -webkit-linear-gradient(25deg, #333333, #555555, #777777, #999999, #CCCCCC) 1;
+}
+
+#button_container {
+    width: 100%;
+    height: 10%;
+    float: left;
+    margin-top: 5px;
+}
+
+#button_container button {
+    width: 30%;
+    background-color: white;
+    height: 100%;
+    float: left;
+    color: inherit;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-weight: 900;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background-color 0.5s ease, color 0.5s ease, border-radius 0.5s ease; /* Add transition property */
+    margin: 60px;
+    transform: translate(10%, -50%);
+}
+#button_container button:hover{
+    border: none;
+    background-color: #333333;
+    color: white;
+
+
+
+}
+#logoutBtn {
+    width: 48px;
+    height: 140%;
+    float: left;
+    background: none;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: right;
+    border: none;
+    outline: none;
+    transform: translateX(100%);
+    transition: background-color 0.5s ease, color 0.5s ease, border-radius 0.5s ease; /* Add transition property */
+
+}
+#logoutBtn:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* Styles for the main content */
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("src/img/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateX(-4%);
 }
 
 .Logo {
@@ -27,67 +175,145 @@ header {
 .Logo:hover {
     transform: scale(1.1); /* Increase size on hover */
 }
-
-
-#about {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
 }
 
-h2 {
-    color: #333;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
-}
-
-/* Add hover effect to list items */
-li:hover {
-    color: #1e90ff;
-    cursor: pointer;
-}
-
-
-footer {
-    background-color: #333;
+.navbar ul li a {
+    text-decoration: none;
     color: #fff;
-    text-align: center;
-    padding: 1em;
-    position:static;
-    bottom: 0;
-    width: 100%;
-    length: 50%
+    text-transform: uppercase;
 }
 
-button {
-    font-size: 25px;
-    color: rgb(0, 0, 0);
-    background: linear-gradient(to right, transparent 50%, rgb(0, 0, 0) 50%);
-    background-size: 200% 100%;
-    width: auto;
-    height: auto;
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+/* Common styling for all elements */
+.Plan, .Budget, .Save {
+    width: 200px;
     padding: 10px;
-    transition: background-position 0.5s ease, color 0.5s ease, border-radius 0.5s ease, border-color 0.5s ease;
-}
-
-button:hover {
-    background-position: -100% 0;
-    border-radius: 10px;
-    cursor: url(hand.cur), pointer;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative; /* Set the position property to relative */
     color: white;
-    border-color: transparent;
+    text-align: center;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.5s ease;
+}
+
+/* Styling on hover */
+.Plan:hover,
+.Budget:hover,
+.Save:hover {
+    background-color: #f0f0f0;
+    color: black;
+    border-radius: 20px;
+    
+}
+
+
+/* Adjust the position of each element individually */
+.Plan {
+    top: 165;
+    left: 260; /* Adjust the left position for .Plan */
+}
+
+.Budget {
+    left: 640px;
+    bottom: 100; /* Adjust the left position for .Budget */
+}
+
+.Save {
+    left: 1000px; /* Adjust the left position for .Save */
+    bottom: 330;
 }
 
 
 
+
+
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin-top: 130px;
+    color: white;
+}
+.pees {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin-top: 170px;
+    color: white;
+}
+.Budgeting {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.footer {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-10%, -50%);
+    width: 100%;
+    color: white;
+}
+
+/* Additional styling for user-dashboard and admin-dashboard */
+body.user-dashboard {
+    background-color: #e6f7ff;
+}
+
+.banner.user-dashboard {
+    background-color: #b3e0ff;
+}
+
+.navbar.user-dashboard {
+    background-color: #66b3ff;
+}
+
+.Budgeting.user-dashboard,
+.content.user-dashboard,
+.pees.user-dashboard {
+    color: #004080;
+}
+
+body.admin-dashboard {
+    background-color: #ffe6e6;
+}
+
+.banner.admin-dashboard {
+    background-color: #ff6666;
+}
+
+.navbar.admin-dashboard {
+    background-color: #ff3333;
+}
+
+.Budgeting.admin-dashboard,
+.content
