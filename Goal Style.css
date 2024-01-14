@@ -39,7 +39,7 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 800px;
+    margin-right: 850px;
     margin-top: 150px;
 }
 
@@ -200,6 +200,6 @@ result {
 #barChart {
     width: 100%; /* Make the chart fill its container */
     height: auto;
-    margin-left: 870px; /* Add margin-top for vertical positioning */
+    margin-left: 820px; /* Add margin-top for vertical positioning */
    transform: translateY(-180%);
 }
